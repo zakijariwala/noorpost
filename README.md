@@ -40,7 +40,7 @@ Phase numbers in folder names match `TASKS.md`. Gaps in the numbering (02, 04–
 | 3 — Content build | **All fourteen letters, fact panels and session cards written**, and the silsila segments assigned. Counts measured in `03-content/spec-check.md`. Hadith card selection blocked; artwork pending. |
 | 4 — Art | Illustration prompt packs written (`04-art/prompts.md`), covering every envelope, companion and zine. Text-layout print template proved against envelope 03 and extended to all fourteen envelopes and eighteen companions (`04-art/print/`). **No actual illustrations exist yet** — the prompts haven't been run through an image generator. |
 | 5–7 — Production, commerce, launch | Not started. Gated behind the print run. |
-| 8 — Companions | **Eighteen written — all fourteen Masoomeen have a companion.** Artwork pending. |
+| 8 — Companions | **Twenty-six written — all fourteen Masoomeen have a companion, eight of the twenty-six are women.** Artwork pending. |
 | 9 — Zines | **All fifteen written in full**, including Fadak (verbal scholar agreement; full written sign-off still required before print). |
 
 **Every fact in every fact panel is marked `TO VERIFY`.** Nothing here has been checked against a printed source, because no editions are fixed yet. The citation sheet's status codes exist so that nothing prints on an unverified row.

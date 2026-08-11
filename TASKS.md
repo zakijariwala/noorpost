@@ -215,14 +215,15 @@ For each letter: 330–370 words, voice marks assigned, child lines counted and 
 
 Runs after launch. It is a first purchase and a gift, not the flagship.
 
-**Eighteen written — all fourteen Masoomeen now have at least one companion.** Letters and fact panels, in `08-companions/`. Artwork pending.
+**Twenty-six written — all fourteen Masoomeen have a companion, and the earlier male/female imbalance is closed.** Letters and fact panels, in `08-companions/`. Artwork pending.
 
 - [x] Build the four-item template: two-voice letter with fact panel on the reverse, person print, sticker sheet, return postcard.
 - [x] Enforce the two protective rules in the template itself: **no hadith card, no event print, ever.** Those two carry the silsila and the calendar ring. The box must stay the only way to complete anything.
 - [x] Set the faces-allowed illustration style (specified per envelope; artwork pending). A child sees the difference instantly.
 - [x] Write the first six: Salman al-Farsi, Bilal, Maytham al-Tammar, Qambar, Abu Dharr, Malik al-Ashtar. All six letters inside 330–370 words, 7–8 child lines.
 - [x] Write four more, chosen to reach Masoomeen the first six didn't touch: Uthman ibn Sa'id al-Amri (al-Mahdi's deputy network), Abbas ibn Ali (Husayn), Fizza (Fatima), Jabir ibn Abdullah al-Ansari (al-Baqir). Same word count and child-line rules.
-- [x] Write the last eight, closing every remaining gap: Qais ibn Sa'd (Hasan), Tawus al-Yamani (al-Sajjad), Safwan al-Jammal (al-Kadhim), Dibil al-Khuza'i (al-Rida), Ahmad ibn Ishaq al-Qummi (al-Askari), Abu Hashim al-Ja'fari (al-Hadi), Hisham ibn al-Hakam (al-Sadiq), Ali ibn Mahziyar (al-Jawad). **All fourteen Masoomeen now have a companion.** These rest on narrower, more specific episodes than the first ten — real citation work needed before print, not a light pass.
+- [x] Write the next eight, closing every remaining Masoom gap: Qais ibn Sa'd (Hasan), Tawus al-Yamani (al-Sajjad), Safwan al-Jammal (al-Kadhim), Dibil al-Khuza'i (al-Rida), Ahmad ibn Ishaq al-Qummi (al-Askari), Abu Hashim al-Ja'fari (al-Hadi), Hisham ibn al-Hakam (al-Sadiq), Ali ibn Mahziyar (al-Jawad). **All fourteen Masoomeen now have a companion.** These rest on narrower, more specific episodes than the first ten — real citation work needed before print, not a light pass.
+- [x] Write eight women, closing a different gap: seventeen of the first eighteen companions were men. Sumayyah bint Khabbat, Nusaybah bint Ka'b, Umm Ayman, Halima al-Sa'diyya, Asma bint Umays, Khawla bint al-Azwar, Umm Kulthum bint Ali, Rabab bint Imra' al-Qays. **Khawla's entry needs a scholar decision on whether it survives at all** — the most historically uncertain account in the whole companions line.
 - [x] Print the connection to the Fourteen on every envelope. Salman served the Prophet. Qambar served Imam Ali. Maytham died refusing to insult him. No selling language.
 - [ ] Print, stock singly, and list as a checkout add-on, an Eid gift and a madrasa prize.
 - [ ] **Decide: does "Everyone Else" include family members of the Fourteen (as Abbas does), or servants/companions only?** Raised by `08-companions/abbas.md`.

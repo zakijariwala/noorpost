@@ -289,6 +289,14 @@ COMPANIONS = [
     ("abu-hashim", "Abu Hashim al-Ja'fari"),
     ("hisham", "Hisham ibn al-Hakam"),
     ("ali-ibn-mahziyar", "Ali ibn Mahziyar"),
+    ("sumayyah", "Sumayyah bint Khabbat"),
+    ("nusaybah", "Nusaybah bint Ka'b"),
+    ("umm-ayman", "Umm Ayman"),
+    ("halima", "Halima al-Sa'diyya"),
+    ("asma", "Asma bint Umays"),
+    ("khawla", "Khawla bint al-Azwar"),
+    ("umm-kulthum", "Umm Kulthum bint Ali"),
+    ("rabab", "Rabab bint Imra' al-Qays"),
 ]
 
 ZINES = [

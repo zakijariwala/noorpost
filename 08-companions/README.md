@@ -49,8 +49,16 @@ The connection to the Fourteen prints on each one, as a fact, with no selling la
 | Abu Hashim al-Ja'fari | Abu Hashim never asked Imam al-Hadi for anything, and the Imam sent help before he had to. | Imam al-Hadi |
 | Hisham ibn al-Hakam | Hisham was the youngest person in the room, and Imam al-Sadiq put him up to argue anyway. | Imam al-Sadiq |
 | Ali ibn Mahziyar | Ali carried goods and letters by ship for Imam al-Jawad, across years, and never once lost what he was trusted with. | Imam al-Jawad |
+| Sumayyah bint Khabbat | Sumayyah was the first person killed for refusing to give up her faith, and she did not give it up. | The Prophet |
+| Nusaybah bint Ka'b | Nusaybah stood over the Prophet at Uhud when the line broke, and took the wounds meant for him. | The Prophet |
+| Umm Ayman | Umm Ayman cared for the Prophet from his infancy until her own old age, and he called her family. | The Prophet |
+| Halima al-Sa'diyya | Halima nursed the Prophet as an infant in the desert, and her family's fortunes changed the whole time he was with them. | The Prophet |
+| Asma bint Umays | Asma bint Umays served the family of the Prophet through every upheaval it went through, across three generations. | The Prophet, Sayyida Fatima |
+| Khawla bint al-Azwar | Khawla rode into battle in disguise to reach her captured brother, and the army never realized who had actually broken their line. | (early Islamic era, not tied to one Masoom) |
+| Umm Kulthum bint Ali | Umm Kulthum cared for the children through the hardest journey in the whole box, after Karbala. | Imam Husayn |
+| Rabab bint Imra' al-Qays | Rabab was Imam Husayn's wife, and by most accounts never remarried or stopped mourning him for the rest of her life. | Imam Husayn |
 
-**All fourteen Masoomeen now have at least one companion pointing to them.** The first six pointed to just two (the Prophet and Imam Ali). The next four closed the biggest individual gaps (al-Mahdi, Husayn, Fatima, al-Baqir). This last batch of eight closes the rest in one pass — Hasan, al-Sajjad, al-Kadhim, al-Rida, al-Askari, al-Hadi, al-Sadiq, al-Jawad. Eighteen companions total.
+**All fourteen Masoomeen now have at least one companion pointing to them.** The first six pointed to just two (the Prophet and Imam Ali). The next four closed the biggest individual gaps (al-Mahdi, Husayn, Fatima, al-Baqir). The eight after that closed the rest in one pass — Hasan, al-Sajjad, al-Kadhim, al-Rida, al-Askari, al-Hadi, al-Sadiq, al-Jawad. **This last batch of eight closes a different gap: seventeen of the first eighteen companions were men.** Twenty-six companions total, eight of them women.
 
 ## What carries over from the Fourteen
 
@@ -109,6 +117,24 @@ Everything in `00-foundations/` applies unchanged: the two-voice letter spec, th
 - **Two entries sit close to occultation-adjacent ground** (Ahmad ibn Ishaq, alongside Uthman from the batch before) — both are held to the same restraint as `envelope-10.md`: the bare fact of a trusted glimpse, no theology, no mechanism explained.
 - **Abu Hashim's account is flagged as likely needing the traditional marker** once checked — the letter doesn't explain how the Imam knew, on purpose, and that restraint should probably be paired with the marker rather than left to read as settled fact.
 
+## Last eight (women)
+
+| File | Companion | Letter |
+|---|---|---|
+| `sumayyah.md` | Sumayyah bint Khabbat | *The One Who Would Not Say It* |
+| `nusaybah.md` | Nusaybah bint Ka'b | *The Shield At Uhud* |
+| `umm-ayman.md` | Umm Ayman | *The Woman Who Raised Him Twice* |
+| `halima.md` | Halima al-Sa'diyya | *The Desert Mother* |
+| `asma.md` | Asma bint Umays | *The One Who Stayed, Every Time* |
+| `khawla.md` | Khawla bint al-Azwar | *The Rider Nobody Recognized* |
+| `umm-kulthum.md` | Umm Kulthum bint Ali | *The Sister Who Carried the Children* |
+| `rabab.md` | Rabab bint Imra' al-Qays | *The Woman Who Would Not Remarry* |
+
+**This batch exists to fix a real imbalance, not to reach a Masoom gap** — unlike every prior batch, these weren't chosen by which Imam lacked a companion (all fourteen already had one). Three flags specific to this batch:
+- **Two are family, not servants or companions in the strict sense** — Umm Kulthum (Imam Ali's daughter) and Rabab (Imam Husayn's wife) — the same open question already raised by Abbas. Three data points now; worth actually deciding rather than accumulating more exceptions.
+- **Khawla bint al-Azwar carries more historical uncertainty than any other entry in the whole companions line**, flagged explicitly in her own file — some scholarly assessments treat the fuller version of her story as later elaboration. Scholar must assess whether this entry survives at all before anything else happens to it.
+- **Rabab's account carries the traditional marker** — its consistency across sources is notable, but the underlying documentation from the time itself is thinner than most other entries.
+
 ## Status
 
-**Eighteen letters and fact panels written — all fourteen Masoomeen now have a companion.** All held to the same word count, child-line count, and demand-line rules as the Fourteen — measured, not estimated, same discipline as `03-content/spec-check.md`. A handful of the last eight sit a little under the 330-word floor (305–328) rather than exactly in range; flagged here rather than quietly left. **Artwork pending for all eighteen.** Citations pending — same blockers as the Fourteen, and none of these letters jump that queue. **The last eight in particular need real citation work, not a rubber stamp** — several rest on specific episodes, not general reputation, and each one's Open checklist says so explicitly.
+**Twenty-six letters and fact panels written — all fourteen Masoomeen have a companion, and the line is no longer eighteen-to-one male to female.** All held to the same word count, child-line count, and demand-line rules as the Fourteen — measured, not estimated, same discipline as `03-content/spec-check.md`. A number of entries across the last two batches sit a little under the 330-word floor (270–328) rather than exactly in range; flagged here rather than quietly left. **Artwork pending for all twenty-six.** Citations pending — same blockers as the Fourteen, and none of these letters jump that queue. **The last sixteen in particular need real citation work, not a rubber stamp** — most rest on specific episodes, not general reputation, and each one's Open checklist says so explicitly. Khawla's entry needs a scholar decision on whether it survives at all.
