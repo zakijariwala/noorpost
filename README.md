@@ -1,0 +1,55 @@
+# Noor Post
+
+Printed series for Shia families with children aged 8 to 12, built around the Fourteen Masoomeen. One sealed envelope per month, opened by a parent and child together on the date it belongs to. About twenty-five minutes.
+
+## Repository layout
+
+| Path | What lives here |
+|---|---|
+| `PRD.md` | Product requirements. The source of truth for scope, tiers, channel and editorial rules. **Not yet in the repo — paste the current version in.** Everything in `00-foundations/` derives from its §7 and §8. |
+| `TASKS.md` | Phased build plan. Ten phases, gated. Read this before starting work. |
+| `00-foundations/` | Phase 0. The rules everything else is checked against. |
+| `01-pilot/` | Phase 1. Envelope 03 built end to end, plus the first zine. |
+| `03-content/` | Phase 3. Envelopes 01–14 (03 lives in `01-pilot/`), plus `spec-check.md` — the measured counts for all fourteen letters. |
+| `08-companions/` | Phase 8. Everyone Else — the six companion envelopes. |
+| `09-zines/` | Phase 9. Noori's Notebook. Two written in full, thirteen outlined. |
+
+Phase numbers in folder names match `TASKS.md`. Gaps in the numbering (02, 04–08) are phases with no text deliverable — channel test, art, production, commerce, launch.
+
+## Working order
+
+1. Finish `00-foundations/`. Nothing is written or drawn until the rules are fixed.
+2. Build envelope 03 in `01-pilot/`. Print it. Use it with a real family.
+3. Take it to a madrasa administrator and ask what forty sets would cost.
+4. Only then write the other thirteen.
+
+## Two constraints that shape everything
+
+**All fourteen print before a single subscription sells.** Monthly must be a posting job, never a production job.
+
+**The channel test comes before the full build.** One finished envelope and one zine are enough to run it.
+
+## Status
+
+| Phase | State |
+|---|---|
+| 0 — Foundations | Written in full. **Blocked on: fixed translation editions, and a scholar.** |
+| 1 — Pilot | Envelope 03 written. Not printed, not timed, not reviewed. |
+| 2 — Channel test | Not started. Needs a printed envelope. |
+| 3 — Content build | **All fourteen letters, fact panels and session cards written**, and the silsila segments assigned. Counts measured in `03-content/spec-check.md`. Hadith card selection blocked; artwork pending. |
+| 4 — Art | Pending by instruction. Every item is specified; nothing is drawn. |
+| 5–7 — Production, commerce, launch | Not started. Gated behind the print run. |
+| 8 — Companions | All six written. Artwork pending. |
+| 9 — Zines | Template written, Ghadir Khumm and Hira written in full, thirteen outlined. |
+
+**Every fact in every fact panel is marked `TO VERIFY`.** Nothing here has been checked against a printed source, because no editions are fixed yet. The citation sheet's status codes exist so that nothing prints on an unverified row.
+
+## What is blocking, right now
+
+| Blocker | Blocks | Owner |
+|---|---|---|
+| Fixed translation editions, one per work | Every hadith card in the project | You |
+| A named scholar, engaged | Gate 3, and envelope 06 blocks the whole print run | You |
+| The sira gap — the five priority works carry no biography, and the letters are all biography | Every letter's citations. See `00-foundations/citation-sheet.md`, open question 1 | Decision needed |
+| Calendar ring punch position | All fourteen event prints | Design |
+| Envelope 05 / 11 swap | Every item keyed to a month | Decision needed |

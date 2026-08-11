@@ -1,0 +1,344 @@
+:root {
+  --paper: #faf7f1;
+  --ink: #23201c;
+  --soft: #6b6157;
+  --rule: #ddd4c6;
+  --accent: #8a4b3a;
+  --card: #fffdf8;
+  --shadow: rgba(60, 45, 30, 0.10);
+}
+
+:root:not([data-theme="light"]) {
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #16140f;
+    --ink: #ece5d8;
+    --soft: #a89c8b;
+    --rule: #3a352c;
+    --accent: #d99madd;
+    --accent: #d9906f;
+    --card: #1e1b15;
+    --shadow: rgba(0, 0, 0, 0.5);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #16140f;
+  --ink: #ece5d8;
+  --soft: #a89c8b;
+  --rule: #3a352c;
+  --accent: #d9906f;
+  --card: #1e1b15;
+  --shadow: rgba(0, 0, 0, 0.5);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: 18px;
+  line-height: 1.62;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ---------- chrome ---------- */
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.4rem;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 1.1rem clamp(1rem, 5vw, 3rem);
+  border-bottom: 1px solid var(--rule);
+  position: sticky;
+  top: 0;
+  background: var(--paper);
+  z-index: 5;
+}
+
+.wordmark {
+  font-size: 1.05rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.top nav { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+
+.top nav a {
+  font-size: 0.8rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--soft);
+}
+
+.top nav a:hover, .wordmark:hover { color: var(--accent); }
+
+main {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 5vw, 3.5rem) clamp(1rem, 5vw, 2rem) 5rem;
+}
+
+footer {
+  border-top: 1px solid var(--rule);
+  padding: 1.6rem clamp(1rem, 5vw, 3rem);
+  color: var(--soft);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+/* ---------- index ---------- */
+
+.hero h1 {
+  font-size: clamp(2.4rem, 9vw, 3.6rem);
+  letter-spacing: -0.01em;
+  margin: 0 0 1rem;
+}
+
+.lede { font-size: 1.12rem; max-width: 34rem; }
+.lede.small { font-size: 0.98rem; color: var(--soft); }
+
+main > section { margin-bottom: 3.5rem; }
+
+main > section h2 {
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.sectionnote { color: var(--soft); font-size: 0.95rem; margin-top: 0; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  gap: 0.9rem;
+}
+
+.tile {
+  display: block;
+  padding: 1rem 1.1rem 1.1rem;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  text-decoration: none;
+  color: var(--ink);
+  box-shadow: 0 1px 2px var(--shadow);
+  transition: transform 0.12s ease, border-color 0.12s ease;
+}
+
+.tile:hover { transform: translateY(-2px); border-color: var(--accent); }
+.tile span { display: block; }
+
+.tilenum {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  color: var(--soft);
+}
+
+.tilemonth {
+  font-size: 0.78rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: 0.3rem;
+}
+
+.tilename { font-size: 1.12rem; margin-top: 0.25rem; }
+
+.tilesession {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-top: 0.45rem;
+}
+
+.tile.small { padding: 0.9rem 1.1rem; }
+.tile.small .tilename { margin-top: 0; }
+
+/* ---------- envelope page ---------- */
+
+.kicker {
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.4rem;
+}
+
+.envelope h1, .zine h1 {
+  font-size: clamp(2rem, 7vw, 2.9rem);
+  margin: 0 0 1.6rem;
+  line-height: 1.15;
+}
+
+.points {
+  font-style: italic;
+  color: var(--soft);
+  margin-top: -1rem;
+  margin-bottom: 1.8rem;
+}
+
+.stamp {
+  float: right;
+  width: 5.6rem;
+  height: 5.6rem;
+  margin: 0 0 0.6rem 1rem;
+  border: 2px solid var(--rule);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--soft);
+  padding: 0.4rem;
+}
+
+.itemlabel {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin: 0 0 0.9rem;
+}
+
+section.flap, section.panel, section.session, section.zinepage {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 1.4rem clamp(1rem, 4vw, 1.8rem);
+  margin: 2.2rem 0;
+  box-shadow: 0 1px 2px var(--shadow);
+}
+
+section.flap ol { margin: 0.4rem 0 0.9rem; padding-left: 1.2rem; }
+section.flap li { margin-bottom: 0.2rem; }
+.flap-lead { margin: 0; }
+.flap-key, .flap-note { color: var(--soft); font-size: 0.9rem; margin-bottom: 0; }
+.flap-note { font-style: italic; }
+
+/* ---------- letter ---------- */
+
+.letter { margin: 2.4rem 0 2.6rem; }
+
+.letter-title {
+  font-size: 1.7rem;
+  font-style: italic;
+  font-weight: normal;
+  margin: 0 0 0.4rem;
+}
+
+.voicekey {
+  font-size: 0.8rem;
+  color: var(--soft);
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1rem;
+  margin-bottom: 1.6rem;
+}
+
+.voice { margin: 0 0 1.15rem; padding-left: 1.9rem; text-indent: -1.9rem; }
+
+.voice .mark {
+  display: inline-block;
+  width: 1.9rem;
+  text-indent: 0;
+  color: var(--soft);
+}
+
+.voice.child {
+  font-size: 1.22rem;
+  line-height: 1.45;
+  font-family: "Iowan Old Style", Georgia, serif;
+  color: var(--accent);
+  padding-left: 1.9rem;
+}
+
+.voice.child .mark { color: var(--accent); }
+
+.voice.together {
+  font-size: 1.22rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 1.2rem;
+  margin-top: 1.6rem;
+}
+
+.voice.together .mark { color: var(--ink); }
+
+/* ---------- fact panel ---------- */
+
+.panel h3 {
+  font-size: 1.35rem;
+  letter-spacing: 0.02em;
+  margin: 0.2rem 0 0.3rem;
+}
+
+.panel p { margin: 0 0 0.9rem; }
+
+.panel .bullet { padding-left: 1.5rem; text-indent: -1.5rem; }
+.panel .dot { display: inline-block; width: 1.5rem; text-indent: 0; color: var(--accent); }
+
+.panel hr, .zinepage hr, .session hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 1.2rem 0;
+}
+
+/* ---------- session cards ---------- */
+
+.card {
+  border: 1px dashed var(--rule);
+  border-radius: 3px;
+  padding: 1.2rem clamp(0.9rem, 3.5vw, 1.5rem);
+  margin: 0 0 1.2rem;
+  background: transparent;
+}
+
+.card:last-child { margin-bottom: 0; }
+.card h2 { font-size: 1.3rem; margin: 0 0 0.5rem; letter-spacing: 0; text-transform: none; color: var(--ink); border: 0; padding: 0; }
+.card h3 { font-size: 1.05rem; margin: 0.9rem 0 0.4rem; }
+.card p { margin: 0 0 0.8rem; }
+.card p:last-child { margin-bottom: 0; }
+
+.session h3 { font-size: 1.15rem; }
+.session > p, .zinepage > p { margin: 0 0 0.9rem; }
+
+/* ---------- zines ---------- */
+
+.zinepage .itemlabel { border-bottom: 1px solid var(--rule); padding-bottom: 0.6rem; }
+.zinepage h1 { font-size: 1.8rem; }
+
+code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.9em;
+}
+
+@media (max-width: 30rem) {
+  body { font-size: 17px; }
+  .stamp { display: none; }
+}
+
+@media print {
+  .top, footer { display: none; }
+  body { background: #fff; color: #000; }
+  section.flap, section.panel, section.session, section.zinepage { box-shadow: none; break-inside: avoid; }
+}
