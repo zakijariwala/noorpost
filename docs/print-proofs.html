@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Print proofs — Envelope 03 — Noor Post</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .proofnote { background: var(--card); border: 1px solid var(--rule); border-radius: 3px; padding: 1rem 1.3rem; margin-bottom: 2.2rem; font-size: 0.95rem; }
+  .proofnote strong { color: var(--accent); }
+  .proofgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 1.4rem; }
+  .proofcard { background: var(--card); border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; box-shadow: 0 1px 2px var(--shadow); }
+  .proofcard img { width: 100%; display: block; border-bottom: 1px solid var(--rule); background: #ddd; }
+  .proofcard .pc-body { padding: 0.9rem 1.1rem 1.1rem; }
+  .proofcard h3 { font-size: 1rem; margin: 0 0 0.3rem; }
+  .proofcard p { font-size: 0.85rem; color: var(--soft); margin: 0 0 0.8rem; }
+  .proofcard a.dl { display: inline-block; font-size: 0.82rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); text-decoration: none; border: 1px solid var(--accent); border-radius: 3px; padding: 0.35rem 0.7rem; }
+  .proofcard a.dl:hover { background: var(--accent); color: var(--card); }
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="wordmark" href="index.html">Noor&nbsp;Post</a>
+  <nav>
+    <a href="index.html#the-fourteen">The Fourteen</a>
+    <a href="index.html#everyone-else">Everyone Else</a>
+    <a href="index.html#notebook">Noori's Notebook</a>
+  </nav>
+</header>
+<main>
+
+<p class="kicker">Internal — production proof</p>
+<h1 style="font-size:2rem; margin:0 0 1.2rem;">Print templates — Envelope 03</h1>
+
+<div class="proofnote">
+  <strong>This page is for the team, not families.</strong> It proves the print design system
+  (fonts, palette, page geometry) against one envelope. Two items carry placeholder content,
+  clearly marked in the file itself: the <strong>hadith card</strong> uses Ayat al-Tathir only
+  to test Arabic/RTL rendering — it is not selected hadith-card content — and the
+  <strong>fact panel</strong> is real copy but every claim is still <code>TO VERIFY</code> on
+  <code>citation-sheet.md</code>. See <code>04-art/print/README.md</code> in the repo for known
+  limitations (font weights, no CMYK, no bleed).
+</div>
+
+<div class="proofgrid">
+
+  <div class="proofcard">
+    <img src="print-proofs/png/envelope-03-letter.png" alt="Letter preview">
+    <div class="pc-body">
+      <h3>Letter — The Cloak</h3>
+      <p>A5 portrait · real, final text</p>
+      <a class="dl" href="print-proofs/pdf/envelope-03-letter.pdf">Download PDF</a>
+    </div>
+  </div>
+
+  <div class="proofcard">
+    <img src="print-proofs/png/envelope-03-fact-panel.png" alt="Fact panel preview">
+    <div class="pc-body">
+      <h3>Fact panel</h3>
+      <p>A5 portrait · real copy, unverified claims watermarked</p>
+      <a class="dl" href="print-proofs/pdf/envelope-03-fact-panel.pdf">Download PDF</a>
+    </div>
+  </div>
+
+  <div class="proofcard">
+    <img src="print-proofs/png/envelope-03-hadith-card.png" alt="Hadith card preview">
+    <div class="pc-body">
+      <h3>Hadith card</h3>
+      <p>A6 portrait ×2 · PLACEHOLDER content, not selected</p>
+      <a class="dl" href="print-proofs/pdf/envelope-03-hadith-card.pdf">Download PDF</a>
+    </div>
+  </div>
+
+  <div class="proofcard">
+    <img src="print-proofs/png/envelope-03-session-card.png" alt="Session card preview">
+    <div class="pc-body">
+      <h3>Session card — Talk about it</h3>
+      <p>A6 portrait · real, final text</p>
+      <a class="dl" href="print-proofs/pdf/envelope-03-session-card.pdf">Download PDF</a>
+    </div>
+  </div>
+
+  <div class="proofcard">
+    <img src="print-proofs/png/envelope-03-postcard.png" alt="Postcard preview">
+    <div class="pc-body">
+      <h3>Return postcard</h3>
+      <p>A6 landscape ×2 · fixed wording, art placeholder</p>
+      <a class="dl" href="print-proofs/pdf/envelope-03-postcard.pdf">Download PDF</a>
+    </div>
+  </div>
+
+  <div class="proofcard">
+    <img src="print-proofs/png/envelope-03-flap.png" alt="Inside flap preview">
+    <div class="pc-body">
+      <h3>Inside flap</h3>
+      <p>A6 landscape · fixed wording</p>
+      <a class="dl" href="print-proofs/pdf/envelope-03-flap.pdf">Download PDF</a>
+    </div>
+  </div>
+
+</div>
+
+<p style="margin-top:2.5rem;"><a href="art-prompts.html">→ Art prompt packs</a> — illustration prompts for every envelope, companion, and zine.</p>
+
+</main>
+<footer>
+  <p>Noor Post — internal production page. Not for circulation.</p>
+</footer>
+</body>
+</html>

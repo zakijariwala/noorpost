@@ -1,0 +1,811 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Art prompt packs — Noor Post</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  main { max-width: 56rem; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0 1.6rem; font-size: 0.88rem; }
+  th, td { border: 1px solid var(--rule); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+  th { background: var(--card); color: var(--accent); font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; }
+  pre { background: var(--card); border: 1px solid var(--rule); border-radius: 3px; padding: 0.9rem 1.1rem; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.9em; }
+  blockquote { border-left: 3px solid var(--accent); margin: 1rem 0; padding: 0.2rem 1rem; color: var(--soft); }
+  h1 { font-size: 2rem; margin: 0 0 1rem; }
+  h2 { font-size: 1.35rem; margin: 2.2rem 0 0.8rem; border-bottom: 1px solid var(--rule); padding-bottom: 0.4rem; }
+  h3 { font-size: 1.1rem; margin: 1.6rem 0 0.5rem; color: var(--accent); }
+  h4 { font-size: 1rem; margin: 1.2rem 0 0.4rem; }
+  ul { padding-left: 1.4rem; }
+  li { margin-bottom: 0.3rem; }
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="wordmark" href="index.html">Noor&nbsp;Post</a>
+  <nav>
+    <a href="index.html#the-fourteen">The Fourteen</a>
+    <a href="index.html#everyone-else">Everyone Else</a>
+    <a href="index.html#notebook">Noori's Notebook</a>
+    <a href="print-proofs.html">Print proofs</a>
+  </nav>
+</header>
+<main>
+<p class="kicker">Internal — production reference</p>
+<h1>Art prompt packs</h1>
+<p>Phase 4. Prompts for illustration generation only — the person prints, event prints, sticker sheets, envelope graphics, pennant and box. <strong>Not for the letter, fact panel, hadith card text, or session card</strong> — those are typeset layouts, not illustrations, and belong in a document template (Job 2, see <code>README.md</code> note below), not an image generator.</p>
+<p>Tool recommendation: <strong>Adobe Firefly</strong> first choice (commercial-safe training data, matters for a paid print product), <strong>Midjourney</strong> as an alternative if style consistency across 60+ pieces proves easier there. <strong>Not Google Stitch</strong> — that tool generates app/web UI screens, not print illustration; no bleed/trim control, no fixed physical dimensions.</p>
+<p>Every prompt below is the <strong>master style block</strong> plus <strong>item specifics</strong>. Paste both together. Regenerate the style block from <code>00-foundations/design-system.md</code> if that file changes — this is a derived artifact, not a second source of truth.</p>
+<hr>
+<h2>Master style block — standard palette</h2>
+<p>Prepend to every prompt for <strong>The Fourteen (except 01, 02)</strong>, <strong>event prints</strong>, and the <strong>envelope exterior</strong>:</p>
+<pre><code>MEDIUM: hand-inked line illustration, fine consistent line weight, subtly imperfect linework —
+the look of a small devotional press woodcut or etching, not a corporate icon, not a cartoon,
+not a digital-clean vector.
+
+PALETTE — strict, no exceptions: warm ivory background #F3EDE1. Line and shadow in near-black
+ink #211B14. Spot accent fills ONLY from: deep gold #A9762F, muted teal #2C5F5A, terracotta
+#B4472A — used sparingly as flat fills, never gradients, never full-color rendering, never
+photorealistic color grading.
+
+COMPOSITION: quiet and restrained. One clear subject. Generous negative space. No busy or
+detailed background. No decorative border unless specified below.
+
+NEGATIVE PROMPT: no photorealism, no 3D render, no glossy gradients, no cartoon or anime
+style, no text or lettering baked into the image unless specified, no color outside the
+fixed palette, no violence, wounds, or weapons shown in use, no crowds.</code></pre>
+<h2>Master style block — mourning palette (envelopes 01, 02 only)</h2>
+<p>Same as above, with the palette clause replaced:</p>
+<pre><code>PALETTE — strict, no exceptions: warm ivory background #F3EDE1. Line and shadow in charcoal-
+black ink #1B1B1B only. No accent color anywhere — no gold, no teal, no terracotta.</code></pre>
+<h2>The two faces rules — append the one that applies</h2>
+<p><strong>The Fourteen (every envelope, no exceptions):</strong></p>
+<pre><code>RULE — NO FACES, NO FIGURES: show place, object, setting, distance, or silhouette only.
+Never a human face. Never a recognisable human figure shown close or in detail. If a person
+must be implied, imply them by what they left behind or the space they occupied, not by
+drawing them.</code></pre>
+<p><strong>The companions line only (<code>08-companions/</code>):</strong></p>
+<pre><code>RULE — FACES ALLOWED: a plain, dignified human figure or portrait is permitted here, and
+should be used — this is the one place in the whole product where it's allowed, and it needs
+to read as a deliberate difference at a glance. No attempt at photorealistic likeness. Keep
+the figure in the same linework style as everything else in the series, not rendered any more
+realistically than the objects around it.</code></pre>
+<hr>
+<h2>Style block key</h2>
+<p>Used below so every row doesn't repeat the full block. Paste the referenced block from above (or the zine block introduced below) ahead of every subject line.</p>
+<table><thead><tr>
+<th>Key</th>
+<th>Meaning</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>STD</strong></td>
+<td>Master style block — standard palette</td>
+</tr>
+<tr>
+<td><strong>MOURN</strong></td>
+<td>Master style block — mourning palette (01, 02 only)</td>
+</tr>
+<tr>
+<td><strong>NOFACE</strong></td>
+<td>No-faces rule</td>
+</tr>
+<tr>
+<td><strong>FACES</strong></td>
+<td>Faces-allowed rule (companions line only)</td>
+</tr>
+<tr>
+<td><strong>ZINE</strong></td>
+<td>Zine style block — see below</td>
+</tr>
+</tbody></table>
+<h2>Style block — zines</h2>
+<p>Zines print single-ink on equipment already owned (<code>09-zines/README.md</code>), not the three-accent palette used everywhere else. Prepend to every zine cover:</p>
+<pre><code>MEDIUM: hand-inked line illustration, single ink only, fine consistent line weight, the same
+small-press woodcut/etching character as the rest of the product.
+
+PALETTE — strict: one ink color only (charcoal-black #1B1B1B), on a plain light ground.
+No second color, no accent, no gradient, no fill beyond linework and solid black shapes.
+
+COMPOSITION: quiet, a single clear subject, generous negative space, no text baked in.
+
+RULE — NO FACES: these are places and events, not people. No human figure shown in detail.
+
+NEGATIVE PROMPT: no color of any kind beyond the single ink, no photorealism, no gradients,
+no cartoon style, no crowds, no violence.</code></pre>
+<hr>
+<h2>Worked pack 1 — Envelope 03 (the pilot)</h2>
+<p>Source: <code>01-pilot/envelope-03/items.md</code>. These five are what Phase 1 is actually waiting on.</p>
+<h3>Person print — Masjid an-Nabawi</h3>
+<pre><code>[Master style block — standard palette]
+[No-faces rule]
+
+SUBJECT: Masjid an-Nabawi, the Prophet's mosque at Medina. The green dome, catching early
+light. Palm trunks in the foreground, trunks only, no fronds cluttering the silhouette.
+Early morning — long shadows, low warm light, the gold accent used for the light itself,
+not for the dome.
+
+FORMAT: A5 portrait (148 × 210 mm), full bleed, vertical composition with the dome upper-
+third, palms grounding the bottom third.
+
+NOTE: this print pairs with two other Medina person prints (envelopes 05, 09) that also
+show Jannat al-Baqi from different angles — if generating those in the same session, hold
+the light and line-weight identical across all three so they read as one set on a wall.</code></pre>
+<h3>Event print — the arrival at Quba</h3>
+<pre><code>[Master style block — standard palette]
+[No-faces rule]
+
+SUBJECT: An empty desert road, arriving at a palm grove — the road runs out of frame at the
+bottom edge of the composition. One kneeling camel, riderless or rider implied only by an
+empty saddle, near the grove's edge. No other figures, no caravan crowd.
+
+FORMAT: A5 landscape (210 × 148 mm), full bleed. Leave a clear, undecorated 15mm margin at
+top-center for a physical ring punch — do not place linework or the subject in that zone.
+
+NOTE: this is one of fourteen event prints that must hang together on one ring as a single
+calendar. Hold line weight and palette identical to the other event prints in this pack.</code></pre>
+<h3>Sticker sheet</h3>
+<pre><code>[Master style block — standard palette]
+[No-faces rule]
+
+SUBJECT: five small independent motifs, each usable alone, none requiring the others:
+1. A cloak laid flat, four corners individually marked/emphasised
+2. A single palm (trunk and simple frond, not a grove)
+3. A road disappearing to a point (the Quba road motif, simplified)
+4. A caravan silhouette — camels only, no riders
+5. A small repeatable mark set: one stone, one corner-angle, four small marks suggesting
+   four hands meeting at a point
+
+FORMAT: A6 (105 × 148 mm) sheet, die-cut, each motif isolated with clear cut-margin around
+it, no shared background, no text anywhere on the sheet.</code></pre>
+<h3>Return postcard — front</h3>
+<pre><code>[Master style block — standard palette]
+[No-faces rule]
+
+SUBJECT: the cloak shape alone — the same cloak motif as the sticker sheet's first item,
+but rendered larger and as the sole subject, centered.
+
+FORMAT: A6 landscape (148 × 105 mm), full bleed. No text of any kind — the postcard's fixed
+wording is typeset separately on the reverse, not part of this image.</code></pre>
+<h3>Envelope exterior</h3>
+<pre><code>[Master style block — standard palette]
+[No-faces rule]
+
+SUBJECT: a circular postal-cancellation stamp design, reading "RABI AL-AWWAL" around the
+ring in the display face style (a warm, slightly irregular soft-serif letterform — see
+`design-system.md` §1, Fraunces). Gold ink line only, no fill inside the circle. Leave the
+center of the circle empty — the month name sits on the ring, not in the middle.
+
+FORMAT: circular motif approx. 45mm diameter, transparent/isolated background so it can be
+placed onto the envelope stock separately from the name area and wax-seal graphic.
+
+NOTE: this is a lettering-heavy piece. If Firefly/Midjourney struggle with clean circular
+type, generate the line-art ring alone and typeset "RABI AL-AWWAL" separately in Fraunces —
+don't fight the tool for something a font file does perfectly.</code></pre>
+<hr>
+<h2>Worked pack 2 — the four new companions</h2>
+<p>Source: <code>08-companions/uthman.md</code>, <code>abbas.md</code>, <code>fizza.md</code>, <code>jabir.md</code>. Companions use the <strong>faces-allowed</strong> rule, not the no-faces rule — flagged in each prompt below.</p>
+<h3>Uthman ibn Sa'id al-Amri — person print</h3>
+<pre><code>[Master style block — standard palette]
+[Faces-allowed rule]
+
+SUBJECT: an older man at a market oil stall — jars lined up, a hand scale, a plain market
+backdrop kept simple (a wall, an awning edge, nothing busy). His expression unremarkable,
+ordinary — this is a portrait of someone deliberately unremarkable to look at, not a heroic
+portrait. Nothing in his dress or bearing hints he is anything but a tradesman.
+
+FORMAT: A5 portrait (148 × 210 mm), full bleed.</code></pre>
+<h3>Uthman — sticker sheet</h3>
+<pre><code>[Master style block — standard palette]
+[No-faces rule — stickers stay object-only even in the companions line]
+
+SUBJECT: an oil jar, a hand scale, a sealed folded letter, a simple market stall outline,
+and the small repeatable mark set shared across the companions line.
+
+FORMAT: A6 (105 × 148 mm) sheet, die-cut, motifs isolated, no text.</code></pre>
+<h3>Abbas ibn Ali — person print</h3>
+<pre><code>[Master style block — standard palette]
+[Faces-allowed rule]
+
+SUBJECT: a young man at a riverbank, a waterskin held in one hand, body turned back toward
+an implied camp rather than toward the water — the composition should read as "leaving the
+river," not "arriving at it." No armour detail rendered in a way that reads as battle-ready;
+keep it plain. No other figures, no violence, no weapons shown in use.
+
+FORMAT: A5 portrait (148 × 210 mm), full bleed.
+
+CAUTION: this is Karbala-adjacent subject matter. Keep the image entirely on the water/
+restraint moment — nothing suggesting combat, injury, or the events after this moment.</code></pre>
+<h3>Abbas — sticker sheet</h3>
+<pre><code>[Master style block — standard palette]
+[No-faces rule]
+
+SUBJECT: a waterskin, a simple flag/standard shape, a river's edge line motif, and the
+shared repeatable mark set.
+
+FORMAT: A6 (105 × 148 mm) sheet, die-cut, motifs isolated, no text.</code></pre>
+<h3>Fizza — person print</h3>
+<pre><code>[Master style block — standard palette]
+[Faces-allowed rule]
+
+SUBJECT: a woman at ordinary household work — hands occupied with a task (folding cloth,
+tending a small fire, or similar plain domestic action), an open book or page resting
+nearby but not the focus. Calm, unposed, not a devotional or reverent pose — she is working,
+not performing.
+
+FORMAT: A5 portrait (148 × 210 mm), full bleed.</code></pre>
+<h3>Fizza — sticker sheet</h3>
+<pre><code>[Master style block — standard palette]
+[No-faces rule]
+
+SUBJECT: an open book/page motif, a water jug, a simple broom, and the shared repeatable
+mark set.
+
+FORMAT: A6 (105 × 148 mm) sheet, die-cut, motifs isolated, no text.</code></pre>
+<h3>Jabir ibn Abdullah al-Ansari — person print</h3>
+<pre><code>[Master style block — standard palette]
+[Faces-allowed rule]
+
+SUBJECT: a very elderly man, clearly aged in posture and dress, being led gently by the
+hand — only the leading hand visible, not a second full figure, keeping the focus on Jabir.
+A doorway ahead of him, slightly open. Expression peaceful, unhurried, not strained.
+
+FORMAT: A5 portrait (148 × 210 mm), full bleed.</code></pre>
+<h3>Jabir — sticker sheet</h3>
+<pre><code>[Master style block — standard palette]
+[No-faces rule]
+
+SUBJECT: a doorway motif, a pair of clasped/leading hands (hands only, no arms or figures),
+an open hand extended in greeting, and the shared repeatable mark set.
+
+FORMAT: A6 (105 × 148 mm) sheet, die-cut, motifs isolated, no text.</code></pre>
+<hr>
+<h2>How to use every table below</h2>
+<p>Each row is a <strong>SUBJECT</strong> line, pulled verbatim or near-verbatim from the item's own spec file (<code>03-content/envelope-XX.md</code>, <code>08-companions/<em>.md</code>, or <code>09-zines/</em>.md</code>) — nothing invented. Paste: the style block(s) named in the row, then <code>SUBJECT: [text from the row]</code>, then the FORMAT line for that item type (given once per table, not repeated per row).</p>
+<p><strong>Do not invent scene content the source files don't already specify.</strong> The prompt's job is to render what's already been decided, not add new claims into the art the way an unreviewed detail could sneak an unverified fact into a printed product.</p>
+<hr>
+<h2>Pack 3 — all fourteen envelopes</h2>
+<h3>Person prints</h3>
+<p><strong>Format:</strong> A5 portrait (148 × 210 mm), full bleed.</p>
+<table><thead><tr>
+<th>Env</th>
+<th>Style</th>
+<th>Subject</th>
+<th>Note</th>
+</tr></thead><tbody>
+<tr>
+<td>01</td>
+<td>MOURN + NOFACE</td>
+<td>The shrine at Karbala.</td>
+</tr>
+<tr>
+<td>02</td>
+<td>MOURN + NOFACE</td>
+<td>Jannat al-Baqi as it stands — low wall, unmarked ground, date palms, no dome.</td>
+<td>Angle 1 of 3 — hold light/line identical across 02, 05, 09</td>
+</tr>
+<tr>
+<td>03</td>
+<td>STD + NOFACE</td>
+<td>Masjid an-Nabawi — green dome, palm trunks, early light.</td>
+<td>See Worked pack 1 for full prose version</td>
+</tr>
+<tr>
+<td>04</td>
+<td>STD + NOFACE</td>
+<td>The shrine at Samarra.</td>
+<td>Pairs with 11 — identical linework</td>
+</tr>
+<tr>
+<td>05</td>
+<td>STD + NOFACE</td>
+<td>Jannat al-Baqi, second angle — palm shade, the same low wall.</td>
+<td>Angle 2 of 3</td>
+</tr>
+<tr>
+<td>06</td>
+<td>STD + NOFACE</td>
+<td>The door and courtyard of Sayyida Fatima's house — no building survives, the print is the threshold itself.</td>
+</tr>
+<tr>
+<td>07</td>
+<td>STD + NOFACE</td>
+<td>The shrine at Najaf.</td>
+</tr>
+<tr>
+<td>08</td>
+<td>STD + NOFACE</td>
+<td>A barred window in Baghdad. Not the shrine.</td>
+<td>Pairs with 14 — identical linework</td>
+</tr>
+<tr>
+<td>09</td>
+<td>STD + NOFACE</td>
+<td>Jannat al-Baqi, third angle.</td>
+<td>Angle 3 of 3</td>
+</tr>
+<tr>
+<td>10</td>
+<td>STD + NOFACE</td>
+<td>An empty road at dawn. No grave, so no shrine — the only person print in the box that isn't a burial place.</td>
+</tr>
+<tr>
+<td>11</td>
+<td>STD + NOFACE</td>
+<td>The shrine at Samarra.</td>
+<td>Pairs with 04 — identical linework</td>
+</tr>
+<tr>
+<td>12</td>
+<td>STD + NOFACE</td>
+<td>The teaching circle — lamplight, manuscripts, a courtyard in Medina. No figures; the circle is shown by what's left on the floor.</td>
+</tr>
+<tr>
+<td>13</td>
+<td>STD + NOFACE</td>
+<td>The shrine at Mashhad.</td>
+</tr>
+<tr>
+<td>14</td>
+<td>STD + NOFACE</td>
+<td>The shrine at Kadhimiya.</td>
+<td>Pairs with 08 — identical linework</td>
+</tr>
+</tbody></table>
+<h3>Event prints</h3>
+<p><strong>Format:</strong> A5 landscape (210 × 148 mm), full bleed, 15mm undecorated top-center margin for the ring punch (<code>design-system.md</code> §6).</p>
+<table><thead><tr>
+<th>Env</th>
+<th>Style</th>
+<th>Subject</th>
+<th>Ring pos.</th>
+</tr></thead><tbody>
+<tr>
+<td>01</td>
+<td>MOURN + NOFACE</td>
+<td>Karbala. One object, no scene: a standard with no rider.</td>
+<td>1</td>
+</tr>
+<tr>
+<td>02</td>
+<td>MOURN + NOFACE</td>
+<td>Arbaeen — an empty road to a flat horizon at dusk.</td>
+<td>2</td>
+</tr>
+<tr>
+<td>03</td>
+<td>STD + NOFACE</td>
+<td>The arrival at Quba — see Worked pack 1.</td>
+<td>3</td>
+</tr>
+<tr>
+<td>04</td>
+<td>STD + NOFACE</td>
+<td>Samarra itself — a garrison city, walls and a river, no people.</td>
+<td>4</td>
+</tr>
+<tr>
+<td>05</td>
+<td>STD + NOFACE</td>
+<td>Sayyida Zaynab's shrine at Damascus.</td>
+<td>5</td>
+</tr>
+<tr>
+<td>06</td>
+<td>STD + NOFACE</td>
+<td>Bayt al-Ahzan, the house she went to grieve in.</td>
+<td>6</td>
+</tr>
+<tr>
+<td>07</td>
+<td>STD + NOFACE</td>
+<td>The Kaaba.</td>
+<td>7</td>
+</tr>
+<tr>
+<td>08</td>
+<td>STD + NOFACE</td>
+<td>The cave at Hira.</td>
+<td>8</td>
+</tr>
+<tr>
+<td>09</td>
+<td>STD + NOFACE</td>
+<td>Munajat Sha'baniyya — a courtyard at night, one lamp, no figures.</td>
+<td>9</td>
+</tr>
+<tr>
+<td>10</td>
+<td>STD + NOFACE</td>
+<td>Jamkaran.</td>
+<td>10</td>
+</tr>
+<tr>
+<td>11</td>
+<td>STD + NOFACE</td>
+<td>Laylat al-Qadr.</td>
+<td>11</td>
+</tr>
+<tr>
+<td>12</td>
+<td>STD + NOFACE</td>
+<td>Eid al-Fitr.</td>
+<td>12</td>
+</tr>
+<tr>
+<td>13</td>
+<td>STD + NOFACE</td>
+<td>Sayyida Masuma's shrine at Qom.</td>
+<td>13</td>
+</tr>
+<tr>
+<td>14</td>
+<td>STD + NOFACE</td>
+<td>Ghadir Khumm.</td>
+<td>14 — last on the ring</td>
+</tr>
+</tbody></table>
+<blockquote><p>Envelope 06's event print is <code>TRAD</code>-marked in <code>citation-sheet.md</code> — the image itself carries no claim needing the marker (a house, not an assertion), but keep the linework as restrained/undramatized as the other twelve.</p></blockquote>
+<h3>Sticker sheets (12 — not 01, 02, which take a pennant instead)</h3>
+<p><strong>Format:</strong> A6 (105 × 148 mm) die-cut sheet, motifs isolated, no shared background, no text.</p>
+<table><thead><tr>
+<th>Env</th>
+<th>Style</th>
+<th>Subject</th>
+</tr></thead><tbody>
+<tr>
+<td>04</td>
+<td>STD + NOFACE</td>
+<td>Letters, seals, a river, a road, small repeatable marks</td>
+</tr>
+<tr>
+<td>05</td>
+<td>STD + NOFACE</td>
+<td>A pen, a split fruit, palm shade, small repeatable marks</td>
+</tr>
+<tr>
+<td>06</td>
+<td>STD + NOFACE</td>
+<td>A hand-mill, a bowl, a threshold, counting marks in groups of ten</td>
+</tr>
+<tr>
+<td>07</td>
+<td>STD + NOFACE</td>
+<td>A shield, a set of scales, a doorway, small repeatable marks</td>
+</tr>
+<tr>
+<td>08</td>
+<td>STD + NOFACE</td>
+<td>A window, a lamp, a folded letter, small repeatable marks</td>
+</tr>
+<tr>
+<td>09</td>
+<td>STD + NOFACE</td>
+<td>A list, an ear, a hand, a foot, a doorway, numbered marks</td>
+</tr>
+<tr>
+<td>10</td>
+<td>STD + NOFACE</td>
+<td>Includes the seal used to close the letters written in the session — this sheet has a job beyond decoration</td>
+</tr>
+<tr>
+<td>11</td>
+<td>STD + NOFACE</td>
+<td>A mat, a doorway at night, a lamp, small repeatable marks</td>
+</tr>
+<tr>
+<td>12</td>
+<td>STD + NOFACE</td>
+<td>Manuscripts, a lamp, a flask, a courtyard, small repeatable marks</td>
+</tr>
+<tr>
+<td>13</td>
+<td>STD + NOFACE</td>
+<td>A road, a coin, a sealed letter, a doorway, small repeatable marks</td>
+</tr>
+<tr>
+<td>14</td>
+<td>STD + NOFACE</td>
+<td>A row of empty seats, a branching diagram, a doorway, small repeatable marks</td>
+</tr>
+</tbody></table>
+<p>Envelope 03's sticker sheet is in Worked pack 1.</p>
+<h3>Pennants (01, 02 only, replacing the sticker sheet)</h3>
+<p><strong>Format:</strong> dimension not fixed — see <code>design-system.md</code> §4, decide against a physical proof, not a ruler. Generate the motif at a flexible aspect ratio for now.</p>
+<pre><code>[MOURN]
+[NOFACE]
+
+SUBJECT — envelope 01: the standard motif from the event print, simplified to a single
+clean line-icon suitable for a small cord-mounted pennant.
+
+SUBJECT — envelope 02: the empty-road motif from the event print, simplified the same way.
+
+FORMAT: triangular pennant face, single motif centered, charcoal ink on ivory stock.</code></pre>
+<h3>Return postcards — front</h3>
+<p><strong>Format:</strong> A6 landscape (148 × 105 mm), full bleed, no text (fixed wording is typeset separately on the reverse).</p>
+<table><thead><tr>
+<th>Env</th>
+<th>Style</th>
+<th>Subject</th>
+</tr></thead><tbody>
+<tr>
+<td>01</td>
+<td>MOURN + NOFACE</td>
+<td>The standard (same motif as the event print)</td>
+</tr>
+<tr>
+<td>02</td>
+<td>MOURN + NOFACE</td>
+<td>The empty road</td>
+</tr>
+<tr>
+<td>03</td>
+<td>STD + NOFACE</td>
+<td>The cloak — see Worked pack 1</td>
+</tr>
+<tr>
+<td>04</td>
+<td>STD + NOFACE</td>
+<td>A sealed letter</td>
+</tr>
+<tr>
+<td>08</td>
+<td>STD + NOFACE</td>
+<td>The barred window</td>
+</tr>
+<tr>
+<td>05, 06, 07, 09, 10, 11, 12, 13</td>
+<td>STD + NOFACE</td>
+<td><strong>Not yet specified in any source file.</strong> Default suggestion: reuse that envelope's primary sticker-sheet motif (e.g. 05 → the pen; 12 → the lamp) rather than inventing a new one — flag for a real decision before art is finalised.</td>
+</tr>
+<tr>
+<td>14</td>
+<td>STD + NOFACE</td>
+<td><strong>Deliberately undecided</strong> — <code>envelope-14.md</code> flags this as the last postcard in the box and asks whether it should say something the other thirteen don't. Decide before generating.</td>
+</tr>
+</tbody></table>
+<h3>Envelope exteriors — the month-cancellation ring</h3>
+<p><strong>Format:</strong> circular motif, ~45mm diameter, gold ink line on transparent ground (charcoal for 01/02); generate the ring alone and typeset the month name in Fraunces separately rather than fighting the tool for clean circular lettering (see Worked pack 1's note).</p>
+<table><thead><tr>
+<th>Env</th>
+<th>Month text</th>
+<th>Style</th>
+</tr></thead><tbody>
+<tr>
+<td>01</td>
+<td>MUHARRAM</td>
+<td>MOURN</td>
+</tr>
+<tr>
+<td>02</td>
+<td>SAFAR</td>
+<td>MOURN</td>
+</tr>
+<tr>
+<td>03</td>
+<td>RABI AL-AWWAL</td>
+<td>STD — see Worked pack 1</td>
+</tr>
+<tr>
+<td>04</td>
+<td>RABI AL-THANI</td>
+<td>STD</td>
+</tr>
+<tr>
+<td>05</td>
+<td>JUMADA AL-AWWAL</td>
+<td>STD</td>
+</tr>
+<tr>
+<td>06</td>
+<td>JUMADA AL-THANI</td>
+<td>STD</td>
+</tr>
+<tr>
+<td>07</td>
+<td>RAJAB</td>
+<td>STD — same stamp as 08, seal color differs</td>
+</tr>
+<tr>
+<td>08</td>
+<td>RAJAB</td>
+<td>STD — same stamp as 07, seal color differs</td>
+</tr>
+<tr>
+<td>09</td>
+<td>SHA'BAN</td>
+<td>STD — same stamp as 10</td>
+</tr>
+<tr>
+<td>10</td>
+<td>SHA'BAN</td>
+<td>STD — same stamp as 09</td>
+</tr>
+<tr>
+<td>11</td>
+<td>RAMADAN</td>
+<td>STD</td>
+</tr>
+<tr>
+<td>12</td>
+<td>SHAWWAL</td>
+<td>STD</td>
+</tr>
+<tr>
+<td>13</td>
+<td>DHUL QA'DAH</td>
+<td>STD</td>
+</tr>
+<tr>
+<td>14</td>
+<td>DHUL HIJJAH</td>
+<td>STD</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Pack 4 — the remaining six original companions</h2>
+<p>Person prints and sticker sheets, subjects pulled from each file's own item spec. Format: person print A5 portrait, sticker sheet A6 die-cut, same as Pack 2. All use <strong>FACES</strong> for the person print, <strong>NOFACE</strong> for the sticker sheet, <strong>STD</strong> palette throughout (companions line is dateless, no mourning variant).</p>
+<table><thead><tr>
+<th>Companion</th>
+<th>Person print subject</th>
+<th>Sticker sheet subject</th>
+</tr></thead><tbody>
+<tr>
+<td>Salman al-Farsi</td>
+<td>An older man, working, date palms behind him.</td>
+<td>Palms, a spade, a road, a fire, small repeatable marks</td>
+</tr>
+<tr>
+<td>Bilal</td>
+<td>A man standing high up, early light, mouth open, city below.</td>
+<td>A rooftop, sun, sound marks, small repeatable shapes. <strong>No chains anywhere on the sheet.</strong></td>
+</tr>
+<tr>
+<td>Maytham al-Tammar</td>
+<td>A man at a market stall, dates in baskets, scales, ordinary morning.</td>
+<td>Dates, baskets, scales, market awnings, small repeatable marks</td>
+</tr>
+<tr>
+<td>Qambar</td>
+<td>A young man in a good shirt, standing in a market street.</td>
+<td>Two shirts, coins, a market street, a door, small repeatable marks</td>
+</tr>
+<tr>
+<td>Abu Dharr</td>
+<td>An old man sitting on the ground in front of a large new building.</td>
+<td>A door, coins, a road out of a city, a water skin, small repeatable marks</td>
+</tr>
+<tr>
+<td>Malik al-Ashtar</td>
+<td>A very large man in plain clothes walking through a market, unrecognised.</td>
+<td>A market street, a folded letter, a doorway, a road, small repeatable marks</td>
+</tr>
+</tbody></table>
+<p>The four newer companions (Uthman, Abbas, Fizza, Jabir) are fully worked in Pack 2 above.</p>
+<p><strong>Return postcard fronts for all ten companions are undecided</strong> — no source file specifies one, unlike the Fourteen. Same recommendation as envelopes 05–13: default to that companion's primary sticker motif rather than leaving it to be improvised at prepress.</p>
+<hr>
+<h2>Pack 5 — all fourteen zine covers</h2>
+<p><strong>Format:</strong> A7 (roughly 74 × 105 mm, one panel of the folded A4 sheet — see <code>09-zines/README.md</code>'s imposition), single ink, full bleed within the panel. Use the <strong>ZINE</strong> style block for every row.</p>
+<table><thead><tr>
+<th>Zine</th>
+<th>Cover subject (from the zine's own PAGE 1)</th>
+</tr></thead><tbody>
+<tr>
+<td>Ghadir Khumm</td>
+<td>A fork in a desert road</td>
+</tr>
+<tr>
+<td>Hira</td>
+<td>The cave mouth from inside, looking out</td>
+</tr>
+<tr>
+<td>Mubahala</td>
+<td>Two groups facing each other across open ground — tents or footprints standing in for the people, no figures</td>
+</tr>
+<tr>
+<td>Hudaybiyya</td>
+<td>A well and a low tent</td>
+</tr>
+<tr>
+<td>The Trench</td>
+<td>A straight ditch cutting across open ground</td>
+</tr>
+<tr>
+<td>Jannat al-Baqi</td>
+<td>A low wall and open ground beyond it</td>
+</tr>
+<tr>
+<td>Jamkaran</td>
+<td>A mosque courtyard at night</td>
+</tr>
+<tr>
+<td>The road to Karbala</td>
+<td>A single road running to the horizon</td>
+</tr>
+<tr>
+<td>Kufa</td>
+<td>A grid of straight streets seen from above</td>
+</tr>
+<tr>
+<td>Samarra</td>
+<td>A spiral minaret against open sky</td>
+</tr>
+<tr>
+<td>Laylat al-Mabit</td>
+<td>A doorway at night, a single lamp</td>
+</tr>
+<tr>
+<td>Dahw al-Ard</td>
+<td>Flat open ground to the horizon</td>
+</tr>
+<tr>
+<td>The Constitution of Medina</td>
+<td>A rolled document</td>
+</tr>
+<tr>
+<td>Bayt al-Hikma</td>
+<td>Shelves of scrolls</td>
+</tr>
+</tbody></table>
+<p>Fadak has no cover prompt — it isn't drafted, per the standing scholar-decision block in <code>09-zines/outlines.md</code>.</p>
+<hr>
+<h2>Pack 6 — elements with no fixed spec anywhere yet</h2>
+<p>These aren't sourced from any existing file — they're proposals, not decisions already made elsewhere in the project. Treat them as a starting point to accept, change, or hand to a scholar/designer, not as settled the way everything above is.</p>
+<h3>Wax-seal sticker motif</h3>
+<p>No motif is specified anywhere in the repo — only that it exists and comes in gold (standard) or charcoal (mourning), per <code>design-system.md</code> §5.</p>
+<pre><code>[STD, or MOURN for 01/02]
+[NOFACE]
+
+SUBJECT: a small circular seal motif, simple and geometric — proposal: a plain rosette or
+a single-word monogram in the display face, nothing devotionally specific enough to need
+scholar sign-off. Avoid anything that reads as a national or sectarian symbol.
+
+FORMAT: circular, ~20mm diameter, isolated on transparent ground.
+
+FLAG: this is a proposed starting point, not a decision — confirm the motif before it's
+cut into a die for 14+ envelopes' worth of seals.</code></pre>
+<h3>Box</h3>
+<p>No illustrated motif specified — <code>design-system.md</code> only fixes stock family (A5/A6) and palette. If the box carries any illustration at all (vs. being plain stock with a printed label), that's an open design decision, not just an art-generation task — flag before prompting anything here.</p>
+<h3>Named Edition ribbon colourways</h3>
+<p>Not an illustration job — these are physical ribbon colors, named but never given hex targets anywhere in the project (<code>TASKS.md</code> Phase 5 names them: rose, sage, plum, ochre; flat ribbon only, never bows). Proposed targets, chosen to sit comfortably beside the fixed palette (<code>design-system.md</code> §2) without clashing with the gold seal:</p>
+<table><thead><tr>
+<th>Colourway</th>
+<th>Proposed hex</th>
+<th>Note</th>
+</tr></thead><tbody>
+<tr>
+<td>Rose</td>
+<td><code>#C97B84</code></td>
+<td>Warm enough to sit near the terracotta accent without competing with it</td>
+</tr>
+<tr>
+<td>Sage</td>
+<td><code>#8A9A7E</code></td>
+<td>Cooler counterpart to the muted teal</td>
+</tr>
+<tr>
+<td>Plum</td>
+<td><code>#6B4C6B</code></td>
+<td>The one genuinely new hue family in the product — confirm it doesn't read as mourning-adjacent before committing</td>
+</tr>
+<tr>
+<td>Ochre</td>
+<td><code>#C79A3E</code></td>
+<td>Close kin to the standard gold accent — the safest of the four</td>
+</tr>
+</tbody></table>
+<p><strong>Flag: these are proposed, not fixed.</strong> Confirm against an actual ribbon sample under real light before ordering — screen color and dyed-ribbon color diverge more than any other material in this product.</p>
+<hr>
+<h2>What's still not covered</h2>
+<ul>
+<li><strong>Job 2, the text layouts</strong> (letter, fact panel, hadith card, session card, return postcard reverse, inside flap) — not an image-gen task. Say the word and I'll build these directly as print-ready HTML/CSS, exportable straight to PDF via headless Edge (confirmed working on this machine).</li>
+<li><strong>Hadith card front art</strong>, if any is wanted beyond typeset text — no spec exists because hadith card content itself is still blocked on citation work.</li>
+<li><strong>Physical proofs</strong> — the ring punch, the pennant dimension, the wax-seal die, the ribbon color — every one of these needs a real object in hand before it's final, per <code>design-system.md</code>'s own "What this doesn't settle."</li>
+</ul>
+</main>
+<footer>
+  <p>Noor Post — internal production page. Not for circulation.</p>
+</footer>
+</body>
+</html>
