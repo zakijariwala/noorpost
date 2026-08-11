@@ -10,7 +10,7 @@ Ordered by how much it unblocks.
 
 **Blocks: all fourteen hadith cards, and every fact panel source credit.**
 
-**Status: 4 of 6 identified, 2 candidates open.** Tuhaf al-Uqul, Sahifa Sajjadiyya, Uyun Akhbar al-Rida and Risalat al-Huquq were already sitting translated and credited in `00-sources/text/` — see the filled rows in `sourcing-rules.md`. Nahj al-Balagha and al-Kafi carry no translator credit in the extracted text; candidate names (Sayed Ali Reza; Muhammad Sarwar) are noted there for physical confirmation, not yet `V`. Kamal al-Din and both Kitab al-Ghayba works — which would close the Tier 2 occultation gap below — turned up in a third-party aggregator with no translator credited at all, so they don't qualify under this project's own citation rule; treat that gap as still open.
+**Status: 6 of 6 confirmed.** All six translators are fixed in `sourcing-rules.md` — Nahj al-Balagha (Sayed Ali Reza) and al-Kafi (Muhammad Sarwar) confirmed against the physical/PDF title page on 2026-08-12. Publisher and year still need filling for those two, and permission is unchecked for all six — neither blocks hadith-card selection once citation work resumes. Kamal al-Din and both Kitab al-Ghayba works — which would close the Tier 2 occultation gap below — turned up in a third-party aggregator with no translator credited at all, so they don't qualify under this project's own citation rule; treat that gap as still open.
 
 One edition per work, fixed for the project and never mixed. Page and hadith numbers move between editions; a card set against one edition and printed against another cites the wrong place.
 
@@ -79,17 +79,17 @@ Fix **one** reference for the whole project and cite it the same way every time.
 
 1. **A Hijri–Gregorian converter you trust**, used for all twenty-eight birth and death years. Do not use `AH + 622` — it is right for 1 AH and about eight years wrong by envelope 04. See the table in `citation-sheet.md`.
 2. **Your jamaat's calendar**, to settle:
-   - Imam Hasan — 7th or 28th Safar
-   - The Prophet — 12th or 17th Rabi al-Awwal (birth), 28 Safar or 12 Rabi al-Awwal (death)
-   - Laylat al-Qadr
-   - The 05 / 11 swap between al-Baqir and al-Hadi
+   - ~~Imam Hasan — 7th or 28th Safar~~ **Decided: 28 Safar**, per `TASKS.md`'s open-decisions table — most publicly observed in India. The printed fact panel still carries the differ line; this fixes the production anchor only.
+   - ~~The Prophet — 12th or 17th Rabi al-Awwal (birth), 28 Safar or 12 Rabi al-Awwal (death)~~ **Decided: 17 Rabi al-Awwal (birth), 28 Safar (death)** — same basis, same caveat.
+   - Laylat al-Qadr — still open
+   - The 05 / 11 swap between al-Baqir and al-Hadi — **still open.** Not a community-observance question, so it isn't resolved by the "most prominent in India" instruction that settled the other two. Provisionally kept as-is.
 3. **Disputed years to settle from a source, not from memory:** Imam Hasan (49/50/51 AH), Imam al-Baqir (114/117 AH), Imam al-Sajjad (94/95 AH), Sayyida Fatima's birth year, Imam Ali's birth year.
 
 ---
 
 ## Tier 5 — The named scholar
 
-Not a source, but it gates the same work.
+Not a source, but it gates the same work. **Status: verbal agreement in place (2026-08-12), formal engagement — scope, turnaround, how sign-off is recorded — still pending.** Every row below stays blocking until that's formal; a verbal yes is enough to authorize drafting content that was previously withheld pending scholar involvement (see the Fadak zine), not enough to close a signature requirement.
 
 | Needs a signature | Where |
 |---|---|

@@ -82,13 +82,13 @@ Events and places, from PRD §11.
 | 8 | **The road to Karbala** | Envelope 01 | **Written in full** |
 | 9 | **Kufa** | Envelopes 07, 08; Maytham, Qambar | **Written in full** |
 | 10 | **Samarra** | Envelopes 04, 11 event and person prints | **Written in full** |
-| 11 | Fadak | — | **Not drafted — scholar decision on whether it is drafted at all still stands.** |
+| 11 | **Fadak** | — | **Written in full**, on verbal scholar agreement (2026-08-12). **Written line-by-line sign-off, same standard as envelope 06, still required before print.** |
 | 12 | **Laylat al-Mabit** | — | **Written in full** |
 | 13 | **Dahw al-Ard** | — | **Written in full** |
 | 14 | **The Constitution of Medina** | Envelope 03 | **Written in full** |
 | 15 | **Bayt al-Hikma** | Envelope 13 | **Written in full** |
 
-**Fourteen of fifteen written in full — all but Fadak, which stays outline-only pending the scholar decision.** Every draft carries its own "Open" checklist of what still needs verifying against a fixed edition or a scholar before print; none of it is cited yet. Full text: `ghadir-khumm.md`, `hira.md`, `mubahala.md`, `hudaybiyya.md`, `the-trench.md`, `jannat-al-baqi.md`, `jamkaran.md`, `the-road-to-karbala.md`, `kufa.md`, `samarra.md`, `laylat-al-mabit.md`, `dahw-al-ard.md`, `constitution-of-medina.md`, `bayt-al-hikma.md`. Fadak's outline-only note remains in `outlines.md`.
+**All fifteen written in full.** Every draft carries its own "Open" checklist of what still needs verifying against a fixed edition or a scholar before print; none of it is cited yet. **Fadak carries a stricter bar than the rest** — the same written, line-by-line scholar sign-off envelope 06 requires, not just a review pass, per its own production note in `fadak.md`. Full text: `ghadir-khumm.md`, `hira.md`, `mubahala.md`, `hudaybiyya.md`, `the-trench.md`, `jannat-al-baqi.md`, `jamkaran.md`, `the-road-to-karbala.md`, `kufa.md`, `samarra.md`, `fadak.md`, `laylat-al-mabit.md`, `dahw-al-ard.md`, `constitution-of-medina.md`, `bayt-al-hikma.md`.
 
 ## Release timing
 

@@ -215,13 +215,14 @@ For each letter: 330–370 words, voice marks assigned, child lines counted and 
 
 Runs after launch. It is a first purchase and a gift, not the flagship.
 
-**Ten written** — letters and fact panels, in `08-companions/`. Artwork pending.
+**Eighteen written — all fourteen Masoomeen now have at least one companion.** Letters and fact panels, in `08-companions/`. Artwork pending.
 
 - [x] Build the four-item template: two-voice letter with fact panel on the reverse, person print, sticker sheet, return postcard.
 - [x] Enforce the two protective rules in the template itself: **no hadith card, no event print, ever.** Those two carry the silsila and the calendar ring. The box must stay the only way to complete anything.
 - [x] Set the faces-allowed illustration style (specified per envelope; artwork pending). A child sees the difference instantly.
 - [x] Write the first six: Salman al-Farsi, Bilal, Maytham al-Tammar, Qambar, Abu Dharr, Malik al-Ashtar. All six letters inside 330–370 words, 7–8 child lines.
-- [x] Write four more, chosen to reach Masoomeen the first six didn't touch: Uthman ibn Sa'id al-Amri (al-Mahdi's deputy network), Abbas ibn Ali (Husayn), Fizza (Fatima), Jabir ibn Abdullah al-Ansari (al-Baqir). Same word count and child-line rules. **Eight Masoomeen still have no companion.**
+- [x] Write four more, chosen to reach Masoomeen the first six didn't touch: Uthman ibn Sa'id al-Amri (al-Mahdi's deputy network), Abbas ibn Ali (Husayn), Fizza (Fatima), Jabir ibn Abdullah al-Ansari (al-Baqir). Same word count and child-line rules.
+- [x] Write the last eight, closing every remaining gap: Qais ibn Sa'd (Hasan), Tawus al-Yamani (al-Sajjad), Safwan al-Jammal (al-Kadhim), Dibil al-Khuza'i (al-Rida), Ahmad ibn Ishaq al-Qummi (al-Askari), Abu Hashim al-Ja'fari (al-Hadi), Hisham ibn al-Hakam (al-Sadiq), Ali ibn Mahziyar (al-Jawad). **All fourteen Masoomeen now have a companion.** These rest on narrower, more specific episodes than the first ten — real citation work needed before print, not a light pass.
 - [x] Print the connection to the Fourteen on every envelope. Salman served the Prophet. Qambar served Imam Ali. Maytham died refusing to insult him. No selling language.
 - [ ] Print, stock singly, and list as a checkout add-on, an Eid gift and a madrasa prize.
 - [ ] **Decide: does "Everyone Else" include family members of the Fourteen (as Abbas does), or servants/companions only?** Raised by `08-companions/abbas.md`.
@@ -236,7 +237,7 @@ Events and places only. Never people — people live in envelopes, and one-perso
 - [x] Write the pilot zine, Ghadir Khumm, in full. → `09-zines/ghadir-khumm.md`
 - [x] Write Hira in full. → `09-zines/hira.md`
 - [x] Outline the remaining thirteen, page by page. → `09-zines/outlines.md`
-- [x] Draft twelve of those thirteen to full text. → `09-zines/` — all but Fadak, which stays outline-only pending the scholar decision below.
+- [x] Draft all fifteen zines to full text. → `09-zines/`, including Fadak (drafted 2026-08-12 on verbal scholar agreement — still needs full written sign-off before print, per its own production note).
 - [ ] Publish on a schedule. Fifteen subjects in the bank: Ghadir Khumm, Mubahala, Hudaybiyya, the Trench, Hira, Jannat al-Baqi, Jamkaran, the road to Karbala, Kufa, Samarra, Fadak, Laylat al-Mabit, Dahw al-Ard, the Constitution of Medina, Bayt al-Hikma.
 - [ ] Time each release against its date in the calendar where one exists.
 - [ ] Feed Instagram from the zine pages. Hand out physical copies at majlis.
@@ -245,11 +246,12 @@ Events and places only. Never people — people live in envelopes, and one-perso
 
 ## Open decisions, to close before Phase 3
 
-| Decision | Where it bites |
-|---|---|
-| Swap envelopes 05 and 11? | Every downstream item is keyed to the month |
-| Imam Hasan: 7th or 28th Safar | Envelope 02 stamp and letter |
-| The Prophet: 12th or 17th Rabi al-Awwal | Envelope 03 stamp and letter |
+| Decision | Where it bites | Status |
+|---|---|---|
+| Swap envelopes 05 and 11? | Every downstream item is keyed to the month | **Still open.** Not a community-observance question, so "most publicly prominent in India" doesn't resolve it — provisionally kept as-is (no swap) for lack of a positive reason to change it. Revisit with real information on which Imam has the stronger anchor date. |
+| Imam Hasan: 7th or 28th Safar | Envelope 02 stamp and letter | **Decided: 28 Safar** — the mainstream Twelver anchor, most widely observed in India, and the one commonly marked alongside the Prophet's death. This sets the *production* anchor (narrative emphasis, release timing); the printed fact panel still carries both dates with the standard differ line per `standard-lines.md` §1 — the rule against adjudicating what's printed is unchanged. |
+| The Prophet: 12th or 17th Rabi al-Awwal | Envelope 03 stamp and letter | **Decided: 17 Rabi al-Awwal** — the Shia-observed date, publicly prominent in India (marked alongside Imam al-Sadiq's birth as Eid-e-Zahra). Same caveat: production anchor only, both dates still print with the differ line. |
+| The Prophet's death: 28 Safar or 12 Rabi al-Awwal | Envelope 03 fact panel | **Decided: 28 Safar** — consistent with the Imam Hasan decision above; both mainstream Twelver anchors are commonly marked together. Differ line still applies in print. |
 | Print run size | Phase 5 cost, Phase 6 commitment |
 | Mid-year subscription start | Phase 6 fulfilment logic |
 | What comes back on the return postcard | Phase 6 process |

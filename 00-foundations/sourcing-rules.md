@@ -52,17 +52,13 @@ Published translations only. No in-house rendering of Arabic, ever, even where a
 | Work | Translator | Publisher | Year | Permission checked |
 |---|---|---|---|---|
 | Tuhaf al-Uqul | Badr Shahin | Ansariyan Publications, Qum | *to fix* | ☐ |
-| Nahj al-Balagha | *candidate: Sayed Ali Reza* † | *to fix* | *to fix* | ☐ |
+| Nahj al-Balagha | Sayed Ali Reza | *to fix* | *to fix* | ☐ |
 | Sahifa Sajjadiyya | William C. Chittick | Muhammadi Trust of Great Britain and Northern Ireland | 1988 (foreword dated 17 Jan 1988) | ☐ |
-| al-Kafi | *candidate: Muhammad Sarwar* † | Islamic Seminary Inc. (unconfirmed) | *to fix* | ☐ |
+| al-Kafi | Muhammad Sarwar | Islamic Seminary Inc. (unconfirmed) | *to fix* | ☐ |
 | Uyun Akhbar al-Rida | Dr. Ali Peiravi | Ansariyan Publications, Qum | *to fix* | ☐ |
 | Risalat al-Huquq | William C. Chittick | Muhammadi Trust of Great Britain and Northern Ireland (bound with Sahifa Sajjadiyya) | 1988 | ☐ |
 
-Four rows read straight off the title page already sitting in `00-sources/text/` — nobody had transcribed them. **Two rows are still open**, marked *candidate* † — the extracted text for these two carries no translator credit at all (page likely lost in scan/OCR), and al-islam.org itself returns a Cloudflare block to any non-browser fetch, so it can't be confirmed by script. The candidate names come from cross-referencing [ThaqalaynData](https://github.com/narmafraz/ThaqalaynData), an aggregator that packages the same named, human translations in hadith-numbered JSON:
-- Nahj al-Balagha → credited there to `en.sayed-ali-raza`
-- al-Kafi → credited there to `en.sarwar` (Muhammad Sarwar) or `en.hubeali` (HubeAli.com); Sarwar is favoured because the archive.org item description says "all eight volumes," matching the Islamic Seminary/Sarwar edition
-
-**Do not promote either candidate to `V` without opening the physical or PDF title page and reading the name.** ThaqalaynData is a third party's aggregation, not the edition itself.
+All six translators now confirmed. Four read straight off the title page already sitting in `00-sources/text/`. The other two — Nahj al-Balagha and al-Kafi — carried no translator credit in the extracted text itself; candidates were cross-referenced against [ThaqalaynData](https://github.com/narmafraz/ThaqalaynData) and **confirmed against the physical/PDF title page on 2026-08-12.** Publisher and year still need filling for Nahj al-Balagha and al-Kafi.
 
 **A caution on ThaqalaynData specifically:** every hadith record in that dataset also carries an unlabelled `ai` block — LLM-generated narrator-identity guesses (with `"identity_confidence": "ambiguous"|"likely"|"definite"` tags), summaries, and machine translations into languages beyond the credited human one. It sits inside the same JSON object as the real citation. **Only ever use the field under `translations["<lang>.<named-translator>"]`. Never cite the `ai` block — it is unverified by definition, exactly what `TV` exists to stop.** Its `kamal-al-din`, `kitab-al-ghayba-numani`, and `kitab-al-ghayba-tusi` entries — which would otherwise close the envelope 10 occultation gap in `sources-needed.md` Tier 2 — are credited only to `en.unknown`. No translator name means no citation under this project's own rule above. Do not use them.
 

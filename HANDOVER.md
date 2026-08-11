@@ -102,7 +102,7 @@ Every page break in those files is a line reading `[[p 137]]`. **Read up from a 
 
 ### Fill this in first
 
-The fixed-editions table in `00-foundations/sourcing-rules.md` is **empty**, and it blocks all fourteen hadith cards. For each work: translator, publisher, year, permission checked. A card set against one edition and printed against another cites the wrong page.
+The fixed-editions table in `00-foundations/sourcing-rules.md` is **now filled — all six translators confirmed** (2026-08-12). Publisher and year still missing for two (Nahj al-Balagha, al-Kafi), and permission is unchecked for all six. A card set against one edition and printed against another cites the wrong page.
 
 ---
 
@@ -123,7 +123,7 @@ Both *Timetables of History* downloads are DRM-locked and will not extract. **A 
 
 `python tools/fetch_sources.py --tier 2` prints where to look. al-Islam.org blocks scripts, so those links open in a browser.
 
-**A named scholar.** Fourteen items need a signature. `sources-needed.md` lists them. **Envelope 06 blocks the print run of all fourteen** — its death line is written by the scholar, not by us.
+**A named scholar.** Fourteen items need a signature. `sources-needed.md` lists them. **Envelope 06 blocks the print run of all fourteen** — its death line is written by the scholar, not by us. **Verbal agreement is in place (2026-08-12)** — enough to authorize drafting previously-withheld content (the Fadak zine), not enough to close any signature requirement. Formal scope/turnaround/sign-off recording still needed.
 
 ---
 
@@ -137,9 +137,9 @@ None of these need a source. They need you.
 | Silsila numbering — the Prophet at 13 or 1, and where Sayyida Fatima sits | All fourteen hadith cards |
 | Zaynab holds two of fourteen women's slots (02, 05) | The one repeat in a feature sold on fourteen |
 | Umm al-Fadl in envelope 14 — she holds the woman slot and the accounts implicate her in his death | Envelope 14's panel |
-| Imam Hasan — 7th or 28th Safar | Envelope 02, and its stamp |
-| The Prophet — 12th or 17th Rabi al-Awwal | Envelope 03, and its stamp |
-| Whether Fadak gets a zine at all | Zine 11 |
+| ~~Imam Hasan — 7th or 28th Safar~~ | **Decided: 28 Safar** (2026-08-12) — most publicly observed in India. Production anchor only; the differ line still prints in the fact panel. |
+| ~~The Prophet — 12th or 17th Rabi al-Awwal~~ | **Decided: 17 Rabi al-Awwal** (birth), **28 Safar** (death) — same basis, same caveat. |
+| ~~Whether Fadak gets a zine at all~~ | **Decided: yes**, on verbal scholar agreement (2026-08-12). Drafted with the outline's own cautions (factual land-dispute account, not polemic) still in force. |
 | ~~The calendar ring punch position~~ | Fixed in `00-foundations/design-system.md` §6 (6mm hole, 12mm from edge, 25mm book ring). Still needs a physical proof before Phase 4 art commits to it. |
 
 ---

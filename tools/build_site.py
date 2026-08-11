@@ -281,6 +281,14 @@ COMPANIONS = [
     ("abbas", "Abbas ibn Ali"),
     ("fizza", "Fizza"),
     ("jabir", "Jabir ibn Abdullah al-Ansari"),
+    ("qais", "Qais ibn Sa'd"),
+    ("tawus", "Tawus al-Yamani"),
+    ("safwan", "Safwan al-Jammal"),
+    ("dibil", "Dibil al-Khuza'i"),
+    ("ahmad-ibn-ishaq", "Ahmad ibn Ishaq al-Qummi"),
+    ("abu-hashim", "Abu Hashim al-Ja'fari"),
+    ("hisham", "Hisham ibn al-Hakam"),
+    ("ali-ibn-mahziyar", "Ali ibn Mahziyar"),
 ]
 
 ZINES = [
@@ -298,7 +306,7 @@ ZINES = [
     ("dahw-al-ard", "Dahw al-Ard"),
     ("constitution-of-medina", "The Constitution of Medina"),
     ("bayt-al-hikma", "Bayt al-Hikma"),
-    # Fadak intentionally excluded — outline only, scholar decision pending before it is drafted.
+    ("fadak", "Fadak"),
 ]
 
 

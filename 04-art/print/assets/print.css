@@ -165,16 +165,18 @@ body {
 }
 
 .panel .bullet {
-  display: flex;
-  gap: 2mm;
+  padding-left: 4mm;
+  text-indent: -4mm;
   margin: 0 0 1.6mm 0;
   font-size: 8.7pt;
   line-height: 1.26;
 }
 
 .panel .bullet .dot {
+  display: inline-block;
+  width: 4mm;
+  text-indent: 0;
   color: var(--accent-primary);
-  flex: 0 0 auto;
 }
 
 .panel .death-line {
@@ -234,7 +236,60 @@ body {
 /* ---------- session card ---------- */
 
 .session-card {
-  padding: 10mm 9mm;
+  font-size: 8pt;
+  line-height: 1.28;
+}
+
+.session-card h2, .session-card h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 11pt;
+  margin: 0 0 1.5mm 0;
+}
+
+.session-card p {
+  margin: 0 0 2mm 0;
+}
+
+.session-card hr {
+  border: none;
+  border-top: 0.2mm solid var(--accent-primary);
+  opacity: 0.4;
+  margin: 2mm 0;
+}
+
+.session-card .card {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.session-card.compact {
+  font-size: 8pt;
+}
+
+.session-card.compact h2, .session-card.compact h3 {
+  font-size: 10.5pt;
+}
+
+.session-card .bullet {
+  display: block;
+  padding: 0;
+  margin: 0 0 2mm 0;
+}
+
+.session-card .bullet .dot { display: none; }
+
+.session-card .sealed-banner {
+  text-align: center;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 11pt;
+  letter-spacing: 0.06em;
+  color: var(--accent-tertiary);
+  border: 0.4mm dashed var(--accent-tertiary);
+  padding: 3mm;
+  margin-bottom: 4mm;
 }
 
 .session-card h2.card-title {

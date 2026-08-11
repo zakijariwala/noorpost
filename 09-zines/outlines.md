@@ -147,11 +147,7 @@ Page 5 is the load-bearing page in every one; if the page 5 line here does not s
 ## 11 — Fadak
 **Dateless**
 
-> **Scholar before drafting. Do not outline this one further without them.**
-
-Fadak is a land dispute that is also a doctrinal dispute, and it sits directly on the ground envelope 06 was written to avoid. There is a version of this zine that is a careful account of a piece of agricultural land, its water, its yield and its documented history — and there is a version that is a polemic, and the second one writes itself if nobody is watching.
-
-**Decide with the scholar whether this subject belongs in a free handout at all.** The other fourteen do not need it to carry the programme.
+**Drafted (2026-08-12) on verbal scholar agreement — full text in `fadak.md`.** Written to stay entirely on "a careful account of a piece of agricultural land, its water, its yield and its documented history" — the version this entry originally warned could tip into polemic if nobody was watching. **It still requires the same written, line-by-line scholar sign-off envelope 06 needs before a single copy prints** — verbal agreement authorized the draft, not the release. See `fadak.md`'s own production notes for exactly what the draft does and does not assert.
 
 ---
 
@@ -225,13 +221,13 @@ Fadak is a land dispute that is also a doctrinal dispute, and it sits directly o
 
 ---
 
-## Open, all thirteen
+## Open, all fourteen
 
-- [x] Draft to full text, page by page, at 300–400 words each — done for twelve; Fadak intentionally not drafted
+- [x] Draft to full text, page by page, at 300–400 words each — done for all fourteen, including Fadak (drafted 2026-08-12 on verbal scholar agreement)
 - [ ] Every page 5 verified — **if it does not survive checking, change the subject, not the claim**
 - [ ] Source line for every page 8 — placeholder in every draft, none filled
-- [ ] Fadak: scholar decision on whether it is drafted at all — **still open, nothing has changed here**
+- [ ] **Fadak: full written, line-by-line scholar sign-off before print** — same standard as envelope 06, stricter than the review pass every other zine gets. Verbal agreement authorized drafting, not release.
 - [ ] Jannat al-Baqi page 4 and Mubahala page 4 (who was brought): scholar
 - [ ] Fold test before any layout
 
-**None of the twelve drafts are cited.** Drafting to full text is a writing task, not a sourcing one — every draft carries the same claims this outline already had, expanded into prose, plus its own "Open" list of exactly what still needs checking against a fixed edition. Citation work on these resumes whenever citation work resumes generally; nothing here jumps the queue ahead of `citation-sheet.md`.
+**None of the fourteen drafts are cited.** Drafting to full text is a writing task, not a sourcing one — every draft carries the same claims this outline already had, expanded into prose, plus its own "Open" list of exactly what still needs checking against a fixed edition. Citation work on these resumes whenever citation work resumes generally; nothing here jumps the queue ahead of `citation-sheet.md`.
