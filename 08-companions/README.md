@@ -2,6 +2,14 @@
 
 Dateless single envelopes. Bought one at a time, any time. Gifts, Eid presents, madrasa prizes, checkout add-ons. **A small first purchase that advertises the flagship without selling language.**
 
+## Scope, decided (2026-08-12)
+
+**"Everyone Else" means everyone else, literally.** Not restricted to companions in the strict historical sense — servants, students, agents. It includes:
+- **Family members** of the Fourteen who were present, helped, or contributed notably, but are not themselves one of the Fourteen — Abbas, Umm Kulthum, Rabab, Zaynab, Sakina, and others like them.
+- **Traditional and miraculous figures** from the wider devotional literature, not just documented historical people — starting with the angel Fitrus. These carry the traditional marker as a matter of course, not as an exception, and need scholar judgement on whether theological content (rule Q3) is being crossed rather than conduct/character content.
+
+This closes the question raised by Abbas, then Umm Kulthum and Rabab, about whether family belongs in this line — it does, deliberately, and the line's own two protective rules (no hadith card, no event print) still apply without exception to every entry regardless of category.
+
 ---
 
 ## Four items, not seven
@@ -57,6 +65,9 @@ The connection to the Fourteen prints on each one, as a fact, with no selling la
 | Khawla bint al-Azwar | Khawla rode into battle in disguise to reach her captured brother, and the army never realized who had actually broken their line. | (early Islamic era, not tied to one Masoom) |
 | Umm Kulthum bint Ali | Umm Kulthum cared for the children through the hardest journey in the whole box, after Karbala. | Imam Husayn |
 | Rabab bint Imra' al-Qays | Rabab was Imam Husayn's wife, and by most accounts never remarried or stopped mourning him for the rest of her life. | Imam Husayn |
+| Zaynab bint Ali | Zaynab survived Karbala, and made sure the world could not simply forget what it had seen there. | Imam Husayn |
+| Sakina bint al-Husayn | Sakina was a small child at Karbala, and what she carried afterward was memory, not an army. | Imam Husayn |
+| Fitrus | Fitrus was an angel who lost his wings, and the accounts say grief for Imam Husayn is what restored them. | Imam Husayn (traditional account) |
 
 **All fourteen Masoomeen now have at least one companion pointing to them.** The first six pointed to just two (the Prophet and Imam Ali). The next four closed the biggest individual gaps (al-Mahdi, Husayn, Fatima, al-Baqir). The eight after that closed the rest in one pass — Hasan, al-Sajjad, al-Kadhim, al-Rida, al-Askari, al-Hadi, al-Sadiq, al-Jawad. **This last batch of eight closes a different gap: seventeen of the first eighteen companions were men.** Twenty-six companions total, eight of them women.
 
@@ -97,7 +108,7 @@ Everything in `00-foundations/` applies unchanged: the two-voice letter spec, th
 | `jabir.md` | Jabir ibn Abdullah al-Ansari | *The Greeting That Took Sixty Years* |
 
 **Two flags specific to that batch:**
-- **Abbas is family, not a servant or companion in the strict sense** — Imam Ali's son by Umm al-Banin, who already holds the woman slot in envelope 01. Including him quietly widens what this line means by "Everyone Else." Decide deliberately whether that's the intended shape of the line, rather than letting it stand by default. See `abbas.md` Open.
+- **Abbas is family, not a servant or companion in the strict sense** — Imam Ali's son by Umm al-Banin, who already holds the woman slot in envelope 01. This raised the scope question resolved in "Scope, decided" above: family is in.
 - **Fizza's entire letter rests on a `TRAD`-marked account** (per `citation-sheet.md`, already flagged in envelope 06). The long-form traditional marker is used in the child's copy directly, not just the panel — check it stays intact through any future edit.
 
 ## Last eight
@@ -131,10 +142,22 @@ Everything in `00-foundations/` applies unchanged: the two-voice letter spec, th
 | `rabab.md` | Rabab bint Imra' al-Qays | *The Woman Who Would Not Remarry* |
 
 **This batch exists to fix a real imbalance, not to reach a Masoom gap** — unlike every prior batch, these weren't chosen by which Imam lacked a companion (all fourteen already had one). Three flags specific to this batch:
-- **Two are family, not servants or companions in the strict sense** — Umm Kulthum (Imam Ali's daughter) and Rabab (Imam Husayn's wife) — the same open question already raised by Abbas. Three data points now; worth actually deciding rather than accumulating more exceptions.
+- **Two are family, not servants or companions in the strict sense** — Umm Kulthum (Imam Ali's daughter) and Rabab (Imam Husayn's wife) — the same question Abbas first raised, now settled per "Scope, decided" above.
 - **Khawla bint al-Azwar carries more historical uncertainty than any other entry in the whole companions line**, flagged explicitly in her own file — some scholarly assessments treat the fuller version of her story as later elaboration. Scholar must assess whether this entry survives at all before anything else happens to it.
 - **Rabab's account carries the traditional marker** — its consistency across sources is notable, but the underlying documentation from the time itself is thinner than most other entries.
 
+## Beyond companions — family and traditional figures
+
+| File | Entry | Letter |
+|---|---|---|
+| `zaynab.md` | Zaynab bint Ali | *The Woman Who Would Not Stay Silent* |
+| `sakina.md` | Sakina bint al-Husayn | *Old Enough to Never Forget Him* |
+| `fitrus.md` | Fitrus | *The Angel Who Was Grounded* |
+
+**This batch tests the scope decision directly, at both ends of it.** Zaynab and Sakina are family, per the settled question above — Zaynab arguably the single most significant figure this line has carried yet. Fitrus is the first entry in the whole line that is not a historical person at all — an angel from the devotional literature, not a companion or a relative. Two flags:
+- **Fitrus needs a scholar decision on category, not just wording** — his own file explains why this may sit closer to theology (rule Q3) than anything else in the product. Treat as provisional until that's answered.
+- **Zaynab's letter deliberately quotes none of her actual words.** Her speeches are real citation work in their own right; this letter names that she spoke and what it did, not what was said. Flagged for a separate decision on whether any of it should ever be quoted directly.
+
 ## Status
 
-**Twenty-six letters and fact panels written — all fourteen Masoomeen have a companion, and the line is no longer eighteen-to-one male to female.** All held to the same word count, child-line count, and demand-line rules as the Fourteen — measured, not estimated, same discipline as `03-content/spec-check.md`. A number of entries across the last two batches sit a little under the 330-word floor (270–328) rather than exactly in range; flagged here rather than quietly left. **Artwork pending for all twenty-six.** Citations pending — same blockers as the Fourteen, and none of these letters jump that queue. **The last sixteen in particular need real citation work, not a rubber stamp** — most rest on specific episodes, not general reputation, and each one's Open checklist says so explicitly. Khawla's entry needs a scholar decision on whether it survives at all.
+**Twenty-nine letters and fact panels written — all fourteen Masoomeen have a companion, the line is no longer eighteen-to-one male to female, and it now includes family members and one traditional/miraculous figure by deliberate decision, not by accident.** All held to the same word count, child-line count, and demand-line rules as the Fourteen — measured, not estimated, same discipline as `03-content/spec-check.md`. A number of entries across the last three batches sit a little under the 330-word floor (270–328) rather than exactly in range; flagged here rather than quietly left. **Artwork pending for all twenty-nine** — Fitrus specifically does not get a human portrait; see his own item spec. Citations pending — same blockers as the Fourteen, and none of these letters jump that queue. **Khawla and Fitrus both need a scholar category decision, not just a wording review, before anything else happens to them.**
