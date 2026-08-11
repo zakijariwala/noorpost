@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Envelope 03 — Hadith card — PLACEHOLDER content</title>
+<link rel="stylesheet" href="assets/print.css">
+<style>
+  @page { size: 105mm 148mm; margin: 0; }
+  body { background: #ddd; }
+  .sheet { display: flex; flex-wrap: wrap; justify-content: center; gap: 6mm; }
+  .page { padding: 0; }
+  @media print {
+    .page { page-break-after: always; }
+    .page:last-child { page-break-after: auto; }
+  }
+</style>
+</head>
+<body>
+
+<p class="screen-only">Hadith card, front + back, A6 portrait 105×148mm each.
+<strong>Content below is a PLACEHOLDER — Ayat al-Tathir (Qur'an 33:33), not a selected hadith-card saying.</strong>
+It's here only to verify the template renders Arabic/RTL text, a translation, and a citation block correctly.
+Real hadith-card content is still blocked on the sourcing work described in sources-needed.md.</p>
+
+<div class="sheet">
+
+<div class="page page-a6-portrait">
+  <div class="watermark-placeholder"><span>PLACEHOLDER — NOT SELECTED CONTENT</span></div>
+  <div class="hadith-front">
+    <p class="segment">Silsila segment 1 of 14</p>
+    <div>
+      <p class="saying-ar arabic">إِنَّمَا يُرِيدُ اللَّهُ لِيُذْهِبَ عَنكُمُ الرِّجْسَ أَهْلَ الْبَيْتِ وَيُطَهِّرَكُمْ تَطْهِيرًا</p>
+      <p class="saying-en">"Indeed Allah desires to repel all impurity from you, O People of the Household, and purify you with a thorough purification."</p>
+    </div>
+    <p style="font-size:7pt; text-align:center; color:var(--accent-tertiary);">PLACEHOLDER TEXT — FOR LAYOUT VERIFICATION ONLY</p>
+  </div>
+</div>
+
+<div class="page page-a6-portrait">
+  <div class="watermark-placeholder"><span>PLACEHOLDER — NOT SELECTED CONTENT</span></div>
+  <div class="hadith-front">
+    <p class="segment">Everyone Else — the companions carry no card</p>
+    <div class="citation">
+      <p>Qur'an 33:33 (Ayat al-Tathir)</p>
+      <p style="margin-top:4mm;">trans. Ali Qulli Qarai — <em>placeholder translator, not fixed for this project</em></p>
+      <p style="margin-top:6mm; font-size:8pt; opacity:0.8;">This is not the hadith card's real citation. Hadith cards draw from Tuhaf al-Uqul and the other fixed-edition works, ethics and conduct only, per <code>sourcing-rules.md</code> — a Qur'anic verse would not qualify even once sourcing resumes. Used here only because the text is short, universally known, and exercises the Arabic/RTL rendering path.</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>

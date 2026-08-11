@@ -277,6 +277,10 @@ COMPANIONS = [
     ("qambar", "Qambar"),
     ("abu-dharr", "Abu Dharr"),
     ("malik", "Malik al-Ashtar"),
+    ("uthman", "Uthman ibn Sa'id al-Amri"),
+    ("abbas", "Abbas ibn Ali"),
+    ("fizza", "Fizza"),
+    ("jabir", "Jabir ibn Abdullah al-Ansari"),
 ]
 
 ZINES = [
