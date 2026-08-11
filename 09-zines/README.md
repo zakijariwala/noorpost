@@ -74,21 +74,21 @@ Events and places, from PRD §11.
 |---|---|---|---|
 | 1 | **Ghadir Khumm** | Envelope 14 event print | **Written in full** |
 | 2 | **Hira** | Envelope 08 event print | **Written in full** |
-| 3 | Mubahala | — | Outlined |
-| 4 | Hudaybiyya | — | Outlined |
-| 5 | The Trench | Salman, companions line | Outlined |
-| 6 | Jannat al-Baqi | Envelopes 02, 05, 09 person prints | Outlined |
-| 7 | Jamkaran | Envelope 10 event print | Outlined |
-| 8 | The road to Karbala | Envelope 01 | Outlined |
-| 9 | Kufa | Envelopes 07, 08; Maytham, Qambar | Outlined |
-| 10 | Samarra | Envelopes 04, 11 event and person prints | Outlined |
-| 11 | Fadak | — | Outlined. **Scholar before drafting.** |
-| 12 | Laylat al-Mabit | — | Outlined |
-| 13 | Dahw al-Ard | — | Outlined |
-| 14 | The Constitution of Medina | Envelope 03 | Outlined |
-| 15 | Bayt al-Hikma | Envelope 13 | Outlined |
+| 3 | **Mubahala** | — | **Written in full.** Scholar review on who is named, page 4. |
+| 4 | **Hudaybiyya** | — | **Written in full** |
+| 5 | **The Trench** | Salman, companions line | **Written in full** |
+| 6 | **Jannat al-Baqi** | Envelopes 02, 05, 09 person prints | **Written in full.** Scholar review on page 4 wording. |
+| 7 | **Jamkaran** | Envelope 10 event print | **Written in full** |
+| 8 | **The road to Karbala** | Envelope 01 | **Written in full** |
+| 9 | **Kufa** | Envelopes 07, 08; Maytham, Qambar | **Written in full** |
+| 10 | **Samarra** | Envelopes 04, 11 event and person prints | **Written in full** |
+| 11 | Fadak | — | **Not drafted — scholar decision on whether it is drafted at all still stands.** |
+| 12 | **Laylat al-Mabit** | — | **Written in full** |
+| 13 | **Dahw al-Ard** | — | **Written in full** |
+| 14 | **The Constitution of Medina** | Envelope 03 | **Written in full** |
+| 15 | **Bayt al-Hikma** | Envelope 13 | **Written in full** |
 
-Full text: `ghadir-khumm.md`, `hira.md`. Outlines for the other thirteen: `outlines.md`.
+**Fourteen of fifteen written in full — all but Fadak, which stays outline-only pending the scholar decision.** Every draft carries its own "Open" checklist of what still needs verifying against a fixed edition or a scholar before print; none of it is cited yet. Full text: `ghadir-khumm.md`, `hira.md`, `mubahala.md`, `hudaybiyya.md`, `the-trench.md`, `jannat-al-baqi.md`, `jamkaran.md`, `the-road-to-karbala.md`, `kufa.md`, `samarra.md`, `laylat-al-mabit.md`, `dahw-al-ard.md`, `constitution-of-medina.md`, `bayt-al-hikma.md`. Fadak's outline-only note remains in `outlines.md`.
 
 ## Release timing
 

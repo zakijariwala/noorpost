@@ -20,7 +20,7 @@ Running order, per `standard-lines.md` §5, prints inside the flap.
 
 Segment 1 of 14, because the silsila runs in historical order while the envelopes run in calendar order — this is envelope 3 of 14 and card 1 of 14, and that mismatch is deliberate and must survive proofreading.
 
-**Blocker:** the saying cannot be chosen until the fixed edition of Tuhaf al-Uqul is settled in `sourcing-rules.md`. Choosing from an unfixed edition means the number printed on the card points at the wrong page.
+**Edition now fixed** — Tuhaf al-Uqul, trans. Badr Shahin, Ansariyan Publications, per `sourcing-rules.md`. Saying selection itself is a citation task and stays out of scope here; pick it against that edition when citation work resumes.
 
 ---
 
@@ -48,7 +48,7 @@ Two of the fourteen person prints are Jannat al-Baqi from different angles (02, 
 | | |
 |---|---|
 | Format | Landscape |
-| Punch | Standard ring position — **fixed once, project-wide, before this print is drawn** |
+| Punch | Fixed — `00-foundations/design-system.md` §6: 6mm hole, 12mm from top edge, single centered punch |
 | Ring position | Third of fourteen in calendar order |
 | Label | The Hijra |
 
@@ -117,8 +117,10 @@ Flap block for this envelope:
 
 ## Blocking this envelope
 
-- [ ] Fixed edition of Tuhaf al-Uqul — blocks the hadith card
-- [ ] Ring punch position fixed project-wide — blocks the event print
+- [x] Fixed edition of Tuhaf al-Uqul — `sourcing-rules.md`. Saying itself still needs picking, which is citation work, not art.
+- [x] Ring punch position fixed project-wide — `design-system.md` §6. Physically proof the punch before the event print is drawn.
 - [ ] Citation rows filled, all reading `V` — see `citation-sheet.md` open question 1, the sira gap
 - [ ] Scholar review
 - [ ] Timed with a real family
+
+Artwork for the person print, event print, sticker sheet, and envelope exterior can now be briefed from this file and `design-system.md` — no remaining design blocker stands between spec and drawing.

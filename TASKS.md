@@ -39,17 +39,19 @@ Nothing gets written or drawn until the rules are fixed. Rewriting fourteen enve
 - [ ] Agree what happens on disagreement: who has the final word on wording.
 
 ### 0.4 Design system ∥
-- [ ] Pick and license the two typefaces: body face and display face for child lines.
-- [ ] Build the palette. Standard palette plus the mourning palette for envelopes 01 and 02.
-- [ ] Design the seven item templates: letter with fact panel reverse, hadith card, person print (A5 portrait), event print (landscape, punched), session card, sticker sheet, return postcard.
-- [ ] Design the pennant that replaces the sticker sheet in mourning issues.
-- [ ] Design the envelope exterior: circular postal cancellation month stamp, name area, wax-seal sticker.
-- [ ] Design the inside-flap block that carries the running order and the runtime.
-- [ ] Set the illustration style rules. Note the split: no faces in the Fourteen, faces allowed in the companions line.
-- [ ] Decide the calendar ring hole position and spacing once. All fourteen event prints must clip onto the same ring.
-- [ ] Number the hadith cards by silsila segment, in historical order. Never print the envelope number on the card.
+- [x] Pick and license the two typefaces: body face and display face for child lines. → `00-foundations/design-system.md` §1 — EB Garamond / Fraunces, both SIL OFL
+- [x] Build the palette. Standard palette plus the mourning palette for envelopes 01 and 02. → §2
+- [x] Design the seven item templates: letter with fact panel reverse, hadith card, person print (A5 portrait), event print (landscape, punched), session card, sticker sheet, return postcard. → §4. Sizes and layout fixed; final art is Phase 4.
+- [x] Design the pennant that replaces the sticker sheet in mourning issues. → §4. Material and ink fixed; exact dimension deliberately left for a physical proof, not a ruler.
+- [x] Design the envelope exterior: circular postal cancellation month stamp, name area, wax-seal sticker. → §5
+- [x] Design the inside-flap block that carries the running order and the runtime. → §5
+- [x] Set the illustration style rules. Note the split: no faces in the Fourteen, faces allowed in the companions line. → §3
+- [x] Decide the calendar ring hole position and spacing once. All fourteen event prints must clip onto the same ring. → §6 — 6mm hole, 12mm from edge (ISO 838 sizing), 25mm book ring. **Physically proof before Phase 4 art is finalised.**
+- [x] Number the hadith cards by silsila segment, in historical order. Never print the envelope number on the card. → §7
 
 **Gate 0:** Rulebook, citation format, scholar relationship and templates all exist. Sources are in hand.
+
+**Design system is a first fixed draft, not a finished art direction.** It unblocks Phase 4 art from starting without a design brief; it does not replace physically proofing the ring punch, the pennant, or the CMYK/foil builds before they're committed to a print run (see design-system.md §"What this doesn't settle").
 
 ---
 
@@ -232,7 +234,7 @@ Events and places only. Never people — people live in envelopes, and one-perso
 - [x] Write the pilot zine, Ghadir Khumm, in full. → `09-zines/ghadir-khumm.md`
 - [x] Write Hira in full. → `09-zines/hira.md`
 - [x] Outline the remaining thirteen, page by page. → `09-zines/outlines.md`
-- [ ] Draft those thirteen to full text.
+- [x] Draft twelve of those thirteen to full text. → `09-zines/` — all but Fadak, which stays outline-only pending the scholar decision below.
 - [ ] Publish on a schedule. Fifteen subjects in the bank: Ghadir Khumm, Mubahala, Hudaybiyya, the Trench, Hira, Jannat al-Baqi, Jamkaran, the road to Karbala, Kufa, Samarra, Fadak, Laylat al-Mabit, Dahw al-Ard, the Constitution of Medina, Bayt al-Hikma.
 - [ ] Time each release against its date in the calendar where one exists.
 - [ ] Feed Instagram from the zine pages. Hand out physical copies at majlis.

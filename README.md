@@ -8,7 +8,7 @@ Printed series for Shia families with children aged 8 to 12, built around the Fo
 |---|---|
 | `PRD.md` | Product requirements. The source of truth for scope, tiers, channel and editorial rules. **Not yet in the repo — paste the current version in.** Everything in `00-foundations/` derives from its §7 and §8. |
 | `TASKS.md` | Phased build plan. Ten phases, gated. Read this before starting work. |
-| `00-foundations/` | Phase 0. The rules everything else is checked against. |
+| `00-foundations/` | Phase 0. The rules everything else is checked against, including `design-system.md` (typefaces, palette, templates, ring spec). |
 | `01-pilot/` | Phase 1. Envelope 03 built end to end, plus the first zine. |
 | `03-content/` | Phase 3. Envelopes 01–14 (03 lives in `01-pilot/`), plus `spec-check.md` — the measured counts for all fourteen letters. |
 | `08-companions/` | Phase 8. Everyone Else — the six companion envelopes. |
@@ -33,7 +33,7 @@ Phase numbers in folder names match `TASKS.md`. Gaps in the numbering (02, 04–
 
 | Phase | State |
 |---|---|
-| 0 — Foundations | Written in full. **Blocked on: fixed translation editions, and a scholar.** |
+| 0 — Foundations | Written in full, including the design system (typefaces, palette, templates, ring spec). **Blocked on: two translator credits still unconfirmed (Nahj al-Balagha, al-Kafi), and a scholar.** |
 | 1 — Pilot | Envelope 03 written. Not printed, not timed, not reviewed. |
 | 2 — Channel test | Not started. Needs a printed envelope. |
 | 3 — Content build | **All fourteen letters, fact panels and session cards written**, and the silsila segments assigned. Counts measured in `03-content/spec-check.md`. Hadith card selection blocked; artwork pending. |
@@ -48,8 +48,8 @@ Phase numbers in folder names match `TASKS.md`. Gaps in the numbering (02, 04–
 
 | Blocker | Blocks | Owner |
 |---|---|---|
-| Fixed translation editions, one per work | Every hadith card in the project | You |
+| Two translator credits unconfirmed (Nahj al-Balagha, al-Kafi) — candidates identified, need physical title-page confirmation | Those two works' hadith cards and fact-panel credits | You |
 | A named scholar, engaged | Gate 3, and envelope 06 blocks the whole print run | You |
 | The sira gap — the five priority works carry no biography, and the letters are all biography | Every letter's citations. See `00-foundations/citation-sheet.md`, open question 1 | Decision needed |
-| Calendar ring punch position | All fourteen event prints | Design |
+| Calendar ring punch position | All fourteen event prints | Fixed in `00-foundations/design-system.md` §6 — needs a physical proof, not a decision |
 | Envelope 05 / 11 swap | Every item keyed to a month | Decision needed |

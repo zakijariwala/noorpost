@@ -279,7 +279,23 @@ COMPANIONS = [
     ("malik", "Malik al-Ashtar"),
 ]
 
-ZINES = [("ghadir-khumm", "Ghadir Khumm"), ("hira", "Hira")]
+ZINES = [
+    ("ghadir-khumm", "Ghadir Khumm"),
+    ("hira", "Hira"),
+    ("mubahala", "Mubahala"),
+    ("hudaybiyya", "Hudaybiyya"),
+    ("the-trench", "The Trench"),
+    ("jannat-al-baqi", "Jannat al-Baqi"),
+    ("jamkaran", "Jamkaran"),
+    ("the-road-to-karbala", "The road to Karbala"),
+    ("kufa", "Kufa"),
+    ("samarra", "Samarra"),
+    ("laylat-al-mabit", "Laylat al-Mabit"),
+    ("dahw-al-ard", "Dahw al-Ard"),
+    ("constitution-of-medina", "The Constitution of Medina"),
+    ("bayt-al-hikma", "Bayt al-Hikma"),
+    # Fadak intentionally excluded — outline only, scholar decision pending before it is drafted.
+]
 
 
 def build_envelope(num, month, masoom, session):

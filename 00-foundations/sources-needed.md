@@ -10,6 +10,8 @@ Ordered by how much it unblocks.
 
 **Blocks: all fourteen hadith cards, and every fact panel source credit.**
 
+**Status: 4 of 6 identified, 2 candidates open.** Tuhaf al-Uqul, Sahifa Sajjadiyya, Uyun Akhbar al-Rida and Risalat al-Huquq were already sitting translated and credited in `00-sources/text/` — see the filled rows in `sourcing-rules.md`. Nahj al-Balagha and al-Kafi carry no translator credit in the extracted text; candidate names (Sayed Ali Reza; Muhammad Sarwar) are noted there for physical confirmation, not yet `V`. Kamal al-Din and both Kitab al-Ghayba works — which would close the Tier 2 occultation gap below — turned up in a third-party aggregator with no translator credited at all, so they don't qualify under this project's own citation rule; treat that gap as still open.
+
 One edition per work, fixed for the project and never mixed. Page and hadith numbers move between editions; a card set against one edition and printed against another cites the wrong place.
 
 | Work | What it unblocks | Common English editions to choose between |

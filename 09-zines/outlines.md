@@ -2,7 +2,9 @@
 
 Page structure per `README.md`. Each entry fixes the cover, the *thing most people do not know* (page 5 — the reason the zine exists), what is there now (page 6), and the do-something (page 7).
 
-**These are outlines, not drafts.** Page 5 is the load-bearing page in every one; if the page 5 line here does not survive checking, the zine needs a different subject rather than a softer page.
+**Twelve of these thirteen are now drafted to full text** — each subject below has its own file in `09-zines/` (e.g. `mubahala.md`) with the outline expanded to the 300–400 word, eight-page format. This file stays as the record of the load-bearing decision behind each one (the page 5 line) and as the source for Fadak, which is not drafted. **If a full draft and this outline ever disagree on the page 5 claim, the draft's own "Open" checklist governs — flag it, don't silently pick one.**
+
+Page 5 is the load-bearing page in every one; if the page 5 line here does not survive checking, the zine needs a different subject rather than a softer page.
 
 ---
 
@@ -225,9 +227,11 @@ Fadak is a land dispute that is also a doctrinal dispute, and it sits directly o
 
 ## Open, all thirteen
 
-- [ ] Draft to full text, page by page, at 300–400 words each
+- [x] Draft to full text, page by page, at 300–400 words each — done for twelve; Fadak intentionally not drafted
 - [ ] Every page 5 verified — **if it does not survive checking, change the subject, not the claim**
-- [ ] Source line for every page 8
-- [ ] Fadak: scholar decision on whether it is drafted at all
-- [ ] Jannat al-Baqi page 4 and Mubahala page 5: scholar
+- [ ] Source line for every page 8 — placeholder in every draft, none filled
+- [ ] Fadak: scholar decision on whether it is drafted at all — **still open, nothing has changed here**
+- [ ] Jannat al-Baqi page 4 and Mubahala page 4 (who was brought): scholar
 - [ ] Fold test before any layout
+
+**None of the twelve drafts are cited.** Drafting to full text is a writing task, not a sourcing one — every draft carries the same claims this outline already had, expanded into prose, plus its own "Open" list of exactly what still needs checking against a fixed edition. Citation work on these resumes whenever citation work resumes generally; nothing here jumps the queue ahead of `citation-sheet.md`.

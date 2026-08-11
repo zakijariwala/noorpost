@@ -54,7 +54,7 @@ Site is at **https://zakijariwala.github.io/noorpost/** and serves from `main` `
 
 | Phase | Where it stands |
 |---|---|
-| 0 Foundations | Written. Blocked on fixed editions and a scholar. |
+| 0 Foundations | Written, including the design system (`00-foundations/design-system.md`). Blocked on two unconfirmed translator credits and a scholar. |
 | 1 Pilot | Envelope 03 written. Not printed, not timed, not reviewed. |
 | 2 Channel test | Not started. Needs a printed envelope. |
 | 3 Content | **All fourteen letters, fact panels and session cards written.** Counts measured. Hadith cards blocked. |
@@ -140,7 +140,7 @@ None of these need a source. They need you.
 | Imam Hasan — 7th or 28th Safar | Envelope 02, and its stamp |
 | The Prophet — 12th or 17th Rabi al-Awwal | Envelope 03, and its stamp |
 | Whether Fadak gets a zine at all | Zine 11 |
-| The calendar ring punch position | All fourteen event prints. **Fix it before anything is drawn.** |
+| ~~The calendar ring punch position~~ | Fixed in `00-foundations/design-system.md` §6 (6mm hole, 12mm from edge, 25mm book ring). Still needs a physical proof before Phase 4 art commits to it. |
 
 ---
 

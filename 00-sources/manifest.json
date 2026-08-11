@@ -1,22 +1,25 @@
 {
   "fourteen--nuqoosh-e-ismat-eng-trns-s-athar-h-sh-rizvi.pdf": {
     "bytes": 2311650,
-    "edition_checked": false,
+    "edition_checked": true,
     "item_title": "Nuqoosh e Ismat (Seerah Fourteen Infallibles) \u0646\u0642\u0648\u0634 \u0639\u0635\u0645\u062a (\u0633\u06cc\u0631\u062a \u0686\u06c1\u0627\u0631\u062f\u06c1 \u0645\u0639\u0635\u0648\u0645\u06cc\u0646 \u0639\u0644\u06cc\u06c1\u0645 \u0627\u0644\u0633\u0644\u0627\u0645)",
     "sha256": "4500ff5ba2b7bdb31c2d4a77567973232001663736bf3ab78a90bde057452b57",
     "target": "fourteen",
     "target_title": "A Brief History of the Fourteen Infallibles (WOFIS)",
-    "translator": null,
+    "author": "Allamah Sayyid Zeeshan Haider Jawadi",
+    "translator": "Sayyid Athar Husain S.H. Rizvi",
+    "publisher": "Allamah Jawadi Trust",
     "url": "https://archive.org/download/nuqoosh-e-ismat-eng-trns-s-athar-h-sh-rizvi/nuqoosh-e-ismat-eng-trns-s-athar-h-sh-rizvi.pdf"
   },
   "fourteen--the-fourteen-infallibles.pdf": {
     "bytes": 539166,
-    "edition_checked": false,
+    "edition_checked": true,
     "item_title": "the_fourteen_infallibles",
     "sha256": "eabadb3b64277dc67fa6963eaaf74f97b437be3a6d2e83bd5e9af187cf62641c",
     "target": "fourteen",
     "target_title": "A Brief History of the Fourteen Infallibles (WOFIS)",
     "translator": null,
+    "translator_note": "Not a translation \u2014 authored directly in English by Yasin T. Al-Jibouri. Treat as a secondary/tertiary source for locating material, not a citation of record, same as Bihar al-Anwar under sourcing-rules.md.",
     "url": "https://archive.org/download/the_fourteen_infallibles/the_fourteen_infallibles.pdf"
   },
   "irshad--kitab-al-irshad-1.pdf": {
@@ -27,6 +30,7 @@
     "target": "irshad",
     "target_title": "Kitab al-Irshad \u2014 al-Mufid, trans. I.K.A. Howard",
     "translator": null,
+    "translator_note": "No translator credit survived OCR extraction in 00-sources/text/. I.K.A. Howard is the expected translator (target_title) but unconfirmed against this file.",
     "url": "https://archive.org/download/kitab_al_irshad_1/kitab_al_irshad_1.pdf"
   },
   "irshad--kitab-al-irshad-part-1.pdf": {
@@ -37,6 +41,7 @@
     "target": "irshad",
     "target_title": "Kitab al-Irshad \u2014 al-Mufid, trans. I.K.A. Howard",
     "translator": null,
+    "translator_note": "Same as kitab_al_irshad_1 \u2014 no translator credit in extracted text, unconfirmed.",
     "url": "https://archive.org/download/kitab-al-irshad-part-1/Kitab%20al-Irshad%2C%20Part%201.pdf"
   },
   "kafi--alkafi-201601.pdf": {
@@ -51,42 +56,43 @@
   },
   "qarashi--the-life-of-imam-mahdi-a-s.pdf": {
     "bytes": 11422451,
-    "edition_checked": false,
+    "edition_checked": true,
     "item_title": "The Life Of Imam Mahdi A S",
     "sha256": "749d64908b1516c7e4b5132cf9c2d47a2a8af2b2b5f9fc77558188f38c06dc89",
     "target": "qarashi",
     "target_title": "The Life of Imam ... \u2014 Baqir Sharif al-Qarashi (series)",
-    "translator": null,
+    "translator": "Al-Qalam Translators & Writers Bureau, Vasai (India)",
     "url": "https://archive.org/download/the-life-of-imam-mahdi-a-s/The-Life-of-Imam-Mahdi-A-S.pdf"
   },
   "qarashi--the-life-of-imam-musa-bin-jafar-al-kazim.pdf": {
     "bytes": 3107709,
-    "edition_checked": false,
+    "edition_checked": true,
     "item_title": "the_life_of_imam_musa_bin_jafar_al_kazim",
     "sha256": "6331ca0d02b116315647852fc28e489aaba3b968520b349f29b8653c45648f79",
     "target": "qarashi",
     "target_title": "The Life of Imam ... \u2014 Baqir Sharif al-Qarashi (series)",
-    "translator": null,
+    "translator": "Jasim al-Rasheed",
+    "publisher": "Ansariyan Publications - Qum",
     "url": "https://archive.org/download/the_life_of_imam_musa_bin_jafar_al_kazim/the_life_of_imam_musa_bin_jafar_al_kazim.pdf"
   },
   "sira-guillaume--guillaumeathelifeofmuhammad.pdf": {
     "bytes": 27077089,
-    "edition_checked": false,
+    "edition_checked": true,
     "item_title": "The Life Of Muhammad, by Ibn Ishaq",
     "sha256": "15da6fccf1cc034b59e28e9e5dfed0093fb03c2d55aa24efd3ad900406c24461",
     "target": "sira-guillaume",
     "target_title": "Sirat Rasul Allah \u2014 Ibn Ishaq, trans. A. Guillaume",
-    "translator": null,
+    "translator": "A. Guillaume",
     "url": "https://archive.org/download/GuillaumeATheLifeOfMuhammad/Guillaume%2C%20A%20-%20The%20Life%20of%20Muhammad.pdf"
   },
   "sira-guillaume--thelifeofmohammedguillaume.pdf": {
     "bytes": 147635521,
-    "edition_checked": false,
+    "edition_checked": true,
     "item_title": "Ibn Ishaq's Sirat Rasul Allah - The Life of Muhammad Translated by A. Guillaume",
     "sha256": "da7e229cf5c55ef63baccba62a49b2f9cd7e7e2df845b1fab5d08ced62dab926",
     "target": "sira-guillaume",
     "target_title": "Sirat Rasul Allah \u2014 Ibn Ishaq, trans. A. Guillaume",
-    "translator": null,
+    "translator": "A. Guillaume",
     "url": "https://archive.org/download/TheLifeOfMohammedGuillaume/The_Life_Of_Mohammed_Guillaume.pdf"
   },
   "sira-subhani--the-message-201506.pdf": {
@@ -96,27 +102,31 @@
     "sha256": "7bea17cb3cf80ebe1ab8a1c7a9a5f3fe5ad0c23c0a11a545fbe4011ea6809da0",
     "target": "sira-subhani",
     "target_title": "The Message \u2014 Ja'far Subhani (Shia sira)",
+    "author": "Ayatullah Ja'far Subhani",
+    "publisher": "Islamic Seminary Publications",
     "translator": null,
+    "translator_note": "Author confirmed in text; the English translator's name is not in the extracted front matter.",
     "url": "https://archive.org/download/the_message_201506/the_message.pdf"
   },
   "tabari--tabarivolume08.pdf": {
     "bytes": 12361557,
-    "edition_checked": false,
+    "edition_checked": true,
     "item_title": "The History of al-Tabari, vol. 8",
     "sha256": "0b38f6784656f95171665a58c0db0f2800e7d3d854fac303535298d2b713a0d4",
     "target": "tabari",
     "target_title": "The History of al-Tabari (SUNY) \u2014 volumes covering 40\u2013260 AH",
-    "translator": null,
+    "translator": "Michael Fishbein",
     "url": "https://archive.org/download/TabariVolume08/Tabari_Volume_08.pdf"
   },
   "tabari--the-history-of-al-tabari.pdf": {
     "bytes": 31195349,
-    "edition_checked": false,
-    "item_title": "The History of al-Tabari",
+    "edition_checked": true,
+    "item_title": "The History of al-Tabari, vol. 40 (Index)",
     "sha256": "ef94cc4b8eb773ddb56000389c75923ee0260962113fdb0ca382e5c9597b89ec",
     "target": "tabari",
     "target_title": "The History of al-Tabari (SUNY) \u2014 volumes covering 40\u2013260 AH",
-    "translator": null,
+    "translator": "Alex V. Popovkin (index), supervised by Everett K. Rowson",
+    "translator_note": "This is the Index volume (XL), not a citable narrative volume \u2014 use it only to locate material, then cite the actual narrative volume (e.g. vol. 8, Fishbein) covering that period.",
     "url": "https://archive.org/download/the-history-of-al-tabari/Tabari_Volume_40_Index.pdf"
   },
   "worldhistory--timetablesofhist0000grun-h6t8.pdf": {
