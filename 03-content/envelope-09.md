@@ -37,7 +37,7 @@
 
 ○ Which of these do you owe me? Ask before we go on.
 
-● And here is what makes it a list and not a sermon. It does not say be good. It says: here is who, here is what, go and do it. Fifty-odd entries. You could read the whole thing tonight.
+● And here is what makes it a list and not a sermon. It does not say be good. It says: here is who, here is what, go and do it. Fifty-one entries. You could read the whole thing tonight.
 
 ● Nobody made him write it. He had every reason to be finished with the world.
 
@@ -62,7 +62,7 @@
 
 ● **The imamate.** About thirty-four years, from 61 AH, from the age of about twenty-three — beginning on the worst day of his life and lasting longer than most reigns in that empire.
 
-● **What he left.** Two books. *Sahifa Sajjadiyya*, a collection of his prayers, which people have used as their own words for thirteen centuries. And *Risalat al-Huquq* — the Treatise of Rights — the list in this letter, with around fifty entries.
+● **What he left.** Two books. *Sahifa Sajjadiyya*, a collection of his prayers, which people have used as their own words for thirteen centuries. And *Risalat al-Huquq* — the Treatise of Rights — the list in this letter, with fifty-one entries.
 
 ● **Shahrbanu.** His mother. *Traditionally told: she came from the Persian royal house, and accounts of her origin vary considerably.* What is not disputed is that his line is the point where two very different worlds met in one family.
 
@@ -107,7 +107,7 @@ He died in Medina in 95 AH. Shia accounts hold that he was killed on the orders 
 
 | # | Item | Spec | State |
 |---|---|---|---|
-| 2 | Hadith card | From Sahifa Sajjadiyya or Risalat al-Huquq. Silsila **segment 5**. | Blocked on fixed edition |
+| 2 | Hadith card | From Sahifa Sajjadiyya or Risalat al-Huquq. Silsila **segment 5**. Candidate: Risalat al-Huquq, entry 3 (the tongue), quoted exactly — see `citation-sheet.md`. | Edition fixed, quote verified; card copy not yet selected |
 | 3 | Person print | Jannat al-Baqi, third angle. | Pending |
 | 4 | Event print | Munajat Sha'baniyya. A courtyard at night, one lamp, no figures. Ring position 9. | Pending |
 | 6 | Sticker sheet | A list, an ear, a hand, a foot, a doorway, numbered marks | Pending |
@@ -129,8 +129,8 @@ He died in Medina in 95 AH. Shia accounts hold that he was killed on the orders 
 
 ## Open
 
-- [ ] Fix the edition of Risalat al-Huquq and count the entries exactly. **The letter says "around fifty" — make it the real number.**
-- [ ] Verify the tongue entry and quote it exactly from the fixed translation
+- [x] Fix the edition of Risalat al-Huquq and count the entries exactly — **51**, per the fixed Chittick edition's own section numbering (1–51). Letter and panel updated 2026-08-12; see `citation-sheet.md`.
+- [x] Verify the tongue entry and quote it exactly from the fixed translation — entry 3, p. 9: "The right of the tongue is that you consider it too noble for obscenity, accustom it to good, refrain from any meddling in which there is nothing to be gained, express kindness to the people, and speak well concerning them." The letter's own line (26) still paraphrases rather than quotes this — fine for the child-facing dialogue, but the hadith card, if it uses this entry, must quote it exactly or trim with `…`, never paraphrase (rule in `sourcing-rules.md`).
 - [ ] Shahrbanu — decide how much is carried, keep it marked traditional
 - [ ] Verify Leshan dates
 - [ ] Scholar review

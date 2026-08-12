@@ -28,7 +28,7 @@ Nothing gets written or drawn until the rules are fixed. Rewriting fourteen enve
 - [ ] Record translator, publisher, edition and year for each. Credit lines are needed on the cards.
 - [x] Build a citation sheet: one row per hadith or passage, with text, source, hadith or page number, and the translation credited. → `00-foundations/citation-sheet.md`, with status codes, the AH→CE table, and the fourteen women's rows. **Nothing prints on `TV`.**
 - [x] Rule set for sourcing, written down. → `00-foundations/sourcing-rules.md`
-- [ ] **Close the sira gap.** The five priority works carry sayings, not biography, and every letter is biography — envelope 03 has no fillable row. Recommendation: add al-Mufid's *al-Irshad* and al-Tabari to the fixed editions. See `citation-sheet.md` open question 1.
+- [ ] **Close the sira gap — partly done (2026-08-12).** The five priority works carry sayings, not biography, and every letter is biography. Guillaume's *The Life of Muhammad* and SUNY al-Tabari Vol. VIII (Fishbein) are now fixed editions and have closed envelope 03. al-Mufid's *al-Irshad* is still open — the two extracts in the repo carry no translator credit. See `citation-sheet.md` open question 1 and `sourcing-rules.md`.
 - [ ] **Fix one general reference for the "elsewhere in the world" bullet.** Fourteen claims about world history with no source rule at all.
 - [ ] Build the fact bank per Masoom: ruler of the day, length of the imamate, named students, attributed compilations, what was happening elsewhere in the world that year. This is the raw material for all fourteen fact panels and it is the slowest research task in the project. Start it now, finish it during Phase 3.
 
