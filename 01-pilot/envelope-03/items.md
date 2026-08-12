@@ -13,7 +13,7 @@ Running order, per `standard-lines.md` §5, prints inside the flap.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 2 | Hadith card | A saying of the Prophet, conduct or ethics only. Silsila **segment 1**. Edition fixed — Tuhaf al-Uqul, trans. Badr Shahin, Ansariyan Publications. | Edition fixed; saying not yet selected |
-| 3 | Person print | Masjid an-Nabawi. Green dome, palm trunks, early light. Full palette, no faces. | Pending |
+| 3 | Person print | Masjid an-Nabawi. Green dome, palm trunks, early light. Full palette, no faces. | **First artwork received 2026-08-12** — ink-and-wash, green dome, minaret. Three deltas open, see below. File not yet in the repo. |
 | 4 | Event print | The arrival at Quba. An empty road out of the desert, a kneeling camel, a palm grove. No figures. Ring position 3. | Pending |
 | 6 | Sticker sheet | The cloak shape with four corners marked, a palm, the Quba road, a caravan, small repeatable marks. | Pending |
 | 7 | Return postcard | Front: the cloak shape, single ink, no text. | Pending |
@@ -48,6 +48,16 @@ Segment 1 of 14, because the silsila runs in historical order while the envelope
 | Ink | Full palette |
 | Faces | None. No figures at all in the Fourteen. |
 | Destination | A wall. It is looked at daily for a year, so it must survive being looked at. |
+
+### First artwork received — 2026-08-12
+
+Ink-and-wash treatment: green dome, the near minaret and one further back, grey wash sky, no figures. The **no-faces rule is respected** and the register (hand-inked, restrained, generous negative space) matches the master style block. Three deltas to settle before this is accepted:
+
+| # | Delta | Why it matters |
+|---|---|---|
+| 1 | **The dome is green. There is no green in the fixed palette.** §2 fixes ivory, near-black, gold `#A9762F`, muted teal `#2C5F5A`, terracotta `#B4472A`. The art-prompt pack names "the green dome" in the subject while its own negative prompt bans "color outside the fixed palette" — a contradiction that was never resolved, and the artwork resolved it by using green. | **The dome cannot be any other colour** — it is *the* Green Dome, and muted teal reads visibly wrong to anyone who knows it. This is almost certainly the only green in the box (02, 05 and 09 are Jannat al-Baqi, explicitly *no dome*), so a one-off sanctioned exception is clean. **But it has to be sanctioned in `design-system.md` §2, not left as a silent departure** — otherwise the next illustrator has no way to know whether green is allowed. |
+| 2 | **The ground is white; the stock is warm ivory `#F3EDE1`.** | §2 chose ivory deliberately over "stark white" because the product is handled and re-read. A white-ground image on ivory stock prints as a paler rectangle, or fights the stock at the edges. The art needs a transparent or ivory ground before prepress. |
+| 3 | **No palm trunks, and the composition is inverted from the brief.** The prompt asked for the dome in the upper third with palm trunks grounding the bottom third; here the minaret dominates the upper half and the dome sits centre-left with no foreground. | Not wrong in itself — it is a good composition. But **envelopes 02, 05 and 09 are meant to hang beside it as one Medina set** with consistent light and line weight, so whichever composition wins has to be the one all four are drawn to. Decide now, before the other three are commissioned, not after. |
 
 **Note the tension.** The letter is set in Makkah, twenty-five years before the Hijra, and the person print is the mosque at Medina. That is correct — the person print is the place he is, not the place the letter is, and it pairs against the event print which carries the road that got him there.
 

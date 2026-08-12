@@ -38,6 +38,8 @@ Two palettes. The mourning palette is not a mood variant of the standard one —
 
 Warm ivory over stark white because the product is handled and re-read, not displayed under gallery light — white stock shows handling faster and reads coldly next to gold foil or a wax seal. Gold as the primary accent because it is doing double duty: it is also the seal and the postal-cancellation-stamp ring color, so it needs to be one fixed ink the whole product recognises on sight by envelope three, same logic as the fact-panel skeleton.
 
+**Open: the Green Dome.** The envelope 03 person print is Masjid an-Nabawi, whose dome is green — and there is no green in the table above. The art-prompt pack names "the green dome" in its subject line while its own negative prompt bans colour outside the fixed palette; the first artwork resolved that contradiction by using green. **The dome cannot be recoloured** — muted teal reads wrong to anyone who knows the building. Almost certainly a one-off: envelopes 02, 05 and 09 are Jannat al-Baqi, specified *no dome*, so no other print needs it. **Decide whether to add a sixth colour to this table or record a named single-print exception, and say which in this file** — a departure that lives only in one illustration is a departure the next illustrator cannot see.
+
 ### Mourning palette — envelopes 01 and 02 only
 
 | Role | Name | Hex |
