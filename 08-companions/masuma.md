@@ -107,11 +107,11 @@ Measured with the command in `03-content/spec-check.md`, not estimated.
 
 **No death scene.** The letter names that she fell ill and died, without describing either — the same restraint held everywhere else in this line.
 
-**Word-for-word consistency with envelope 13's bullet matters here more than in most companion entries**, since the claim is nearly identical in both places. Any future edit to one should be checked against the other.
+**Claim-consistency with envelope 13's bullet matters here more than in most companion entries**, since the same claim appears in both places. The two lines do different jobs and reasonably differ in wording — what must not differ is the facts asserted or how certain they are stated to be. Any future edit to one should be checked against the other.
 
 ## Open
 
 - [ ] Verify the journey, the illness, and her death at Qom against a fixed edition
 - [ ] Verify the growth of the shrine and the city's association with her specifically
-- [ ] Confirm this stays word-for-word consistent with envelope 13's fact-panel bullet about her
+- [ ] Confirm this stays **claim-consistent** with envelope 13's fact-panel bullet about her — same facts, same degree of certainty, no detail asserted here that isn't asserted there. *(An earlier note demanded word-for-word identity; that was the wrong test. The two lines do different jobs — a points-home line and a fact-panel bullet — and reasonably differ in phrasing. Checked 2026-08-12: both say she set out from Medina to reach him and got as far as Qom; both place her death at Qom. Consistent.)*
 - [ ] Scholar review

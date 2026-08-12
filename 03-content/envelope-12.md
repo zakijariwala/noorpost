@@ -21,7 +21,7 @@
 
 ○ Did he?
 
-● No. He opened a class.
+● No. He did not take one step toward it. He opened a class instead.
 
 ● A circle in a courtyard in Medina, most days, going on for years. Anybody could come. And they came from everywhere, and the important part is this: we know their names. Not a crowd, not a number somebody made up afterwards. Lists of people, one by one, who sat there.
 

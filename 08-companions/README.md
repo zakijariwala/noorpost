@@ -192,6 +192,20 @@ Everything in `00-foundations/` applies unchanged: the two-voice letter spec, th
 - **Narjis Khatun sits on occultation-adjacent ground**, the same as Uthman and Ahmad ibn Ishaq before her — held to the same restraint, no theology, the fact of the secrecy only.
 - **Ruqayya bint al-Husayn carries real historical uncertainty**, closer in kind to `khawla.md` than to `sakina.md` — flagged for the same category-before-wording scholar review.
 
+## Known gaps in this line, stated plainly
+
+Recorded here rather than left implied, because this line has grown faster than the work that gates it.
+
+| Gap | Size |
+|---|---|
+| **Print templates** | **18 of 39 have one.** `04-art/print/companion-*` covers the first eighteen only; the last twenty-one — every entry from Sumayyah onward — has none. |
+| **Citations** | **0 of 39 verified.** No companion letter has a single row at `V`. The Fourteen's citation work has priority and none of these jump that queue. |
+| **Scholar review** | **0 of 39 signed.** Three need a category decision *before* wording review: Khawla, Fitrus, Ruqayya. |
+| **Artwork** | **0 of 39.** Every person print and sticker sheet is spec-only. |
+| **Spec-check blocks** | **10 of 39 carry one** — the ten reworked on 2026-08-12. The other twenty-nine were measured in aggregate but do not document the child-word test individually, which the rulebook requires. |
+
+**The pattern worth noticing:** writing entries is the cheap activity and it has outrun the four expensive ones that actually gate print. Adding a thirty-sixth entry costs an afternoon; the citation, scholar, template and art backlog behind the existing thirty-nine is measured in months. Consider this line closed to new entries until that backlog moves.
+
 ## Status
 
 **Thirty-nine letters and fact panels written — all fourteen Masoomeen have a companion, all four nayibs of the minor occultation now have one each, the line stands at twenty men to eighteen women plus Fitrus (un-gendered) — closer to parity than it has ever been, still short of it, this batch's seven-to-three women-to-men skew was deliberate movement toward it — and it includes family members and one traditional/miraculous figure by deliberate decision, not by accident.** All held to the same word count, child-line count, and demand-line rules as the Fourteen — measured, not estimated, same discipline as `03-content/spec-check.md`. A number of entries across the last four batches sit a little under the 330-word floor (270–328 in the earlier batches, 313 and 321 in this one) rather than exactly in range; flagged here rather than quietly left. **Artwork pending for all thirty-nine** — Fitrus specifically does not get a human portrait; see his own item spec. Citations pending — same blockers as the Fourteen, and none of these letters jump that queue. **Khawla, Fitrus, and now Ruqayya all need a scholar category decision, not just a wording review, before anything else happens to them.**
