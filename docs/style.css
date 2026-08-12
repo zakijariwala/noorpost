@@ -332,6 +332,127 @@ code {
   font-size: 0.9em;
 }
 
+/* ---------- item cards ---------- */
+
+.cardsback { margin: -0.6rem 0 1.6rem; }
+.cardsback a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+.cardsback a:hover { text-decoration: underline; }
+
+.itemgrid { display: flex; flex-direction: column; gap: 1.4rem; }
+
+.itemcard {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 1.4rem clamp(1rem, 4vw, 1.8rem);
+  box-shadow: 0 1px 2px var(--shadow);
+}
+
+.itemcard-head {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.7rem;
+  margin-bottom: 1.1rem;
+}
+
+.itemtag {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-right: auto;
+}
+
+.sizetag {
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--soft);
+}
+
+.statuspill {
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 99px;
+  border: 1px solid var(--rule);
+  white-space: nowrap;
+}
+
+.statuspill.written { color: var(--accent); border-color: var(--accent); }
+.statuspill.placeholder { color: var(--soft); border-style: dashed; }
+
+.itemspec { color: var(--soft); font-style: italic; margin: 0 0 1rem; }
+
+.decidednote {
+  border-left: 2px solid var(--accent);
+  padding: 0.15rem 0 0.15rem 0.9rem;
+  margin: 0 0 1rem;
+}
+.decidednote p { margin: 0; }
+
+.artbox {
+  max-width: 13rem;
+  margin: 0 auto 0.9rem;
+  border: 1px dashed var(--rule);
+  border-radius: 3px;
+  background: var(--paper);
+  aspect-ratio: 0.705 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.artbox.land { aspect-ratio: 1.42 / 1; max-width: 17rem; }
+
+.artbox-frame { width: 38%; color: var(--soft); }
+.artbox-frame svg { width: 100%; height: auto; display: block; }
+
+.artbox-caption {
+  text-align: center;
+  color: var(--soft);
+  font-size: 0.92rem;
+  font-style: italic;
+  margin: 0 0 0.5rem;
+  max-width: 30rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.placeholdertag {
+  text-align: center;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin: 0;
+}
+
+.placeholderquote {
+  background: var(--paper);
+  border: 1px dashed var(--rule);
+  border-radius: 3px;
+  padding: 1rem 1.2rem;
+  margin: 0 0 0.6rem;
+}
+.placeholderquote p { margin: 0; font-style: italic; color: var(--soft); }
+
+.postcardtext {
+  border-left: 2px solid var(--accent);
+  margin: 0;
+  padding: 0.15rem 0 0.15rem 1rem;
+}
+.postcardtext p { margin: 0 0 0.4rem; }
+.postcardtext p:last-child { margin-bottom: 0; }
+
 @media (max-width: 30rem) {
   body { font-size: 17px; }
   .stamp { display: none; }

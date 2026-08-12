@@ -68,6 +68,16 @@ The connection to the Fourteen prints on each one, as a fact, with no selling la
 | Zaynab bint Ali | Zaynab survived Karbala, and made sure the world could not simply forget what it had seen there. | Imam Husayn |
 | Sakina bint al-Husayn | Sakina was a small child at Karbala, and what she carried afterward was memory, not an army. | Imam Husayn |
 | Fitrus | Fitrus was an angel who lost his wings, and the accounts say grief for Imam Husayn is what restored them. | Imam Husayn (traditional account) |
+| Muhammad ibn Uthman al-Amri | Muhammad kept his father's post for about forty years, and never once let the family trade stop being the cover it was. | Imam al-Mahdi |
+| Husayn ibn Ruh al-Nawbakhti | Husayn served the third of the four terms, and was so careful with what he said that even his enemies could not catch him saying too much. | Imam al-Mahdi |
+| Ali ibn Muhammad al-Samarri | Ali was the fourth of the four, and the last letter he ever received said there would not be a fifth. | Imam al-Mahdi |
+| Fatima bint Asad | Fatima bint Asad raised the Prophet inside her own house before she ever raised her own son, Imam Ali. | Imam Ali |
+| Umm al-Banin | Umm al-Banin raised another woman's children as her own, and years later, at Karbala, lost four sons who had grown up doing exactly that. | Imam Husayn |
+| Hamida Khatun | Hamida did not just raise Imam al-Kadhim — Imam al-Sadiq himself sent women to be taught by her. | Imam al-Kadhim |
+| Umm Farwa | Imam al-Sadiq said his mother was among the believing women — and named her specifically, rather than praising mothers in general. | Imam al-Sadiq |
+| Narjis Khatun | Narjis kept a birth secret for months, in a house being watched, and told almost no one until it was already over. | Imam al-Mahdi |
+| Sayyida Ruqayya bint al-Husayn | Ruqayya was younger than Sakina, and she did not survive the captivity that followed Karbala. | Imam Husayn |
+| Sayyida Ma'suma | Ma'suma set out from Medina to reach her brother, Imam al-Rida, and got only as far as Qom. | Imam al-Rida |
 
 **All fourteen Masoomeen now have at least one companion pointing to them.** The first six pointed to just two (the Prophet and Imam Ali). The next four closed the biggest individual gaps (al-Mahdi, Husayn, Fatima, al-Baqir). The eight after that closed the rest in one pass — Hasan, al-Sajjad, al-Kadhim, al-Rida, al-Askari, al-Hadi, al-Sadiq, al-Jawad. **This last batch of eight closes a different gap: seventeen of the first eighteen companions were men.** Twenty-six companions total, eight of them women.
 
@@ -158,6 +168,30 @@ Everything in `00-foundations/` applies unchanged: the two-voice letter spec, th
 - **Fitrus needs a scholar decision on category, not just wording** — his own file explains why this may sit closer to theology (rule Q3) than anything else in the product. Treat as provisional until that's answered.
 - **Zaynab's letter deliberately quotes none of her actual words.** Her speeches are real citation work in their own right; this letter names that she spoke and what it did, not what was said. Flagged for a separate decision on whether any of it should ever be quoted directly.
 
+## The other three nayibs, and seven more women
+
+| File | Entry | Letter |
+|---|---|---|
+| `muhammad-ibn-uthman.md` | Muhammad ibn Uthman al-Amri | *Forty Years at the Same Stall* |
+| `husayn-ibn-ruh.md` | Husayn ibn Ruh al-Nawbakhti | *The Man Who Answered Without Answering* |
+| `al-samarri.md` | Ali ibn Muhammad al-Samarri | *The Last Letter* |
+| `fatima-bint-asad.md` | Fatima bint Asad | *The Woman Who Raised Him First* |
+| `umm-al-banin.md` | Umm al-Banin | *The Second Mother* |
+| `hamida.md` | Hamida Khatun | *The Woman Other Women Were Sent To* |
+| `umm-farwa.md` | Umm Farwa | *The Praise He Made Specific* |
+| `narjis.md` | Narjis Khatun | *The House That Kept a Secret* |
+| `ruqayya.md` | Sayyida Ruqayya bint al-Husayn | *The Youngest One* |
+| `masuma.md` | Sayyida Ma'suma | *As Far As Qom* |
+
+**Two deliberate moves in this batch, matching the pattern the last three set.**
+
+**The nayib line is now complete — all four deputies have an entry, `uthman.md` plus these three.** Read together they tell the whole seventy-year arrangement from four different vantage points: an oil-trade cover invented, the same cover inherited and held longest, a public figure's discretion under interrogation, and the letter that ended it. All three new entries hold the same restraint as `uthman.md` and `envelope-10.md` — no occultation theology, the working life of the post only.
+
+**The seven women skew this batch deliberately female, seven against three, so the line moves further past parity rather than just holding it.** Six are mothers or sisters of a Masoom — Fatima bint Asad (Imam Ali), Umm al-Banin (raised Hasan and Husayn, mother of Abbas), Hamida Khatun (al-Kadhim), Umm Farwa (al-Sadiq), Narjis Khatun (al-Mahdi), and Sayyida Ma'suma (al-Rida's sister) — each promoting an existing citation-sheet "woman slot" row to a full companion entry, the same move `zaynab.md` and `sakina.md` made first. The seventh, Sayyida Ruqayya bint al-Husayn, is new ground: a second young daughter of Imam Husayn lost in the Karbala captivity, direct companion to `sakina.md`. Three flags specific to this batch:
+- **Six of the seven duplicate a citation-sheet woman-slot claim (envelopes 01, 04, 08, 12, 13) and must be reconciled with that row, not sourced independently** — same wording once either is checked, flagged in each file's own Open section.
+- **Narjis Khatun sits on occultation-adjacent ground**, the same as Uthman and Ahmad ibn Ishaq before her — held to the same restraint, no theology, the fact of the secrecy only.
+- **Ruqayya bint al-Husayn carries real historical uncertainty**, closer in kind to `khawla.md` than to `sakina.md` — flagged for the same category-before-wording scholar review.
+
 ## Status
 
-**Twenty-nine letters and fact panels written — all fourteen Masoomeen have a companion, the line is no longer eighteen-to-one male to female, and it now includes family members and one traditional/miraculous figure by deliberate decision, not by accident.** All held to the same word count, child-line count, and demand-line rules as the Fourteen — measured, not estimated, same discipline as `03-content/spec-check.md`. A number of entries across the last three batches sit a little under the 330-word floor (270–328) rather than exactly in range; flagged here rather than quietly left. **Artwork pending for all twenty-nine** — Fitrus specifically does not get a human portrait; see his own item spec. Citations pending — same blockers as the Fourteen, and none of these letters jump that queue. **Khawla and Fitrus both need a scholar category decision, not just a wording review, before anything else happens to them.**
+**Thirty-nine letters and fact panels written — all fourteen Masoomeen have a companion, all four nayibs of the minor occultation now have one each, the line stands at twenty men to eighteen women plus Fitrus (un-gendered) — closer to parity than it has ever been, still short of it, this batch's seven-to-three women-to-men skew was deliberate movement toward it — and it includes family members and one traditional/miraculous figure by deliberate decision, not by accident.** All held to the same word count, child-line count, and demand-line rules as the Fourteen — measured, not estimated, same discipline as `03-content/spec-check.md`. A number of entries across the last four batches sit a little under the 330-word floor (270–328 in the earlier batches, 313 and 321 in this one) rather than exactly in range; flagged here rather than quietly left. **Artwork pending for all thirty-nine** — Fitrus specifically does not get a human portrait; see his own item spec. Citations pending — same blockers as the Fourteen, and none of these letters jump that queue. **Khawla, Fitrus, and now Ruqayya all need a scholar category decision, not just a wording review, before anything else happens to them.**

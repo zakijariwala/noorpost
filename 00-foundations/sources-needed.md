@@ -33,12 +33,14 @@ One edition per work, fixed for the project and never mixed. Page and hadith num
 
 The five priority works are collections of sayings. **Every letter written is biography and narrative**, and none of it can be cited from Tier 1. This is the largest single hole in the project.
 
-| Work | What it carries | Needed for |
-|---|---|---|
-| **al-Mufid, Kitab al-Irshad** (trans. I.K.A. Howard) | Biography of the Twelve, in order. The natural companion to the five. | Envelopes 01, 02, 04, 05, 07–14 — the spine of most letters |
-| **Ibn Hisham / Ibn Ishaq, Sirat Rasul Allah** (trans. A. Guillaume) | Pre-revelation Makkah, the Kaaba rebuilding, al-Amin, the Hijra, the Trench, Hudaybiyya | **Envelope 03 in full**, plus Salman and Bilal, plus zines 04, 05, 14 |
-| **al-Tabari, History** (SUNY translation, 39 vols) | Rulers, dates, political events, the Abbasid period | The ruler bullet in all fourteen panels; envelopes 04, 08, 11, 13, 14 |
-| **al-Saduq, Kamal al-Din** *(if available)* | The occultation and the four deputies | Envelope 10 |
+**Status (2026-08-12): two of four now fixed and citable.** Guillaume and Tabari Vol. VIII closed — see `sourcing-rules.md`. al-Irshad and Kamal al-Din remain open.
+
+| Work | What it carries | Needed for | Status |
+|---|---|---|---|
+| **al-Mufid, Kitab al-Irshad** (trans. I.K.A. Howard) | Biography of the Twelve, in order. The natural companion to the five. | Envelopes 01, 02, 04, 05, 07–14 — the spine of most letters | Open. Both extracts in the repo carry no translator credit on the title page. |
+| **Ibn Hisham / Ibn Ishaq, Sirat Rasul Allah** (trans. A. Guillaume) | Pre-revelation Makkah, the Kaaba rebuilding, al-Amin, the Hijra, the Trench, Hudaybiyya | **Envelope 03 in full**, plus Salman and Bilal, plus zines 04, 05, 14 | **Fixed.** Used to verify envelope 03's letter and panel, 2026-08-12. |
+| **al-Tabari, History** (SUNY translation, 39 vols) | Rulers, dates, political events, the Abbasid period | The ruler bullet in all fourteen panels; envelopes 04, 08, 11, 13, 14 | **Volume VIII fixed** (Fishbein, trans. — Trench through the conquest of Makkah). Only that volume is in the repo; `tabari--the-history-of-al-tabari.txt` is the SUNY set's index (Vol. XL), not narrative content. |
+| **al-Saduq, Kamal al-Din** *(if available)* | The occultation and the four deputies | Envelope 10 | Open — see Tier 1 note above: the aggregator copy has no translator credit and doesn't qualify. |
 
 **You do not need all of Tabari.** Identify the two or three volumes covering 40–260 AH and get those.
 
@@ -115,9 +117,9 @@ Ranked. If a source has to be found for only ten things, find these.
 
 | # | Claim | Where | Why it is on this list |
 |---|---|---|---|
-| 1 | Makkah called him al-Amin before revelation, and had reasons | 03 | **It is the one new thing for the adult and currently the worst-sourced claim in the envelope** |
-| 2 | Risalat al-Huquq entry count, and the tongue entry quoted exactly | 09 | The letter's whole structure rests on it |
-| 3 | Imam al-Rida's four conditions | 13 | The one new thing; quote exactly if the edition allows |
+| 1 | ~~Makkah called him al-Amin before revelation, and had reasons~~ | 03 | **Verified 2026-08-12** — Guillaume, *The Life of Muhammad*, p. 67. See `citation-sheet.md`. |
+| 2 | ~~Risalat al-Huquq entry count, and the tongue entry quoted exactly~~ | 09 | **Verified 2026-08-12** — 51 entries, tongue entry (3) quoted, p. 9. See `citation-sheet.md`. |
+| 3 | ~~Imam al-Rida's four conditions~~ | 13 | **Verified 2026-08-12** — Uyun Akhbar al-Rida vol. 2, p. 227 (Peiravi). Letter's original phrasing didn't match the source and was rewritten. See `citation-sheet.md`. |
 | 4 | Al-Kadhim's four years, consistent across letter, sealed answer and death line | 08 | **Three places give the same number. If the source says otherwise, three edits.** |
 | 5 | The shield case: Shurayh's name, ruling, grounds, congratulation | 07 | Everything rests on it being reported with the judge named |
 | 6 | The wikala network and the named regions sending funds | 04 | The Case File's sealed answer is built on it |

@@ -28,7 +28,7 @@ Nothing gets written or drawn until the rules are fixed. Rewriting fourteen enve
 - [ ] Record translator, publisher, edition and year for each. Credit lines are needed on the cards.
 - [x] Build a citation sheet: one row per hadith or passage, with text, source, hadith or page number, and the translation credited. → `00-foundations/citation-sheet.md`, with status codes, the AH→CE table, and the fourteen women's rows. **Nothing prints on `TV`.**
 - [x] Rule set for sourcing, written down. → `00-foundations/sourcing-rules.md`
-- [ ] **Close the sira gap.** The five priority works carry sayings, not biography, and every letter is biography — envelope 03 has no fillable row. Recommendation: add al-Mufid's *al-Irshad* and al-Tabari to the fixed editions. See `citation-sheet.md` open question 1.
+- [ ] **Close the sira gap — partly done (2026-08-12).** The five priority works carry sayings, not biography, and every letter is biography. Guillaume's *The Life of Muhammad* and SUNY al-Tabari Vol. VIII (Fishbein) are now fixed editions and have closed envelope 03. al-Mufid's *al-Irshad* is still open — the two extracts in the repo carry no translator credit. See `citation-sheet.md` open question 1 and `sourcing-rules.md`.
 - [ ] **Fix one general reference for the "elsewhere in the world" bullet.** Fourteen claims about world history with no source rule at all.
 - [ ] Build the fact bank per Masoom: ruler of the day, length of the imamate, named students, attributed compilations, what was happening elsewhere in the world that year. This is the raw material for all fourteen fact panels and it is the slowest research task in the project. Start it now, finish it during Phase 3.
 
@@ -215,7 +215,7 @@ For each letter: 330–370 words, voice marks assigned, child lines counted and 
 
 Runs after launch. It is a first purchase and a gift, not the flagship.
 
-**Twenty-six written — all fourteen Masoomeen have a companion, and the earlier male/female imbalance is closed.** Letters and fact panels, in `08-companions/`. Artwork pending.
+**Thirty-nine written — all fourteen Masoomeen have a companion, all four nayibs of the occultation are covered, and the line stands at twenty men to eighteen women plus Fitrus.** Letters and fact panels, in `08-companions/`. Artwork pending.
 
 - [x] Build the four-item template: two-voice letter with fact panel on the reverse, person print, sticker sheet, return postcard.
 - [x] Enforce the two protective rules in the template itself: **no hadith card, no event print, ever.** Those two carry the silsila and the calendar ring. The box must stay the only way to complete anything.
@@ -224,9 +224,11 @@ Runs after launch. It is a first purchase and a gift, not the flagship.
 - [x] Write four more, chosen to reach Masoomeen the first six didn't touch: Uthman ibn Sa'id al-Amri (al-Mahdi's deputy network), Abbas ibn Ali (Husayn), Fizza (Fatima), Jabir ibn Abdullah al-Ansari (al-Baqir). Same word count and child-line rules.
 - [x] Write the next eight, closing every remaining Masoom gap: Qais ibn Sa'd (Hasan), Tawus al-Yamani (al-Sajjad), Safwan al-Jammal (al-Kadhim), Dibil al-Khuza'i (al-Rida), Ahmad ibn Ishaq al-Qummi (al-Askari), Abu Hashim al-Ja'fari (al-Hadi), Hisham ibn al-Hakam (al-Sadiq), Ali ibn Mahziyar (al-Jawad). **All fourteen Masoomeen now have a companion.** These rest on narrower, more specific episodes than the first ten — real citation work needed before print, not a light pass.
 - [x] Write eight women, closing a different gap: seventeen of the first eighteen companions were men. Sumayyah bint Khabbat, Nusaybah bint Ka'b, Umm Ayman, Halima al-Sa'diyya, Asma bint Umays, Khawla bint al-Azwar, Umm Kulthum bint Ali, Rabab bint Imra' al-Qays. **Khawla's entry needs a scholar decision on whether it survives at all** — the most historically uncertain account in the whole companions line.
+- [x] **Decided (2026-08-12): "Everyone Else" includes family members and traditional/miraculous figures, not just servants and companions in the strict sense.** See `08-companions/README.md` "Scope, decided." Drafted Zaynab bint Ali, Sakina bint al-Husayn, and the angel Fitrus on this basis.
+- [x] Write the other three nayibs of the minor occultation — Muhammad ibn Uthman al-Amri, Husayn ibn Ruh al-Nawbakhti, Ali ibn Muhammad al-Samarri — completing the set of four alongside Uthman ibn Sa'id. Same occultation restraint as `envelope-10.md`: no theology, the working life of the post only.
+- [x] Write seven more women, skewed 7-to-3 against this batch's three men, moving the line further toward parity: Fatima bint Asad (Imam Ali), Umm al-Banin (raised Hasan and Husayn, mother of Abbas), Hamida Khatun (al-Kadhim), Umm Farwa (al-Sadiq), Narjis Khatun (al-Mahdi), Sayyida Ma'suma (al-Rida's sister), and Sayyida Ruqayya bint al-Husayn (new ground — a second young daughter lost in the Karbala captivity, alongside Sakina). Six of the seven promote an existing citation-sheet woman-slot claim to a full entry and must be reconciled with that row once sourced. **Ruqayya needs the same category-before-wording scholar review as Khawla.**
 - [x] Print the connection to the Fourteen on every envelope. Salman served the Prophet. Qambar served Imam Ali. Maytham died refusing to insult him. No selling language.
 - [ ] Print, stock singly, and list as a checkout add-on, an Eid gift and a madrasa prize.
-- [ ] **Decide: does "Everyone Else" include family members of the Fourteen (as Abbas does), or servants/companions only?** Raised by `08-companions/abbas.md`.
 
 ---
 

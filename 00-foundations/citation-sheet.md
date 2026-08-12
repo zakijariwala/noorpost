@@ -37,16 +37,33 @@ Every row must reach `Verified` before Gate 3. A row still marked `TO VERIFY` at
 
 | Env | Item | Claim | Work | Ref | Translator | Status | Note |
 |---|---|---|---|---|---|---|---|
-| 03 | letter | The Quraysh rebuilt the Kaaba when the Prophet was about thirty-five | Sira / Tabari | *to fill* | *to fill* | TV | Sira material, not hadith. Needs a citable historical edition — this is outside the five priority works and needs a rule of its own. See open question 1 below. |
-| 03 | letter | The clans disputed who would lift the Black Stone into place | Sira / Tabari | *to fill* | *to fill* | TV | Same. |
-| 03 | letter | He spread a cloak, set the stone on it, and had each clan carry a corner | Sira / Tabari | *to fill* | *to fill* | TV | Same. Well attested; the point is which printed edition we cite. |
-| 03 | panel | Makkah called him al-Amin before revelation | Sira / Tabari | *to fill* | *to fill* | TV | This is the one new thing for the adult. It must be the best-sourced claim in the envelope, not the worst. |
+| 03 | letter | Quraysh decided to rebuild the Ka'ba when the apostle was thirty-five years of age | Guillaume, *The Life of Muhammad* | p. 66 | A. Guillaume | V | "THE REBUILDING OF THE KA'BA WHEN THE APOSTLE ACTED AS UMPIRE." Resolves open question 1 for this row — see `sourcing-rules.md`, Guillaume now a fixed edition. |
+| 03 | letter | The clans disputed who would lift the Black Stone into place | Guillaume, *The Life of Muhammad* | p. 67 | A. Guillaume | V | "the black stone, where controversy arose, each tribe wanting to lift it to its place, until they went their several ways, formed alliances, and got ready for battle" — the bowl-of-blood pledge follows in the same passage. |
+| 03 | letter | He spread a cloak, set the stone on it, and had each clan carry a corner | Guillaume, *The Life of Muhammad* | p. 67 | A. Guillaume | V | "he took the black stone and put it inside it and said that each tribe should take hold of an end of the cloak and they should lift it together... he placed it with his own hand." |
+| 03 | panel | Makkah called him al-Amin before revelation | Guillaume, *The Life of Muhammad* | p. 67 | A. Guillaume | V | Exact line: "Quraysh used to call the apostle of God before revelation came to him, 'the trustworthy one'" — printed twice in the same episode ("This is the trustworthy one. We are satisfied. This is Muhammad."). This is the one new thing for the adult and is now the best-sourced claim in the envelope. |
 | 03 | panel | Khadija funded the early community out of her own trade | *to fill* | *to fill* | *to fill* | TV | Woman slot. Needs a documented statement of her funding, not a general statement of her wealth. |
 | 03 | panel | Twenty-three years of revelation | *to fill* | *to fill* | *to fill* | TV | Standard, still needs a row. |
 | 03 | panel | Birth 12th or 17th Rabi al-Awwal | — | — | — | CONT | Takes the standard differ line. |
 | 03 | panel | Death 11 AH, Medina | *to fill* | *to fill* | *to fill* | TV | Date differs by community — 28 Safar or 12 Rabi al-Awwal. Both take the differ line. |
 | 03 | panel | Elsewhere: work on the Grand Canal under the Sui in China, from around 605 CE | Non-Islamic secondary source | *to fill* | — | TV | AH→CE: the rebuilding sits around 605 CE, pre-Hijra, so no AH conversion needed here. Check the canal dates against a standard reference. |
 | 03 | hadith card | *to select from Tuhaf al-Uqul* | Tuhaf al-Uqul | *to fill* | *to fill* | TV | Conduct or ethics only. |
+
+---
+
+## Envelope 09 — Imam al-Sajjad
+
+| Env | Item | Claim | Work | Ref | Translator | Status | Note |
+|---|---|---|---|---|---|---|---|
+| 09 | letter/panel | *Risalat al-Huquq* has fifty-one entries | Risalat al-Huquq | Entries 1–51, numbered "1. The Greatest Right of Allah" through "51) The Right of People under the protection of Islam" | William C. Chittick | V | Counted directly off the English section headers in the fixed edition — 51, not "around fifty." One numbering quirk: the Arabic transliteration numerals drop out of sync after entry 39 (the unnumbered Arabic line for "the adversary against whom you have a claim"), but the English headers run 1–51 with no gap or repeat, and are the count of record. |
+| 09 | letter | The right of the tongue, quoted exactly: "The right of the tongue is that you consider it too noble for obscenity, accustom it to good, refrain from any meddling in which there is nothing to be gained, express kindness to the people, and speak well concerning them." | Risalat al-Huquq | Entry 3, p. 9 | William C. Chittick | V | Full sentence, no ellipsis needed to fit a card — check `standard-lines.md` / card layout for whether it needs trimming with `…`, which is permitted, rather than paraphrase, which is not. |
+
+---
+
+## Envelope 13 — Imam al-Rida
+
+| Env | Item | Claim | Work | Ref | Translator | Status | Note |
+|---|---|---|---|---|---|---|---|
+| 13 | letter | Imam al-Rida's four conditions for accepting the succession | Uyun Akhbar al-Rida, vol. 2 | p. 227 | Dr. Ali Peiravi | V | Exact quote: "I will accept the succession to the throne upon the conditions that I neither issue any orders, nor do I admonish against anything; I neither judge, nor change anything; that I be excused from all such affairs." **The letter's draft line did not match this wording** (it said "appoint nobody, dismiss nobody" — not supported by this passage) and has been rewritten to track the four sourced clauses: no orders, no objecting to what stands, no judging, no changing what is in place. See `envelope-13.md`, letter line, updated 2026-08-12. |
 
 ---
 
@@ -129,7 +146,7 @@ Options:
 2. Cite sira loosely and mark it all traditional. Weakens the product badly; most of it is documented.
 3. Restrict letters to what the five works carry. Would cut roughly half the fourteen letters.
 
-**Recommendation: option 1, and add al-Irshad and al-Tabari to the fixed-editions table.** This is a real gap in the PRD's sourcing rule rather than an oversight in this sheet, and it should be closed before any more letters are written.
+**Recommendation: option 1 — partly done (2026-08-12).** Guillaume's *The Life of Muhammad* (Ibn Ishaq/Ibn Hisham) is now fixed and has closed envelope 03's letter, above. SUNY's al-Tabari Volume VIII (Michael Fishbein) is also fixed and citable, but only that one volume is in the repo. **al-Mufid's *Kitab al-Irshad* is still open** — both extracts in `00-sources/text/` carry no translator credit on the title page, so nothing can be cited from it yet. See `sourcing-rules.md` for the full state.
 
 ### 2. The "elsewhere in the world" bullet has no source rule at all
 

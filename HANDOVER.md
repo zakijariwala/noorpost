@@ -94,11 +94,13 @@ Every page break in those files is a line reading `[[p 137]]`. **Read up from a 
 
 ### Where to start
 
-`00-foundations/sources-needed.md` ranks the ten claims most likely to fail. Work down that list. The top three:
+`00-foundations/sources-needed.md` ranks the ten claims most likely to fail. Work down that list. **The top three are now verified (2026-08-12):**
 
-1. Makkah called him al-Amin before revelation — envelope 03, and it is the adult's new thing
-2. Risalat al-Huquq entry count, and the tongue entry quoted exactly — envelope 09
-3. Imam al-Rida's four conditions — envelope 13
+1. ~~Makkah called him al-Amin before revelation~~ — envelope 03. Guillaume, *The Life of Muhammad*, p. 67 — now a fixed edition, closing the sira gap for this envelope. See `sourcing-rules.md` and `citation-sheet.md`.
+2. ~~Risalat al-Huquq entry count, and the tongue entry quoted exactly~~ — envelope 09. **51 entries**, not "around fifty" — letter and panel corrected. Tongue entry (3), p. 9, quoted in full on `citation-sheet.md`.
+3. ~~Imam al-Rida's four conditions~~ — envelope 13. Uyun Akhbar al-Rida vol. 2, p. 227. **The draft's phrasing didn't match the source** and the letter line was rewritten to the real four: no orders, no objecting, no judging, no changing what stands.
+
+Next down the list: #4, al-Kadhim's four years (envelope 08) — al-Kafi or Uyun Akhbar al-Rida are the likely works; #5, the Shurayh shield case (envelope 07) — needs al-Irshad, which is still an open edition (no translator credit on the title page yet, see `sourcing-rules.md`).
 
 ### Fill this in first
 
