@@ -27,7 +27,7 @@
 
 ○ So did he say yes?
 
-● He said yes to the title. Then he set out his conditions, and here they are. He would give no order. He would object to nothing already decided. He would judge no case. He would change nothing already in place.
+● He said yes to the title. Then he set out his conditions, and here they are. He would appoint nobody. He would dismiss nobody. He would not change a single thing that was already in place. And he would not give an opinion on any decision unless he was asked for one.
 
 ○ That's a job with no job in it.
 
@@ -123,7 +123,7 @@ He died at Tus in 203 AH, far from Medina, on the journey al-Ma'mun had summoned
 
 ## Open
 
-- [x] Verify the four conditions against a printed source — Uyun Akhbar al-Rida vol. 2, p. 227 (Peiravi). **The draft's original phrasing ("appoint nobody, dismiss nobody") did not match this passage** and the letter line has been rewritten to the sourced four: no orders, no objecting to what stands, no judging, no changing what is in place. See `citation-sheet.md`. Word count re-measured: 337 (was 351), still within L5.
+- [x] Verify the four conditions against a printed source — **verified, and the original draft wording stands.** Uyun Akhbar al-Rida vol. 2 carries the conditions in three places, and two of them match the draft closely: *"I do not interfere in dismissals or appointments, nor change any practices or traditions. I will just be a distant advisor"*, and *"I will neither issue any orders, nor will I admonish anyone. I will not remove anyone from office, neither will I appoint anyone."* See `citation-sheet.md`. **Correction (2026-08-12):** an earlier pass rewrote this line after grepping only a third, differently-worded passage and wrongly concluding the draft was unsupported. That rewrite has been reverted. Do not re-cut this line without checking all three passages.
 - [ ] Verify the debates and who was present
 - [ ] Verify the etymology of *Mashhad* before printing it
 - [ ] Verify the Norse-raids framing and dates

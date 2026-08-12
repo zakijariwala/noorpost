@@ -94,5 +94,5 @@ Every word in a child line sits inside Dolch + Fry 1000 or the madrasa list. Not
 ### Open
 
 - [ ] Time it aloud with a real family
-- [x] Fill every citation row for this letter — done 2026-08-12 against Guillaume, *The Life of Muhammad*, pp. 66–67 (now a fixed edition, see `sourcing-rules.md`). All four sira claims in the letter and panel are `V` on `citation-sheet.md`.
+- [x] Fill every citation row for this letter — done 2026-08-12 against Guillaume, *The Life of Muhammad*, **pp. 84–86** (now a fixed edition, see `sourcing-rules.md`). All four sira claims in the letter and panel are `V` on `citation-sheet.md`. *(Corrected from an earlier "pp. 66–67", which were PDF sheet numbers rather than printed pages — see the two-column trap in `HANDOVER.md`.)*
 - [ ] Scholar review

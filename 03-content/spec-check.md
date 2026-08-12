@@ -30,7 +30,7 @@ done
 | 10 | Imam al-Mahdi | *Letters In, Answers Out* | 349 | 7 | 12 | ✓ | ✓ |
 | 11 | Imam al-Hadi | *What They Found in the House* | 338 | 7 | 14 | ✓ | ✓ |
 | 12 | Imam al-Sadiq | *The Years Nobody Was Watching* | 330 | 6 | 13 | ✓ | ✓ |
-| 13 | Imam al-Rida | *The Job He Would Not Do* | 337 | 8 | 13 | ✓ | ✓ |
+| 13 | Imam al-Rida | *The Job He Would Not Do* | 349 | 8 | 13 | ✓ | ✓ |
 | 14 | Imam al-Jawad | *The Room Full of Grown-Ups* | 359 | 6 | 14 | ✓ | ✓ |
 
 **All fourteen inside 330–370. All inside 6–9 child lines. No child line reaches 15 words. Every letter carries a line that demands a response and closes on ●○.**

@@ -58,11 +58,22 @@ Published translations only. No in-house rendering of Arabic, ever, even where a
 | Uyun Akhbar al-Rida | Dr. Ali Peiravi | Ansariyan Publications, Qum | *to fix* | ☐ |
 | Risalat al-Huquq | William C. Chittick | Muhammadi Trust of Great Britain and Northern Ireland (bound with Sahifa Sajjadiyya) | 1988 | ☐ |
 | Sirat Rasul Allah (Ibn Ishaq / Ibn Hisham) | A. Guillaume, *The Life of Muhammad* | Oxford University Press, Karachi | First published 1955; this printing is the Pakistan reissue, thirteenth impression 1998 | ☐ |
-| al-Tabari, *History*, Vol. VIII, *The Victory of Islam* | Michael Fishbein | State University of New York Press | *to fix* | ☐ |
+| al-Tabari, *History*, Vol. VIII, *The Victory of Islam* | Michael Fishbein | State University of New York Press | *to fix* | ☐ · **fixed but not yet cited from — untested** |
 
 All six Tier 1 translators now confirmed, plus a seventh work added below to close the sira gap (`citation-sheet.md` open question 1). Four read straight off the title page already sitting in `00-sources/text/`. Two — Nahj al-Balagha and al-Kafi — carried no translator credit in the extracted text itself; candidates were cross-referenced against [ThaqalaynData](https://github.com/narmafraz/ThaqalaynData) and **confirmed against the physical/PDF title page on 2026-08-12.** Publisher and year still need filling for Nahj al-Balagha and al-Kafi. Guillaume's title page is in the extracted text itself (`00-sources/text/sira-guillaume--guillaumeathelifeofmuhammad.txt`, pp. 1–2) — translator, publisher, and first-edition year read directly off it; permission is unchecked, and the copyright page marks it "All rights reserved," so quotation permission is not assumed and must be established before Gate 3 same as the other six.
 
-**Only `sira-guillaume--guillaumeathelifeofmuhammad.txt` is usable.** The sibling file `sira-guillaume--thelifeofmohammedguillaume.txt` extracted as a single empty line — treat it as not present until re-extracted.
+**Only `sira-guillaume--guillaumeathelifeofmuhammad.txt` is usable.** The sibling file `sira-guillaume--thelifeofmohammedguillaume.txt` extracted as a single empty line — treat it as not present until re-extracted. **It should not be counted in any source inventory** until it is; it is currently tracked but carries nothing.
+
+### ⚠ Page numbers: two traps before you record one
+
+Both have already produced a wrong citation in this repo. Full method in `HANDOVER.md`.
+
+| Trap | Which sources | Rule |
+|---|---|---|
+| **Two-column scans** — one `[[p N]]` covers two book pages, so the marker is off by ~20 | `sira-guillaume--...` (38%), **`kafi--alkafi-201601.txt` (27%, Tier 1, not yet used)**, `tabari--the-history-of-al-tabari.txt` (41%, index only) | Read the running header on the line after the marker for the real book page. Left column = even, right = odd. |
+| **Web-generated PDFs** — pagination is an artifact of generation, not the printed edition | The al-Islam.org sources: Risalat al-Huquq, Sahifa Sajjadiyya, Uyun Akhbar al-Rida, Tuhaf al-Uqul | **Cite the work's own internal numbering** — entry, hadith, chapter-and-report. That is stable across editions. A page number here is decoration. |
+
+Envelope 03's four Guillaume rows were first recorded at pp. 66–67 (sheet numbers) and corrected to pp. 84–86 on 2026-08-12. The claims were sound throughout; only the numbers pointed elsewhere.
 
 This closes only the Ibn Ishaq/Guillaume leg of open question 1's option 1. al-Mufid's *Kitab al-Irshad* remains unfixed — both extracts in `00-sources/text/` (`irshad--kitab-al-irshad-1.txt`, `irshad--kitab-al-irshad-part-1.txt`) carry no translator credit on the title page (the standard I.K.A. Howard translation is the candidate per `sources-needed.md`, unconfirmed), so it is not fixed for citation until that credit is checked the same way.
 

@@ -117,9 +117,9 @@ Ranked. If a source has to be found for only ten things, find these.
 
 | # | Claim | Where | Why it is on this list |
 |---|---|---|---|
-| 1 | ~~Makkah called him al-Amin before revelation, and had reasons~~ | 03 | **Verified 2026-08-12** — Guillaume, *The Life of Muhammad*, p. 67. See `citation-sheet.md`. |
+| 1 | ~~Makkah called him al-Amin before revelation, and had reasons~~ | 03 | **Verified 2026-08-12** — Guillaume, *The Life of Muhammad*, **p. 86**. See `citation-sheet.md`. |
 | 2 | ~~Risalat al-Huquq entry count, and the tongue entry quoted exactly~~ | 09 | **Verified 2026-08-12** — 51 entries, tongue entry (3) quoted, p. 9. See `citation-sheet.md`. |
-| 3 | ~~Imam al-Rida's four conditions~~ | 13 | **Verified 2026-08-12** — Uyun Akhbar al-Rida vol. 2, p. 227 (Peiravi). Letter's original phrasing didn't match the source and was rewritten. See `citation-sheet.md`. |
+| 3 | ~~Imam al-Rida's four conditions~~ | 13 | **Verified 2026-08-12** — Uyun Akhbar al-Rida vol. 2 (Peiravi), three separate passages. **The letter's original wording is supported and stands.** An earlier pass wrongly rewrote it after reading only one of the three; that was reverted. See `citation-sheet.md`. |
 | 4 | Al-Kadhim's four years, consistent across letter, sealed answer and death line | 08 | **Three places give the same number. If the source says otherwise, three edits.** |
 | 5 | The shield case: Shurayh's name, ruling, grounds, congratulation | 07 | Everything rests on it being reported with the judge named |
 | 6 | The wikala network and the named regions sending funds | 04 | The Case File's sealed answer is built on it |

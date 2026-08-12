@@ -80,15 +80,33 @@ grep -rn -i -C4 "shurayh" 00-sources/text/
 grep -rn "three hundred" 00-sources/text/irshad--*.txt
 ```
 
-Every page break in those files is a line reading `[[p 137]]`. **Read up from a hit to the nearest one — that is the page number for the citation.**
+Every page break in those files is a line reading `[[p 137]]`. Read up from a hit to the nearest one — but **that number is the PDF sheet, not necessarily the book's printed page.** Two traps, both of which have already produced a wrong citation in this repo:
+
+**Trap 1 — two-column scans.** Some files are two-page-per-sheet scans whose columns got merged onto single lines. There, one `[[p N]]` covers *two* book pages and the number is off by twenty or more. Check before citing:
+
+```bash
+# >25% means two-column: the [[p N]] markers are sheet numbers, not book pages
+awk 'BEGIN{g=0} /\S {10,}\S/{g++} END{print int(g*100/NR)"%"}' 00-sources/text/FILE.txt
+```
+
+**Known two-column files — never cite their `[[p N]]` directly:**
+
+| File | Two-column | What to do |
+|---|---|---|
+| `sira-guillaume--guillaumeathelifeofmuhammad.txt` | 38% | Read the running header on the line *after* the marker — it carries the real book pages (e.g. `[[p 67]]` → pages 86 and 87). Left column = even page, right = odd. |
+| `kafi--alkafi-201601.txt` | 27% | **Tier 1 priority work — this trap is loaded and unused.** Same method. |
+| `tabari--the-history-of-al-tabari.txt` | 41% | Index volume only, no narrative. Not citable at all. |
+
+**Trap 2 — web-PDF pagination.** The al-Islam.org sources (Risalat al-Huquq, Sahifa Sajjadiyya, Uyun, Tuhaf) are generated PDFs. Their page numbers are artifacts of that generation and do **not** match the printed Ansariyan / Muhammadi Trust editions fixed in `sourcing-rules.md`. For these, **cite the work's own internal numbering** — entry number, hadith number, chapter-and-report — which is stable across editions. A page number there is decoration; the entry number is the citation.
 
 ### The loop
 
 1. Take one row from `00-foundations/citation-sheet.md`.
-2. Grep for it.
-3. Record work, page or hadith number, translator, edition on the row.
-4. Set the status: `V` verified, `TRAD` traditional, `CONT` contested, `CUT` did not hold.
-5. If it did not hold, fix the line in the envelope file — do not leave a claim standing on a `CUT` row.
+2. Grep for it — **and grep the whole work, not just the first hit.** A passage phrased differently is not disproof. This is exactly how envelope 13's correct line got wrongly cut and then restored.
+3. Check the file against Trap 1 and Trap 2 above before writing any page number.
+4. Record work, internal number (preferred) or verified book page, translator, edition on the row.
+5. Set the status: `V` verified, `TRAD` traditional, `CONT` contested, `CUT` did not hold.
+6. If it did not hold, fix the line in the envelope file — do not leave a claim standing on a `CUT` row. **Before cutting, confirm the claim is absent from the whole work, not just from the passage you happened to find.**
 
 **One row at a time. Ten rows is a good session.** The unit is the row, not the envelope and not the book.
 
@@ -96,9 +114,9 @@ Every page break in those files is a line reading `[[p 137]]`. **Read up from a 
 
 `00-foundations/sources-needed.md` ranks the ten claims most likely to fail. Work down that list. **The top three are now verified (2026-08-12):**
 
-1. ~~Makkah called him al-Amin before revelation~~ — envelope 03. Guillaume, *The Life of Muhammad*, p. 67 — now a fixed edition, closing the sira gap for this envelope. See `sourcing-rules.md` and `citation-sheet.md`.
-2. ~~Risalat al-Huquq entry count, and the tongue entry quoted exactly~~ — envelope 09. **51 entries**, not "around fifty" — letter and panel corrected. Tongue entry (3), p. 9, quoted in full on `citation-sheet.md`.
-3. ~~Imam al-Rida's four conditions~~ — envelope 13. Uyun Akhbar al-Rida vol. 2, p. 227. **The draft's phrasing didn't match the source** and the letter line was rewritten to the real four: no orders, no objecting, no judging, no changing what stands.
+1. ~~Makkah called him al-Amin before revelation~~ — envelope 03. Guillaume, *The Life of Muhammad*, **p. 86** — now a fixed edition, closing the sira gap for this envelope. See `sourcing-rules.md` and `citation-sheet.md`.
+2. ~~Risalat al-Huquq entry count, and the tongue entry quoted exactly~~ — envelope 09. **51 entries**, not "around fifty" — letter and panel corrected. Tongue entry is **entry 3**, quoted in full on `citation-sheet.md`. *(Cite the entry number, not a page — this is a web-generated PDF; see Trap 2 above.)*
+3. ~~Imam al-Rida's four conditions~~ — envelope 13. Uyun Akhbar al-Rida vol. 2 (Peiravi) carries them in **three** places. **The draft wording was already correct and stands** — appoint nobody, dismiss nobody, change nothing in place, no opinion unless asked. An earlier pass read only one of the three passages, wrongly declared the draft unsupported, and rewrote the printed line; that has been reverted.
 
 Next down the list: #4, al-Kadhim's four years (envelope 08) — al-Kafi or Uyun Akhbar al-Rida are the likely works; #5, the Shurayh shield case (envelope 07) — needs al-Irshad, which is still an open edition (no translator credit on the title page yet, see `sourcing-rules.md`).
 

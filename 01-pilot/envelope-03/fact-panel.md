@@ -31,7 +31,7 @@ He died in Medina in 11 AH, in the house of Aisha, and was buried where he died.
 
 *Communities observe this differently. Ask your family which we follow.* — his birth is kept on the 12th or the 17th of Rabi al-Awwal, and his death on 28 Safar or 12 Rabi al-Awwal.
 
-<sub>Guillaume, *The Life of Muhammad*, p. 67. Translated by A. Guillaume, Oxford University Press, 1955.</sub>
+<sub>Guillaume, *The Life of Muhammad*, p. 86. Translated by A. Guillaume, Oxford University Press, 1955.</sub>
 
 ---
 
