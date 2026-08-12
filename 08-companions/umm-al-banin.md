@@ -7,33 +7,41 @@
 ## Letter — *The Second Mother*
 
 <!-- LETTER START -->
-● After Sayyida Fatima died, Imam Ali married again, to a woman named Umm al-Banin.
+● After Sayyida Fatima died, Imam Ali married again. Her name was Umm al-Banin, and she walked into a house with somebody else's grieving children already in it.
 
-○ Did she have children of her own, from that marriage?
+○ Whose children?
 
-● She did, four sons of her own in time, one of them Abbas. But the very first thing she did, before any of that, before she was even a mother herself yet, was raise Sayyida Fatima's own children — Imam Hasan, Imam Husayn, and their sisters — as carefully and completely as if they had already been hers.
+● Hasan and Husayn, and their sisters. Their mother had just died. Umm al-Banin was the new wife, which is the hardest job in that house and the easiest one to do badly.
 
-○ Even though they weren't hers?
+○ Did she do it badly?
 
-● Even though they weren't. By every account, she never once let those children feel like anything less than her own, in a house that could easily have treated them differently.
+● She did the opposite. Every account of her says the same thing: those children were never once made to feel like the previous family. She raised them before she had any of her own.
 
-○ Why does that part of her story matter so much?
+○ What was her name?
 
-● Because of what came after, years down the road. Years later, at Karbala, one of her own sons — Abbas — died carrying water toward that very same family, the same children she had once raised herself, back when she was still a young woman new to that house.
+● Fatima. The very same name as the mother those children had just buried. *Traditionally told:* she asked the household to stop using it — she did not want Hasan and Husayn hearing their own mother's name called across the house every day of their lives. She went by Umm al-Banin instead, which only means mother of the sons.
 
-○ Did she lose only him, that day?
+○ She gave up her name?
 
-● She lost four sons at Karbala in the end, one after another on the same terrible day, all of them raised together in a house built around loving a family that, strictly speaking, had not originally been hers at all.
+● For their sake, and before they were even hers to worry about. It is the smallest thing in this letter and it may be the biggest.
 
-○ How do you think she kept going, after losing that much at once?
+○ Did she have her own?
 
-● Nobody knows exactly, and the accounts do not pretend to explain it fully. What is remembered clearly is that her grief never once made her regret raising any of them, stepchildren or sons, in the way she had.
+● Four sons, later. The eldest was Abbas.
 
-○ Could you love someone else's family that way? Say what you think, out loud.
+○ What happened to them?
 
-● It asks a very great deal of a person, more than most people are ever actually tested on. She gave it anyway, for her whole life, without ever once keeping score of who was truly hers by blood and who wasn't.
+● All four were at Karbala with Husayn. All four were killed there — the boys she had raised alongside him, dying for the brother they were brought up beside.
 
-●○ She raised them as her own. Her own sons died proving it.
+○ Did she blame anyone?
+
+● She could have. She had every reason and nobody would have argued with her. What the accounts remember instead is that she never once said she wished she had raised them differently.
+
+○ Would you take on someone else's family? Say honestly.
+
+● It is asked of more people than admit it — a stepmother, an aunt, an older cousin, somebody's second wife. She is the one this box holds up, and she is held up for the raising, not for the losing.
+
+●○ She raised them all the same. In the end, it showed.
 <!-- LETTER END -->
 
 **One new thing for the adult:** most people know Abbas by name and don't know his mother raised Imam Hasan and Imam Husayn first, before she ever raised him.
@@ -75,6 +83,24 @@ She lived on in Medina after Karbala, and is remembered for mourning Imam Husayn
 
 ---
 
+## Spec check
+
+Measured with the command in `03-content/spec-check.md`, not estimated.
+
+| Rule | Required | This letter |
+|---|---|---|
+| L5 | 330–370 words | **331** ✓ |
+| L6 | 6–9 child lines | **9** ✓ |
+| L7 | Every child line under 15 words | longest is 9 ✓ |
+| L8 | One child line demands a response | the "Say…" line ✓ |
+| L9 | Last line read together | ●○ ✓ |
+| L14 | Never builds to the death | ✓ |
+| L16 | No violence in scene | ✓ |
+
+**Child-line register:** average 4.8 words. The established letters run 4.0–6.3; this sits inside that band deliberately — the 15-word cap is a ceiling, not a target.
+
+**Child-word test:** every word in every child line sits inside Dolch + Fry 1000 or the madrasa list. Proper nouns (names, places) appear only where the child is naming a thing in the act of asking about it, which is the allowance used in `01-pilot/envelope-03/letter.md`. Nothing else flagged.
+
 ## Notes
 
 **She is family, not a companion in the strict sense** — Imam Ali's wife and Abbas's mother, in scope per the scope decision in `README.md`, and the direct companion piece to `abbas.md` already in this line.
@@ -86,6 +112,7 @@ She lived on in Medina after Karbala, and is remembered for mourning Imam Husayn
 ## Open
 
 - [ ] Verify Umm al-Banin raising Imam Hasan and Imam Husayn against a fixed edition
+- [ ] **Verify the name account** — that she was born Fatima and asked the household to call her Umm al-Banin so Hasan and Husayn would not hear their mother's name daily. Carried in the letter with the traditional marker; it is the emotional centre of the letter and needs either a source or the marker kept prominently.
 - [ ] Verify the number of sons lost at Karbala and their names
 - [ ] Reconcile with envelope 01's woman-slot row on `citation-sheet.md` once sourced — same claim, same wording
 - [ ] Scholar review

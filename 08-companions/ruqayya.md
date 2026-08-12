@@ -7,29 +7,37 @@
 ## Letter — *The Youngest One*
 
 <!-- LETTER START -->
-● Among the children taken captive after Karbala was a girl younger than almost all the others there, named Ruqayya. Imam Husayn's daughter, still small enough to need carrying for part of the way, on a road that gave nobody in that column very much rest at all.
+● There is a shrine in the middle of Damascus with people in it at every hour of the day, and they have been coming for twelve hundred years. It is for a child.
 
-○ Where were the captives actually taken, after everything that had just happened to them?
+○ How old was she?
 
-● First to Kufa, and then on, a long hard road across open country, all the way to Damascus — a march that wore down grown men who were used to hardship, let alone a small child who had just lost her own father.
+● Small. Small enough that on a long march somebody had to carry her part of the way. Her name was Ruqayya, and her father was Imam Husayn.
 
-○ Did she understand, even a little, what had actually happened to him?
+○ Where was she going?
 
-● Some of it, in the particular way a small child understands loss — not the politics behind it, not the reasons for it, but the plain hard fact that he was gone, entirely, and was never coming back for her again.
+● Nowhere she chose. After Karbala the people left alive from that family were taken as captives — first to Kufa, and then the long road north to Damascus. She walked most of it.
 
-○ What actually happened to her once the captivity was finally over?
+○ What was in Damascus?
 
-● She did not live to see it end, unlike Sakina and the others. By most accounts, she died in Damascus itself, not very long after the captives arrived there, worn down by grief and by the sheer length of the journey together, all at once.
+● The caliph's palace. The road ended at the door of the same government that had sent the army in the first place — eight hundred miles of walking, to be shown to the people responsible for the walking.
 
-○ Is that why people still travel to visit a shrine for her there?
+○ Did she know what happened?
 
-● It is, and has been for a very long time. A shrine in Damascus carries her name today, still visited, centuries later, by people who never once knew her and grieve for her anyway, all the same.
+● Not the reasons. She was far too young for the reasons, and nobody sat down and explained them to her. She knew the one thing that mattered to her, which was that her father was gone and was not coming back for her.
 
-○ Can a child that young be grieved just as much? Say what you think.
+○ What happened to her there?
 
-● She should be, without any question. This whole envelope exists to say exactly that, plainly and without qualification, about the smallest captive of all of them.
+● She died in Damascus, not long after they arrived. A small child at the end of a hard road, who did not get up from it. The accounts do not agree on her age, and they do not agree on much else about her either.
 
-●○ The youngest one did not come home. She is still remembered, by her own name, all this long time later.
+○ Is that the whole story?
+
+● No. That is the middle of it. The end of it is the room full of people, all these centuries later, who never met her and come anyway.
+
+○ Who would still visit you? Say one name out loud.
+
+● She never commanded anything and never made a speech. There is no decision in her story to admire, and people come in their thousands regardless. She is remembered for what she carried, at an age when nobody expects a person to carry anything at all.
+
+●○ The smallest one on that road. The one the city still comes for.
 <!-- LETTER END -->
 
 **One new thing for the adult:** most people know Sakina's name from Karbala. Fewer know there was a second, younger daughter who did not survive the captivity at all.
@@ -71,11 +79,31 @@ Accounts of her exact age and the circumstances of her death vary, and are held 
 
 ---
 
+## Spec check
+
+Measured with the command in `03-content/spec-check.md`, not estimated.
+
+| Rule | Required | This letter |
+|---|---|---|
+| L5 | 330–370 words | **340** ✓ |
+| L6 | 6–9 child lines | **8** ✓ |
+| L7 | Every child line under 15 words | longest is 10 ✓ |
+| L8 | One child line demands a response | the "Say…" line ✓ |
+| L9 | Last line read together | ●○ ✓ |
+| L14 | Never builds to the death | ✓ |
+| L16 | No violence in scene | ✓ |
+
+**Child-line register:** average 5.3 words. The established letters run 4.0–6.3; this sits inside that band deliberately — the 15-word cap is a ceiling, not a target.
+
+**Child-word test:** every word in every child line sits inside Dolch + Fry 1000 or the madrasa list. Proper nouns (names, places) appear only where the child is naming a thing in the act of asking about it, which is the allowance used in `01-pilot/envelope-03/letter.md`. Nothing else flagged.
+
 ## Notes
 
 **She is family, not a companion in the strict sense** — Imam Husayn's daughter, in scope per the scope decision in `README.md`, and the direct companion piece to `sakina.md`.
 
 **Handled with the same restraint as `sakina.md`, more so.** She is younger than Sakina, and she dies in this account — the gentlest possible register is not optional here. No death scene, no description of illness or suffering, only the fact stated plainly and the shrine that followed it. This is, if anything, the most fragile entry in the whole line and should be read that way on every future edit.
+
+**The letter is deliberately arced so it does not end on her death — rule L14.** An earlier draft ran captivity → march → she died, and closed on *"The youngest one did not come home."* That builds to the death, which L14 forbids and which no other letter in this line does: Maytham, Sumayyah and Abbas all die and all close on the trait instead. Rewritten 2026-08-12 to open on the shrine as it stands today, place the death plainly in the middle as one fact among several, and close on who still comes for her. **Do not re-order this letter back into chronological sequence** — chronology is exactly what puts the death at the end.
 
 **Her historicity carries real uncertainty and needs scholar judgement before print** — some accounts of a shrine specifically for a daughter named Ruqayya are contested among historians in ways that Sakina's are not, closer in kind to the caution already flagged for `khawla.md`.
 

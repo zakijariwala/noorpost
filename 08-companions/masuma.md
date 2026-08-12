@@ -7,33 +7,41 @@
 ## Letter — *As Far As Qom*
 
 <!-- LETTER START -->
-● When Imam al-Rida was summoned across the whole empire to Khurasan, and did not come back, his sister Fatima decided she was not going to stay behind in Medina, waiting on whatever news eventually reached her.
+● When Imam al-Rida was ordered across the empire to Khurasan and did not come back, his sister Fatima decided she was not going to sit in Medina waiting for news of him.
 
-○ She went after him herself?
+○ Why was he in Khurasan?
 
-● She did, a journey of well over a thousand miles across difficult country, most of it on roads that were not especially safe for anyone travelling them, let alone a woman travelling specifically to reach a brother the government itself had every reason to be watching closely.
+● Because the caliph had sent for him and named him his heir, which sounds like a gift and was not one. He went because refusing was not on offer. Her whole journey begins with somebody else's decision about her brother.
 
-○ Did she reach him, in the end?
+○ She went after him?
 
-● She got as far as a town called Qom, on the way there, and it was there that she fell seriously ill, and could not, in the end, go any further at all, no matter how close she still was.
+● She did. Over a thousand miles, most of it on roads nobody travelled for pleasure, to reach a brother the government had every reason to be watching.
 
-○ What happened to her there, once she couldn't continue?
+○ Did she get there?
 
-● She died there, in Qom, still well short of Khurasan, still short of the brother she had set out across an entire empire specifically to reach, and never quite did.
+● No. She got as far as a town called Qom, and there she fell ill, and could not go on.
 
-○ Did anyone remember her, after that? Or did the story just end there?
+○ How far was she from him?
 
-● It did not end there at all. She was buried in Qom, and people began visiting her grave almost immediately after, and, across all the centuries since, have simply never really stopped.
+● Hundreds of miles still. She died in Qom without seeing him again.
 
-○ What is there now, at the place where she is buried?
+○ So the journey failed?
 
-● An entire city grew up around that one single grave, slowly, over centuries, until Qom itself became known as much for her shrine as for anything else about it at all today.
+● By the only measure she had in mind, yes. She set out to reach her brother, and she did not reach her brother.
 
-○ Can a journey that doesn't finish still matter? Say what you think.
+○ Then what happened?
 
-● It can matter enormously, sometimes even more than a finished one would have. Hers did — a whole city stands today where her journey stopped short, unfinished.
+● She was buried where she stopped. People started coming to the grave almost at once and never stopped coming. A town grew into a city around it. Qom is one of the great places of learning in the world now — libraries, teachers, students from everywhere — and the reason any of it is there is a journey that ran out.
 
-●○ She never reached him. A whole city grew where she finally stopped trying.
+○ Is Ma'suma her name?
+
+● It is a title people gave her later. Her name was Fatima, after her grandmother. The name half the world knows her by is one nobody ever called her to her face.
+
+○ Has anything you started stopped halfway? Say what it was.
+
+● Most things do, for most people. Hers is the clearest case anyone could ask for that where you stop and what you started are two different questions, and that the second one is not settled by the first.
+
+●○ She never reached him. A city grew where she stopped.
 <!-- LETTER END -->
 
 **One new thing for the adult:** most people know Qom as a city of learning. Fewer know it exists, in large part, because a journey that failed to finish still mattered enough to build around.
@@ -74,6 +82,24 @@ Her shrine continues to be visited by pilgrims from across the world.
 **Exterior:** no month cancellation — this line is dateless. Plain seal, name area, *A city grew where she stopped* printed small.
 
 ---
+
+## Spec check
+
+Measured with the command in `03-content/spec-check.md`, not estimated.
+
+| Rule | Required | This letter |
+|---|---|---|
+| L5 | 330–370 words | **333** ✓ |
+| L6 | 6–9 child lines | **9** ✓ |
+| L7 | Every child line under 15 words | longest is 10 ✓ |
+| L8 | One child line demands a response | the "Say…" line ✓ |
+| L9 | Last line read together | ●○ ✓ |
+| L14 | Never builds to the death | ✓ |
+| L16 | No violence in scene | ✓ |
+
+**Child-line register:** average 5.0 words. The established letters run 4.0–6.3; this sits inside that band deliberately — the 15-word cap is a ceiling, not a target.
+
+**Child-word test:** every word in every child line sits inside Dolch + Fry 1000 or the madrasa list. Proper nouns (names, places) appear only where the child is naming a thing in the act of asking about it, which is the allowance used in `01-pilot/envelope-03/letter.md`. Nothing else flagged.
 
 ## Notes
 

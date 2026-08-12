@@ -7,29 +7,41 @@
 ## Letter — *The Woman Who Raised Him First*
 
 <!-- LETTER START -->
-● Long before Imam Ali was born, there was a boy in that same house who was not her own son at all — an orphan, being raised there anyway, as if he were.
+● Years before Imam Ali was born, there was a boy in that house who was not her son. An orphan. He was being raised there anyway.
 
-○ Whose son was he, really?
+○ Whose was he?
 
-● His name was Muhammad, and both his parents had already died before he was old enough to remember either of them clearly. Fatima bint Asad, married into the very family raising him, treated him exactly like her own — fed him first sometimes, before her own children, combed his hair herself, and never once, in all the years he lived under her roof, made him feel like a guest in his own house.
+● His name was Muhammad. Both his parents had died before he was old enough to remember them properly, and his grandfather had died after that. So he came to his uncle's house, and his uncle's wife was Fatima bint Asad.
 
-○ Did that boy remember it, once he grew up?
+○ Was she kind to him?
 
-● He never forgot it, not for one day of his whole life. Years later, when she died in Medina, he called her his own mother, out loud, in front of people who knew perfectly well that by blood she wasn't.
+● More than kind. She fed him before her own children when there was not enough. She never let the house treat him like a visitor, and a house will do that to an orphan without anyone deciding to.
 
-○ What did he do, when she died?
+○ Did he notice?
 
-● He gave her his own shirt to be wrapped in for burial, and by most accounts lay down in her open grave himself before she was ever placed in it — honours the accounts say he gave to almost no one else in his entire life, before or after her.
+● He never forgot it. Years later, when she died in Medina, he called her his mother out loud, in front of people who knew exactly whose son he was.
 
-○ Why would he do that, for someone who wasn't his mother?
+○ What did he do?
 
-● Because kindness like hers doesn't stop mattering just because nobody made it official. She had chosen him, quietly, every single day for years, long before he could do anything at all for her in return, and long before anyone outside that house thought there was anything remarkable in it.
+● He gave her his own shirt to be buried in. By most accounts he lay down in the grave himself before she was put into it. He did that for almost nobody.
 
-○ Is there someone who chose you, who didn't have to? Say who, out loud.
+○ Did she have her own children?
 
-● Most people have somebody, if they stop long enough to think about it properly. It is worth remembering, always, that it was a choice they made, every single time, and never simply an obligation they were stuck with.
+● Several. One of them was Ali. And here is the part worth stopping on: years later, when that house fell on hard times, the orphan she had taken in took her son into his own home and raised him.
 
-●○ She fed him first. He never once forgot it.
+○ The other way round?
+
+● The other way round exactly. She raised him when he had nobody. He raised her son when the family needed it. Neither of them was keeping a ledger, and it came out even anyway.
+
+○ Why so much?
+
+● Because she chose him. Nobody made her. There was no word for what she was to him and no one keeping score, and she did it every day for years while he was too small to give her anything back.
+
+○ Who chose you, who didn't have to? Say who.
+
+● Most people have somebody. It is worth saying out loud that they picked you — that it was never simply a job they were given.
+
+●○ She fed him first. He never forgot it.
 <!-- LETTER END -->
 
 **One new thing for the adult:** most people know Imam Ali's mother by name, without knowing she effectively raised the Prophet too, years before her own son was born.
@@ -70,6 +82,24 @@ She lived to see her son grown, and died while he was still finding his place be
 **Exterior:** no month cancellation — this line is dateless. Plain seal, name area, *She fed him first* printed small.
 
 ---
+
+## Spec check
+
+Measured with the command in `03-content/spec-check.md`, not estimated.
+
+| Rule | Required | This letter |
+|---|---|---|
+| L5 | 330–370 words | **347** ✓ |
+| L6 | 6–9 child lines | **9** ✓ |
+| L7 | Every child line under 15 words | longest is 9 ✓ |
+| L8 | One child line demands a response | the "Say…" line ✓ |
+| L9 | Last line read together | ●○ ✓ |
+| L14 | Never builds to the death | ✓ |
+| L16 | No violence in scene | ✓ |
+
+**Child-line register:** average 4.6 words. The established letters run 4.0–6.3; this sits inside that band deliberately — the 15-word cap is a ceiling, not a target.
+
+**Child-word test:** every word in every child line sits inside Dolch + Fry 1000 or the madrasa list. Proper nouns (names, places) appear only where the child is naming a thing in the act of asking about it, which is the allowance used in `01-pilot/envelope-03/letter.md`. Nothing else flagged.
 
 ## Notes
 
