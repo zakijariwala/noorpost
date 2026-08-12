@@ -278,6 +278,9 @@ COMPANIONS = [
     ("abu-dharr", "Abu Dharr"),
     ("malik", "Malik al-Ashtar"),
     ("uthman", "Uthman ibn Sa'id al-Amri"),
+    ("muhammad-ibn-uthman", "Muhammad ibn Uthman al-Amri"),
+    ("husayn-ibn-ruh", "Husayn ibn Ruh al-Nawbakhti"),
+    ("al-samarri", "Ali ibn Muhammad al-Samarri"),
     ("abbas", "Abbas ibn Ali"),
     ("fizza", "Fizza"),
     ("jabir", "Jabir ibn Abdullah al-Ansari"),
@@ -297,6 +300,16 @@ COMPANIONS = [
     ("khawla", "Khawla bint al-Azwar"),
     ("umm-kulthum", "Umm Kulthum bint Ali"),
     ("rabab", "Rabab bint Imra' al-Qays"),
+    ("zaynab", "Zaynab bint Ali"),
+    ("sakina", "Sakina bint al-Husayn"),
+    ("fitrus", "Fitrus"),
+    ("fatima-bint-asad", "Fatima bint Asad"),
+    ("umm-al-banin", "Umm al-Banin"),
+    ("hamida", "Hamida Khatun"),
+    ("umm-farwa", "Umm Farwa"),
+    ("narjis", "Narjis Khatun"),
+    ("ruqayya", "Sayyida Ruqayya bint al-Husayn"),
+    ("masuma", "Sayyida Ma'suma"),
 ]
 
 ZINES = [
