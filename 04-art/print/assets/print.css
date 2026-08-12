@@ -51,6 +51,34 @@ body {
   margin: 0 auto 12mm auto; /* on-screen only; @page margin below governs actual print */
 }
 
+/* ---------- overflow guard ----------
+   `overflow: hidden` above is what a real trimmed page does, but it also means
+   content that does not fit is silently clipped — and a clipped page still
+   renders as a clean, correct-looking PDF with text missing off the bottom.
+   That is exactly what happened to every letter template in this directory.
+
+   This makes the failure visible on screen instead. It is a diagnostic only:
+   it costs nothing in print (the rule is inside a screen media query) and it
+   does not change any geometry. Do not "fix" an overflow by deleting this. */
+@media screen {
+  .page { outline: 0.4mm solid transparent; }
+  .page:has(> :last-child):not(.overflow-ok) { position: relative; }
+  .page.overflows {
+    outline-color: #b4472a;
+  }
+  .page.overflows::after {
+    content: "CONTENT OVERFLOWS THIS PAGE — text is being clipped";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    background: #b4472a;
+    color: #fff;
+    font: 600 8pt/1.6 system-ui, sans-serif;
+    letter-spacing: 0.06em;
+    text-align: center;
+    padding: 1.5mm 2mm;
+  }
+}
+
 /* ---------- page sizes ---------- */
 /* A5 portrait — letter, fact panel, person print */
 .page-a5-portrait { width: 148mm; height: 210mm; }
