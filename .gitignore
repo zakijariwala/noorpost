@@ -1,2 +1,4 @@
 00-sources/*.pdf
 *.zip
+__pycache__/
+*.pyc
