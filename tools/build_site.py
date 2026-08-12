@@ -196,6 +196,7 @@ def envelope_page(num, month, masoom, session, letter_ttl, letter_html, panel_ht
 <div class="stamp">{html.escape(month)}</div>
 <p class="kicker">Envelope {num} · {html.escape(month)}</p>
 <h1>{html.escape(masoom)}</h1>
+<p class="cardsback"><a href="envelope-{num}-cards.html">View every item as a card &rarr;</a></p>
 {flap_html}
 <section class="letter">
   <h2 class="letter-title">{html.escape(letter_ttl)}</h2>
@@ -331,17 +332,43 @@ ZINES = [
 ]
 
 
-def build_envelope(num, month, masoom, session):
+def items_table(F):
+    """Parse the '## Items — artwork pending' markdown table into {num: (item, spec, state)}."""
+    items = {}
+    for ln in section(F, lambda x: x.startswith("## Items")):
+        s = ln.strip()
+        if not s.startswith("|"):
+            continue
+        cols = [c.strip() for c in s.strip("|").split("|")]
+        if len(cols) >= 4 and cols[0].isdigit():
+            items[int(cols[0])] = (cols[1], cols[2], cols[3])
+    return items
+
+
+ENVELOPE_03_ITEMS = {
+    2: ("Hadith card", "A saying of the Prophet, conduct or ethics only. Silsila **segment 1**. Edition fixed — Tuhaf al-Uqul, trans. Badr Shahin, Ansariyan Publications.", "Edition fixed; saying not yet selected"),
+    3: ("Person print", "Masjid an-Nabawi. Green dome, palm trunks, early light. Full palette, no faces.", "Pending"),
+    4: ("Event print", "The arrival at Quba. An empty road out of the desert, a kneeling camel, a palm grove. No figures. Ring position 3.", "Pending"),
+    6: ("Sticker sheet", "The cloak shape, four corners marked; a palm; the Quba road; a caravan; small repeatable marks.", "Pending"),
+    7: ("Return postcard", "Front: the cloak shape, single ink, no text.", "Pending"),
+}
+
+ENVELOPE_03_SEGMENT = ("Silsila segment 1: “It begins with him. Everyone else in this box is his family, "
+                       "and every chain of teaching in it runs back through this one man to the words he was given.”")
+
+
+def envelope_source(num):
+    """Everything build_envelope and build_envelope_cards both need, read once."""
     if num == "03":
         L = read("01-pilot/envelope-03/letter.md")
         P = read("01-pilot/envelope-03/fact-panel.md")
         S = read("01-pilot/envelope-03/session-card.md")
         ttl = "The Cloak"
         lh = render_letter(letter_body(L))
-        panel = section(P, lambda x: x.startswith("## Letter, reverse"))
-        ph = frag(panel)
+        ph = frag(section(P, lambda x: x.startswith("## Letter, reverse")))
         sh = frag(section(S, lambda x: x.startswith("## Card front")))
         ch = ""
+        items = ENVELOPE_03_ITEMS
     else:
         F = read(f"03-content/envelope-{num}.md")
         ttl = letter_title(F)
@@ -349,16 +376,162 @@ def build_envelope(num, month, masoom, session):
         ph = frag(section(F, lambda x: x.startswith("## Fact panel")))
         ch = frag(section(F, lambda x: x.startswith("## Case File")))
         sh = frag(section(F, lambda x: x.startswith("## Session card")))
-    return envelope_page(num, month, masoom, session, ttl, lh, ph, ch, sh, flap(session))
+        items = items_table(F)
+    return {"ttl": ttl, "lh": lh, "ph": ph, "ch": ch, "sh": sh, "items": items}
+
+
+def build_envelope(num, month, masoom, session, src):
+    return envelope_page(num, month, masoom, session, src["ttl"], src["lh"], src["ph"], src["ch"], src["sh"], flap(session))
+
+
+# ---------- card view: one card per physical item ----------
+
+ART_ICON = ('<svg viewBox="0 0 64 64" aria-hidden="true">'
+            '<rect x="4" y="4" width="56" height="56" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>'
+            '<circle cx="21" cy="20" r="5" fill="none" stroke="currentColor" stroke-width="2"/>'
+            '<path d="M8 46 L24 30 L34 40 L44 26 L60 46" fill="none" stroke="currentColor" '
+            'stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>'
+            '</svg>')
+
+ITEM_META = {
+    "Letter": ("A5", "portrait"),
+    "Fact panel": ("A5", "portrait"),
+    "Hadith card": ("A6", "portrait"),
+    "Person print": ("A5", "portrait"),
+    "Event print": ("A5", "landscape"),
+    "Session card": ("A6", "portrait"),
+    "Sticker sheet": ("A6", "portrait, die-cut"),
+    "Pennant": ("—", "triangular, cord-mounted"),
+    "Return postcard": ("A6", "landscape"),
+}
+
+
+def is_pending(state):
+    s = state.lower()
+    return any(k in s for k in ("pending", "blocked", "not yet", "to fill", "to select"))
+
+
+def status_pill(pending):
+    cls, label = ("placeholder", "Placeholder") if pending else ("written", "Written")
+    return f'<span class="statuspill {cls}">{label}</span>'
+
+
+def size_tag(name):
+    size, orient = ITEM_META.get(name, ("—", "—"))
+    return f'<span class="sizetag">{size} · {orient}</span>'
+
+
+def card_shell(n, name, pending, body):
+    return f"""<div class="itemcard">
+  <div class="itemcard-head">
+    <span class="itemtag">Card {n} · {html.escape(name)}</span>
+    {size_tag(name)}
+    {status_pill(pending)}
+  </div>
+  {body}
+</div>"""
+
+
+def art_block(spec, orientation):
+    land = ' land' if orientation == "landscape" else ""
+    return f"""<div class="artbox{land}">
+  <div class="artbox-frame">{ART_ICON}</div>
+</div>
+<p class="artbox-caption">{inline(spec)}</p>
+<p class="placeholdertag">Placeholder — no artwork made yet</p>"""
+
+
+def hadith_block(spec, masoom, decided_note=None):
+    extra = ""
+    if decided_note:
+        extra = f'<div class="decidednote"><p class="itemlabel">Already decided</p><p>{inline(decided_note)}</p></div>'
+    return f"""<p class="itemspec">{inline(spec)}</p>
+{extra}
+<div class="placeholderquote">
+  <p>“A saying of {html.escape(masoom)} — conduct or ethics only, quoted exactly once the specific line is chosen.”</p>
+</div>
+<p class="placeholdertag">Placeholder — saying not yet selected</p>"""
+
+
+def postcard_block(spec):
+    return f"""<p class="itemlabel">Front</p>
+<div class="artbox land">
+  <div class="artbox-frame">{ART_ICON}</div>
+</div>
+<p class="artbox-caption">{inline(spec)}</p>
+<p class="placeholdertag">Placeholder — front art not yet made</p>
+<p class="itemlabel" style="margin-top:1.3rem">Back — fixed wording</p>
+<blockquote class="postcardtext">
+  <p>We opened this one together.</p>
+  <p>● ______________________ &nbsp;&nbsp; ○ ______________________</p>
+  <p><em>Post it back to us, or keep it. Either is right.</em></p>
+</blockquote>"""
+
+
+def build_envelope_cards(num, month, masoom, session, src):
+    items = src["items"]
+    cards, n = [], 1
+
+    cards.append(card_shell(n, "Letter", False, f"""
+<h2 class="letter-title">{html.escape(src['ttl'])}</h2>
+<p class="voicekey"><span class="mark">●</span> the grown-up &nbsp;·&nbsp; <span class="mark">○</span> the child &nbsp;·&nbsp; <span class="mark">●○</span> together</p>
+{src['lh']}
+""")); n += 1
+
+    cards.append(card_shell(n, "Fact panel", False, src["ph"])); n += 1
+
+    if 2 in items:
+        _, spec, _ = items[2]
+        decided = ENVELOPE_03_SEGMENT if num == "03" else None
+        cards.append(card_shell(n, "Hadith card", True, hadith_block(spec, masoom, decided))); n += 1
+
+    if 3 in items:
+        _, spec, state = items[3]
+        cards.append(card_shell(n, "Person print", is_pending(state), art_block(spec, "portrait"))); n += 1
+
+    if 4 in items:
+        _, spec, state = items[4]
+        cards.append(card_shell(n, "Event print", is_pending(state), art_block(spec, "landscape"))); n += 1
+
+    body = src["ch"] or src["sh"]
+    if body:
+        note = ""
+        if 5 in items:
+            _, spec5, _ = items[5]
+            note = f'<p class="itemspec">{inline(spec5)}</p>'
+        cards.append(card_shell(n, "Session card", False, note + body)); n += 1
+
+    if 6 in items:
+        name6, spec, state = items[6]
+        cards.append(card_shell(n, name6, is_pending(state), art_block(spec, "portrait"))); n += 1
+
+    if 7 in items:
+        _, spec, _ = items[7]
+        cards.append(card_shell(n, "Return postcard", True, postcard_block(spec))); n += 1
+
+    return f"""<article class="envelope cardsview">
+<p class="kicker">Envelope {num} · {html.escape(month)} · card view</p>
+<h1>{html.escape(masoom)}</h1>
+<p class="points">Every physical item this envelope will hold, one card each — real content where it exists, clearly marked placeholders where nothing has been allocated yet.</p>
+<p class="cardsback"><a href="envelope-{num}.html">&larr; Back to the full envelope</a></p>
+<div class="itemgrid">
+{''.join(cards)}
+</div>
+</article>"""
 
 
 def build():
     os.makedirs(OUT, exist_ok=True)
 
     for num, month, masoom, session in ENVELOPES:
-        body = build_envelope(num, month, masoom, session)
+        src = envelope_source(num)
+        body = build_envelope(num, month, masoom, session, src)
         with open(os.path.join(OUT, f"envelope-{num}.html"), "w", encoding="utf-8") as f:
             f.write(page(f"{masoom} — Envelope {num}", month, body))
+
+        cards_body = build_envelope_cards(num, month, masoom, session, src)
+        with open(os.path.join(OUT, f"envelope-{num}-cards.html"), "w", encoding="utf-8") as f:
+            f.write(page(f"{masoom} — cards", month, cards_body))
 
     for slug, name in COMPANIONS:
         F = read(f"08-companions/{slug}.md")
