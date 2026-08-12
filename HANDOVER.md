@@ -44,7 +44,14 @@ python tools/fetch_sources.py    # find more sources (--download to fetch)
 python tools/extract_text.py     # PDFs -> 00-sources/text/ (only if you re-download)
 ```
 
-`build_site.py` strips every editorial note — the new-thing lines, blocking warnings, item specs, scholar flags, open questions. **The site shows only what a family receives.** If you add a new kind of internal note, check it does not leak: rebuild, then grep `docs/*.html` for it.
+`build_site.py` strips every editorial note — the new-thing lines, blocking warnings, scholar flags, open questions. **The envelope, companion and zine pages show only what a family receives.** If you add a new kind of internal note, check it does not leak: rebuild, then grep `docs/*.html` for it.
+
+**One deliberate exception: the card views** (`envelope-NN-cards.html`). These exist to show, internally, every physical item an envelope will hold and which of them nothing has been allocated to yet — so they *do* publish item specs and a written/placeholder status for each item. They are linked from the index and from each envelope page, carry `noindex`, and sit behind the same "draft for review, not for circulation" footer as the rest of the site, alongside the print proofs and art-prompt packs already published for internal access.
+
+Even there, two things are still stripped or refused:
+
+- **Internal cross-references** — `strip_internal()` removes any `` `something.md` `` reference from published spec text, so working notes in an Items table never reach the page.
+- **Nothing is rendered as a quotation.** Placeholder hadith cards state that no saying has been chosen; they never render invented filler inside quote marks or attribute it to a named figure. `sourcing-rules.md` says quote exactly or don't quote, and a screenshot of one card loses whatever label surrounded it.
 
 Site is at **https://zakijariwala.github.io/noorpost/** and serves from `main` `/docs`. Push and it updates.
 

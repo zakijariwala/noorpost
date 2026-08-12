@@ -6,6 +6,20 @@ Running order, per `standard-lines.md` §5, prints inside the flap.
 
 ---
 
+## Items
+
+**This table is the machine-readable source** — `tools/build_site.py` reads it to build the card view, exactly as it reads the equivalent table in every `03-content/envelope-*.md`. The detailed sections below are the human-readable spec. **Keep the two in step.**
+
+| # | Item | Spec | State |
+|---|---|---|---|
+| 2 | Hadith card | A saying of the Prophet, conduct or ethics only. Silsila **segment 1**. Edition fixed — Tuhaf al-Uqul, trans. Badr Shahin, Ansariyan Publications. | Edition fixed; saying not yet selected |
+| 3 | Person print | Masjid an-Nabawi. Green dome, palm trunks, early light. Full palette, no faces. | Pending |
+| 4 | Event print | The arrival at Quba. An empty road out of the desert, a kneeling camel, a palm grove. No figures. Ring position 3. | Pending |
+| 6 | Sticker sheet | The cloak shape with four corners marked, a palm, the Quba road, a caravan, small repeatable marks. | Pending |
+| 7 | Return postcard | Front: the cloak shape, single ink, no text. | Pending |
+
+---
+
 ## 2. Hadith card
 
 | | |
