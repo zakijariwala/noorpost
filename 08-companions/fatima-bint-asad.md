@@ -58,7 +58,7 @@
 
 ● **What she is remembered for.** Treating the young Muhammad as her own child, without distinction from her own sons, years before Imam Ali was born.
 
-● **What is traditionally told about Imam Ali's birth.** *Traditionally told: that she gave birth to him inside the Kaaba itself* — a detail carried in the devotional literature and flagged for the scholar in `citation-sheet.md`.
+● **What is traditionally told about Imam Ali's birth.** *Traditionally told: that she gave birth to him inside the Kaaba itself.*
 
 ● **What the Prophet did at her death.** By most accounts, he gave her his own shirt to be buried in, and lay in her grave before she was placed there — a mark of honour he showed almost no one else.
 
@@ -105,7 +105,7 @@ Measured with the command in `03-content/spec-check.md`, not estimated.
 
 **She is family, not a companion in the strict sense** — Imam Ali's mother, in scope per the scope decision in `README.md`, same as Umm al-Banin and Umm Kulthum.
 
-**The Kaaba-birth detail is already flagged on `citation-sheet.md` (envelope 07's woman-slot row) as needing scholar-approved marker wording.** This letter does not repeat that detail in the child's copy at all — it stays in the fact panel only, marked traditional, to avoid asserting it twice in two different registers.
+**The Kaaba-birth detail is already flagged on `citation-sheet.md` (envelope 07's woman-slot row) as needing scholar-approved marker wording.** This letter does not repeat that detail in the child's copy at all — it stays in the fact panel only, marked traditional, to avoid asserting it twice in two different registers. **The cross-reference itself belongs here in the Notes, not in the panel:** the panel is family-facing copy, and an earlier draft carried "flagged for the scholar in `citation-sheet.md`" inside the bullet, which published a working note to the site. Keep internal references out of fact-panel bullets.
 
 **The shirt and the grave are the emotional centre of the letter and both need real citation work before print** — widely told, and load-bearing enough here that "widely told" is not enough on its own.
 
