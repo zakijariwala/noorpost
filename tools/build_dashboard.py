@@ -156,6 +156,27 @@ def corpus():
         return {"available": False, "why": str(e)}
 
 
+def storefront():
+    """The shop's switches, read from the same file the shop is built from."""
+    try:
+        import build_shop
+        store, products = build_shop.load_products()
+    except Exception as e:
+        return {"available": False, "why": str(e)}
+    wl = store.get("waitlist") or {}
+    legal = store.get("legal") or {}
+    return {
+        "available": True,
+        "skus": len(products),
+        "priced": sum(1 for p in products if p.get("price") is not None),
+        "sellable": sum(1 for p in products if p.get("status") == "available"),
+        "provider": (store.get("provider") or "none"),
+        "published": bool(store.get("published")),
+        "waitlist_open": bool(wl.get("endpoint") or wl.get("email")),
+        "legal_set": bool(legal.get("entity") and legal.get("contact")),
+    }
+
+
 def _words(text):
     return len(re.findall(r"[A-Za-z'’\-]+", text))
 
@@ -315,6 +336,7 @@ def collect():
         "corpus": corpus(),
         "content": content(),
         "hadith_cards": hadith_cards(),
+        "storefront": storefront(),
         "blockers": blockers(),
     }
 
@@ -445,6 +467,31 @@ def render(d):
     else:
         w('<p class="sectionnote">Corpus statistics need <code>source.db</code>, which '
           'is not tracked (182 MB). %s</p>' % esc(cp.get("why", "")))
+    w("</section>")
+
+    # ---- storefront ---------------------------------------------------
+    sf = d["storefront"]
+    w('<section class="dash"><h2>Storefront</h2>')
+    if not sf.get("available"):
+        w('<p class="warn">Shop configuration unavailable: %s</p>' % esc(sf.get("why")))
+    else:
+        w('<p class="sectionnote">Three pages at <code>docs/shop/</code>, built from '
+          '<code>06-commerce/products.yaml</code>. Read from that file, not typed here.</p>')
+        w('<div class="statrow">')
+        w(stat("SKUs defined", sf["skus"], sub="the five in the commerce plan"))
+        w(stat("Priced", "%d / %d" % (sf["priced"], sf["skus"]),
+               bar(sf["priced"], sf["skus"]),
+               sub="no price exists in this repository yet"))
+        w(stat("Payment provider", sf["provider"],
+               sub="buy buttons stay inert until this is set"
+                   if sf["provider"] == "none" else "wired"))
+        w(stat("Search engines", "indexed" if sf["published"] else "noindex",
+               sub="published: %s" % str(sf["published"]).lower()))
+        w("</div>")
+        if not sf["legal_set"]:
+            w('<p class="warn">No seller entity, contact or privacy notice is set. '
+              'An email address cannot be collected without them, so the waitlist '
+              'renders a plain statement rather than a form.</p>')
     w("</section>")
 
     # ---- phases -------------------------------------------------------

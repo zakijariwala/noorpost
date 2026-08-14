@@ -1,0 +1,148 @@
+# The catalogue the storefront is built from.
+#
+# Phase 6 — Commerce. `TASKS.md` line 192 lists the five SKUs; this is that list
+# made machine-readable, plus the switches the storefront needs.
+#
+# THREE RULES THIS FILE EXISTS TO HOLD
+#
+# 1. No price is invented here. `price: null` everywhere, because there is no
+#    price anywhere in this repository and there cannot be one until Phase 2
+#    comes back with a number a madrasa administrator actually named
+#    (TASKS.md 82-87). The storefront renders no price while price is null, and
+#    a test enforces it.
+#
+# 2. Nothing sells before Gate 5 — fourteen printed envelopes in the cupboard
+#    (TASKS.md 186). Every SKU is `waitlist` or `not-yet`. Setting one to
+#    `available` before that gate is a decision, not a typo.
+#
+# 3. The payment provider is a switch, not a rewrite. `provider: none` and
+#    `buy_url: null` render an inert button. Fill both in and rebuild, and the
+#    same button becomes a real link. No page markup changes.
+
+storefront:
+  # false keeps <meta name="robots" content="noindex"> on every shop page.
+  # Gate 6: "test with one real order before announcing anything" (TASKS.md 202),
+  # and envelope 06 still blocks the print run. Flip when you mean it.
+  published: false
+
+  # none | stripe | shopify | gumroad. Only "none" is implemented; the others
+  # are accepted so the switch reads honestly before anything is wired.
+  provider: none
+
+  waitlist:
+    # A form POST endpoint (Formspree, Buttondown, a Google Form action URL).
+    # While null the page renders a mailto: link instead, so it works on day
+    # one with no third-party service and no script.
+    endpoint: null
+    # The address the mailto: falls back to. While null the page says plainly
+    # that the list is not open yet rather than showing a broken form.
+    email: null
+
+  legal:
+    # Collecting an email address needs a named data controller and a privacy
+    # line. Neither exists anywhere in this repo. While these are null the
+    # pages render a visible placeholder — they never invent a company,
+    # an address or a policy.
+    entity: null
+    contact: null
+    privacy_url: null
+    terms_url: null
+
+products:
+  - sku: FOURTEEN-BOX
+    name: The Fourteen — Box
+    kind: box
+    blurb: >-
+      All fourteen envelopes at once, in one box, with the ring the calendar
+      prints hang on.
+    items:
+      - Fourteen sealed envelopes
+      - One 25 mm book ring for the calendar prints
+    contents_note: >-
+      Forty-two collectable pieces across the fourteen — a hadith card, a person
+      print and an event print in each.
+    status: waitlist
+    price: null
+    currency: null
+    buy_url: null
+    availability_note: >-
+      Not yet. All fourteen are printed before any of them ship, so that monthly
+      is a posting job and never a production job.
+
+  - sku: FOURTEEN-MONTHLY
+    name: The Fourteen — Monthly
+    kind: subscription
+    region: India only
+    blurb: >-
+      One envelope a month, posted to land before the date it belongs to.
+    items:
+      - One envelope per month
+      - One 25 mm book ring, with the first
+    contents_note: >-
+      Billed for the year, delivered monthly. The schedule is a delivery
+      schedule, not a billing one.
+    status: waitlist
+    price: null
+    currency: null
+    buy_url: null
+    availability_note: >-
+      Not yet, and India only at launch. Nothing monthly is sold until all
+      fourteen are printed and sitting in the cupboard.
+
+  - sku: NAMED-EDITION
+    name: The Named Edition
+    kind: box
+    blurb: >-
+      The box, with the child's name printed on each envelope and a letter to
+      them by name.
+    items:
+      - Everything in the box
+      - The child's name on each envelope
+      - A colourway chosen by the child — rose, sage, plum or ochre
+      - Flat ribbon and seal
+    contents_note: >-
+      The ribbon is flat, never a bow, and the seal sits over it.
+    status: not-yet
+    price: null
+    currency: null
+    buy_url: null
+    availability_note: >-
+      Not yet. The name-capture flow is Phase 6 work and has not been built.
+
+  - sku: EVERYONE-ELSE
+    name: Everyone Else
+    kind: single
+    blurb: >-
+      Thirty-nine single envelopes, one per person, dateless. Bought one at a
+      time.
+    items:
+      - A two-voice letter, with the fact panel on its reverse
+      - A hadith card
+      - A person print
+      - A sticker sheet
+      - A return postcard
+    contents_note: >-
+      Five items, not seven. No event print — the calendar ring stays with the
+      box. Each envelope prints its subject's connection to one of the Fourteen.
+    status: not-yet
+    price: null
+    currency: null
+    buy_url: null
+    availability_note: >-
+      Not yet. Sold one at a time; there are no bundles.
+
+  - sku: NOORIS-NOTEBOOK
+    name: Noori's Notebook
+    kind: zine
+    blurb: >-
+      One A4 sheet, folded to eight pages, about a place or an event.
+    items:
+      - One folded zine
+    contents_note: >-
+      Events and places only, never people. People live in envelopes.
+    status: not-yet
+    price: null
+    currency: null
+    buy_url: null
+    availability_note: >-
+      Not yet. Intended to be free or near-free, and handed out rather than sold.
