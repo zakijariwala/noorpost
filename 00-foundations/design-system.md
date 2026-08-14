@@ -133,6 +133,20 @@ This closes the Phase 0.4 blocker in `spec-check.md` ("Ring punch position — A
 - The **envelope number never appears on a hadith card**, front or back, in any form — not in the citation block, not as a running footer. This is the rule most likely to leak from a template built by copying the fact-panel skeleton, which does carry the envelope's own numbering elsewhere. Check it explicitly at sign-off, per `checklist.md`.
 - The citation block (back of the card) carries the work, number, and translator per `sourcing-rules.md` §Citation format — no envelope reference there either.
 
+### Two chains, and the card has to say which one it is on (added 2026-08-14)
+
+The companions line carries a hadith card as of 2026-08-14 (rulebook C6). Same A6 trim, same faces, same citation block — **a different chain, and the design has to make that unmistakable at a glance**, because keeping the two collections visibly separate is the whole mitigation for letting the second one exist.
+
+| | The box | Everyone Else |
+|---|---|---|
+| Chain mark | `Silsila segment n of 14` | `First Edition nn / 39` |
+| Length | Fourteen, subscription only | Thirty-nine, bought a piece at a time |
+| Set in | Small caps, top corner, front | Same position, same size — **the words are what differ, so they must not abbreviate to each other** |
+
+- **A companions card never carries a silsila segment number**, in any form or abbreviation. `tools/build_print_templates.py` fails the build if one appears.
+- **Write the chain mark out in words on both lines.** "Segment 7" and "07/39" set in the same corner at the same size are two marks a child sorts into one pile. *Silsila* and *First Edition* are what keep them apart.
+- The ordering that decides `01/39` through `39/39` is **still undecided** — templates print a literal `nn` until it is. See `TASKS.md` Phase 8.
+
 ---
 
 ## What this doesn't settle

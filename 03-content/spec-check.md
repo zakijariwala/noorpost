@@ -25,7 +25,7 @@ done
 | 05 | Imam al-Baqir | *The Small Boy on That Ground* | 361 | 6 | 12 | ✓ | ✓ |
 | 06 | Sayyida Fatima | *Thirty-Four, Thirty-Three, Thirty-Three* | 338 | 7 | 13 | ✓ | ✓ |
 | 07 | Imam Ali | *The Man Who Lost in Court* | 364 | 8 | 13 | ✓ | ✓ |
-| 08 | Imam al-Kadhim | *Four Years and No Charge* | 357 | 6 | 12 | ✓ | ✓ |
+| 08 | Imam al-Kadhim | *Four Years and No Charge* | 359 | 6 | 12 | ✓ | ✓ |
 | 09 | Imam al-Sajjad | *The List* | 367 | 7 | 12 | ✓ | ✓ |
 | 10 | Imam al-Mahdi | *Letters In, Answers Out* | 348 | 7 | 12 | ✓ | ✓ |
 | 11 | Imam al-Hadi | *What They Found in the House* | 338 | 7 | 14 | ✓ | ✓ |

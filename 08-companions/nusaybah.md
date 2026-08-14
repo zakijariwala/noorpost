@@ -1,6 +1,6 @@
 # Everyone Else — Nusaybah bint Ka'b
 
-**Points home:** *Nusaybah stood over the Prophet at Uhud when the line broke, and took the wounds meant for him.* · Dateless · Four items
+**Points home:** *Nusaybah stood over the Prophet at Uhud when the line broke, and took the wounds meant for him.* · Dateless · Five items
 
 ---
 
@@ -61,11 +61,14 @@ She is remembered as one of the notable defenders of that battle for the rest of
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Person print | **A portrait. Faces allowed in this line.** A woman standing with a shield lowered, facing outward, calm rather than fierce. | Pending |
-| 3 | Sticker sheet | A shield, a water skin, a sword laid flat, small repeatable marks | Pending |
-| 4 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |
+| 2 | Hadith card | Saying of **the Prophet**, matched to courage that shields somebody else. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 3 | Person print | **A portrait. Faces allowed in this line.** A woman standing with a shield lowered, facing outward, calm rather than fierce. | Pending |
+| 4 | Sticker sheet | A shield, a water skin, a sword laid flat, small repeatable marks | Pending |
+| 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |
 
-**No hadith card. No event print.** Rule enforced in the template.
+**No event print. Ever.** The calendar ring stays box-only — it is now the only collection the box exclusively owns.
+
+**The card carries no silsila segment number.** Its chain is `FIRST EDITION nn/39`, kept visibly separate from the box's fourteen segments. Both rules are enforced in the template. *(The rule forbidding a card at all was overturned 2026-08-14; keeping the two chains apart is what replaced it.)*
 
 **Exterior:** no month cancellation — this line is dateless. Plain seal, name area, *She became the line* printed small.
 

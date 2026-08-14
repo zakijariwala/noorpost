@@ -1,6 +1,6 @@
 # Everyone Else — Narjis Khatun
 
-**Points home:** *Narjis kept a birth secret for months, in a house being watched, and told almost no one until it was already over.* · Dateless · Four items
+**Points home:** *Narjis kept a birth secret for months, in a house being watched, and told almost no one until it was already over.* · Dateless · Five items
 
 ---
 
@@ -69,11 +69,14 @@ Accounts of her later life vary and are held here loosely, per the same practice
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Person print | **A portrait. Faces allowed in this line.** A composed woman in a doorway, hands folded, an ordinary household visible behind her — nothing dramatised. | Pending |
-| 3 | Sticker sheet | A closed door, a quiet lamp, small repeatable marks | Pending |
-| 4 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |
+| 2 | Hadith card | Saying of **Imam al-Mahdi**, matched to keeping what must be kept. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Blocked on a fixed edition** — same blocker as envelope 10 |
+| 3 | Person print | **A portrait. Faces allowed in this line.** A composed woman in a doorway, hands folded, an ordinary household visible behind her — nothing dramatised. | Pending |
+| 4 | Sticker sheet | A closed door, a quiet lamp, small repeatable marks | Pending |
+| 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |
 
-**No hadith card. No event print.** Rule enforced in the template.
+**No event print. Ever.** The calendar ring stays box-only — it is now the only collection the box exclusively owns.
+
+**The card carries no silsila segment number.** Its chain is `FIRST EDITION nn/39`, kept visibly separate from the box's fourteen segments. Both rules are enforced in the template. *(The rule forbidding a card at all was overturned 2026-08-14; keeping the two chains apart is what replaced it.)*
 
 **Exterior:** no month cancellation — this line is dateless. Plain seal, name area, *The secret held* printed small.
 

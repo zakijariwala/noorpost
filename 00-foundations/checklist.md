@@ -4,6 +4,8 @@ Copy this file into the envelope's folder and fill it. An envelope is not finish
 
 **Envelope:** __ · **Month:** ________ · **Masoom:** ________
 
+**Line:** ☐ the Fourteen (box) ☐ Everyone Else (companions) — *the companions line has its own section near the end; it changes the item list and the hadith card's chain.*
+
 ---
 
 ## Letter
@@ -78,7 +80,21 @@ Copy this file into the envelope's folder and fill it. An envelope is not finish
 - [ ] Return postcard, pre-addressed, two signature lines, fixed wording
 - [ ] Exterior: circular month cancellation, name area, wax seal
 - [ ] Flap block: running order and runtime
-- [ ] Nothing in this envelope carries a hadith card or an event print that shouldn't
+- [ ] Nothing in this envelope carries an event print that shouldn't
+
+## Everyone Else only — the companions line (added 2026-08-14)
+
+Skip this section for a box envelope. For a companions envelope, it **replaces** the "Items and physical" list above and amends the hadith card list: five items, not seven, and a different chain.
+
+- [ ] Five items: letter + fact panel, hadith card, person print, sticker sheet, return postcard
+- [ ] **No event print.** The calendar ring is box-only and stays that way
+- [ ] Person print: a portrait — faces are allowed here, and the line is weaker for not using it
+- [ ] Exterior: plain seal, name area, points-home line small. **No month cancellation** — this line is dateless
+- [ ] Hadith card: everything in the list above **except** the segment lines, which are replaced by the two below
+- [ ] **Chain mark reads `FIRST EDITION nn/39`, written out.** No silsila segment number in any form, front or back
+- [ ] Saying is of the Masoom this envelope points home to, theme-matched — **and is not that Masoom's box card**
+- [ ] Card and box card side by side: could a child sort them into one pile? If yes, the marks are too alike — `design-system.md` §7
+- [ ] Category decision recorded where one is required — Khawla, Fitrus, Ruqayya
 
 ## Runtime
 

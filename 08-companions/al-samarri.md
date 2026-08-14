@@ -1,6 +1,6 @@
 # Everyone Else — Ali ibn Muhammad al-Samarri
 
-**Points home:** *Ali was the fourth of the four, and the last letter he ever received said there would not be a fifth.* · Dateless · Four items
+**Points home:** *Ali was the fourth of the four, and the last letter he ever received said there would not be a fifth.* · Dateless · Five items
 
 ---
 
@@ -73,11 +73,14 @@ He died shortly after, and no fifth deputy was ever named.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Person print | **A portrait. Faces allowed in this line.** An older man holding a single letter, still, composed — the last in a set of four, without dramatising it. | Pending |
-| 3 | Sticker sheet | A sealed letter, a closing door left ajar, small repeatable marks | Pending |
-| 4 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |
+| 2 | Hadith card | Saying of **Imam al-Mahdi**, matched to the close of a trust. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Blocked on a fixed edition** — same blocker as envelope 10 |
+| 3 | Person print | **A portrait. Faces allowed in this line.** An older man holding a single letter, still, composed — the last in a set of four, without dramatising it. | Pending |
+| 4 | Sticker sheet | A sealed letter, a closing door left ajar, small repeatable marks | Pending |
+| 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |
 
-**No hadith card. No event print.** Rule enforced in the template.
+**No event print. Ever.** The calendar ring stays box-only — it is now the only collection the box exclusively owns.
+
+**The card carries no silsila segment number.** Its chain is `FIRST EDITION nn/39`, kept visibly separate from the box's fourteen segments. Both rules are enforced in the template. *(The rule forbidding a card at all was overturned 2026-08-14; keeping the two chains apart is what replaced it.)*
 
 **Exterior:** no month cancellation — this line is dateless. Plain seal, name area, *There would not be a fifth* printed small.
 

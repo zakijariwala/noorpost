@@ -1,6 +1,6 @@
 # Everyone Else — Zaynab bint Ali
 
-**Points home:** *Zaynab survived Karbala, and made sure the world could not simply forget what it had seen there.* · Dateless · Four items
+**Points home:** *Zaynab survived Karbala, and made sure the world could not simply forget what it had seen there.* · Dateless · Five items
 
 ---
 
@@ -61,11 +61,14 @@ She lived on after the captivity, continuing to be a central figure in how Karba
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Person print | **A portrait. Faces allowed in this line.** A woman standing upright, composed, facing outward — dignity rather than defeat. | Pending |
-| 3 | Sticker sheet | A raised hand, a chain link (unbroken, not depicted as bondage imagery), a road, small repeatable marks | Pending |
-| 4 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |
+| 2 | Hadith card | Saying of **Imam Husayn**, matched to the truth said in front of a ruler. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 3 | Person print | **A portrait. Faces allowed in this line.** A woman standing upright, composed, facing outward — dignity rather than defeat. | Pending |
+| 4 | Sticker sheet | A raised hand, a chain link (unbroken, not depicted as bondage imagery), a road, small repeatable marks | Pending |
+| 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |
 
-**No hadith card. No event print.** Rule enforced in the template.
+**No event print. Ever.** The calendar ring stays box-only — it is now the only collection the box exclusively owns.
+
+**The card carries no silsila segment number.** Its chain is `FIRST EDITION nn/39`, kept visibly separate from the box's fourteen segments. Both rules are enforced in the template. *(The rule forbidding a card at all was overturned 2026-08-14; keeping the two chains apart is what replaced it.)*
 
 **Exterior:** no month cancellation — this line is dateless. Plain seal, name area, *She made sure the world could not forget* printed small.
 
