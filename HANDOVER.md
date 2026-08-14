@@ -154,11 +154,16 @@ awk 'BEGIN{g=0} /\S {10,}\S/{g++} END{print int(g*100/NR)"%"}' 00-sources/text/F
 
 `00-foundations/sources-needed.md` ranks the ten claims most likely to fail. Work down that list. **Two of the top three are verified; the first was reverted by the Shia-sources-only rule:**
 
-1. **Makkah called him al-Amin before revelation** — envelope 03. ⛔ **Was verified, now reopened.** It was checked against Guillaume's Ibn Ishaq, a Sunni work removed on 2026-08-12 under the Shia-sources-only rule in `sourcing-rules.md`. The claim is not in doubt; it needs a permitted edition. **Still the highest-priority row in the project.**
+1. **Makkah called him al-Amin before revelation** — envelope 03. ⛔ **Was verified, reopened 2026-08-12, half-closed 2026-08-14.** It was checked against Guillaume's Ibn Ishaq, a Sunni work removed under the Shia-sources-only rule in `sourcing-rules.md`. **A permitted Shia passage carrying the claim and its reasons has now been found in the repo** — *The Fourteen Infallibles* (Yasin T. Al-Jibouri), §*Year of the Elephant*, quoted on `citation-sheet.md`. **The blocker changed kind: it is no longer a search, it is that the work is not a fixed edition** (aggregator PDF, no publisher, no year). **This row now closes with a decision, not a purchase.** The other three envelope 03 rows — the Ka'ba rebuilding, the dispute, the cloak — were searched in the same pass and are carried by nothing held; they still need `al-Irshad`.
 2. ~~Risalat al-Huquq entry count, and the tongue entry quoted exactly~~ — envelope 09. **51 entries**, not "around fifty" — letter and panel corrected. Tongue entry is **entry 3**, quoted in full on `citation-sheet.md`. *(Cite the entry number, not a page — this is a web-generated PDF; see Trap 2 above.)*
 3. ~~Imam al-Rida's four conditions~~ — envelope 13. Uyun Akhbar al-Rida vol. 2 (Peiravi) carries them in **three** places. **The draft wording was already correct and stands** — appoint nobody, dismiss nobody, change nothing in place, no opinion unless asked. An earlier pass read only one of the three passages, wrongly declared the draft unsupported, and rewrote the printed line; that has been reverted.
 
-Next down the list: #4, al-Kadhim's four years (envelope 08) — al-Kafi or Uyun Akhbar al-Rida are the likely works; #5, the Shurayh shield case (envelope 07) — needs al-Irshad.
+4. ~~Al-Kadhim's four years~~ — envelope 08. **Worked 2026-08-14** against Qarashi's *Life of Imam Musa bin Ja'far al-Kazim*, which turns out to be **fully credited — author, translator (Jasim al-Rasheed) and publisher (Ansariyan)** — better than several sources this project has been treating as usable. Arrest is Shawwal 20, 179 AH; *about* four years holds and all three places agree. Recorded `TRAD`, not `V`: it is arithmetic across two dates, not a statement in the source.
+5. **The Shurayh shield case** — envelope 07. **Confirmed negative 2026-08-14**, searched across the whole of `00-sources/text/` rather than one work. Both `al-Irshad` extracts still credit no translator; Nahj al-Balagha has Shurayh only in Letter 3, a different episode. **Still needs `al-Irshad` with a named translator.**
+
+**Two things came out of #4 that are worth carrying forward.** The letter's opening line put all four years in Baghdad when roughly the first was Basra — **and it had been contradicting its own fact panel, which was already right.** Corrected, re-measured, 359 words. And **envelope 08's death date is now `CONT`, not `TV`**: §22 of the held work prints 173 AH, impossible against its own arrest date of 179, with 181 and 186 named as variants and 183 appearing only inside someone else's quotation. **The panel prints 183 with nothing behind it.** That is the next row to work, and it is a regression found rather than a row closed — which is the loop working.
+
+Next after that: #6 onward on the list.
 
 ### Fill this in first
 
@@ -169,6 +174,8 @@ The fixed-editions table in `00-foundations/sourcing-rules.md` is **now filled �
 ## What is still missing
 
 **Sources.** `00-sources/text/` has Tuhaf al-Uqul, both parts of Nahj al-Balagha, Sahifa Sajjadiyya, Risalat al-Huquq, both volumes of Uyun Akhbar al-Rida, al-Kafi, two copies of Kitab al-Irshad, Subhani's *The Message*, two Qarashi lives, and two on the Fourteen. **All Shia.** Guillaume's Sira and the two Tabari volumes were removed on 2026-08-12 under the hard rule in `sourcing-rules.md`.
+
+**Check the title page before assuming a held file is uncitable — one already was and nobody had looked.** `qarashi--the-life-of-imam-musa-bin-jafar-al-kazim.txt` credits **author, translator (Jasim al-Rasheed) and publisher (Ansariyan, Qum)**, which is a full citation chain and better than several files being treated as usable. `head -12` on the extracted text shows it. The two `al-Irshad` files, by contrast, credit **no translator at all**, which is exactly why they still block envelope 07.
 
 Not there:
 
