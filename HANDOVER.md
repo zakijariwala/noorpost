@@ -67,10 +67,40 @@ Site is at **https://zakijariwala.github.io/noorpost/** and serves from `main` `
 | 3 Content | **All fourteen letters, fact panels and session cards written.** Counts measured. Hadith cards blocked. |
 | 4 Art | Nothing drawn. Every item is specified. |
 | 5–7 | Not started. Gated behind the print run. |
-| 8 Companions | Six written. |
+| 8 Companions | Thirty-nine written. **Restructured 2026-08-14 — see "The 2026-08-14 decisions" below. Nothing built against them yet.** |
 | 9 Zines | Template plus two full, thirteen outlined. |
 
 **Every factual claim in every fact panel is unverified.** They are marked `TV` on the citation sheet. Nothing prints on `TV`.
+
+---
+
+## The 2026-08-14 decisions
+
+**Four decisions, no content work.** Recorded here because they change rules that other files state as settled, and because a reader who missed the session would otherwise trust the old wording. **Nothing was built, selected, or written against any of them.**
+
+**1. The product is a first edition of two parts.** The Fourteen are the monthly subscription box. **Everyone Else is one envelope per individual** — all thirty-nine — bought singly, as a checkout add-on, or in a pack. Together they are the **first edition**, a closed set. **Second edition TBD**, and it is the only place new personalities go from now on.
+
+**2. The companions line carries a hadith card.** The rule forbidding it — stated in `08-companions/README.md` as *"not a guideline"*, and as rulebook C5 — **is overturned.** The event-print half stands: the calendar ring stays box-only.
+
+**3. The card is numbered on its own chain, `FIRST EDITION nn/39`** — never a silsila segment. **The cost was accepted, not overlooked: the box is no longer the only way to complete a collection.** A child can complete a thirty-nine-card chain without ever holding a subscription. The mitigation, and the thing that is now load-bearing, is that **the two chains stay visibly separate** — fourteen silsila segments in the box, thirty-nine first-edition cards outside it, and no card readable as belonging to the other set.
+
+**4. The saying is of the Masoom the envelope points home to**, theme-matched to that person, never a repeat of that Masoom's box card.
+
+### What decision 4 immediately blocked, and why it matters
+
+**Six of the thirty-nine cannot be assigned a card**, and five fail on gaps the project already knew about:
+
+| Blocked | Points to | Same blocker as |
+|---|---|---|
+| Fizza | Sayyida Fatima | **Box card 06** |
+| Muhammad ibn Uthman, Husayn ibn Ruh, al-Samarri, Narjis | Imam al-Mahdi | **Box card 10** |
+| Khawla bint al-Azwar | nobody — the one entry pointing to no Masoom | *(nothing; needs its own decision)* |
+
+**This is the finding worth carrying forward.** Acquiring a fixed edition carrying Sayyida Fatima, or one carrying the tawqi'at with a named translator, **now unblocks eight items instead of two.** That is a real change to the priority order in `sources-needed.md`, and it was not true yesterday.
+
+### Also learned, and it blocks the tooling
+
+**There is no Python on the Windows machine this repo sits on.** `build_site.py`, `build_print_templates.py` and the other two **cannot be run here.** Consequences: **`docs/` is stale** and will not reflect any markdown change until someone rebuilds it somewhere with Python — so **read the markdown on GitHub, not the published site.** Install Python, or do tooling work elsewhere.
 
 ---
 
@@ -154,6 +184,9 @@ None of these need a source. They need you.
 
 | Decision | What it touches |
 |---|---|
+| **What orders the companions chain `01/39`–`39/39`?** | Every companion hadith card. Proposal: group by the Masoom pointed to, in historical order. **Number it independently of the silsila** — do not inherit the unresolved segment fight below. |
+| **What does Khawla's card carry?** | She points to no Masoom, so the selection rule has nothing to draw on. Answer the scholar's category call on her entry first. |
+| **What are the packs?** | How thirty-nine envelopes are sold. Groupings already in the material: the four nayibs, Karbala, the mothers, the Prophet's household. |
 | **Swap envelopes 05 and 11?** | Every item on both pages is keyed to the month |
 | Silsila numbering — the Prophet at 13 or 1, and where Sayyida Fatima sits | All fourteen hadith cards |
 | Zaynab holds two of fourteen women's slots (02, 05) | The one repeat in a feature sold on fourteen |
@@ -168,7 +201,7 @@ None of these need a source. They need you.
 ## Rules that are easy to break
 
 - **The segment number prints on the hadith card. The envelope number never does.** The silsila runs in historical order, the envelopes in calendar order.
-- **No hadith card and no event print in the companions line, ever.** Those two carry the silsila and the ring. Break this and the box stops being the only way to complete anything.
+- **No event print in the companions line, ever.** It carries the calendar ring — now the only collection the box exclusively owns. ⚠ **The hadith-card half of this rule was overturned on 2026-08-14.** That line now carries a card, numbered `FIRST EDITION nn/39`, never a silsila segment. **What replaced the rule: the two chains stay visibly separate.** See `08-companions/README.md`.
 - **The death goes in one fixed place** — last line of the fact panel, nowhere else. Fact and actor, no method.
 - **One new thing for the adult, every envelope.** A fact, not a reflection.
 - **Every activity needs two roles.** Anything one person can do alone fails the brief.

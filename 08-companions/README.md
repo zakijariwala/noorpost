@@ -2,32 +2,83 @@
 
 Dateless single envelopes. Bought one at a time, any time. Gifts, Eid presents, madrasa prizes, checkout add-ons. **A small first purchase that advertises the flagship without selling language.**
 
+---
+
+## Where this line sits — first edition (2026-08-14)
+
+The product is two things under one edition.
+
+| | What it is | How it is bought |
+|---|---|---|
+| **The Fourteen** | The monthly subscription box. One sealed envelope a month, opened on the date it belongs to. | Subscription only. |
+| **Everyone Else** | One envelope per individual — all thirty-nine here. | Singly, as a checkout add-on, or bundled into a separate pack. |
+
+**Everything above is the first edition.** It is a closed set: fourteen plus thirty-nine. **Second edition is TBD** and is the only place new personalities go — which is what finally makes the "closed to new entries" line in the gaps table below enforceable rather than aspirational.
+
+The packs are not yet defined. Thirty-nine envelopes is too many to sell as one undifferentiated wall, and the obvious groupings already exist in the material (the four nayibs; Karbala; the mothers; the Prophet's household). **Defining the packs is an open job — see `TASKS.md` Phase 8.**
+
 ## Scope, decided (2026-08-12)
 
 **"Everyone Else" means everyone else, literally.** Not restricted to companions in the strict historical sense — servants, students, agents. It includes:
 - **Family members** of the Fourteen who were present, helped, or contributed notably, but are not themselves one of the Fourteen — Abbas, Umm Kulthum, Rabab, Zaynab, Sakina, and others like them.
 - **Traditional and miraculous figures** from the wider devotional literature, not just documented historical people — starting with the angel Fitrus. These carry the traditional marker as a matter of course, not as an exception, and need scholar judgement on whether theological content (rule Q3) is being crossed rather than conduct/character content.
 
-This closes the question raised by Abbas, then Umm Kulthum and Rabab, about whether family belongs in this line — it does, deliberately, and the line's own two protective rules (no hadith card, no event print) still apply without exception to every entry regardless of category.
+This closes the question raised by Abbas, then Umm Kulthum and Rabab, about whether family belongs in this line — it does, deliberately, and the line's own protective rules apply without exception to every entry regardless of category. *(As of 2026-08-14 that is one rule, not two — the no-hadith-card half was overturned. See below.)*
 
 ---
 
-## Four items, not seven
+## Five items, not four
 
 | # | Item |
 |---|---|
 | 1 | The two-voice letter, with the fact panel on its reverse |
-| 2 | Person print |
-| 3 | Sticker sheet |
-| 4 | Return postcard |
+| 2 | **Hadith card** — added 2026-08-14, see below |
+| 3 | Person print |
+| 4 | Sticker sheet |
+| 5 | Return postcard |
 
-## Two rules that protect the flagship
+## One rule that protects the flagship, where there were two
 
-> ### No hadith card. No event print. Ever.
+> ### ~~No hadith card.~~ **No event print. Ever.**
 
-Those two carry the silsila and the calendar ring. The moment a bonus envelope holds one, the box stops being the only way to complete anything.
+**Overturned 2026-08-14, by explicit decision.** The hadith-card half of this rule is gone. These envelopes now carry a hadith card. What replaces it:
 
-This is not a guideline. It is the reason the line is safe to sell at all, and it should be enforced in the template rather than remembered per envelope.
+| | Rule now |
+|---|---|
+| **Event print** | **Still never.** The calendar ring stays box-only, and is now the only collection the box exclusively owns. |
+| **Hadith card** | Carried, and **numbered on its own chain — `FIRST EDITION nn/39`.** Never a silsila segment number. |
+
+**Understand what was given up, because the old rule stated it plainly and it was not wrong.** The box is no longer the only way to complete a collection. A child can now complete a thirty-nine-card chain without ever holding a subscription. That was the exact risk the rule existed to prevent, it was accepted deliberately rather than overlooked, and the mitigation is that the two chains are kept visibly separate: fourteen silsila segments in the box, thirty-nine first-edition cards outside it, different numbering, and no card that can be mistaken for the other set.
+
+**The separation is what is now load-bearing, so it is what the template must enforce** — the old template check (assert no hadith card) is wrong and has to be replaced with a narrower one (assert no silsila segment number, assert no event print).
+
+## Which hadith goes on which envelope
+
+**Decided 2026-08-14: the saying is of the Masoom the envelope already points home to, chosen to match that person's quality.** Bilal's card carries a saying of the Prophet about steadfastness; Safwan's carries a saying of Imam al-Kadhim. The envelope keeps pointing home, and the card is the second thing pointing there rather than a loose piece of ethics.
+
+Everything in `sourcing-rules.md` applies unchanged and unrelaxed — conduct and ethics only, quoted exactly, from a fixed edition, cited by the work's own internal number. **A companion card is not a lower evidentiary bar than a box card.**
+
+Two further rules this choice creates:
+
+- **No companion card repeats the saying on its Masoom's box card.** The fourteen box cards are set (`citation-sheet.md`); a companion card that repeats one devalues both.
+- **Eight companions point to the Prophet and eight to Imam Husayn**, so those two need eight *distinct* sayings each. That is the practical constraint on selection, and it is why this is real work rather than a lookup.
+
+### What this decision blocks, immediately
+
+**Six of the thirty-nine cannot be assigned a card at all**, and five of them fail for a reason the project already knows about.
+
+| Entry | Points to | Why blocked |
+|---|---|---|
+| Fizza | Sayyida Fatima | **Same blocker as envelope 06.** Tuhaf al-Uqul has no Fatima section; no fixed edition in this project carries a conduct-register saying of hers. |
+| Muhammad ibn Uthman | Imam al-Mahdi | **Same blocker as envelope 10.** The tawqi'at are in works available only in an aggregator copy credited to `en.unknown` — no translator, so no citation. |
+| Husayn ibn Ruh | Imam al-Mahdi | As above. |
+| Ali ibn Muhammad al-Samarri | Imam al-Mahdi | As above. |
+| Narjis Khatun | Imam al-Mahdi | As above. |
+| Khawla bint al-Azwar | **nobody** | Different problem: she is the one entry in the line that points to no Masoom, so the rule above has nothing to select from. Needs its own decision — and she is already flagged for a scholar call on whether the entry survives at all. |
+
+**This is the useful finding of the session.** The two gaps that block two of the fourteen box cards — Sayyida Fatima, and Imam al-Mahdi — now block six envelopes instead of two. Acquiring a fixed edition for either **buys more than it did yesterday**, which changes the priority order in `sources-needed.md`.
+
+Asma bint Umays and Uthman ibn Sa'id both point to more than one Masoom and are **not** blocked: Asma takes a saying of the Prophet, Uthman one of Imam al-Hadi or al-Askari.
 
 ## You can draw their faces
 
@@ -91,9 +142,9 @@ Everything in `00-foundations/` applies unchanged: the two-voice letter spec, th
 
 | Not in this line | Why |
 |---|---|
-| Hadith card | Carries the silsila |
-| Event print | Carries the calendar ring |
-| Session card | Four items, and the letter does the work |
+| ~~Hadith card~~ | **Now carried** — overturned 2026-08-14. On its own `nn/39` chain, never a silsila segment. |
+| Event print | Carries the calendar ring. Still never. |
+| Session card | The letter does the work |
 | No-faces rule | Reversed here on purpose |
 | Month stamp | These are dateless. The exterior carries a plain seal and no cancellation. |
 
@@ -198,14 +249,19 @@ Recorded here rather than left implied, because this line has grown faster than 
 
 | Gap | Size |
 |---|---|
+| **Hadith cards** | **0 of 39 assigned** (new, 2026-08-14). Six of the thirty-nine cannot be assigned at all until a source is acquired — see the blocked table above. The remaining thirty-three are selectable from held sources but **none has been selected yet**; the decision is recorded, the work is not started. Card templates do not exist either — `build_print_templates.py` currently asserts the opposite rule. |
 | **Print templates** | ~~18 of 39~~ **39 of 39** (2026-08-12). Generated by `tools/build_print_templates.py` from these markdown files, so a new companion gets its three templates as soon as it is written. **But every letter template overflows its A5 page by 28–69% — a blocking defect that predates the generator and affects the Fourteen too. See `04-art/print/README.md`.** |
 | **Citations** | **0 of 39 verified.** No companion letter has a single row at `V`. The Fourteen's citation work has priority and none of these jump that queue. |
 | **Scholar review** | **0 of 39 signed.** Three need a category decision *before* wording review: Khawla, Fitrus, Ruqayya. |
 | **Artwork** | **0 of 39.** Every person print and sticker sheet is spec-only. |
 | **Spec-check blocks** | **10 of 39 carry one** — the ten reworked on 2026-08-12. The other twenty-nine were measured in aggregate but do not document the child-word test individually, which the rulebook requires. |
 
-**The pattern worth noticing:** writing entries is the cheap activity and it has outrun the four expensive ones that actually gate print. Adding a thirty-sixth entry costs an afternoon; the citation, scholar, template and art backlog behind the existing thirty-nine is measured in months. Consider this line closed to new entries until that backlog moves.
+**The pattern worth noticing:** writing entries is the cheap activity and it has outrun the four expensive ones that actually gate print. Adding a thirty-sixth entry costs an afternoon; the citation, scholar, template and art backlog behind the existing thirty-nine is measured in months. Consider this line closed to new entries until that backlog moves — **and as of 2026-08-14 that is structural, not advisory: the first edition is a closed set of thirty-nine, and new personalities go to the second edition.**
+
+**The hadith-card decision made this backlog bigger, not smaller.** It adds a fifth item, a card template, thirty-nine selections and thirty-nine citation rows to a line that has zero verified citations and zero signed entries today. That is the cost of the decision and it is worth seeing written down next to the gaps it joins.
 
 ## Status
 
 **Thirty-nine letters and fact panels written — all fourteen Masoomeen have a companion, all four nayibs of the minor occultation now have one each, the line stands at twenty men to eighteen women plus Fitrus (un-gendered) — closer to parity than it has ever been, still short of it, this batch's seven-to-three women-to-men skew was deliberate movement toward it — and it includes family members and one traditional/miraculous figure by deliberate decision, not by accident.** All held to the same word count, child-line count, and demand-line rules as the Fourteen — measured, not estimated, same discipline as `03-content/spec-check.md`. A number of entries across the last four batches sit a little under the 330-word floor (270–328 in the earlier batches, 313 and 321 in this one) rather than exactly in range; flagged here rather than quietly left. **Artwork pending for all thirty-nine** — Fitrus specifically does not get a human portrait; see his own item spec. Citations pending — same blockers as the Fourteen, and none of these letters jump that queue. **Khawla, Fitrus, and now Ruqayya all need a scholar category decision, not just a wording review, before anything else happens to them.**
+
+**Two structural changes landed 2026-08-14, both decisions rather than drafting:** this line now sits inside a first edition alongside the subscription box, and **it carries a hadith card** — the protective rule that forbade one is overturned. **Neither change has reached a single one of the thirty-nine files yet.** Every entry still prints *"No hadith card. No event print. Rule enforced in the template"* in its Items block, which is now half wrong in all thirty-nine, and the generator still enforces the old rule. That sweep is the first job of the next session.

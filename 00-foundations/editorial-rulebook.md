@@ -150,7 +150,9 @@ Full skeleton in `fact-panel-spec.md`. The rules that are editorial rather than 
 | C2 | The silsila runs in historical order. The envelopes run in calendar order. |
 | C3 | **The segment number prints on the hadith card. The envelope number never does.** |
 | C4 | Every event print carries the same punch position, so all fourteen clip onto one ring. |
-| C5 | No item outside the box ever carries a hadith card or an event print. This is what keeps the box the only way to complete anything. |
+| C5 | ~~No item outside the box ever carries a hadith card or an event print.~~ **Amended 2026-08-14 — see C5a and C6.** |
+| C5a | **No item outside the box ever carries an event print.** The calendar ring stays box-only, and it is now the only collection that does. |
+| C6 | **A companions envelope does carry a hadith card, numbered on its own chain** — `FIRST EDITION nn/39`, never a silsila segment number. Two chains, deliberately separate: the silsila is fourteen and comes only in the box; the companions chain is thirty-nine and is bought a piece at a time. A card must never be able to be read as belonging to the other chain. |
 
 ---
 

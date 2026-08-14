@@ -111,6 +111,33 @@ Neither is an oversight — **the source does not exist in this repo**, and no a
 
 ---
 
+## Hadith cards — the companions line, all thirty-nine
+
+**Added 2026-08-14 by decision. 0 of 39 selected — this table is a placeholder, not a record of work.**
+
+The companions line now carries a hadith card (`08-companions/README.md`; rulebook C5a/C6). **The evidentiary standard is identical to the box** — conduct and ethics only, quoted exactly, fixed edition, cited by internal number. A companion card is not a lighter row.
+
+**Selection rule:** the saying is of the Masoom the envelope points home to, theme-matched to that person, and **never a repeat of that Masoom's box card above.**
+
+**The binding constraint:** eight companions point to the Prophet and eight to Imam Husayn, so those two need **eight distinct sayings each**. Tuhaf al-Uqul carries a numbered short-maxims section for every Masoom except the two below.
+
+### Six that cannot be selected
+
+| Entry | Points to | Status |
+|---|---|---|
+| Fizza | Sayyida Fatima | **BLOCKED — no source.** Identical to envelope 06 above. |
+| Muhammad ibn Uthman | Imam al-Mahdi | **BLOCKED — no source.** Identical to envelope 10 above. |
+| Husayn ibn Ruh | Imam al-Mahdi | **BLOCKED — no source.** |
+| Ali ibn Muhammad al-Samarri | Imam al-Mahdi | **BLOCKED — no source.** |
+| Narjis Khatun | Imam al-Mahdi | **BLOCKED — no source.** |
+| Khawla bint al-Azwar | **nobody** | **BLOCKED — no rule.** The only entry pointing to no Masoom. Needs a decision, not a source. |
+
+**What this changes about priority.** The Sayyida Fatima gap and the Imam al-Mahdi gap each blocked exactly one box card. **They now block four items and five items respectively.** Either acquisition buys four times what it did before — reflected in `sources-needed.md`.
+
+Asma bint Umays and Uthman ibn Sa'id point to more than one Masoom and are **not** blocked.
+
+---
+
 ## Project-wide rows
 
 | Env | Item | Claim | Work | Ref | Translator | Status | Note |

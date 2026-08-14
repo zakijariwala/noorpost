@@ -2,6 +2,8 @@
 
 Printed series for Shia families with children aged 8 to 12, built around the Fourteen Masoomeen. One sealed envelope per month, opened by a parent and child together on the date it belongs to. About twenty-five minutes.
 
+**The first edition is two parts** (decided 2026-08-14): the **Fourteen**, sold as the monthly subscription box, and **Everyone Else** — thirty-nine envelopes, one per individual, sold singly, as an add-on, or in a pack. Together they are a closed set. **Second edition TBD**, and it is the only place new personalities go.
+
 ## Repository layout
 
 | Path | What lives here |
@@ -40,7 +42,7 @@ Phase numbers in folder names match `TASKS.md`. Gaps in the numbering (02, 04–
 | 3 — Content build | **All fourteen letters, fact panels and session cards written**, and the silsila segments assigned. Counts measured in `03-content/spec-check.md`. Hadith card selection blocked; artwork pending. |
 | 4 — Art | Illustration prompt packs written (`04-art/prompts.md`), covering every envelope, companion and zine. Text-layout print template proved against envelope 03 and extended to all fourteen envelopes and eighteen companions (`04-art/print/`). **No actual illustrations exist yet** — the prompts haven't been run through an image generator. |
 | 5–7 — Production, commerce, launch | Not started. Gated behind the print run. |
-| 8 — Companions | **Twenty-six written — all fourteen Masoomeen have a companion, eight of the twenty-six are women.** Artwork pending. |
+| 8 — Companions | **Thirty-nine written — all fourteen Masoomeen have a companion, eighteen of the thirty-nine are women.** Artwork pending. **Restructured by decision 2026-08-14: this line is now one envelope per individual inside a closed first edition, and it carries a hadith card — the rule forbidding one is overturned. 0 of 39 cards assigned; no file has been updated yet.** See `HANDOVER.md`. |
 | 9 — Zines | **All fifteen written in full**, including Fadak (verbal scholar agreement; full written sign-off still required before print). |
 
 **Every fact in every fact panel is marked `TO VERIFY`.** Nothing here has been checked against a printed source, because no editions are fixed yet. The citation sheet's status codes exist so that nothing prints on an unverified row.

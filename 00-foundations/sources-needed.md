@@ -29,7 +29,20 @@ One edition per work, fixed for the project and never mixed. Page and hadith num
 
 ## Tier 1b — the two hadith cards with no possible source
 
-**Blocks: 2 of 14 hadith cards. Everything else about those two envelopes is done.**
+> ⚠ **Repriced 2026-08-14. This tier got four times more valuable and did not move.**
+>
+> The companions line now carries a hadith card too, and its saying must come from **the Masoom that envelope points home to** (`08-companions/README.md`). So these same two gaps now block **eight items, not two**:
+>
+> | Gap | Was | Now |
+> |---|---|---|
+> | **Sayyida Fatima** | box card 06 | box card 06 **+ Fizza** = 2 |
+> | **Imam al-Mahdi** | box card 10 | box card 10 **+ Muhammad ibn Uthman, Husayn ibn Ruh, al-Samarri, Narjis** = 5 |
+>
+> *(The eighth blocked companion, Khawla, fails for a different reason — she points to no Masoom at all. No acquisition fixes her; she needs a decision.)*
+>
+> **Either acquisition now unblocks four times what it did.** Weigh this tier against the `Kitab al-Irshad` purchase accordingly — Irshad still carries more narrative rows, but the gap below is no longer a two-item problem.
+
+**Blocks: 2 of 14 box hadith cards, and 5 of 39 companion cards. Everything else about those two envelopes is done.**
 
 Twelve of the fourteen cards were selected on 2026-08-12. These two could not be, and the reason is not that the search was shallow — **every fixed edition and every credited text in `00-sources/text/` was checked.** Neither Masoom has a single conduct-register saying available in anything this repo holds:
 
