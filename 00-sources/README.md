@@ -23,13 +23,25 @@ What counts as evidence, and what a citation has to be able to prove, is in
 | `manifest.json` | The fetcher's download record. Unchanged, still written by `fetch_sources.py`. | **yes** |
 | `inventory.md` | The human ledger of what is present and missing. | **yes** |
 | `reports/` | Generated: the source audit, and the generated citation-sheet view. | **yes** |
-| `pages/` | The intermediate page representation, one JSONL per edition. | no — derived |
-| `md/` | Canonical Markdown, one file per edition. | no — derived |
-| `source.db` | SQLite + FTS5. The operational source of truth. | no — derived |
-| `page-images/` | Rendered pages, on request. | no — derived |
+| `pages/` | The intermediate page representation, one JSONL per edition. | **yes** — derived, but tracked |
+| `md/` | Canonical Markdown, one file per edition. | **yes** — derived, but tracked |
+| `source.db` | SQLite + FTS5. The operational source of truth. | no — 182 MB, over GitHub's file limit |
+| `page-images/` | Rendered pages, on request. | no — unbounded cache |
 
-The four untracked derived directories rebuild from the tracked ones with one
-command and come to about 60 MB. Nothing in them is authored.
+`md/` and `pages/` are tracked so a reader can open a source, and a change to
+the extraction shows up as a reviewable diff. Both are byte-identical across
+rebuilds, so a diff always means something changed in the pipeline or the
+input. They come to 58 MB, and they hold the same page text as `text/` in two
+other shapes — that redundancy is the price of being able to see them.
+
+**One thing to know:** a `--from-pdf` build stamps `extracted_at` (and the OCR
+engine version, when OCR ran) into each `pages/*.jsonl` header, so those files
+will show a one-line diff even when the text is identical. The default
+`--from-text` build carries no timestamp and is stable.
+
+`source.db` cannot be tracked — GitHub refuses any single file over 100 MiB.
+Rebuild it in about twenty seconds. Git LFS would carry it if you ever want it
+pinned to a commit.
 
 ---
 
