@@ -27,6 +27,35 @@ One edition per work, fixed for the project and never mixed. Page and hadith num
 
 ---
 
+## Tier 1b — the two hadith cards with no possible source
+
+**Blocks: 2 of 14 hadith cards. Everything else about those two envelopes is done.**
+
+Twelve of the fourteen cards were selected on 2026-08-12. These two could not be, and the reason is not that the search was shallow — **every fixed edition and every credited text in `00-sources/text/` was checked.** Neither Masoom has a single conduct-register saying available in anything this repo holds:
+
+| Source checked | Result for Sayyida Fatima | Result for Imam al-Mahdi |
+|---|---|---|
+| Tuhaf al-Uqul (priority work) | **No section at all** — it runs the Prophet, then Ali through al-Askari | **No section at all** |
+| Nahj al-Balagha | Imam Ali only | — |
+| Sahifa Sajjadiyya / Risalat al-Huquq | Imam al-Sajjad only | — |
+| Uyun Akhbar al-Rida | One passing mention of her, not a saying by her | — |
+| al-Kafi | The held copy is Vol. 1 (*Usul*) — Intelligence, Knowledge, Tawhid. No Fatima chapter, and the register is theological, not conduct | Same |
+| Guillaume / Tabari VIII | Sira and history, not sayings | — |
+| Nuqoosh-e-Ismat (named translator) | Narrative only, no quoted sayings by her | Carries one tawqi' — *"It is your duty to issue verdicts and our job to verify them"* — which is **religious authority, banned by rule Q3** |
+| The Fourteen Infallibles | Her material is the Fadak dispute and her death — contested ground envelope 06 exists to avoid, and the wrong register | — |
+| Qarashi, *Life of Imam Mahdi* | — | Qur'anic verses and other people's questions; translator credited only as a bureau |
+
+**What would unblock each — one acquisition apiece:**
+
+| Envelope | Needs | Note |
+|---|---|---|
+| **06 · Sayyida Fatima · segment 4** | Any credited English edition carrying her short sayings — the *Musnad Fatima al-Zahra* material, or al-Saduq's *Ilal al-Shara'i* / *Ma'ani al-Akhbar*, or Da'a'im al-Islam | Her best-known conduct saying — praying for the neighbour before the household — sits in these. It is thematically ideal for envelope 06, which is about a private devotional practice, and would turn it outward. **Do not print it from memory; it has to come off a page.** |
+| **10 · Imam al-Mahdi · segment 14** | *Kamal al-Din* or either *Kitab al-Ghayba*, **with a named translator** | Already flagged in Tier 2 as the occultation gap. The aggregator copies are credited `en.unknown` and fail this project's own rule. Note the extra constraint: most surviving tawqi'at are about authority or the occultation itself, so a conduct-only one is genuinely scarce — budget time to find it, not just to buy the book. |
+
+**Why this is not being worked around.** A saying recalled from memory and typeset would look exactly like the other twelve and be indistinguishable on the card — and the whole citation apparatus exists to stop precisely that. This session already contains one instance of acting on an incomplete reading of a source (envelope 13, reverted). Two cards waiting on one purchase each is the cheaper outcome.
+
+---
+
 ## Tier 2 — The sira gap
 
 **Blocks: every letter's citations. All twenty of them — fourteen envelopes plus six companions.**
