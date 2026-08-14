@@ -6,6 +6,13 @@ A factual ledger of the source texts, checked against the files actually in
 `00-sources/text/`. This is the *present/missing* view. For the *why it matters*
 view, ordered by what it unblocks, see `00-foundations/sources-needed.md`.
 
+> **Since 2026-08-14 this ledger has a machine-readable counterpart.**
+> `00-sources/metadata/sources.yaml` carries the same holdings as edition
+> records — `source_id`, translator, SHA-256, whether the edition is fixed, and
+> whether its page numbers may be cited at all. `python tools/source_audit.py`
+> prints the current state from the database. The two are checked against each
+> other by hand; this file stays the written account.
+
 Checked: 2026-08-11, against 19 text files in `00-sources/text/` and 14 PDF
 records in `manifest.json`.
 

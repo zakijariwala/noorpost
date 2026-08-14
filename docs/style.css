@@ -477,3 +477,106 @@ code {
   body { background: #fff; color: #000; }
   section.flap, section.panel, section.session, section.zinepage { box-shadow: none; break-inside: avoid; }
 }
+
+/* ---------------------------------------------------------------- status
+   The dashboard at status.html. Uses the tokens above, so it follows the
+   light/dark theme without defining a colour of its own. */
+
+.dashhero { margin: 2.2rem 0 1.6rem; }
+.dashhero h1 { margin-bottom: 0.4rem; }
+
+.dash { margin: 2.4rem 0; }
+.dash h2 {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+  margin-bottom: 0.6rem;
+}
+
+.statrow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0.9rem;
+  margin: 1rem 0;
+}
+
+.stat {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+  box-shadow: 0 1px 2px var(--shadow);
+}
+.statlab {
+  margin: 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+.statval {
+  margin: 0.25rem 0 0;
+  font-size: 1.75rem;
+  line-height: 1.15;
+  font-variant-numeric: tabular-nums;
+}
+.statmeter { margin: 0.5rem 0 0; display: flex; align-items: center; gap: 0.5rem; }
+.statsub { margin: 0.45rem 0 0; font-size: 0.86rem; color: var(--soft); }
+
+.meter {
+  flex: 1 1 auto;
+  height: 7px;
+  min-width: 3rem;
+  background: var(--rule);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.meter > span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 99px;
+}
+.meterlab {
+  font-size: 0.8rem;
+  color: var(--soft);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.dashtable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.94rem;
+}
+.dashtable th, .dashtable td {
+  text-align: left;
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+.dashtable th {
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--soft);
+  font-weight: 600;
+}
+.dashtable td:nth-child(2), .dashtable td:nth-child(3) { font-variant-numeric: tabular-nums; }
+.dashtable td .meter { display: inline-block; width: 6rem; vertical-align: middle; }
+
+.warn {
+  background: var(--card);
+  border: 1px solid var(--accent);
+  border-left-width: 4px;
+  border-radius: 8px;
+  padding: 0.75rem 0.9rem;
+  font-size: 0.94rem;
+}
+
+/* wide content scrolls inside itself rather than the page */
+.dash table { display: block; overflow-x: auto; }
+
+@media (max-width: 30rem) {
+  .statval { font-size: 1.45rem; }
+}

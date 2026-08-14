@@ -1,0 +1,786 @@
+# Claims — one record per claim that reaches print.
+#
+# Generated from 00-foundations/citation-sheet.md by
+# tools/import_citation_sheet.py. The sheet stays the thing a human edits;
+# re-run the importer after editing it. claim_id is a hash of
+# (env, item, claim text) so ids survive rows being added above them.
+#
+# status: TV | V | TRAD | CONT | CUT | rejected | needs-review
+# Nothing prints on TV. TV becomes V only when a human has opened the fixed
+# edition at the named page — no tool in this repository may do it.
+
+claims:
+- claim_id: CLM-03-413bc364
+  project_location: 00-foundations/citation-sheet.md § Envelope 03 — Rabi al-Awwal — Prophet Muhammad
+  env: '03'
+  item: letter
+  claim_text: Quraysh rebuilt the Ka'ba when the Prophet was about thirty-five
+  status: TV
+  work_hint: needs a Shia source
+  ref_hint: —
+  translator_hint: —
+  notes: ⛔ Was `V` against Guillaume. **Removed 2026-08-12 under the Shia-sources-only rule.** The claim
+    is not in doubt; the source is no longer permitted. Re-source from `al-Irshad` or another Shia work.
+  created_from: citation-sheet.md
+- claim_id: CLM-03-0ff02389
+  project_location: 00-foundations/citation-sheet.md § Envelope 03 — Rabi al-Awwal — Prophet Muhammad
+  env: '03'
+  item: letter
+  claim_text: The clans disputed who would lift the Black Stone into place
+  status: TV
+  work_hint: needs a Shia source
+  ref_hint: —
+  translator_hint: —
+  notes: ⛔ Same.
+  created_from: citation-sheet.md
+- claim_id: CLM-03-75e77918
+  project_location: 00-foundations/citation-sheet.md § Envelope 03 — Rabi al-Awwal — Prophet Muhammad
+  env: '03'
+  item: letter
+  claim_text: He spread a cloak, set the stone on it, and had each clan carry a corner
+  status: TV
+  work_hint: needs a Shia source
+  ref_hint: —
+  translator_hint: —
+  notes: ⛔ Same.
+  created_from: citation-sheet.md
+- claim_id: CLM-03-aa20b0ff
+  project_location: 00-foundations/citation-sheet.md § Envelope 03 — Rabi al-Awwal — Prophet Muhammad
+  env: '03'
+  item: panel
+  claim_text: Makkah called him al-Amin before revelation
+  status: TV
+  work_hint: The Fourteen Infallibles*, Yasin T. Al-Jibouri
+  ref_hint: '"Holy Prophet", §*Year of the Elephant*, pp. 7–8'
+  translator_hint: English original — Al-Jibouri writes in English, no translator in the chain
+  notes: '**Reopened row, now half-closed 2026-08-14.** A permitted Shia source carrying the claim **has
+    been found in the repo**: *"When Mohammed twenty years old, he was well-known for his truthfulness
+    and uprightness, hence he was called AL-SADIQ, AL-AMIN"*, and the reasons follow on the same page
+    — *"They used to seek his help to solve their problems. They entrusted him with their trusts. They
+    never heard him lie or cheat."* That is the claim and the *"had reasons"* half of it, in one Shia
+    work with a named author. **What stops it going to `V` is the edition, not the text** — this is an
+    alhassanain.org web PDF with no publisher or year, and it is not one of the six fixed editions in
+    `sourcing-rules.md`. Trap 1 checked: 0%, single-column, page markers are reliable. Trap 2 applies:
+    cite the section heading, not the page. **This row closes the moment a sixth work is fixed** — see
+    the decision below.'
+  created_from: citation-sheet.md
+- claim_id: CLM-03-75c5c0c3
+  project_location: 00-foundations/citation-sheet.md § Envelope 03 — Rabi al-Awwal — Prophet Muhammad
+  env: '03'
+  item: panel
+  claim_text: Khadija funded the early community out of her own trade
+  status: TV
+  work_hint: to fill
+  ref_hint: to fill
+  translator_hint: to fill
+  notes: Woman slot. Needs a documented statement of her funding, not a general statement of her wealth.
+  created_from: citation-sheet.md
+- claim_id: CLM-03-5470b865
+  project_location: 00-foundations/citation-sheet.md § Envelope 03 — Rabi al-Awwal — Prophet Muhammad
+  env: '03'
+  item: panel
+  claim_text: Twenty-three years of revelation
+  status: TV
+  work_hint: to fill
+  ref_hint: to fill
+  translator_hint: to fill
+  notes: Standard, still needs a row.
+  created_from: citation-sheet.md
+- claim_id: CLM-03-3f69e0ea
+  project_location: 00-foundations/citation-sheet.md § Envelope 03 — Rabi al-Awwal — Prophet Muhammad
+  env: '03'
+  item: panel
+  claim_text: Birth 12th or 17th Rabi al-Awwal
+  status: CONT
+  work_hint: —
+  ref_hint: —
+  translator_hint: —
+  notes: Takes the standard differ line.
+  created_from: citation-sheet.md
+- claim_id: CLM-03-24fc4560
+  project_location: 00-foundations/citation-sheet.md § Envelope 03 — Rabi al-Awwal — Prophet Muhammad
+  env: '03'
+  item: panel
+  claim_text: Death 11 AH, Medina
+  status: TV
+  work_hint: to fill
+  ref_hint: to fill
+  translator_hint: to fill
+  notes: Date differs by community — 28 Safar or 12 Rabi al-Awwal. Both take the differ line.
+  created_from: citation-sheet.md
+- claim_id: CLM-03-35ab0ac1
+  project_location: 00-foundations/citation-sheet.md § Envelope 03 — Rabi al-Awwal — Prophet Muhammad
+  env: '03'
+  item: panel
+  claim_text: 'Elsewhere: work on the Grand Canal under the Sui in China, from around 605 CE'
+  status: TV
+  work_hint: Non-Islamic secondary source
+  ref_hint: to fill
+  translator_hint: —
+  notes: 'AH→CE: the rebuilding sits around 605 CE, pre-Hijra, so no AH conversion needed here. Check
+    the canal dates against a standard reference.'
+  created_from: citation-sheet.md
+- claim_id: CLM-03-74e42151
+  project_location: 00-foundations/citation-sheet.md § Envelope 03 — Rabi al-Awwal — Prophet Muhammad
+  env: '03'
+  item: hadith card
+  claim_text: “He who is deprived of kindness is deprived of goodness entirely.”
+  status: V
+  work_hint: Tuhaf al-Uqul
+  ref_hint: short maxims of the Prophet, no. 112
+  translator_hint: Badr Shahin
+  notes: Selected 2026-08-12. See the all-fourteen table below.
+  created_from: citation-sheet.md
+- claim_id: CLM-09-592da751
+  project_location: 00-foundations/citation-sheet.md § Envelope 09 — Imam al-Sajjad
+  env: 09
+  item: letter/panel
+  claim_text: Risalat al-Huquq* has fifty-one entries
+  status: V
+  work_hint: Risalat al-Huquq
+  ref_hint: Entries 1–51, numbered "1. The Greatest Right of Allah" through "51) The Right of People under
+    the protection of Islam"
+  translator_hint: William C. Chittick
+  notes: 'Counted directly off the English section headers in the fixed edition — 51, not "around fifty."
+    One numbering quirk: the Arabic transliteration numerals drop out of sync after entry 39 (the unnumbered
+    Arabic line for "the adversary against whom you have a claim"), but the English headers run 1–51 with
+    no gap or repeat, and are the count of record.'
+  created_from: citation-sheet.md
+- claim_id: CLM-09-a73b7a70
+  project_location: 00-foundations/citation-sheet.md § Envelope 09 — Imam al-Sajjad
+  env: 09
+  item: letter
+  claim_text: 'The right of the tongue, quoted exactly: "The right of the tongue is that you consider
+    it too noble for obscenity, accustom it to good, refrain from any meddling in which there is nothing
+    to be gained, express kindness to the people, and speak well concerning them."'
+  status: V
+  work_hint: Risalat al-Huquq
+  ref_hint: Entry 3 (the treatise's own numbering — stable across editions, and the citation of record)
+  translator_hint: William C. Chittick
+  notes: Full sentence, no ellipsis needed to fit a card — check `standard-lines.md` / card layout for
+    whether it needs trimming with `…`, which is permitted, rather than paraphrase, which is not. **Page
+    number deliberately omitted:** the copy in `00-sources/text/` is a web-generated al-Islam.org PDF
+    whose pagination does not match the printed Muhammadi Trust edition fixed in `sourcing-rules.md`.
+    Add a printed page only if someone checks a physical copy.
+  created_from: citation-sheet.md
+- claim_id: CLM-13-c9e3ec0d
+  project_location: 00-foundations/citation-sheet.md § Envelope 13 — Imam al-Rida
+  env: '13'
+  item: letter
+  claim_text: Imam al-Rida's four conditions for accepting the succession — he would appoint nobody, dismiss
+    nobody, change nothing already in place, and give no opinion unless asked
+  status: V
+  work_hint: Uyun Akhbar al-Rida, vol. 2
+  ref_hint: 'Three passages, all in vol. 2 of the fixed edition: the conditions as written to al-Ma''mun;
+    the "distant advisor" statement; and his later reminder to al-Ma''mun when pressed to name a governor.
+    Cite the second as primary. Page numbers pending — see the two-column/edition caveat in `sourcing-rules.md`;
+    this edition''s own internal chapter-and-report numbering is the stable reference, not the PDF page.'
+  translator_hint: Dr. Ali Peiravi
+  notes: 'Primary support: *"I will accept it under the condition that I do not interfere in dismissals
+    or appointments, nor change any practices or traditions. I will just be a distant advisor."* Corroborated
+    by: *"I will neither issue any orders, nor will I admonish anyone. I will not remove anyone from office,
+    neither will I appoint anyone."* A third passage phrases the same conditions differently (*"I neither
+    issue any orders, nor do I admonish against anything; I neither judge, nor change anything"*). **All
+    three are the same event; the draft letter line is supported and stands.** ⚠ **2026-08-12 correction:**
+    an earlier pass read only the third passage, wrongly recorded the draft as unsupported, and rewrote
+    the printed line. Reverted. Lesson: a differently-worded passage is not disproof — search the whole
+    work before cutting a line.'
+  created_from: citation-sheet.md
+- claim_id: CLM-08-9fc5d326
+  project_location: 00-foundations/citation-sheet.md § Envelope 08 — Imam al-Kadhim
+  env: 08
+  item: letter/panel
+  claim_text: Arrested in Medina, Shawwal 20, 179 AH
+  status: V
+  work_hint: Qarashi, *The Life of Imam Musa bin Ja'far al-Kazim
+  ref_hint: Ch. "Imam Musa is arrested"
+  translator_hint: Jasim al-Rasheed (Ansariyan)
+  notes: Stated flatly, with the Imam taken in chains from the Prophet's grave. This is the start date
+    the "four years" is counted from.
+  created_from: citation-sheet.md
+- claim_id: CLM-08-70ac2035
+  project_location: 00-foundations/citation-sheet.md § Envelope 08 — Imam al-Kadhim
+  env: 08
+  item: letter/panel
+  claim_text: About a year of it was in Basra, before Baghdad
+  status: V
+  work_hint: Qarashi, *The Life of Imam Musa bin Ja'far al-Kazim
+  ref_hint: Ch. "The Imam is carried to Baghdad", opening — *"stayed in the detention of 'Isa for a year"
+  translator_hint: Jasim al-Rasheed (Ansariyan)
+  notes: ⚠ **This corrected a printed line.** The letter opened *"held in a prison in Baghdad for about
+    four years"*, which puts the whole span in the wrong city — roughly the first year was Basra, in 'Isa
+    b. Ja'far's custody, and Baghdad came after. Fixed to *"held in prison, moved from city to city, for
+    about four years"*; count re-measured, 357 → 359 words, still in range. **The fact panel was already
+    right** (*"Medina for most of it, then Basra and Baghdad"*), so the two disagreed with each other
+    and nobody had noticed.
+  created_from: citation-sheet.md
+- claim_id: CLM-08-d9e27e08
+  project_location: 00-foundations/citation-sheet.md § Envelope 08 — Imam al-Kadhim
+  env: 08
+  item: letter/panel/death line
+  claim_text: Held about four years without charge
+  status: TRAD
+  work_hint: Qarashi, *The Life of Imam Musa bin Ja'far al-Kazim
+  ref_hint: 'Computed: arrest Shawwal 179 → death 183 ≈ 3 years 9 months'
+  translator_hint: Jasim al-Rasheed (Ansariyan)
+  notes: '**"About four years" holds and all three places agree.** It is not `V` because the number is
+    arithmetic across two dates rather than a statement in the source — no passage in the work says "four
+    years" of the imprisonment. Keep the word *about*; it is doing real work.'
+  created_from: citation-sheet.md
+- claim_id: CLM-08-ebda3d88
+  project_location: 00-foundations/citation-sheet.md § Envelope 08 — Imam al-Kadhim
+  env: 08
+  item: panel
+  claim_text: Died 183 AH
+  status: CONT
+  work_hint: contested inside the source itself
+  ref_hint: §22 "The Time of his Death"
+  translator_hint: Jasim al-Rasheed (Ansariyan)
+  notes: ⚠ **The held work does not support 183 in its own headline.** §22 gives *"Rajab 25, in the year
+    173 A. H."* as the famous narration, then names 181 and 186 as variants. **173 is impossible against
+    this same book's arrest date of 179** and is almost certainly a digit error for 183; 183 appears in
+    the book only inside a quotation from Dr. Muhammed Yousif Musa. **Do not print 183 on this source
+    alone.** Check a physical copy of §22, or source the death date from Uyun or al-Irshad. The `AH →
+    CE` table row for 183 is unaffected either way — but if the date moves, the death line, the panel
+    dateline and that row all move together.
+  created_from: citation-sheet.md
+- claim_id: CLM-01-fb72d7f2
+  project_location: 00-foundations/citation-sheet.md § Hadith cards — all fourteen
+  env: '01'
+  item: hadith card
+  claim_text: '"The true stingy is that who refrains from greeting."'
+  status: V
+  work_hint: Tuhaf al-Uqul
+  ref_hint: short maxims, no. 18
+  translator_hint: null
+  notes: segment 3, Imam Husayn
+  created_from: citation-sheet.md
+- claim_id: CLM-02-8254a8e8
+  project_location: 00-foundations/citation-sheet.md § Hadith cards — all fourteen
+  env: '02'
+  item: hadith card
+  claim_text: '"The people who consult for their affairs will surely be guided to the right."'
+  status: V
+  work_hint: Tuhaf al-Uqul
+  ref_hint: short maxims, no. 1
+  translator_hint: null
+  notes: segment 2, Imam Hasan
+  created_from: citation-sheet.md
+- claim_id: CLM-03-91cc786d
+  project_location: 00-foundations/citation-sheet.md § Hadith cards — all fourteen
+  env: '03'
+  item: hadith card
+  claim_text: '"He who is deprived of kindness is deprived of goodness entirely."'
+  status: V
+  work_hint: Tuhaf al-Uqul
+  ref_hint: short maxims, no. 112
+  translator_hint: null
+  notes: segment 13, The Prophet
+  created_from: citation-sheet.md
+- claim_id: CLM-04-928cfe7e
+  project_location: 00-foundations/citation-sheet.md § Hadith cards — all fourteen
+  env: '04'
+  item: hadith card
+  claim_text: '"The heart of the foolish is in his mouth and the mouth of the wise is in his heart."'
+  status: V
+  work_hint: Tuhaf al-Uqul
+  ref_hint: short maxims, no. 21
+  translator_hint: null
+  notes: segment 11, Imam al-Askari
+  created_from: citation-sheet.md
+- claim_id: CLM-05-3f28b22d
+  project_location: 00-foundations/citation-sheet.md § Hadith cards — all fourteen
+  env: '05'
+  item: hadith card
+  claim_text: '"No mixture is better than the mixture of clemency and knowledge."'
+  status: V
+  work_hint: Tuhaf al-Uqul
+  ref_hint: short maxims, no. 2
+  translator_hint: null
+  notes: segment 6, Imam al-Baqir
+  created_from: citation-sheet.md
+- claim_id: CLM-06-aeeccd6f
+  project_location: 00-foundations/citation-sheet.md § Hadith cards — all fourteen
+  env: '06'
+  item: hadith card
+  claim_text: hadith card for Sayyida Fatima — no saying selected
+  status: needs-review
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: segment 4. BLOCKED — no source
+  created_from: citation-sheet.md
+- claim_id: CLM-07-013447d3
+  project_location: 00-foundations/citation-sheet.md § Hadith cards — all fourteen
+  env: '07'
+  item: hadith card
+  claim_text: '"The value of a man is what he does expertly."'
+  status: V
+  work_hint: Tuhaf al-Uqul
+  ref_hint: short maxims, no. 8
+  translator_hint: null
+  notes: segment 1, Imam Ali
+  created_from: citation-sheet.md
+- claim_id: CLM-08-28640fad
+  project_location: 00-foundations/citation-sheet.md § Hadith cards — all fourteen
+  env: 08
+  item: hadith card
+  claim_text: '"Good neighborhood is not abstinence from harm. It is to tolerate the harm (of the neighbors)."'
+  status: V
+  work_hint: Tuhaf al-Uqul
+  ref_hint: short maxims, no. 13
+  translator_hint: null
+  notes: segment 8, Imam al-Kadhim
+  created_from: citation-sheet.md
+- claim_id: CLM-09-c64760e1
+  project_location: 00-foundations/citation-sheet.md § Hadith cards — all fourteen
+  env: 09
+  item: hadith card
+  claim_text: '"The right of the tongue is that you consider it too noble for obscenity…" (full text above)'
+  status: V
+  work_hint: Risalat al-Huquq
+  ref_hint: entry 3
+  translator_hint: null
+  notes: segment 5, Imam al-Sajjad
+  created_from: citation-sheet.md
+- claim_id: CLM-10-019e7732
+  project_location: 00-foundations/citation-sheet.md § Hadith cards — all fourteen
+  env: '10'
+  item: hadith card
+  claim_text: hadith card for Imam al-Mahdi — no saying selected
+  status: needs-review
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: segment 14. BLOCKED — no source
+  created_from: citation-sheet.md
+- claim_id: CLM-11-2b422c60
+  project_location: 00-foundations/citation-sheet.md § Hadith cards — all fourteen
+  env: '11'
+  item: hadith card
+  claim_text: '"This world is like a market in which some profited and others lost."'
+  status: V
+  work_hint: Tuhaf al-Uqul
+  ref_hint: short maxims, no. 15
+  translator_hint: null
+  notes: segment 10, Imam al-Hadi
+  created_from: citation-sheet.md
+- claim_id: CLM-12-d1feb881
+  project_location: 00-foundations/citation-sheet.md § Hadith cards — all fourteen
+  env: '12'
+  item: hadith card
+  claim_text: '"He who treats people kindly will be accepted as arbiter."'
+  status: V
+  work_hint: Tuhaf al-Uqul
+  ref_hint: short maxims, no. 1
+  translator_hint: null
+  notes: segment 7, Imam al-Sadiq
+  created_from: citation-sheet.md
+- claim_id: CLM-13-dedb02b1
+  project_location: 00-foundations/citation-sheet.md § Hadith cards — all fourteen
+  env: '13'
+  item: hadith card
+  claim_text: '"Silence is one of the doors of wisdom. It yields amicability and leads to every goodness."'
+  status: V
+  work_hint: Tuhaf al-Uqul
+  ref_hint: short maxims, no. 8
+  translator_hint: null
+  notes: segment 9, Imam al-Rida
+  created_from: citation-sheet.md
+- claim_id: CLM-14-1c100b80
+  project_location: 00-foundations/citation-sheet.md § Hadith cards — all fourteen
+  env: '14'
+  item: hadith card
+  claim_text: '"To show a matter before preparing for it properly is spoiling it."'
+  status: V
+  work_hint: Tuhaf al-Uqul
+  ref_hint: short maxims, no. 12
+  translator_hint: null
+  notes: segment 12, Imam al-Jawad
+  created_from: citation-sheet.md
+- claim_id: CLM-GEN-3e124c0a
+  project_location: 00-foundations/citation-sheet.md § Six that cannot be selected
+  env: null
+  item: companion hadith card
+  claim_text: hadith card for Fizza
+  status: needs-review
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: points to Sayyida Fatima. BLOCKED — no source. Identical to envelope 06 above.
+  created_from: citation-sheet.md
+- claim_id: CLM-GEN-aceb77af
+  project_location: 00-foundations/citation-sheet.md § Six that cannot be selected
+  env: null
+  item: companion hadith card
+  claim_text: hadith card for Muhammad ibn Uthman
+  status: needs-review
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: points to Imam al-Mahdi. BLOCKED — no source. Identical to envelope 10 above.
+  created_from: citation-sheet.md
+- claim_id: CLM-GEN-86e48d7a
+  project_location: 00-foundations/citation-sheet.md § Six that cannot be selected
+  env: null
+  item: companion hadith card
+  claim_text: hadith card for Husayn ibn Ruh
+  status: needs-review
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: points to Imam al-Mahdi. BLOCKED — no source.
+  created_from: citation-sheet.md
+- claim_id: CLM-GEN-043a9a2e
+  project_location: 00-foundations/citation-sheet.md § Six that cannot be selected
+  env: null
+  item: companion hadith card
+  claim_text: hadith card for Ali ibn Muhammad al-Samarri
+  status: needs-review
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: points to Imam al-Mahdi. BLOCKED — no source.
+  created_from: citation-sheet.md
+- claim_id: CLM-GEN-079c7787
+  project_location: 00-foundations/citation-sheet.md § Six that cannot be selected
+  env: null
+  item: companion hadith card
+  claim_text: hadith card for Narjis Khatun
+  status: needs-review
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: points to Imam al-Mahdi. BLOCKED — no source.
+  created_from: citation-sheet.md
+- claim_id: CLM-GEN-0c3a35b5
+  project_location: 00-foundations/citation-sheet.md § Six that cannot be selected
+  env: null
+  item: companion hadith card
+  claim_text: hadith card for Khawla bint al-Azwar
+  status: needs-review
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: points to nobody. BLOCKED — no rule. The only entry pointing to no Masoom. Needs a decision,
+    not a source.
+  created_from: citation-sheet.md
+- claim_id: CLM-GEN-d4bd96cd
+  project_location: 00-foundations/citation-sheet.md § Project-wide rows
+  env: null
+  item: panel
+  claim_text: All fourteen death lines
+  status: TV
+  work_hint: see `death-lines.md`
+  ref_hint: —
+  translator_hint: —
+  notes: Reviewed as one document, not envelope by envelope.
+  created_from: citation-sheet.md
+- claim_id: CLM-GEN-a03775e8
+  project_location: 00-foundations/citation-sheet.md § Project-wide rows
+  env: null
+  item: card
+  claim_text: Silsila, historical order, fourteen segments
+  status: TV
+  work_hint: —
+  ref_hint: —
+  translator_hint: —
+  notes: Segment number prints on the card. Envelope number never does.
+  created_from: citation-sheet.md
+- claim_id: CLM-01-3fbaee49
+  project_location: 00-foundations/citation-sheet.md § The women — one row each, owed before Gate 3
+  env: '01'
+  item: woman slot
+  claim_text: the documented act for Umm al-Banin — not yet chosen
+  status: TV
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: Umm al-Banin
+  created_from: citation-sheet.md
+- claim_id: CLM-02-16087814
+  project_location: 00-foundations/citation-sheet.md § The women — one row each, owed before Gate 3
+  env: '02'
+  item: woman slot
+  claim_text: That Arbaeen exists because she survived and spoke
+  status: TV
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: Zaynab
+  created_from: citation-sheet.md
+- claim_id: CLM-03-de40ee39
+  project_location: 00-foundations/citation-sheet.md § The women — one row each, owed before Gate 3
+  env: '03'
+  item: woman slot
+  claim_text: Funding the early community from her own trade
+  status: TV
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: Khadija
+  created_from: citation-sheet.md
+- claim_id: CLM-04-c5385f7c
+  project_location: 00-foundations/citation-sheet.md § The women — one row each, owed before Gate 3
+  env: '04'
+  item: woman slot
+  claim_text: the documented act for Nargis — not yet chosen
+  status: TV
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: Nargis
+  created_from: citation-sheet.md
+- claim_id: CLM-05-690282bd
+  project_location: 00-foundations/citation-sheet.md § The women — one row each, owed before Gate 3
+  env: '05'
+  item: woman slot
+  claim_text: Her birth on 5 Jumada al-Awwal; the Damascus shrine
+  status: TV
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: Zaynab
+  created_from: citation-sheet.md
+- claim_id: CLM-06-8e31629e
+  project_location: 00-foundations/citation-sheet.md § The women — one row each, owed before Gate 3
+  env: '06'
+  item: woman slot
+  claim_text: Answering in Qur'anic verse for about twenty years
+  status: TRAD
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: Fizza
+  created_from: citation-sheet.md
+- claim_id: CLM-07-9fabb4e8
+  project_location: 00-foundations/citation-sheet.md § The women — one row each, owed before Gate 3
+  env: '07'
+  item: woman slot
+  claim_text: Birth inside the Kaaba
+  status: TV
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: Fatima bint Asad
+  created_from: citation-sheet.md
+- claim_id: CLM-08-4911c646
+  project_location: 00-foundations/citation-sheet.md § The women — one row each, owed before Gate 3
+  env: 08
+  item: woman slot
+  claim_text: That she taught
+  status: TV
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: Hamida
+  created_from: citation-sheet.md
+- claim_id: CLM-09-06ae00ae
+  project_location: 00-foundations/citation-sheet.md § The women — one row each, owed before Gate 3
+  env: 09
+  item: woman slot
+  claim_text: Her origin
+  status: TRAD
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: Shahrbanu
+  created_from: citation-sheet.md
+- claim_id: CLM-10-3579268d
+  project_location: 00-foundations/citation-sheet.md § The women — one row each, owed before Gate 3
+  env: '10'
+  item: woman slot
+  claim_text: Present at the birth
+  status: TRAD
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: Hakima Khatun
+  created_from: citation-sheet.md
+- claim_id: CLM-11-9a983c60
+  project_location: 00-foundations/citation-sheet.md § The women — one row each, owed before Gate 3
+  env: '11'
+  item: woman slot
+  claim_text: the documented act for Samana — not yet chosen
+  status: TV
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: Samana
+  created_from: citation-sheet.md
+- claim_id: CLM-12-c471ebd4
+  project_location: 00-foundations/citation-sheet.md § The women — one row each, owed before Gate 3
+  env: '12'
+  item: woman slot
+  claim_text: the documented act for Umm Farwa — not yet chosen
+  status: TV
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: Umm Farwa
+  created_from: citation-sheet.md
+- claim_id: CLM-13-1ec07b5d
+  project_location: 00-foundations/citation-sheet.md § The women — one row each, owed before Gate 3
+  env: '13'
+  item: woman slot
+  claim_text: Died at Qom travelling to reach him
+  status: TV
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: Sayyida Masuma
+  created_from: citation-sheet.md
+- claim_id: CLM-14-754fbefe
+  project_location: 00-foundations/citation-sheet.md § The women — one row each, owed before Gate 3
+  env: '14'
+  item: woman slot
+  claim_text: the documented act for Umm al-Fadl — not yet chosen
+  status: TV
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: Umm al-Fadl
+  created_from: citation-sheet.md
+- claim_id: CLM-01-0fe2168c
+  project_location: 00-foundations/citation-sheet.md § AH → CE conversion
+  env: '01'
+  item: panel
+  claim_text: AH 61 converts to about 680 CE
+  status: TV
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: AH→CE conversion. Check against a converter, not the formula.
+  created_from: citation-sheet.md
+- claim_id: CLM-02-e1297d94
+  project_location: 00-foundations/citation-sheet.md § AH → CE conversion
+  env: '02'
+  item: panel
+  claim_text: AH 50 converts to about 670 CE
+  status: TV
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: AH→CE conversion. Check against a converter, not the formula.
+  created_from: citation-sheet.md
+- claim_id: CLM-03-93a2341b
+  project_location: 00-foundations/citation-sheet.md § AH → CE conversion
+  env: '03'
+  item: panel
+  claim_text: AH 11 converts to about 632 CE
+  status: TV
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: AH→CE conversion. Check against a converter, not the formula.
+  created_from: citation-sheet.md
+- claim_id: CLM-04-7a9fc823
+  project_location: 00-foundations/citation-sheet.md § AH → CE conversion
+  env: '04'
+  item: panel
+  claim_text: AH 260 converts to about 874 CE
+  status: TV
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: AH→CE conversion. Check against a converter, not the formula.
+  created_from: citation-sheet.md
+- claim_id: CLM-05-45d2eacc
+  project_location: 00-foundations/citation-sheet.md § AH → CE conversion
+  env: '05'
+  item: panel
+  claim_text: AH 114 converts to about 732 CE
+  status: TV
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: AH→CE conversion. Check against a converter, not the formula.
+  created_from: citation-sheet.md
+- claim_id: CLM-06-697a170f
+  project_location: 00-foundations/citation-sheet.md § AH → CE conversion
+  env: '06'
+  item: panel
+  claim_text: AH 11 converts to about 632 CE
+  status: TV
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: AH→CE conversion. Check against a converter, not the formula.
+  created_from: citation-sheet.md
+- claim_id: CLM-07-05640751
+  project_location: 00-foundations/citation-sheet.md § AH → CE conversion
+  env: '07'
+  item: panel
+  claim_text: AH 40 converts to about 661 CE
+  status: TV
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: AH→CE conversion. Check against a converter, not the formula.
+  created_from: citation-sheet.md
+- claim_id: CLM-08-11b0d8b8
+  project_location: 00-foundations/citation-sheet.md § AH → CE conversion
+  env: 08
+  item: panel
+  claim_text: AH 183 converts to about 799 CE
+  status: TV
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: AH→CE conversion. Check against a converter, not the formula.
+  created_from: citation-sheet.md
+- claim_id: CLM-09-824523e2
+  project_location: 00-foundations/citation-sheet.md § AH → CE conversion
+  env: 09
+  item: panel
+  claim_text: AH 95 converts to about 713 CE
+  status: TV
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: AH→CE conversion. Check against a converter, not the formula.
+  created_from: citation-sheet.md
+- claim_id: CLM-11-de2f98fd
+  project_location: 00-foundations/citation-sheet.md § AH → CE conversion
+  env: '11'
+  item: panel
+  claim_text: AH 254 converts to about 868 CE
+  status: TV
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: AH→CE conversion. Check against a converter, not the formula.
+  created_from: citation-sheet.md
+- claim_id: CLM-12-f5fb7cf6
+  project_location: 00-foundations/citation-sheet.md § AH → CE conversion
+  env: '12'
+  item: panel
+  claim_text: AH 148 converts to about 765 CE
+  status: TV
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: AH→CE conversion. Check against a converter, not the formula.
+  created_from: citation-sheet.md
+- claim_id: CLM-13-0e876fd0
+  project_location: 00-foundations/citation-sheet.md § AH → CE conversion
+  env: '13'
+  item: panel
+  claim_text: AH 203 converts to about 818 CE
+  status: TV
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: AH→CE conversion. Check against a converter, not the formula.
+  created_from: citation-sheet.md
+- claim_id: CLM-14-996a38c5
+  project_location: 00-foundations/citation-sheet.md § AH → CE conversion
+  env: '14'
+  item: panel
+  claim_text: AH 220 converts to about 835 CE
+  status: TV
+  work_hint: null
+  ref_hint: null
+  translator_hint: null
+  notes: AH→CE conversion. Check against a converter, not the formula.
+  created_from: citation-sheet.md

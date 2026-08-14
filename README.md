@@ -16,6 +16,8 @@ Printed series for Shia families with children aged 8 to 12, built around the Fo
 | `08-companions/` | Phase 8. Everyone Else — the companion envelopes. |
 | `09-zines/` | Phase 9. Noori's Notebook. |
 | `04-art/` | Phase 4. Illustration prompt packs (`prompts.md`) and a print-ready text-layout template, proved against envelope 03 (`print/`). |
+| `00-sources/` | The source library — the only thing in this repository that counts as evidence. Page-marked text, edition metadata, and a searchable passage database. See `00-sources/README.md`. |
+| `tools/`, `tests/` | The build scripts and the source pipeline. `python -m unittest discover -s tests` |
 
 Phase numbers in folder names match `TASKS.md`. Gaps in the numbering (02, 04–08) are phases with no text deliverable — channel test, art, production, commerce, launch.
 

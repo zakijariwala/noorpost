@@ -28,15 +28,17 @@ unzip sources.zip -d 00-sources
 | `TASKS.md` | Ten phases, gated. Checkboxes are current. |
 | `00-foundations/` | The rules. Everything else is checked against these. |
 | `00-sources/text/` | 15 source texts as plain text, page-numbered. **Tracked. Shia sources only** — see the hard rule in `sourcing-rules.md`. |
-| `00-sources/*.pdf` | The PDFs. **Not tracked** — from the release. |
+| `00-sources/*.pdf`, `00-sources/originals/` | The PDFs. **Not tracked** — from the release. Immutable. |
+| `00-sources/metadata/` | `sources.yaml` (editions, hashes, pagination), `rejected.yaml` (the denylist), `claims.yaml`, `citations.yaml`. **Tracked.** |
+| `00-sources/source.db` | SQLite + FTS5 over every page and passage. **Not tracked — rebuild it.** |
 | `01-pilot/envelope-03/` | Envelope 03, split across four files |
 | `03-content/` | Envelopes 01, 02, 04–14, one file each, plus `spec-check.md` |
 | `08-companions/` | The six companion envelopes |
 | `09-zines/` | Zine template, two written in full, thirteen outlined |
 | `docs/` | The published site. **Generated — never edit by hand.** |
-| `tools/` | Four scripts |
+| `tools/` | The build scripts, plus `sourcelib/` — the source pipeline |
 
-## The four scripts
+## The scripts
 
 ```bash
 python tools/build_site.py             # rebuild docs/ from the markdown
@@ -46,6 +48,22 @@ python tools/extract_text.py           # PDFs -> 00-sources/text/ (only if you r
 ```
 
 `build_print_templates.py` also **enforces the companions line's protective rule**, on every build and not only on `--check`: no silsila segment number in a companion template, no event print, and an Items table of exactly the five fixed items. It exits non-zero rather than writing a template that breaks the separation between the two chains.
+
+And the source pipeline, added 2026-08-14. `pip install -r requirements.txt` first
+(PyYAML, and nothing else). Full account in `00-sources/README.md`.
+
+```bash
+python tools/build_source_corpus.py     # text/ -> pages -> md/ -> source.db + FTS5
+python tools/source_search.py "Shurayh" # find evidence, with edition and page
+python tools/page_image.py --source SRC-NHB-002 --page 35   # look at the original page
+python tools/source_audit.py --write    # what is fixed, missing, TV, V, unverified
+python -m unittest discover -s tests    # 40 tests
+```
+
+`source_search.py` searches `00-sources/` and nothing else, so a draft can never
+become evidence for itself. It reports which editions' page numbers may be cited
+— today, none of them can, which is why every citation goes by the work's own
+internal numbering.
 
 `build_site.py` strips every editorial note — the new-thing lines, blocking warnings, scholar flags, open questions. **The envelope, companion and zine pages show only what a family receives.** If you add a new kind of internal note, check it does not leak: rebuild, then grep `docs/*.html` for it.
 
@@ -107,9 +125,17 @@ Site is at **https://zakijariwala.github.io/noorpost/** and serves from `main` `
 
 ### Also learned, and it blocks the tooling
 
-**There is no Python on the Windows machine this repo sits on.** `build_site.py`, `build_print_templates.py` and the other two **cannot be run there.** If that is the machine you are on, **read the markdown on GitHub, not the published site** — `docs/` will not reflect your edits. Install Python, or do tooling work elsewhere.
+**There is no Python on the Windows machine this repo sits on.** `build_site.py`, `build_print_templates.py` and the other two **cannot be run there.** Install Python, or do tooling work elsewhere.
 
-**Both builds were run elsewhere on 2026-08-14 and their output is committed, so `docs/` and `04-art/print/` are current as of that commit.** The rule still holds for the next markdown edit made without Python to hand: change the markdown, and the generated files silently fall behind until someone rebuilds. Both scripts are idempotent and safe to re-run — `build_print_templates.py --check` reports drift without writing.
+> **Amended 2026-08-14, second session — "read the markdown, not the published site" no longer applies to `docs/`.**
+>
+> It was sound advice when written, and it was checked before being retired. `docs/` had gone four commits without a rebuild, so it was rebuilt: **zero diff, on all 85 pages**, and `build_print_templates.py` reported zero files differing from disk. Everything those commits changed was either in a file the site does not publish or in material `build_site.py` strips — the Guillaume citation footer in `envelope-03/fact-panel.md` was a `<sub>` line, and `docs/envelope-03.html` carries no `<sub>` tags at all. The published site was also checked for the removed Sunni sources and is clean.
+>
+> **`docs/` is now rebuilt automatically.** `.github/workflows/site.yml` runs the source-metadata validation and the test suite, rebuilds `docs/` and commits it on every push to `main`. A push from a machine with no Python still updates the site, so the generated pages no longer fall behind an edit.
+>
+> Both scripts remain idempotent and safe to re-run by hand, and `build_print_templates.py --check` still reports drift without writing. `04-art/print/` is **not** in the workflow — it is content, not a published view, so it stays a deliberate act.
+>
+> What no automation can do is publish what has not been written. **`docs/status.html` measures that gap on every build** — sayings selected, illustrations that exist, claims still `TV` — from the repository itself, so the difference between "built" and "done" is visible without asking anyone.
 
 ---
 

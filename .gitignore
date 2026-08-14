@@ -1,4 +1,22 @@
 00-sources/*.pdf
+00-sources/originals/*.pdf
 *.zip
 __pycache__/
 *.pyc
+
+# 00-sources/md/ and 00-sources/pages/ ARE tracked, by decision 2026-08-14.
+# Both are byte-identical across rebuilds, so they diff meaningfully and a
+# reader can see a source without building anything.
+#
+# These two are not, and cannot be:
+#
+#   source.db     182 MB. GitHub refuses any single file over 100 MiB, so this
+#                 cannot be pushed without Git LFS. Rebuild it in ~20 seconds:
+#                     python tools/build_source_corpus.py
+#   page-images/  a render cache, filled on request at ~1-3 MB per page. It
+#                 would grow without limit and holds nothing that is not in
+#                 the PDFs already.
+00-sources/source.db
+00-sources/source.db-wal
+00-sources/source.db-shm
+00-sources/page-images/

@@ -1,0 +1,70 @@
+name: Build site
+
+# Rebuilds docs/ — including the status dashboard — on every push to main, and
+# commits it back. This is what makes "updated with every push" true from a
+# machine with no Python on it (see HANDOVER.md).
+#
+# docs/** is ignored as a trigger so the workflow's own commit does not start
+# another run.
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'docs/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-site
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # The source pipeline gates the publish: if the corpus or the claim
+      # metadata is broken, the site does not get rebuilt on top of it.
+      - name: Validate source metadata
+        run: python tools/build_source_corpus.py --validate-only
+
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
+
+      # source.db is not tracked (182 MB), so build it here. The dashboard
+      # reads it for the corpus figures; without it the page still builds and
+      # says the numbers are unavailable.
+      - name: Build the source corpus
+        run: python tools/build_source_corpus.py
+
+      - name: Audit the sources
+        run: python tools/source_audit.py --write
+
+      - name: Compare the citation sheet with the database
+        run: python tools/render_citation_sheet.py --write
+
+      - name: Build the site and the status dashboard
+        run: python tools/build_site.py
+
+      - name: Commit anything that changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/ 00-sources/reports/ 00-sources/md/ 00-sources/pages/
+          if git diff --cached --quiet; then
+            echo "nothing changed — site already matches the repository"
+            exit 0
+          fi
+          git commit -m "Rebuild the site and reports [skip ci]"
+          git push

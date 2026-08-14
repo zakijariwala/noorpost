@@ -73,14 +73,10 @@ TARGETS = [
         manual=[("al-islam.org — The Message", alislam("The Message Subhani"))],
     ),
     dict(
-        key="sira-guillaume", tier=2,
+        key="sira-guillaume", tier=2, rejected=True,
         title="Sirat Rasul Allah — Ibn Ishaq, trans. A. Guillaume",
-        need="Cross-check for the Kaaba rebuilding and al-Amin",
-        archive=['title:("The Life of Muhammad") AND Guillaume',
-                 '"Sirat Rasul Allah" Ibn Ishaq'],
-        must_any=["life of muhammad", "sirat", "ishaq"],
-        must_not=[],
-        manual=[],
+        need="⛔ REJECTED — Sunni work, removed 2026-08-12 under the Shia-sources-only rule",
+        archive=[], must_any=[], must_not=[], manual=[],
     ),
     dict(
         key="qarashi", tier=2,
@@ -108,13 +104,11 @@ TARGETS = [
                 ("al-islam.org — Kamal al-Din", alislam("Kamal al-Din Saduq"))],
     ),
     dict(
-        key="tabari", tier=2,
+        key="tabari", tier=2, rejected=True,
         title="The History of al-Tabari (SUNY) — volumes covering 40–260 AH",
-        need="The ruler bullet in all fourteen fact panels. Vol 19 is Karbala.",
-        archive=['title:("The History of al-Tabari") AND mediatype:texts'],
-        must_any=["tabari"],
-        must_not=["tafsir"],
-        manual=[],
+        need="⛔ REJECTED — Sunni work, removed 2026-08-12 under the Shia-sources-only rule. "
+             "The ruler bullet still needs a source; it has to be a Shia one.",
+        archive=[], must_any=[], must_not=[], manual=[],
     ),
     dict(
         key="fourteen", tier=2,
@@ -219,6 +213,22 @@ def save_manifest(m):
     with open(MANIFEST, "w", encoding="utf-8") as f:
         json.dump(m, f, indent=2, sort_keys=True)
 
+def rejected_check(filename, sha256):
+    """Refuse anything on the denylist, whatever name it arrives under.
+
+    Imported lazily so this script keeps working with nothing installed; if the
+    metadata cannot be read it says so rather than passing silently.
+    """
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from sourcelib import metadata
+        return metadata.is_rejected(sha256=sha256, filename=filename)
+    except Exception as e:
+        print(f"      ⚠ could not read the rejected-source list ({e}) — check by hand "
+              f"against 00-sources/metadata/rejected.yaml")
+        return False
+
+
 def download(url, filename, manifest, key, title, source_title):
     path = os.path.join(DEST, filename)
     if os.path.exists(path):
@@ -233,12 +243,17 @@ def download(url, filename, manifest, key, title, source_title):
     if not data.startswith(b"%PDF"):
         print(f"      not a PDF ({len(data)} bytes) — skipped")
         return False
+    digest = hashlib.sha256(data).hexdigest()
+    if rejected_check(filename, digest):
+        print(f"      ⛔ REFUSED — this file is on the rejected list "
+              f"(00-sources/metadata/rejected.yaml). Not written to disk.")
+        return False
     os.makedirs(DEST, exist_ok=True)
     with open(path, "wb") as f:
         f.write(data)
     manifest[filename] = dict(target=key, target_title=title, item_title=source_title,
                               url=url, bytes=len(data),
-                              sha256=hashlib.sha256(data).hexdigest(),
+                              sha256=digest,
                               edition_checked=False, translator=None)
     save_manifest(manifest)
     print(f"      saved {filename}  ({len(data)//1024} KB)")
@@ -250,6 +265,12 @@ def download(url, filename, manifest, key, title, source_title):
 
 def run(t, do_download, manifest, cap, max_bytes):
     print(f"\n{'='*74}\n[tier {t['tier']}]  {t['title']}\n  needed for: {t['need']}\n")
+    if t.get("rejected"):
+        # Hard rule, 00-foundations/sourcing-rules.md. This target is kept only
+        # so that asking for it by name gets an answer instead of a silence.
+        print("  ⛔ This work is excluded from the project and will not be searched or\n"
+              "     downloaded. See 00-sources/metadata/rejected.yaml. Do not re-add it.")
+        return
     got = 0
     seen = set()
 
@@ -303,7 +324,8 @@ def main():
 
     if a.list:
         for t in TARGETS:
-            print(f"{t['key']:16} tier {t['tier']}  {t['title']}")
+            mark = "⛔ REJECTED " if t.get("rejected") else ""
+            print(f"{t['key']:16} tier {t['tier']}  {mark}{t['title']}")
         return
 
     os.makedirs(DEST, exist_ok=True)

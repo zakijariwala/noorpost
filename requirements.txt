@@ -1,0 +1,17 @@
+# One dependency. Everything else is the standard library, poppler, and
+# optionally tesseract.
+PyYAML>=6.0
+
+# Also needed, but not installable with pip:
+#
+#   poppler-utils   pdftotext, pdfinfo, pdftoppm
+#                   Debian/Ubuntu:  apt install poppler-utils
+#                   macOS:          brew install poppler
+#                   Windows:        https://github.com/oschwartz10612/poppler-windows
+#
+#   tesseract-ocr   only for image-only PDFs, only when --ocr is used
+#                   apt install tesseract-ocr tesseract-ocr-ara
+#                   brew install tesseract tesseract-lang
+#
+# Neither is needed to build or search the corpus from the text already in
+# 00-sources/text/ — see 00-sources/README.md.
