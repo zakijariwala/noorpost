@@ -136,6 +136,67 @@ The companions line now carries a hadith card (`08-companions/README.md`; rulebo
 
 Asma bint Umays and Uthman ibn Sa'id point to more than one Masoom and are **not** blocked.
 
+### The thirty-nine rows
+
+**Written 2026-08-14. Every one is at `—` — no saying selected for any entry in this line.** The rows exist so that selection has somewhere to land one at a time, and so the shape of the job is visible before it starts: which Masoom each card draws on, what quality the saying has to match, and which section of which work is the place to look. **The theme is the search brief, not the citation.** Nothing here is a claim about a text.
+
+`Look in` names the likely section, taken from the fixed editions actually held. **Tuhaf al-Uqul carries a numbered short-maxims section for twelve of the Fourteen — every one except Sayyida Fatima and Imam al-Mahdi**, which is exactly why the six blocked entries are blocked. Confirmed against `00-sources/text/tuhaf_al-uqul.txt`: sections run the Prophet, then Imam Ali through Imam al-Askari.
+
+| Entry | Points to | Theme to match | Look in | Saying | Status |
+|---|---|---|---|---|---|
+| Salman al-Farsi | the Prophet | who counts as family | Tuhaf, short maxims of the Prophet | — | Not selected |
+| Bilal | the Prophet | steadfastness | Tuhaf, short maxims of the Prophet | — | Not selected |
+| Abu Dharr | the Prophet | speaking for the poor | Tuhaf, short maxims of the Prophet | — | Not selected |
+| Sumayyah bint Khabbat | the Prophet | holding on when it is not safe to | Tuhaf, short maxims of the Prophet | — | Not selected |
+| Nusaybah bint Ka'b | the Prophet | courage that shields somebody else | Tuhaf, short maxims of the Prophet | — | Not selected |
+| Umm Ayman | the Prophet | care that lasts a whole life | Tuhaf, short maxims of the Prophet | — | Not selected |
+| Halima al-Sa'diyya | the Prophet | kindness to a child in your care | Tuhaf, short maxims of the Prophet | — | Not selected |
+| Asma bint Umays | the Prophet | staying through every upheaval | Tuhaf, short maxims of the Prophet | — | Not selected |
+| Maytham al-Tammar | Imam Ali | truthfulness when it costs | Tuhaf, short maxims of Imam Ali; Nahj al-Balagha, sayings | — | Not selected |
+| Qambar | Imam Ali | service, and what a servant is owed | Tuhaf, short maxims of Imam Ali; Nahj al-Balagha, sayings | — | Not selected |
+| Malik al-Ashtar | Imam Ali | gentleness in authority | Nahj al-Balagha, sayings — **not the letter of instructions to Malik**, which his own fact panel already rests on | — | Not selected |
+| Fatima bint Asad | Imam Ali | raising a child who is not your own | Tuhaf, short maxims of Imam Ali; Nahj al-Balagha, sayings | — | Not selected |
+| Abbas ibn Ali | Imam Husayn | a trust kept when nobody would have known | Tuhaf, short maxims of Imam Husayn | — | Not selected |
+| Umm Kulthum bint Ali | Imam Husayn | children, in the worst of it | Tuhaf, short maxims of Imam Husayn | — | Not selected |
+| Rabab bint Imra' al-Qays | Imam Husayn | faithfulness that outlasts the person | Tuhaf, short maxims of Imam Husayn | — | Not selected |
+| Zaynab bint Ali | Imam Husayn | the truth said in front of a ruler | Tuhaf, short maxims of Imam Husayn | — | Not selected |
+| Sakina bint al-Husayn | Imam Husayn | remembering | Tuhaf, short maxims of Imam Husayn | — | Not selected |
+| Fitrus | Imam Husayn | grief, and what it is owed | Tuhaf, short maxims of Imam Husayn | — | Not selected |
+| Umm al-Banin | Imam Husayn | raising another woman's children as your own | Tuhaf, short maxims of Imam Husayn | — | Not selected |
+| Sayyida Ruqayya bint al-Husayn | Imam Husayn | the smallest person in the room | Tuhaf, short maxims of Imam Husayn | — | Not selected |
+| Qais ibn Sa'd | Imam Hasan | obeying when you think it is wrong | Tuhaf, short maxims of Imam al-Hasan | — | Not selected |
+| Tawus al-Yamani | Imam al-Sajjad | worship nobody is watching | Tuhaf, short maxims of Imam as-Sajjad; Risalat al-Huquq | — | Not selected |
+| Jabir ibn Abdullah al-Ansari | Imam al-Baqir | keeping a trust across a lifetime | Tuhaf, short maxims of Imam al-Baqir | — | Not selected |
+| Hisham ibn al-Hakam | Imam al-Sadiq | knowledge, whatever the age of the one holding it | Tuhaf, short maxims of Imam as-Sadiq | — | Not selected |
+| Umm Farwa | Imam al-Sadiq | honouring a mother by name | Tuhaf, short maxims of Imam as-Sadiq | — | Not selected |
+| Safwan al-Jammal | Imam al-Kadhim | the earnings you refuse | Tuhaf, short maxims of Imam al-Kadhim | — | Not selected |
+| Hamida Khatun | Imam al-Kadhim | teaching, and who is fit to teach | Tuhaf, short maxims of Imam al-Kadhim | — | Not selected |
+| Dibil al-Khuza'i | Imam al-Rida | saying the thing out loud | Tuhaf, short maxims of Imam ar-Ridha'; Uyun Akhbar al-Rida | — | Not selected |
+| Sayyida Ma'suma | Imam al-Rida | family, and the road toward it | Tuhaf, short maxims of Imam ar-Ridha'; Uyun Akhbar al-Rida | — | Not selected |
+| Ali ibn Mahziyar | Imam al-Jawad | discharging a trust, every time | Tuhaf, short maxims of Imam al-Jawad | — | Not selected |
+| Abu Hashim al-Ja'fari | Imam al-Hadi | giving before being asked | Tuhaf, short maxims of Imam al-Hadi | — | Not selected |
+| Ahmad ibn Ishaq al-Qummi | Imam al-Askari | carrying other people's questions | Tuhaf, short maxims of Imam al-Askari | — | Not selected |
+| Uthman ibn Sa'id al-Amri | Imam al-Hadi **or** Imam al-Askari | trustworthiness | Tuhaf, short maxims of whichever is chosen | — | Not selected — **and which of the two is itself undecided** |
+| Fizza | Sayyida Fatima | speech, and how little of it is needed | **nothing held** | — | **BLOCKED — no source** |
+| Muhammad ibn Uthman al-Amri | Imam al-Mahdi | keeping a post without being seen to | **nothing held** | — | **BLOCKED — no source** |
+| Husayn ibn Ruh al-Nawbakhti | Imam al-Mahdi | restraint in what is said | **nothing held** | — | **BLOCKED — no source** |
+| Ali ibn Muhammad al-Samarri | Imam al-Mahdi | the close of a trust | **nothing held** | — | **BLOCKED — no source** |
+| Narjis Khatun | Imam al-Mahdi | keeping what must be kept | **nothing held** | — | **BLOCKED — no source** |
+| Khawla bint al-Azwar | **nobody** | — | — | — | **BLOCKED — no rule.** Decision, not a source. |
+
+**Two constraints to hold while working down this table.**
+
+**Eight distinct sayings for the Prophet and eight for Imam Husayn.** Those are the first sixteen rows and they are the hard part — the temptation is a near-repeat, and a near-repeat across two envelopes a child may own both of is worse than a weaker match. Do those sixteen as a set, not one at a time.
+
+**No companion card repeats its Masoom's box card.** Two are already spent and must be struck off the candidate list before the Prophet's and Imam Husayn's sets are chosen:
+
+| Spent on | Saying | Where |
+|---|---|---|
+| the Prophet | "He who is deprived of kindness is deprived of goodness entirely." | Tuhaf, short maxims of the Prophet, **no. 112** — envelope 03 |
+| Imam Husayn | "The true stingy is that who refrains from greeting." | Tuhaf, short maxims of Imam Husayn, **no. 18** — envelope 01 |
+
+The other ten selected box cards are listed in the table above and are struck off in the same way for their own Masoom.
+
 ---
 
 ## Project-wide rows

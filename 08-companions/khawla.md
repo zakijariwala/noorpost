@@ -1,6 +1,6 @@
 # Everyone Else — Khawla bint al-Azwar
 
-**Points home:** *Khawla rode into battle in disguise to reach her captured brother, and the army never realized who had actually broken their line.* · Dateless · Four items
+**Points home:** *Khawla rode into battle in disguise to reach her captured brother, and the army never realized who had actually broken their line.* · Dateless · Five items
 
 ---
 
@@ -61,11 +61,14 @@ Later accounts describe her continued involvement in the campaigns of that perio
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Person print | **A portrait. Faces allowed in this line.** A rider in plain armour, face uncovered for the portrait itself, reins held loosely. | Pending |
-| 3 | Sticker sheet | A helmet, reins, a battle standard, small repeatable marks | Pending |
-| 4 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |
+| 2 | Hadith card | **The selection rule has nothing to draw on here.** She is the one entry in the line that points to no Masoom, so "the saying is of the Masoom the envelope points home to" produces no candidate. Answer the scholar's call on whether this entry survives at all before deciding what its card carries. | **Blocked on a decision, not a source** |
+| 3 | Person print | **A portrait. Faces allowed in this line.** A rider in plain armour, face uncovered for the portrait itself, reins held loosely. | Pending |
+| 4 | Sticker sheet | A helmet, reins, a battle standard, small repeatable marks | Pending |
+| 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |
 
-**No hadith card. No event print.** Rule enforced in the template.
+**No event print. Ever.** The calendar ring stays box-only — it is now the only collection the box exclusively owns.
+
+**The card carries no silsila segment number.** Its chain is `FIRST EDITION nn/39`, kept visibly separate from the box's fourteen segments. Both rules are enforced in the template. *(The rule forbidding a card at all was overturned 2026-08-14; keeping the two chains apart is what replaced it.)*
 
 **Exterior:** no month cancellation — this line is dateless. Plain seal, name area, *The rider nobody recognized* printed small.
 

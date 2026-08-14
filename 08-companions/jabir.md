@@ -1,6 +1,6 @@
 # Everyone Else — Jabir ibn Abdullah al-Ansari
 
-**Points home:** *Jabir carried a greeting from the Prophet to Imam al-Baqir, delivered decades after it was given.* · Dateless · Four items
+**Points home:** *Jabir carried a greeting from the Prophet to Imam al-Baqir, delivered decades after it was given.* · Dateless · Five items
 
 ---
 
@@ -65,11 +65,14 @@ He died in Medina, an old man, not long after.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Person print | **A portrait. Faces allowed in this line.** An elderly man, led by the hand, doorway ahead of him. | Pending |
-| 3 | Sticker sheet | A doorway, a walking hand-in-hand pair, an open hand extended, small repeatable marks | Pending |
-| 4 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |
+| 2 | Hadith card | Saying of **Imam al-Baqir**, matched to keeping a trust across a lifetime. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 3 | Person print | **A portrait. Faces allowed in this line.** An elderly man, led by the hand, doorway ahead of him. | Pending |
+| 4 | Sticker sheet | A doorway, a walking hand-in-hand pair, an open hand extended, small repeatable marks | Pending |
+| 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |
 
-**No hadith card. No event print.** Rule enforced in the template.
+**No event print. Ever.** The calendar ring stays box-only — it is now the only collection the box exclusively owns.
+
+**The card carries no silsila segment number.** Its chain is `FIRST EDITION nn/39`, kept visibly separate from the box's fourteen segments. Both rules are enforced in the template. *(The rule forbidding a card at all was overturned 2026-08-14; keeping the two chains apart is what replaced it.)*
 
 **Exterior:** no month cancellation — this line is dateless. Plain seal, name area, *Jabir carried a message across sixty years* printed small.
 

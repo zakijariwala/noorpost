@@ -1,6 +1,6 @@
 # Everyone Else — Qambar
 
-**Points home:** *Qambar served Imam Ali.* · Dateless · Four items
+**Points home:** *Qambar served Imam Ali.* · Dateless · Five items
 
 ---
 
@@ -65,11 +65,14 @@ He was killed at Kufa, on the orders of al-Hajjaj ibn Yusuf.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Person print | **A portrait. Faces allowed.** A young man in a good shirt, standing in a market street. | Pending |
-| 3 | Sticker sheet | Two shirts, coins, a market street, a door, small repeatable marks | Pending |
-| 4 | Return postcard | Fixed wording | Pending |
+| 2 | Hadith card | Saying of **Imam Ali**, matched to service, and what a servant is owed. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 3 | Person print | **A portrait. Faces allowed.** A young man in a good shirt, standing in a market street. | Pending |
+| 4 | Sticker sheet | Two shirts, coins, a market street, a door, small repeatable marks | Pending |
+| 5 | Return postcard | Fixed wording | Pending |
 
-**No hadith card. No event print.**
+**No event print. Ever.** The calendar ring stays box-only — it is now the only collection the box exclusively owns.
+
+**The card carries no silsila segment number.** Its chain is `FIRST EDITION nn/39`, kept visibly separate from the box's fourteen segments. Both rules are enforced in the template. *(The rule forbidding a card at all was overturned 2026-08-14; keeping the two chains apart is what replaced it.)*
 
 **Exterior:** dateless. Plain seal, *Qambar served Imam Ali* printed small.
 

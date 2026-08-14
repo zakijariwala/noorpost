@@ -1,6 +1,6 @@
 # Everyone Else — Abbas ibn Ali
 
-**Points home:** *Abbas carried water toward the camp, for the children, at Karbala.* · Dateless · Four items
+**Points home:** *Abbas carried water toward the camp, for the children, at Karbala.* · Dateless · Five items
 
 ---
 
@@ -65,11 +65,14 @@ He was killed at Karbala, on the day of Ashura, on his way back to the tents wit
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Person print | **A portrait. Faces allowed in this line.** A young man at a riverbank, waterskin in hand, looking back toward camp rather than at the water. | Pending |
-| 3 | Sticker sheet | A waterskin, a flag, a river's edge, small repeatable marks | Pending |
-| 4 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |
+| 2 | Hadith card | Saying of **Imam Husayn**, matched to a trust kept when nobody would have known. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 3 | Person print | **A portrait. Faces allowed in this line.** A young man at a riverbank, waterskin in hand, looking back toward camp rather than at the water. | Pending |
+| 4 | Sticker sheet | A waterskin, a flag, a river's edge, small repeatable marks | Pending |
+| 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |
 
-**No hadith card. No event print.** Rule enforced in the template.
+**No event print. Ever.** The calendar ring stays box-only — it is now the only collection the box exclusively owns.
+
+**The card carries no silsila segment number.** Its chain is `FIRST EDITION nn/39`, kept visibly separate from the box's fourteen segments. Both rules are enforced in the template. *(The rule forbidding a card at all was overturned 2026-08-14; keeping the two chains apart is what replaced it.)*
 
 **Exterior:** no month cancellation — this line is dateless. Plain seal, name area, *Abbas carried water toward the camp, for the children* printed small.
 

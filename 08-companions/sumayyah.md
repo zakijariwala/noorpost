@@ -1,6 +1,6 @@
 # Everyone Else — Sumayyah bint Khabbat
 
-**Points home:** *Sumayyah was the first person killed for refusing to give up her faith, and she did not give it up.* · Dateless · Four items
+**Points home:** *Sumayyah was the first person killed for refusing to give up her faith, and she did not give it up.* · Dateless · Five items
 
 ---
 
@@ -61,11 +61,14 @@ She died in Makkah, in the earliest years, for that refusal.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Person print | **A portrait. Faces allowed in this line.** An older woman standing plainly, upright, hands loose at her sides — composed, not posed as a victim. | Pending |
-| 3 | Sticker sheet | A single upright figure motif, a closed fist gently open, small repeatable marks | Pending |
-| 4 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |
+| 2 | Hadith card | Saying of **the Prophet**, matched to holding on when it is not safe to. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 3 | Person print | **A portrait. Faces allowed in this line.** An older woman standing plainly, upright, hands loose at her sides — composed, not posed as a victim. | Pending |
+| 4 | Sticker sheet | A single upright figure motif, a closed fist gently open, small repeatable marks | Pending |
+| 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |
 
-**No hadith card. No event print.** Rule enforced in the template.
+**No event print. Ever.** The calendar ring stays box-only — it is now the only collection the box exclusively owns.
+
+**The card carries no silsila segment number.** Its chain is `FIRST EDITION nn/39`, kept visibly separate from the box's fourteen segments. Both rules are enforced in the template. *(The rule forbidding a card at all was overturned 2026-08-14; keeping the two chains apart is what replaced it.)*
 
 **Exterior:** no month cancellation — this line is dateless. Plain seal, name area, *The first, and the word was "no"* printed small.
 

@@ -1,6 +1,6 @@
 # Everyone Else — Bilal
 
-**Points home:** *Bilal called the adhan for the Prophet.* · Dateless · Four items
+**Points home:** *Bilal called the adhan for the Prophet.* · Dateless · Five items
 
 ---
 
@@ -67,11 +67,14 @@ He died in Syria, in the years after the Prophet, and is buried there.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Person print | **A portrait. Faces allowed.** A man standing high up, early light, mouth open, city below. | Pending |
-| 3 | Sticker sheet | A rooftop, sun, sound marks, small repeatable shapes. **No chains.** | Pending |
-| 4 | Return postcard | Fixed wording | Pending |
+| 2 | Hadith card | Saying of **the Prophet**, matched to steadfastness. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 3 | Person print | **A portrait. Faces allowed.** A man standing high up, early light, mouth open, city below. | Pending |
+| 4 | Sticker sheet | A rooftop, sun, sound marks, small repeatable shapes. **No chains.** | Pending |
+| 5 | Return postcard | Fixed wording | Pending |
 
-**No hadith card. No event print.**
+**No event print. Ever.** The calendar ring stays box-only — it is now the only collection the box exclusively owns.
+
+**The card carries no silsila segment number.** Its chain is `FIRST EDITION nn/39`, kept visibly separate from the box's fourteen segments. Both rules are enforced in the template. *(The rule forbidding a card at all was overturned 2026-08-14; keeping the two chains apart is what replaced it.)*
 
 **Exterior:** dateless. Plain seal, *Bilal called the adhan for the Prophet* printed small.
 
