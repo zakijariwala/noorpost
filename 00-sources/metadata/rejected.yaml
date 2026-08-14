@@ -1,0 +1,53 @@
+# Works that may never re-enter this project.
+#
+# This file is a DENYLIST, not a source list. Nothing here is a source, nothing
+# here may be cited, and nothing here may appear in sources.yaml with any status
+# other than the absence of an entry. It exists so the refusal is enforceable by
+# a machine instead of remembered by a person: the SHA-256s below are checked at
+# ingest, so a re-downloaded copy is refused even if it arrives under a new
+# filename.
+#
+# The hashes are the ones already recorded in 00-sources/manifest.json from when
+# the files were held. The files themselves were deleted on 2026-08-12 and the
+# text extracts with them. See 00-foundations/sourcing-rules.md.
+
+rejected:
+  - key: sira-guillaume
+    work: Sirat Rasul Allah — Ibn Ishaq/Ibn Hisham, trans. A. Guillaume
+    reason: >-
+      Sunni work. Removed 2026-08-12 under the Shia-sources-only hard rule. It
+      was the only source any envelope had been fully verified against; the four
+      envelope 03 rows it carried reverted to TV and are still open. The claims
+      were never in doubt — the source is not permitted.
+    decided_on: 2026-08-12
+    aliases:
+      - The Life of Muhammad
+      - Ibn Ishaq
+      - Ibn Hisham
+      - Sirat Rasul Allah
+      - Guillaume
+    files:
+      - sira-guillaume--guillaumeathelifeofmuhammad.pdf
+      - sira-guillaume--thelifeofmohammedguillaume.pdf
+    sha256:
+      - 15da6fccf1cc034b59e28e9e5dfed0093fb03c2d55aa24efd3ad900406c24461
+      - da7e229cf5c55ef63baccba62a49b2f9cd7e7e2df845b1fab5d08ced62dab926
+
+  - key: tabari
+    work: The History of al-Tabari (SUNY)
+    reason: >-
+      Sunni work. Removed 2026-08-12 under the same rule. Vol. VIII was fixed
+      but never cited from, so removal cost nothing directly — but it was the
+      candidate for the ruler bullet in all fourteen fact panels, and that gap
+      now has no candidate at all.
+    decided_on: 2026-08-12
+    aliases:
+      - al-Tabari
+      - Tabari
+      - The History of al-Tabari
+    files:
+      - tabari--tabarivolume08.pdf
+      - tabari--the-history-of-al-tabari.pdf
+    sha256:
+      - 0b38f6784656f95171665a58c0db0f2800e7d3d854fac303535298d2b713a0d4
+      - ef94cc4b8eb773ddb56000389c75923ee0260962113fdb0ca382e5c9597b89ec

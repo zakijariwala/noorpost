@@ -28,21 +28,39 @@ unzip sources.zip -d 00-sources
 | `TASKS.md` | Ten phases, gated. Checkboxes are current. |
 | `00-foundations/` | The rules. Everything else is checked against these. |
 | `00-sources/text/` | 15 source texts as plain text, page-numbered. **Tracked. Shia sources only** — see the hard rule in `sourcing-rules.md`. |
-| `00-sources/*.pdf` | The PDFs. **Not tracked** — from the release. |
+| `00-sources/*.pdf`, `00-sources/originals/` | The PDFs. **Not tracked** — from the release. Immutable. |
+| `00-sources/metadata/` | `sources.yaml` (editions, hashes, pagination), `rejected.yaml` (the denylist), `claims.yaml`, `citations.yaml`. **Tracked.** |
+| `00-sources/source.db` | SQLite + FTS5 over every page and passage. **Not tracked — rebuild it.** |
 | `01-pilot/envelope-03/` | Envelope 03, split across four files |
 | `03-content/` | Envelopes 01, 02, 04–14, one file each, plus `spec-check.md` |
 | `08-companions/` | The six companion envelopes |
 | `09-zines/` | Zine template, two written in full, thirteen outlined |
 | `docs/` | The published site. **Generated — never edit by hand.** |
-| `tools/` | Four scripts |
+| `tools/` | The build scripts, plus `sourcelib/` — the source pipeline |
 
-## The three scripts
+## The scripts
 
 ```bash
 python tools/build_site.py       # rebuild docs/ from the markdown
 python tools/fetch_sources.py    # find more sources (--download to fetch)
 python tools/extract_text.py     # PDFs -> 00-sources/text/ (only if you re-download)
 ```
+
+And the source pipeline, added 2026-08-14. `pip install -r requirements.txt` first
+(PyYAML, and nothing else). Full account in `00-sources/README.md`.
+
+```bash
+python tools/build_source_corpus.py     # text/ -> pages -> md/ -> source.db + FTS5
+python tools/source_search.py "Shurayh" # find evidence, with edition and page
+python tools/page_image.py --source SRC-NHB-002 --page 35   # look at the original page
+python tools/source_audit.py --write    # what is fixed, missing, TV, V, unverified
+python -m unittest discover -s tests    # 30 tests
+```
+
+`source_search.py` searches `00-sources/` and nothing else, so a draft can never
+become evidence for itself. It reports which editions' page numbers may be cited
+— today, none of them can, which is why every citation goes by the work's own
+internal numbering.
 
 `build_site.py` strips every editorial note — the new-thing lines, blocking warnings, scholar flags, open questions. **The envelope, companion and zine pages show only what a family receives.** If you add a new kind of internal note, check it does not leak: rebuild, then grep `docs/*.html` for it.
 

@@ -25,6 +25,8 @@ This is not a ranking or a preference to be weighed against convenience. It is a
 
 Both text extracts have been deleted from `00-sources/text/`, not merely unlisted, so they cannot be reached by a grep during future citation work.
 
+**Since 2026-08-14 the refusal is also enforced by machine.** Both works are recorded as a denylist in `00-sources/metadata/rejected.yaml`, with the SHA-256 of every copy the project once held, so a re-downloaded copy is refused **under any filename** — by `fetch_sources.py` when it would be downloaded, by `extract_text.py` when it would be extracted, and by `build_source_corpus.py` when it would be indexed. `fetch_sources.py` no longer searches for either. What a citation has to be able to prove, and where each rule is enforced, is in `source-truth-rules.md`.
+
 **The consequence is real and is not being minimised.** Before this rule the project had exactly one envelope whose letter was fully verified. It now has none, and the sira gap named in `sources-needed.md` Tier 2 is open again in full. **al-Mufid's `Kitab al-Irshad` moves from "nice to have" to the single most important acquisition in the project** — it is the Shia biographical work that has to carry what Guillaume was carrying, and the copies currently in `00-sources/` still lack a translator credit.
 
 ---

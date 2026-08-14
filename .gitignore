@@ -1,4 +1,16 @@
 00-sources/*.pdf
+00-sources/originals/*.pdf
 *.zip
 __pycache__/
 *.pyc
+
+# Derived from the tracked text corpus and metadata by
+#   python tools/build_source_corpus.py
+# All of it is reproducible byte for byte, and together it is about 60 MB —
+# too much to carry in a repository whose inputs are already here.
+00-sources/source.db
+00-sources/source.db-wal
+00-sources/source.db-shm
+00-sources/pages/
+00-sources/md/
+00-sources/page-images/

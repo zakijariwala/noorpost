@@ -17,36 +17,52 @@ Each page break becomes a line reading
     [[p 137]]
 
 so a grep hit can be traced to a printed page without opening the PDF.
+
+The extraction itself now lives in tools/sourcelib/, so this script and
+tools/build_source_corpus.py cut pages the same way — the .txt corpus, the
+canonical Markdown and the passage database cannot drift apart. The output of
+this command is unchanged, byte for byte.
+
+00-sources/originals/ is searched as well as 00-sources/, and a PDF on the
+rejected list (00-sources/metadata/rejected.yaml) is refused.
 """
 
-import argparse, os, re, subprocess, sys
+import argparse, os, sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SRC = os.path.join(ROOT, "00-sources")
-OUT = os.path.join(SRC, "text")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+from sourcelib import config, extract as ex, metadata
+from sourcelib.pages import pages_from_pdftotext, render_txt, total_pdf_pages
+
+ROOT = config.ROOT
+SRC = config.SOURCES
+OUT = config.TEXT
 
 
 def extract(pdf, dest):
-    raw = subprocess.run(
-        ["pdftotext", "-layout", "-enc", "UTF-8", pdf, "-"],
-        capture_output=True, timeout=1800,
-    )
-    if raw.returncode != 0:
-        return None, raw.stderr.decode("utf-8", "replace")[:200]
+    """(sheet count, error). Unchanged in behaviour: pdftotext -layout, split on
+    form feeds, drop pages holding no text, one [[p N]] line per page kept."""
+    try:
+        raw = ex.pdftotext_raw(pdf)
+    except ex.ExtractionError as e:
+        return None, str(e)[:200]
 
-    text = raw.stdout.decode("utf-8", "replace")
-    pages = text.split("\f")
-    out = []
-    for i, page in enumerate(pages, 1):
-        page = re.sub(r"[ \t]+\n", "\n", page)
-        page = re.sub(r"\n{3,}", "\n\n", page).strip()
-        if not page:
-            continue
-        out.append(f"[[p {i}]]\n{page}")
-    body = "\n\n".join(out)
+    pages = pages_from_pdftotext(raw)
     with open(dest, "w", encoding="utf-8") as f:
-        f.write(body)
-    return len(pages), None
+        f.write(render_txt(pages, "\n"))
+    return total_pdf_pages(raw), None
+
+
+def pdf_paths():
+    """Every PDF under 00-sources/ and 00-sources/originals/, by filename."""
+    found = {}
+    for d in config.ORIGINAL_DIRS:
+        if not os.path.isdir(d):
+            continue
+        for name in sorted(os.listdir(d)):
+            if name.lower().endswith(".pdf"):
+                found.setdefault(name, os.path.join(d, name))
+    return sorted(found.items())
 
 
 def main():
@@ -55,20 +71,32 @@ def main():
     a = ap.parse_args()
 
     os.makedirs(OUT, exist_ok=True)
-    pdfs = sorted(f for f in os.listdir(SRC) if f.lower().endswith(".pdf"))
+    pdfs = pdf_paths()
     if not pdfs:
         print("no PDFs in 00-sources/")
         return
 
+    try:
+        rejected = metadata.rejected_index()
+    except metadata.MetadataError:
+        rejected = (set(), set())
+
     total_chars = 0
-    for name in pdfs:
+    for name, path in pdfs:
+        # Shia sources only. A rejected work is refused here as well as in the
+        # corpus build, so it cannot be reached by a later grep.
+        if metadata.is_rejected(filename=name, index=rejected) or \
+           metadata.is_rejected(sha256=ex.sha256_file(path), index=rejected):
+            print(f"  SKIP  {name}  ← rejected source, see 00-foundations/sourcing-rules.md")
+            continue
+
         dest = os.path.join(OUT, os.path.splitext(name)[0] + ".txt")
         if os.path.exists(dest) and not a.force:
             total_chars += os.path.getsize(dest)
             print(f"  skip  {name}")
             continue
         print(f"  ...   {name}", flush=True)
-        pages, err = extract(os.path.join(SRC, name), dest)
+        pages, err = extract(path, dest)
         if err:
             print(f"  FAIL  {name}: {err}")
             continue
@@ -85,7 +113,13 @@ Search it instead of reading it:
     grep -n -i -B2 -A6 "shurayh" 00-sources/text/*.txt
     grep -rn "three hundred" 00-sources/text/irshad--*.txt
 
-Then read back to the nearest [[p N]] line above the hit for the page number.""")
+Then read back to the nearest [[p N]] line above the hit for the page number.
+
+Or search the structured corpus, which carries the edition and the page with
+every hit and knows which editions' page numbers may be cited:
+
+    python tools/build_source_corpus.py
+    python tools/source_search.py "shurayh" --json""")
 
 
 if __name__ == "__main__":
