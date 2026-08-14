@@ -31,7 +31,7 @@ He died in Medina in 11 AH, in the house of Aisha, and was buried where he died.
 
 *Communities observe this differently. Ask your family which we follow.* — his birth is kept on the 12th or the 17th of Rabi al-Awwal, and his death on 28 Safar or 12 Rabi al-Awwal.
 
-<sub>Guillaume, *The Life of Muhammad*, p. 86. Translated by A. Guillaume, Oxford University Press, 1955.</sub>
+<sub>[Work], [section] [number]. Translated by [translator], [publisher] [year].</sub>
 
 ---
 
@@ -52,7 +52,7 @@ Test A5 not yet run: read it to three practising adults. If two already knew it,
 - [ ] Dates checked twice — **no AH→CE arithmetic needed here**, the Kaaba rebuilding is pre-Hijra and the CE years are given directly
 - [x] Death line last, matches `death-lines.md` verbatim, names no method
 - [x] Nothing repeats the letter
-- [x] Source credit carries a number and a translator
+- [ ] Source credit carries a number and a translator — **reverted 2026-08-12**, the Guillaume credit was removed under the Shia-sources-only rule
 
 ## Notes
 

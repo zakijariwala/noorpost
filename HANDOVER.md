@@ -27,14 +27,14 @@ unzip sources.zip -d 00-sources
 | `README.md` | Layout and status |
 | `TASKS.md` | Ten phases, gated. Checkboxes are current. |
 | `00-foundations/` | The rules. Everything else is checked against these. |
-| `00-sources/text/` | 19 source texts as plain text, page-numbered. **Tracked.** |
+| `00-sources/text/` | 15 source texts as plain text, page-numbered. **Tracked. Shia sources only** — see the hard rule in `sourcing-rules.md`. |
 | `00-sources/*.pdf` | The PDFs. **Not tracked** — from the release. |
 | `01-pilot/envelope-03/` | Envelope 03, split across four files |
 | `03-content/` | Envelopes 01, 02, 04–14, one file each, plus `spec-check.md` |
 | `08-companions/` | The six companion envelopes |
 | `09-zines/` | Zine template, two written in full, thirteen outlined |
 | `docs/` | The published site. **Generated — never edit by hand.** |
-| `tools/` | Three scripts |
+| `tools/` | Four scripts |
 
 ## The three scripts
 
@@ -96,13 +96,7 @@ Every page break in those files is a line reading `[[p 137]]`. Read up from a hi
 awk 'BEGIN{g=0} /\S {10,}\S/{g++} END{print int(g*100/NR)"%"}' 00-sources/text/FILE.txt
 ```
 
-**Known two-column files — never cite their `[[p N]]` directly:**
-
-| File | Two-column | What to do |
-|---|---|---|
-| `sira-guillaume--guillaumeathelifeofmuhammad.txt` | 38% | Read the running header on the line *after* the marker — it carries the real book pages (e.g. `[[p 67]]` → pages 86 and 87). Left column = even page, right = odd. |
-| `kafi--alkafi-201601.txt` | 27% | **Tier 1 priority work — this trap is loaded and unused.** Same method. |
-| `tabari--the-history-of-al-tabari.txt` | 41% | Index volume only, no narrative. Not citable at all. |
+**Known two-column file:** `kafi--alkafi-201601.txt` (27%) — a Tier 1 priority work, not yet cited from, so this trap is loaded and waiting. Read the running header on the line *after* the marker for the real book page (left column = even, right = odd). Run the check on every source acquired from here on.
 
 **Trap 2 — web-PDF pagination.** The al-Islam.org sources (Risalat al-Huquq, Sahifa Sajjadiyya, Uyun, Tuhaf) are generated PDFs. Their page numbers are artifacts of that generation and do **not** match the printed Ansariyan / Muhammadi Trust editions fixed in `sourcing-rules.md`. For these, **cite the work's own internal numbering** — entry number, hadith number, chapter-and-report — which is stable across editions. A page number there is decoration; the entry number is the citation.
 
@@ -119,13 +113,13 @@ awk 'BEGIN{g=0} /\S {10,}\S/{g++} END{print int(g*100/NR)"%"}' 00-sources/text/F
 
 ### Where to start
 
-`00-foundations/sources-needed.md` ranks the ten claims most likely to fail. Work down that list. **The top three are now verified (2026-08-12):**
+`00-foundations/sources-needed.md` ranks the ten claims most likely to fail. Work down that list. **Two of the top three are verified; the first was reverted by the Shia-sources-only rule:**
 
-1. ~~Makkah called him al-Amin before revelation~~ — envelope 03. Guillaume, *The Life of Muhammad*, **p. 86** — now a fixed edition, closing the sira gap for this envelope. See `sourcing-rules.md` and `citation-sheet.md`.
+1. **Makkah called him al-Amin before revelation** — envelope 03. ⛔ **Was verified, now reopened.** It was checked against Guillaume's Ibn Ishaq, a Sunni work removed on 2026-08-12 under the Shia-sources-only rule in `sourcing-rules.md`. The claim is not in doubt; it needs a permitted edition. **Still the highest-priority row in the project.**
 2. ~~Risalat al-Huquq entry count, and the tongue entry quoted exactly~~ — envelope 09. **51 entries**, not "around fifty" — letter and panel corrected. Tongue entry is **entry 3**, quoted in full on `citation-sheet.md`. *(Cite the entry number, not a page — this is a web-generated PDF; see Trap 2 above.)*
 3. ~~Imam al-Rida's four conditions~~ — envelope 13. Uyun Akhbar al-Rida vol. 2 (Peiravi) carries them in **three** places. **The draft wording was already correct and stands** — appoint nobody, dismiss nobody, change nothing in place, no opinion unless asked. An earlier pass read only one of the three passages, wrongly declared the draft unsupported, and rewrote the printed line; that has been reverted.
 
-Next down the list: #4, al-Kadhim's four years (envelope 08) — al-Kafi or Uyun Akhbar al-Rida are the likely works; #5, the Shurayh shield case (envelope 07) — needs al-Irshad, which is still an open edition (no translator credit on the title page yet, see `sourcing-rules.md`).
+Next down the list: #4, al-Kadhim's four years (envelope 08) — al-Kafi or Uyun Akhbar al-Rida are the likely works; #5, the Shurayh shield case (envelope 07) — needs al-Irshad.
 
 ### Fill this in first
 
@@ -135,14 +129,14 @@ The fixed-editions table in `00-foundations/sourcing-rules.md` is **now filled �
 
 ## What is still missing
 
-**Sources.** `00-sources/text/` has Tuhaf al-Uqul, both parts of Nahj al-Balagha, Sahifa Sajjadiyya, Risalat al-Huquq, both volumes of Uyun Akhbar al-Rida, al-Kafi, two copies of Kitab al-Irshad, two of Guillaume's Sira, Subhani's *The Message*, two Qarashi lives, two Tabari volumes, and two on the Fourteen.
+**Sources.** `00-sources/text/` has Tuhaf al-Uqul, both parts of Nahj al-Balagha, Sahifa Sajjadiyya, Risalat al-Huquq, both volumes of Uyun Akhbar al-Rida, al-Kafi, two copies of Kitab al-Irshad, Subhani's *The Message*, two Qarashi lives, and two on the Fourteen. **All Shia.** Guillaume's Sira and the two Tabari volumes were removed on 2026-08-12 under the hard rule in `sourcing-rules.md`.
 
 Not there:
 
 | Missing | Blocks |
 |---|---|
 | Kamal al-Din / Jassim Hussain on the occultation | Envelope 10 — the four deputies |
-| Tabari vol 19 (Karbala) and the Abbasid volumes | The ruler bullet in several panels |
+| A **Shia** history covering 40–260 AH | The ruler bullet in all fourteen panels — this had no source even before the rule, and now has no candidate either |
 | Four of the six Qarashi lives | Envelopes 05, 07, 11, 13 |
 | **A world-history reference** | All fourteen "elsewhere in the world" bullets |
 

@@ -37,12 +37,17 @@ Every row must reach `Verified` before Gate 3. A row still marked `TO VERIFY` at
 
 | Env | Item | Claim | Work | Ref | Translator | Status | Note |
 |---|---|---|---|---|---|---|---|
-| 03 | letter | Quraysh decided to rebuild the Ka'ba when the apostle was thirty-five years of age | Guillaume, *The Life of Muhammad* | **p. 84** | A. Guillaume | V | "THE REBUILDING OF THE KA'BA WHEN THE APOSTLE ACTED AS UMPIRE." Resolves open question 1 for this row — see `sourcing-rules.md`, Guillaume now a fixed edition. |
-| 03 | letter | The clans disputed who would lift the Black Stone into place | Guillaume, *The Life of Muhammad* | **p. 86** | A. Guillaume | V | "the black stone, where controversy arose, each tribe wanting to lift it to its place, until they went their several ways, formed alliances, and got ready for battle" — the bowl-of-blood pledge follows in the same passage. |
-| 03 | letter | He spread a cloak, set the stone on it, and had each clan carry a corner | Guillaume, *The Life of Muhammad* | **p. 86** | A. Guillaume | V | "he took the black stone and put it inside it and said that each tribe should take hold of an end of the cloak and they should lift it together... he placed it with his own hand." |
-| 03 | panel | Makkah called him al-Amin before revelation | Guillaume, *The Life of Muhammad* | **p. 86** | A. Guillaume | V | Exact line: "Quraysh used to call the apostle of God before revelation came to him, 'the trustworthy one'" — printed twice in the same episode ("This is the trustworthy one. We are satisfied. This is Muhammad."). This is the one new thing for the adult and is now the best-sourced claim in the envelope. |
+| 03 | letter | Quraysh rebuilt the Ka'ba when the Prophet was about thirty-five | **needs a Shia source** | — | — | TV | ⛔ Was `V` against Guillaume. **Removed 2026-08-12 under the Shia-sources-only rule.** The claim is not in doubt; the source is no longer permitted. Re-source from `al-Irshad` or another Shia work. |
+| 03 | letter | The clans disputed who would lift the Black Stone into place | **needs a Shia source** | — | — | TV | ⛔ Same. |
+| 03 | letter | He spread a cloak, set the stone on it, and had each clan carry a corner | **needs a Shia source** | — | — | TV | ⛔ Same. |
+| 03 | panel | Makkah called him al-Amin before revelation | **needs a Shia source** | — | — | TV | ⛔ Same — **and this is the one new thing for the adult**, so it is the highest-priority row in the envelope. |
 
-> ⚠ **2026-08-12 page-number correction.** These four rows first recorded pp. 66–67. Those were the **PDF sheet numbers** from `00-sources/text/`, not Guillaume's printed pages — that file is a two-page-per-sheet scan, so `[[p 66]]` is book pages 84–85 and `[[p 67]]` is 86–87 (running headers confirm; left column even, right odd). All four passages sit in the left column. **The claims were always sound; only the numbers pointed elsewhere.** See the two traps in `HANDOVER.md` before recording any further page number — `al-Kafi` has the same defect and has not been used yet.
+> ⛔ **2026-08-12 — the Shia-sources-only rule reverted these four rows.** They were the project's only fully verified letter, checked against Guillaume's Ibn Ishaq. That work is Sunni and has been removed from the project entirely, so the rows revert to `TV` and the extract has been deleted from `00-sources/text/`.
+>
+> **Nothing about the claims changed.** They are as well attested as they were an hour ago — the Kaaba rebuilding, the dispute, the cloak and the name *al-Amin* are all carried in Shia sira and history too. What is missing is a permitted edition to cite them from. **This is an acquisition problem, not a content problem**, and it is the reason `al-Irshad` is now the project's most valuable single purchase.
+>
+> The earlier page-number correction on these rows (pp. 66–67 → 84–86) is now moot and is kept only in the commit history.
+
 | 03 | panel | Khadija funded the early community out of her own trade | *to fill* | *to fill* | *to fill* | TV | Woman slot. Needs a documented statement of her funding, not a general statement of her wealth. |
 | 03 | panel | Twenty-three years of revelation | *to fill* | *to fill* | *to fill* | TV | Standard, still needs a row. |
 | 03 | panel | Birth 12th or 17th Rabi al-Awwal | — | — | — | CONT | Takes the standard differ line. |
@@ -181,11 +186,16 @@ Envelope 03's entire letter has no row that can be filled from the five works.
 
 Options:
 
-1. **Add a sixth and seventh, fixed the same way.** al-Tabari's *History* in the SUNY translation, and one Shia biographical work — al-Mufid's *Kitab al-Irshad* is the obvious candidate and is the natural companion to the five.
+1. **Add a sixth work, fixed the same way — and it must be Shia.** al-Mufid's *Kitab al-Irshad* is the candidate and the natural companion to the five. *(An earlier version of this option also named al-Tabari's History; that is a Sunni work and is excluded by the hard rule in `sourcing-rules.md`.)*
 2. Cite sira loosely and mark it all traditional. Weakens the product badly; most of it is documented.
 3. Restrict letters to what the five works carry. Would cut roughly half the fourteen letters.
 
-**Recommendation: option 1 — partly done (2026-08-12).** Guillaume's *The Life of Muhammad* (Ibn Ishaq/Ibn Hisham) is now fixed and has closed envelope 03's letter, above. SUNY's al-Tabari Volume VIII (Michael Fishbein) is also fixed and citable, but only that one volume is in the repo. **al-Mufid's *Kitab al-Irshad* is still open** — both extracts in `00-sources/text/` carry no translator credit on the title page, so nothing can be cited from it yet. See `sourcing-rules.md` for the full state.
+**Status: fully open again as of 2026-08-12.** This was briefly closed for envelope 03 using Guillaume's Ibn Ishaq, and al-Tabari Vol. VIII was fixed alongside it. **Both were Sunni works and have been removed under the hard rule at the top of `sourcing-rules.md`.**
+
+Option 1 still stands, but it has to be executed with Shia works only. That narrows it to essentially one candidate:
+
+- **al-Mufid, *Kitab al-Irshad*** — the Shia biography of the Twelve, in order. It is now **the single most important acquisition in the project**: it has to carry the narrative spine of most of the fourteen letters and much of the companions line. Two extracts sit in `00-sources/text/` already but neither credits a translator, so nothing can be cited from them. Acquiring a copy with a named translator (I.K.A. Howard is the standard one) closes more open rows than any other single purchase.
+- Secondary Shia narrative works already held — Subhani's *The Message*, the Qarashi lives — may cover specific episodes and are permitted, but none is a substitute for al-Irshad and none has been fixed as an edition yet.
 
 ### 2. The "elsewhere in the world" bullet has no source rule at all
 
