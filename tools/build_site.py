@@ -179,6 +179,7 @@ def page(title, subtitle, body, depth=0, nav_current=None):
     <a href="{base}index.html#the-fourteen">The Fourteen</a>
     <a href="{base}index.html#everyone-else">Everyone Else</a>
     <a href="{base}index.html#notebook">Noori's Notebook</a>
+    <a href="{base}status.html">Status</a>
   </nav>
 </header>
 <main>
@@ -623,6 +624,11 @@ def build():
 <p class="lede small">Each envelope holds a two-voice letter, a fact panel, a hadith card, two prints, a session card, stickers and a postcard to send back.</p>
 </section>
 
+<section id="status">
+<h2>Where this is up to</h2>
+<p class="sectionnote">Measured from the repository on every build — verification, what is written, the source library, and what is blocking. <a href="status.html">Open the status page &rarr;</a></p>
+</section>
+
 <section id="the-fourteen">
 <h2>The Fourteen</h2>
 <p class="sectionnote">In calendar order, as they arrive.</p>
@@ -645,6 +651,15 @@ def build():
 
     # count what was actually written, rather than a formula that silently
     # drifts whenever a new page type is added (the card pages were missing)
+    # The dashboard is part of the site, so it cannot be forgotten on a
+    # rebuild. It needs PyYAML to read the claim and source metadata; without
+    # it the rest of the site still builds and the page says what is missing.
+    try:
+        import build_dashboard
+        build_dashboard.main_from_site()
+    except Exception as e:
+        print(f"  status page NOT built: {e}")
+
     written = len(glob.glob(os.path.join(OUT, "*.html")))
     print(f"built {written} pages "
           f"({len(ENVELOPES)} envelopes + {len(ENVELOPES)} card views + "

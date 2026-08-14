@@ -17,6 +17,7 @@ The numbered tests map to the sixteen validation requirements.
 """
 
 import os
+import re
 import sqlite3
 import sys
 import tempfile
@@ -620,3 +621,89 @@ class RealCorpusTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+
+
+# --------------------------------------------------------------------------
+# the status dashboard
+# --------------------------------------------------------------------------
+
+class DashboardTest(unittest.TestCase):
+    """The dashboard's only job is to be true. These lock down the ways a
+    measured number can quietly become a wrong one."""
+
+    @classmethod
+    def setUpClass(cls):
+        import build_dashboard
+        cls.B = build_dashboard
+        cls.data = build_dashboard.collect()
+
+    def test_every_section_is_present_or_says_why_not(self):
+        for key in ("build", "phases", "claims", "sources", "corpus", "content",
+                    "hadith_cards", "blockers"):
+            self.assertIn(key, self.data)
+        for key in ("claims", "sources", "hadith_cards", "blockers", "corpus"):
+            section = self.data[key]
+            if isinstance(section, dict) and not section.get("available", True):
+                self.assertTrue(section.get("why"),
+                                "%s is unavailable without saying why" % key)
+
+    def test_a_negated_rule_is_not_read_as_the_rule(self):
+        """Every companion file says "No hadith card" — the rule overturned on
+        2026-08-14. A bare phrase search reads that as the opposite."""
+        ct = self.data["content"]
+        self.assertEqual(ct["companions_with_hadith_card"], 0)
+        self.assertEqual(ct["companions_stating_overturned_rule"], ct["companions_written"])
+
+    def test_box_cards_are_counted_by_envelope_not_by_row(self):
+        """Envelope 03's card is on the sheet twice — in its own section and in
+        the all-fourteen table. Counting rows gives 13 of 14, which is wrong."""
+        hc = self.data["hadith_cards"]
+        self.assertTrue(hc["available"])
+        self.assertLessEqual(hc["box_selected"], hc["box_total"])
+        self.assertEqual(hc["box_selected"] + hc["box_blocked"], hc["box_total"])
+
+    def test_claim_counts_match_the_claim_database(self):
+        c = self.data["claims"]
+        self.assertTrue(c["available"])
+        self.assertEqual(sum(c["by_status"].values()), c["total"])
+        self.assertEqual(c["total"], len(metadata.load_claims()))
+        self.assertEqual(c["verified"], sum(1 for x in metadata.load_claims()
+                                            if x["status"] == "V"))
+
+    def test_source_counts_match_the_manifest(self):
+        s = self.data["sources"]
+        _, editions, _ = metadata.load_sources()
+        self.assertEqual(s["editions"], len(editions))
+        self.assertEqual(sum(s["by_status"].values()), len(editions))
+        # an edition with a hash must not be listed as unpinned
+        for sid in s["no_sha256"]:
+            self.assertFalse(next(e for e in editions if e["source_id"] == sid).get("sha256"))
+
+    def test_no_number_on_the_page_is_hardcoded(self):
+        """Every figure comes from a collector. A literal count in the renderer
+        is the failure this guards against."""
+        with open(os.path.join(ROOT, "tools", "build_dashboard.py"), encoding="utf-8") as fh:
+            src = fh.read()
+        renderer = src.split("def render(")[1].split("def md_inline")[0]
+        for literal in ("12 / 14", "0 / 39", "6,328", "49,682", "16 / 62"):
+            self.assertNotIn(literal, renderer,
+                             "a measured number is hardcoded in the renderer")
+
+    def test_the_page_renders_and_escapes(self):
+        page = self.B.render(self.data)
+        self.assertIn("Status", page)
+        self.assertIn("The critical path", page)
+        self.assertIn("Blocking, right now", page)
+        # meters never exceed their track
+        for width in re.findall(r"width:(\d+)%", page):
+            self.assertLessEqual(int(width), 100)
+
+    def test_built_site_carries_the_status_page(self):
+        status = os.path.join(ROOT, "docs", "status.html")
+        if not os.path.exists(status):
+            self.skipTest("run tools/build_site.py first")
+        with open(status, encoding="utf-8") as fh:
+            body = fh.read()
+        self.assertIn("noindex", body)
+        with open(os.path.join(ROOT, "docs", "index.html"), encoding="utf-8") as fh:
+            self.assertIn("status.html", fh.read())

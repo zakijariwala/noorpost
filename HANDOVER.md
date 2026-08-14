@@ -118,7 +118,17 @@ Site is at **https://zakijariwala.github.io/noorpost/** and serves from `main` `
 
 ### Also learned, and it blocks the tooling
 
-**There is no Python on the Windows machine this repo sits on.** `build_site.py`, `build_print_templates.py` and the other two **cannot be run here.** Consequences: **`docs/` is stale** and will not reflect any markdown change until someone rebuilds it somewhere with Python — so **read the markdown on GitHub, not the published site.** Install Python, or do tooling work elsewhere.
+**There is no Python on the Windows machine this repo sits on.** `build_site.py`, `build_print_templates.py` and the other two **cannot be run here.** Install Python, or do tooling work elsewhere.
+
+> **Amended 2026-08-14 — the "`docs/` is stale" half of this is no longer true.**
+>
+> It was true when written. Two things changed it.
+>
+> **It was checked.** `docs/` had gone four commits without a rebuild, so it was rebuilt: **zero diff, on all 85 pages**, and `build_print_templates.py` reported zero files differing from disk. Everything those four commits changed was either in a file the site does not publish, or in material `build_site.py` strips — the Guillaume citation footer in `envelope-03/fact-panel.md` was a `<sub>` line, and `docs/envelope-03.html` carries no `<sub>` tags at all. The published site was also checked for the removed Sunni sources and is clean.
+>
+> **It is now rebuilt automatically.** `.github/workflows/site.yml` runs the tests, rebuilds `docs/` and commits it on every push to `main`. A push from a machine without Python still updates the site.
+>
+> So read the markdown *or* the site. What is still true is the more important thing: **the site can only publish what has been written.** The 39 companion pages show the pre-decision item list because no companion file has been updated since the 2026-08-14 decisions — not because the build is behind. `status.html` says so on every build.
 
 ---
 
