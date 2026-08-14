@@ -48,7 +48,7 @@ Every row must reach `Verified` before Gate 3. A row still marked `TO VERIFY` at
 | 03 | panel | Birth 12th or 17th Rabi al-Awwal | — | — | — | CONT | Takes the standard differ line. |
 | 03 | panel | Death 11 AH, Medina | *to fill* | *to fill* | *to fill* | TV | Date differs by community — 28 Safar or 12 Rabi al-Awwal. Both take the differ line. |
 | 03 | panel | Elsewhere: work on the Grand Canal under the Sui in China, from around 605 CE | Non-Islamic secondary source | *to fill* | — | TV | AH→CE: the rebuilding sits around 605 CE, pre-Hijra, so no AH conversion needed here. Check the canal dates against a standard reference. |
-| 03 | hadith card | *to select from Tuhaf al-Uqul* | Tuhaf al-Uqul | *to fill* | *to fill* | TV | Conduct or ethics only. |
+| 03 | hadith card | “He who is deprived of kindness is deprived of goodness entirely.” | Tuhaf al-Uqul | short maxims of the Prophet, **no. 112** | Badr Shahin | V | Selected 2026-08-12. See the all-fourteen table below. |
 
 ---
 
@@ -66,6 +66,43 @@ Every row must reach `Verified` before Gate 3. A row still marked `TO VERIFY` at
 | Env | Item | Claim | Work | Ref | Translator | Status | Note |
 |---|---|---|---|---|---|---|---|
 | 13 | letter | Imam al-Rida's four conditions for accepting the succession — he would appoint nobody, dismiss nobody, change nothing already in place, and give no opinion unless asked | Uyun Akhbar al-Rida, vol. 2 | Three passages, all in vol. 2 of the fixed edition: the conditions as written to al-Ma'mun; the "distant advisor" statement; and his later reminder to al-Ma'mun when pressed to name a governor. Cite the second as primary. **Page numbers pending** — see the two-column/edition caveat in `sourcing-rules.md`; this edition's own internal chapter-and-report numbering is the stable reference, not the PDF page. | Dr. Ali Peiravi | V | Primary support: *"I will accept it under the condition that I do not interfere in dismissals or appointments, nor change any practices or traditions. I will just be a distant advisor."* Corroborated by: *"I will neither issue any orders, nor will I admonish anyone. I will not remove anyone from office, neither will I appoint anyone."* A third passage phrases the same conditions differently (*"I neither issue any orders, nor do I admonish against anything; I neither judge, nor change anything"*). **All three are the same event; the draft letter line is supported and stands.** ⚠ **2026-08-12 correction:** an earlier pass read only the third passage, wrongly recorded the draft as unsupported, and rewrote the printed line. Reverted. Lesson: a differently-worded passage is not disproof — search the whole work before cutting a line. |
+
+---
+
+## Hadith cards — all fourteen
+
+Selected 2026-08-12. **Cited by the work's own internal number, never by page** — Tuhaf al-Uqul and Risalat al-Huquq are both web-generated PDFs whose pagination does not match the printed editions (Trap 2, `HANDOVER.md`). Every saying below is conduct or ethics, per `sourcing-rules.md` subject limits, and none repeats its envelope's letter.
+
+| Env | Seg | Masoom | Saying | Work | Ref | Status |
+|---|---|---|---|---|---|---|
+| 01 | 3 | Imam Husayn | "The true stingy is that who refrains from greeting." | Tuhaf al-Uqul | short maxims, no. 18 | V |
+| 02 | 2 | Imam Hasan | "The people who consult for their affairs will surely be guided to the right." | Tuhaf al-Uqul | short maxims, no. 1 | V |
+| 03 | 13 | The Prophet | "He who is deprived of kindness is deprived of goodness entirely." | Tuhaf al-Uqul | short maxims, no. 112 | V |
+| 04 | 11 | Imam al-Askari | "The heart of the foolish is in his mouth and the mouth of the wise is in his heart." | Tuhaf al-Uqul | short maxims, no. 21 | V |
+| 05 | 6 | Imam al-Baqir | "No mixture is better than the mixture of clemency and knowledge." | Tuhaf al-Uqul | short maxims, no. 2 | V |
+| 06 | 4 | Sayyida Fatima | — | — | — | **BLOCKED — no source** |
+| 07 | 1 | Imam Ali | "The value of a man is what he does expertly." | Tuhaf al-Uqul | short maxims, no. 8 | V |
+| 08 | 8 | Imam al-Kadhim | "Good neighborhood is not abstinence from harm. It is to tolerate the harm (of the neighbors)." | Tuhaf al-Uqul | short maxims, no. 13 | V |
+| 09 | 5 | Imam al-Sajjad | "The right of the tongue is that you consider it too noble for obscenity…" (full text above) | Risalat al-Huquq | entry 3 | V |
+| 10 | 14 | Imam al-Mahdi | — | — | — | **BLOCKED — no source** |
+| 11 | 10 | Imam al-Hadi | "This world is like a market in which some profited and others lost." | Tuhaf al-Uqul | short maxims, no. 15 | V |
+| 12 | 7 | Imam al-Sadiq | "He who treats people kindly will be accepted as arbiter." | Tuhaf al-Uqul | short maxims, no. 1 | V |
+| 13 | 9 | Imam al-Rida | "Silence is one of the doors of wisdom. It yields amicability and leads to every goodness." | Tuhaf al-Uqul | short maxims, no. 8 | V |
+| 14 | 12 | Imam al-Jawad | "To show a matter before preparing for it properly is spoiling it." | Tuhaf al-Uqul | short maxims, no. 12 | V |
+
+### The two that cannot be selected yet
+
+Neither is an oversight — **the source does not exist in this repo**, and no amount of searching the fixed editions will produce one.
+
+**Envelope 06 · Sayyida Fatima · segment 4.** Tuhaf al-Uqul has no Fatima section at all — it runs the Prophet, then Imam Ali through Imam al-Askari, and she is not among them. Her sayings live mainly in works this project has not fixed an edition of, and the obvious candidate — her khutba — is exactly the contested ground envelope 06 is written to stay off. **Needs a new fixed edition acquired and recorded in `sourcing-rules.md` before a card can be set.**
+
+**Envelope 10 · Imam al-Mahdi · segment 14.** This card is specified as a *tawqi'* from the minor occultation. Those are carried in Kamal al-Din and the two Kitab al-Ghayba works — all three already flagged in `sourcing-rules.md` as available only in an aggregator copy credited to `en.unknown`, which fails this project's own translator rule. **Same blocker as the envelope 10 occultation gap in `sources-needed.md` Tier 2.** It also carries the extra constraint that the tawqi' must be conduct, not theology (rule Q3), which narrows the field further once a source exists.
+
+### One thing this unblocks, and one it blocks
+
+**Unblocked:** twelve of fourteen hadith cards can go to layout as soon as the segment-numbering scheme is settled.
+
+**Newly blocking:** the **silsila segment number prints on every card**, and the scheme is still undecided — `spec-check.md` numbers the Prophet 13 and Imam Ali 1, while `01-pilot/envelope-03/items.md` numbers the Prophet 1. Two cards currently claim segment 1. This was harmless while no card had a saying on it. It is not harmless now.
 
 ---
 

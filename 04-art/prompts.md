@@ -43,10 +43,13 @@ black ink #1B1B1B only. No accent color anywhere — no gold, no teal, no terrac
 
 **The Fourteen (every envelope, no exceptions):**
 ```
-RULE — NO FACES, NO FIGURES: show place, object, setting, distance, or silhouette only.
-Never a human face. Never a recognisable human figure shown close or in detail. If a person
-must be implied, imply them by what they left behind or the space they occupied, not by
-drawing them.
+RULE — NEVER DEPICT ANY OF THE FOURTEEN: no face, no figure, no likeness of the Prophet or
+any Imam or Sayyida Fatima. Show them only by setting, object or absence — a shield, a cloak,
+a doorway, an empty road. This is absolute.
+
+Ordinary people present at a place ARE permitted (amended 2026-08-12, scholar-approved):
+pilgrims and visitors in a courtyard may be drawn, faces included. They are people who
+happen to be there, not a depiction of anyone this box is about.
 ```
 
 **The companions line only (`08-companions/`):**

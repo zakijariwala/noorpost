@@ -99,7 +99,7 @@ He died in Medina in 114 AH. Shia accounts hold that he was killed on the orders
 
 | # | Item | Spec | State |
 |---|---|---|---|
-| 2 | Hadith card | Saying of Imam al-Baqir, conduct only. Silsila **segment 6**. | Blocked on fixed edition |
+| 2 | Hadith card | **Selected 2026-08-12.** “No mixture is better than the mixture of clemency and knowledge.” — Tuhaf al-Uqul, short maxims of Imam al-Baqir, **no. 2** (trans. Badr Shahin, Ansariyan). Silsila **segment 6**. | Saying selected; card layout pending |
 | 3 | Person print | Jannat al-Baqi, second angle. Palm shade, the same low wall. | Pending |
 | 4 | Event print | Sayyida Zaynab's shrine at Damascus. Ring position 5. | Pending |
 | 6 | Sticker sheet | A pen, a split fruit, palm shade, small repeatable marks | Pending |

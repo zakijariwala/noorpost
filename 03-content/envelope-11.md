@@ -113,7 +113,7 @@ He died in Samarra in 254 AH, after more than twenty years held in that city. Sh
 
 | # | Item | Spec | State |
 |---|---|---|---|
-| 2 | Hadith card | Saying of Imam al-Hadi, conduct only. Silsila **segment 10**. | Blocked on fixed edition |
+| 2 | Hadith card | **Selected 2026-08-12.** “This world is like a market in which some profited and others lost.” — Tuhaf al-Uqul, short maxims of Imam al-Hadi, **no. 15** (trans. Badr Shahin, Ansariyan). Silsila **segment 10**. | Saying selected; card layout pending |
 | 3 | Person print | The shrine at Samarra. **Pairs with envelope 04.** | Pending |
 | 4 | Event print | Laylat al-Qadr. Ring position 11. | Pending |
 | 5 | Session card | Case File — question, five evidence cards, sealed answer | Pending |

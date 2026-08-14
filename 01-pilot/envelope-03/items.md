@@ -12,7 +12,7 @@ Running order, per `standard-lines.md` §5, prints inside the flap.
 
 | # | Item | Spec | State |
 |---|---|---|---|
-| 2 | Hadith card | A saying of the Prophet, conduct or ethics only. Silsila **segment 1**. Edition fixed — Tuhaf al-Uqul, trans. Badr Shahin, Ansariyan Publications. | Edition fixed; saying not yet selected |
+| 2 | Hadith card | **Selected 2026-08-12.** “He who is deprived of kindness is deprived of goodness entirely.” — Tuhaf al-Uqul, short maxims of the Prophet, **no. 112** (trans. Badr Shahin, Ansariyan). Silsila **segment 13** per `spec-check.md` — **but see the numbering conflict below.** | Saying selected; segment number blocked |
 | 3 | Person print | Masjid an-Nabawi. Green dome, palm trunks, early light. Full palette, no faces. | **First artwork received 2026-08-12** — ink-and-wash, green dome, minaret. Three deltas open, see below. File not yet in the repo. |
 | 4 | Event print | The arrival at Quba. An empty road out of the desert, a kneeling camel, a palm grove. No figures. Ring position 3. | Pending |
 | 6 | Sticker sheet | The cloak shape with four corners marked, a palm, the Quba road, a caravan, small repeatable marks. | Pending |
@@ -34,7 +34,19 @@ Running order, per `standard-lines.md` §5, prints inside the flap.
 
 Segment 1 of 14, because the silsila runs in historical order while the envelopes run in calendar order — this is envelope 3 of 14 and card 1 of 14, and that mismatch is deliberate and must survive proofreading.
 
-**Edition now fixed** — Tuhaf al-Uqul, trans. Badr Shahin, Ansariyan Publications, per `sourcing-rules.md`. Saying selection itself is a citation task and stays out of scope here; pick it against that edition when citation work resumes.
+**Edition fixed and saying now selected (2026-08-12):**
+
+> He who is deprived of kindness is deprived of goodness entirely.
+
+Tuhaf al-Uqul, short maxims of the Prophet, **no. 112**, trans. Badr Shahin, Ansariyan. Cited by maxim number, not page — that file is a web-generated PDF, see Trap 2 in `HANDOVER.md`.
+
+Deliberately *not* about trustworthiness. The letter and the fact panel already carry al-Amin, and the rulebook says the card must not repeat the letter.
+
+### ⚠ The segment number is blocked, and it is now blocking print
+
+This file's draft numbers the Prophet **segment 1**. `spec-check.md`'s silsila table numbers him **segment 13** and gives segment 1 to Imam Ali. Both are internally consistent documents and they disagree.
+
+`spec-check.md` already flags this as undecided — *"Two defensible schemes exist… Pick one and apply it to all fourteen cards."* It was harmless while no card had a number on it. **Now that a saying is selected for all fourteen, the number is the last thing standing between these cards and layout, and two cards currently claim segment 1.** Decide the scheme before any hadith card is set.
 
 ---
 

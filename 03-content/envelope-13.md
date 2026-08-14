@@ -103,7 +103,7 @@ He died at Tus in 203 AH, far from Medina, on the journey al-Ma'mun had summoned
 
 | # | Item | Spec | State |
 |---|---|---|---|
-| 2 | Hadith card | From Uyun Akhbar al-Rida or Tuhaf al-Uqul, conduct only. Silsila **segment 9**. | Blocked on fixed edition |
+| 2 | Hadith card | **Selected 2026-08-12.** “Silence is one of the doors of wisdom. It yields amicability and leads to every goodness.” — Tuhaf al-Uqul, short maxims of Imam al-Rida, **no. 8** (trans. Badr Shahin, Ansariyan). Silsila **segment 9**. | Saying selected; card layout pending |
 | 3 | Person print | The shrine at Mashhad. | Pending |
 | 4 | Event print | Sayyida Masuma's shrine at Qom. Ring position 13. | Pending |
 | 6 | Sticker sheet | A road, a coin, a sealed letter, a doorway, small repeatable marks | Pending |

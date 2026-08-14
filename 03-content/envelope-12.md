@@ -103,7 +103,7 @@ He died in Medina in 148 AH. Shia accounts hold that he was killed on the orders
 
 | # | Item | Spec | State |
 |---|---|---|---|
-| 2 | Hadith card | From Tuhaf al-Uqul, conduct only — **this Masoom has the most material available**. Silsila **segment 7**. | Blocked on fixed edition |
+| 2 | Hadith card | **Selected 2026-08-12.** “He who treats people kindly will be accepted as arbiter.” — Tuhaf al-Uqul, short maxims of Imam al-Sadiq, **no. 1** (trans. Badr Shahin, Ansariyan). Silsila **segment 7**. | Saying selected; card layout pending |
 | 3 | Person print | The teaching circle. Lamplight, manuscripts, a courtyard in Medina. **No figures** — the circle is shown by what is left on the floor. | Pending |
 | 4 | Event print | Eid al-Fitr. Ring position 12. | Pending |
 | 6 | Sticker sheet | Manuscripts, a lamp, a flask, a courtyard, small repeatable marks | Pending |

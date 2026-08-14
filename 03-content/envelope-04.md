@@ -109,7 +109,7 @@ He died in Samarra in 260 AH, aged about twenty-eight, under the watch he had li
 
 | # | Item | Spec | State |
 |---|---|---|---|
-| 2 | Hadith card | Saying of Imam al-Askari, conduct only. Silsila **segment 11**. | Blocked on fixed edition |
+| 2 | Hadith card | **Selected 2026-08-12.** “The heart of the foolish is in his mouth and the mouth of the wise is in his heart.” — Tuhaf al-Uqul, short maxims of Imam al-Askari, **no. 21** (trans. Badr Shahin, Ansariyan). Silsila **segment 11**. | Saying selected; card layout pending |
 | 3 | Person print | The shrine at Samarra. **Pairs with envelope 11.** | Pending |
 | 4 | Event print | Samarra itself. A garrison city, walls and a river, no people. Ring position 4. | Pending |
 | 5 | Session card | Case File — question card, five evidence cards, sealed answer. **The seal is a physical requirement, not a graphic.** | Pending |

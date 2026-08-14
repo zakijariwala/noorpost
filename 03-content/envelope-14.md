@@ -123,7 +123,7 @@ She holds the woman slot, and traditional accounts of his death implicate her di
 
 | # | Item | Spec | State |
 |---|---|---|---|
-| 2 | Hadith card | Saying of Imam al-Jawad, conduct only. Silsila **segment 12**. | Blocked on fixed edition |
+| 2 | Hadith card | **Selected 2026-08-12.** “To show a matter before preparing for it properly is spoiling it.” — Tuhaf al-Uqul, short maxims of Imam al-Jawad, **no. 12** (trans. Badr Shahin, Ansariyan). Silsila **segment 12**. | Saying selected; card layout pending |
 | 3 | Person print | The shrine at Kadhimiya. **Pairs with envelope 08**, where his grandfather gets a barred window instead of this building. | Pending |
 | 4 | Event print | Ghadir Khumm. Ring position 14 — **the last one on the ring.** | Pending |
 | 5 | Session card | Case File — question, five evidence cards, sealed answer | Pending |

@@ -59,14 +59,17 @@ No color accent in the mourning issues. Black on ivory, full stop — this is a 
 
 | Rule | Applies to |
 |---|---|
-| **No faces.** Figures shown from behind, in silhouette, at a distance, or via setting/object alone (a shield, a cloak, a doorway). | The Fourteen — all fourteen envelopes, every item |
+| **Never a depiction of any of the Fourteen.** No face, no figure, no likeness of a Masoom — shown instead by setting, object or absence (a shield, a cloak, a doorway, an empty road). **This half of the rule is absolute and is not what was relaxed.** | The Fourteen — all fourteen envelopes, every item |
+| **Incidental people in a place are allowed** (2026-08-12, scholar-approved). Pilgrims and visitors present at a shrine may be drawn, including faces — they are people who happen to be there, not a depiction of anyone the box is about. A photograph of a shrine contains them and raises no question; a drawing is the same. | The Fourteen — person prints and event prints |
 | **Faces allowed**, drawn plainly, no attempt at portraiture or likeness of a historical record that doesn't exist | The companions line — `08-companions/` only |
 | One illustration style throughout — same hand, same line weight, same restraint — so a family can tell a Fourteen item from a companion item at a glance even before reading the faces rule | Both lines |
 | No violence depicted. Where a letter's content is violent (Karbala, the shield case, the night search), illustrate the object, the aftermath, or the setting — never the act | The Fourteen |
 | Landscape and person prints share one linework style; the calendar ring and the wall of prints must read as one set, not fourteen separate commissions | Person prints, event prints |
 | Mourning issues (01, 02) drop color per §2 but keep the same line style — no separate "somber" illustration mode | 01, 02 |
 
-The faces rule is the one a new illustrator will break first, because it is invisible in a single commission and only shows as a mistake once two envelopes sit side by side. **Check it at every sign-off, not just the first.**
+**Amended 2026-08-12, on scholar approval.** The rule was previously a blanket ban on any human figure, which conflated two very different things. The concern it exists to protect is the depiction of the Masoomeen — that is untouched and absolute. Drawing the ordinary people who happen to be standing in a courtyard is a separate matter, and it is permitted.
+
+The remaining rule is still the one a new illustrator will break first, because it is invisible in a single commission and only shows once two envelopes sit side by side. **Check it at every sign-off, not just the first** — and check the right half: not "is there a face", but "is this a depiction of one of the Fourteen".
 
 ---
 
