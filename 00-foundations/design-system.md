@@ -24,9 +24,18 @@ Two faces, both SIL Open Font License (free, no royalty, no attribution required
 
 ## 2. Palette
 
-Two palettes. The mourning palette is not a mood variant of the standard one — it replaces it entirely for envelopes 01 and 02, the same way the pennant replaces the sticker sheet for those two issues.
+**Amended 2026-08-12. The palette binds the printed system, not the artwork.**
 
-### Standard palette
+| | Governed by |
+|---|---|
+| **The typeset system** — stock, body and display ink, seal, month-stamp ring, rules, the fact-panel skeleton, the flap block | **The fixed palette below. Unchanged.** This is what makes fourteen envelopes read as one product by envelope three, and the ivory-stock reasoning is about handling, not taste. |
+| **Artwork** — person prints, event prints, sticker sheets, postcard fronts, and independently designed cards | **No fixed palette.** Illustrators choose their own colour. The one rule is that **colours must be complementary** — they must sit together, and sit against ivory stock and gold seal, without fighting. |
+
+This resolves the Green Dome question outright: the dome is green because the dome is green, and no exception needs recording. It also settles the same question for every shrine, tilework and banner still to be drawn, which would otherwise have arrived one at a time.
+
+**What "complementary" is doing here.** It is a real constraint, not a licence. A drawing still has to hang on a wall beside thirteen others and read as one set. What was a hex list is now a judgement call, so it moves from being checked mechanically to being checked at sign-off — see §3.
+
+### Fixed palette — the typeset system
 
 | Role | Name | Hex |
 |---|---|---|
@@ -38,7 +47,7 @@ Two palettes. The mourning palette is not a mood variant of the standard one —
 
 Warm ivory over stark white because the product is handled and re-read, not displayed under gallery light — white stock shows handling faster and reads coldly next to gold foil or a wax seal. Gold as the primary accent because it is doing double duty: it is also the seal and the postal-cancellation-stamp ring color, so it needs to be one fixed ink the whole product recognises on sight by envelope three, same logic as the fact-panel skeleton.
 
-**Open: the Green Dome.** The envelope 03 person print is Masjid an-Nabawi, whose dome is green — and there is no green in the table above. The art-prompt pack names "the green dome" in its subject line while its own negative prompt bans colour outside the fixed palette; the first artwork resolved that contradiction by using green. **The dome cannot be recoloured** — muted teal reads wrong to anyone who knows the building. Almost certainly a one-off: envelopes 02, 05 and 09 are Jannat al-Baqi, specified *no dome*, so no other print needs it. **Decide whether to add a sixth colour to this table or record a named single-print exception, and say which in this file** — a departure that lives only in one illustration is a departure the next illustrator cannot see.
+~~**Open: the Green Dome.**~~ **Resolved 2026-08-12** by the amendment above — artwork is not bound by the fixed palette, so the green dome needs no exception and no sixth colour is added to the table.
 
 ### Mourning palette — envelopes 01 and 02 only
 
@@ -50,6 +59,8 @@ Warm ivory over stark white because the product is handled and re-read, not disp
 | One permitted departure — the pennant cord only, never printed on paper | Unbleached cotton / natural | — |
 
 No color accent in the mourning issues. Black on ivory, full stop — this is a restatement of common mourning convention (black is customary for Muharram and the early days of Safar), not a design flourish, and it is why the pennant replaces the sticker sheet rather than getting its own color: a sticker sheet is a reward object, and rewards are not the register of these two issues.
+
+> **This one survives the 2026-08-12 amendment, and deliberately.** It is not a palette rule that happens to restrict colour — it is a *content* rule about the register of Muharram and Safar, which is why it is stated in terms of mourning convention rather than of hexes. Freeing artwork from the fixed palette does not free envelopes 01 and 02 from being mourning issues. **If the intent was to free these two as well, say so explicitly — it is a decision about observance, not about design, and it should not be made by implication.**
 
 **CMYK / spot conversion is a prepress task**, not fixed here — hand these hex values to the printer once Phase 2 sets the print run and they will build the right build (spot gold foil vs. four-color gold, for instance, is a cost decision that belongs in Phase 5, not Phase 0).
 

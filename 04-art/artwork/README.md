@@ -19,60 +19,51 @@ placeholder boxes are replaced, and how the card views in `docs/` will stop sayi
 | Item | File | State |
 |---|---|---|
 | Envelope 03 · person print · Masjid an-Nabawi | *awaiting file* | First draft reviewed 2026-08-12. Three deltas open — see `01-pilot/envelope-03/items.md`. |
-| Shrine, coloured pencil — shrine not yet confirmed | *awaiting file* | Reviewed 2026-08-12. **Rejected against spec — four issues, one of them the flagship rule. See below.** |
+| Envelope 07 · person print · the shrine at Najaf | *awaiting file* | Reviewed 2026-08-12. **Three of four issues now resolved. One open: which illustration style is the house style.** See below. |
 
 Nothing else has been drawn.
 
-## Review — coloured-pencil shrine, 2026-08-12
+## Review — coloured-pencil Najaf, 2026-08-12
 
-Submitted as Najaf (envelope 07). It is an accomplished drawing, and none of what
-follows is about its quality. It does not currently meet the spec for any person
-print in the Fourteen.
+Submitted as Najaf (envelope 07). Four issues were raised on first review. **Three have since been resolved by project decisions, not by changes to the drawing.**
 
-**1. It breaks the no-faces rule — the flagship one.** A dozen or more pilgrims sit
-in the near foreground, drawn close and in detail, several with visible faces. The
-rule for all fourteen envelopes is absolute:
+| # | Issue | Now |
+|---|---|---|
+| 1 | Human figures drawn close, with faces | ✅ **Resolved.** The faces rule was amended on scholar approval and now bans depicting *the Fourteen*, not people generally. Pilgrims in a courtyard are permitted — see `design-system.md` §3. |
+| 2 | Full colour against a fixed five-colour palette | ✅ **Resolved.** The fixed palette now binds only the typeset system; artwork chooses its own colour, subject to being complementary — §2. |
+| 3 | The building was unconfirmed | ✅ **Resolved.** Confirmed as Najaf by the project owner. |
+| 4 | **Coloured pencil against a specified hand-inked line style** | ⚠️ **Still open — and it is now the only thing standing.** |
 
-> Never a human face. Never a recognisable human figure shown close or in detail.
-> If a person must be implied, imply them by what they left behind or the space
-> they occupied, not by drawing them.
+### The one open question: which style is the house style
 
-`design-system.md` §3 predicted exactly this: *"The faces rule is the one a new
-illustrator will break first, because it is invisible in a single commission and
-only shows as a mistake once two envelopes sit side by side."* Faces are permitted
-**only** in the companions line, never here.
+This is not a palette question and the open-palette amendment does not touch it. `design-system.md` §3 still requires that **all twenty-eight prints read as one commission** — "same hand, same line weight, same restraint" — so that a family can tell a Fourteen item from a companion item at a glance.
 
-**2. The palette is not the fixed palette.** Yellow, red, purple, blue, green and
-orange, against a fixed five of ivory, near-black, gold `#A9762F`, muted teal
-`#2C5F5A`, terracotta `#B4472A`.
+Two pieces have now arrived in two different mediums:
 
-**3. The medium is not the specified one.** The master style block asks for hand-inked
-line illustration at fine consistent line weight. This is coloured pencil with heavy
-directional shading. On its own that is a defensible house style — but it is a
-different one, and it cannot hang beside the ink-and-wash Masjid an-Nabawi piece as
-a set. **Two prints in, the box has two incompatible illustration styles.** §3
-requires all twenty-eight prints to read as one commission.
+| | Envelope 03 · Masjid an-Nabawi | Envelope 07 · Najaf |
+|---|---|---|
+| Medium | Ink and wash | Coloured pencil |
+| Line | Fine, controlled | Loose, heavy directional shading |
+| Colour | One accent against grey | Full range |
+| Figures | None | Many |
 
-**4. The building needs confirming before anything else.** The banner carries what
-appears to read *Ya Aba Abd Allah al-Husayn* — Imam Husayn's kunya. Husayni banners
-hang at many shrines, Najaf included, so this is not conclusive from a drawing, and
-the reading should be checked by someone who can see the original. **It matters a
-great deal:**
+Both are good. **They are not the same set**, and hung side by side on a wall they will read as two commissions, which is exactly what §3 exists to prevent.
 
-- If it is **Najaf**, it is envelope 07 — standard palette, and issues 1–3 apply.
-- If it is **Karbala**, it is envelope 01 — a **mourning issue**, which is charcoal
-  black on ivory with *no colour accent anywhere*, by the same logic that replaces
-  its sticker sheet with a pennant. A full-colour drawing is maximally wrong for
-  that slot, not marginally.
+**This needs a decision, not a fix**, and it is cheapest now at two pieces:
 
-**Wrong shrine on a print is unrecoverable after a print run.** Confirm the building
-first, then the palette and the figures.
+1. **Ink-and-wash is the house style** — Najaf is redrawn.
+2. **Coloured pencil is the house style** — Masjid an-Nabawi is redrawn, and the remaining twenty-six follow.
+3. **Two styles are deliberate** — e.g. the Fourteen in one, companions in the other. Defensible, and it would make the two lines instantly distinguishable, which §3 already wants. But it has to be *chosen* and written down, not arrived at.
+
+Everything else about this drawing now passes.
 
 ## Before a file is accepted here
 
-1. **Palette** — every colour in the fixed table in `design-system.md` §2, or a
-   sanctioned exception recorded there. The Green Dome is currently the one open
-   case.
+1. **Palette** — free, but **complementary**: colours must sit together, sit against
+   ivory stock and a gold seal, and let the piece hang beside thirteen others as one
+   set. No neon, no high-saturation digital colour. (`design-system.md` §2, amended
+   2026-08-12.) Envelopes 01 and 02 remain mourning issues — charcoal on ivory, no
+   colour — which is a content rule, not a palette one.
 2. **Ground** — warm ivory `#F3EDE1` or transparent. Not white; the stock is ivory.
 3. **No faces, no figures** in any of the Fourteen. Faces are allowed only in the
    companions line.
