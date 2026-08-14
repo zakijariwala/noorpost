@@ -6,6 +6,20 @@ Running order, per `standard-lines.md` §5, prints inside the flap.
 
 ---
 
+## Items
+
+**This table is the machine-readable source** — `tools/build_site.py` reads it to build the card view, exactly as it reads the equivalent table in every `03-content/envelope-*.md`. The detailed sections below are the human-readable spec. **Keep the two in step.**
+
+| # | Item | Spec | State |
+|---|---|---|---|
+| 2 | Hadith card | **Selected 2026-08-12.** “He who is deprived of kindness is deprived of goodness entirely.” — Tuhaf al-Uqul, short maxims of the Prophet, **no. 112** (trans. Badr Shahin, Ansariyan). Silsila **segment 13** per `spec-check.md` — **but see the numbering conflict below.** | Saying selected; segment number blocked |
+| 3 | Person print | Masjid an-Nabawi. Green dome, palm trunks, early light. Full palette, no faces. | **First artwork received 2026-08-12** — ink-and-wash, green dome, minaret. Three deltas open, see below. File not yet in the repo. |
+| 4 | Event print | The arrival at Quba. An empty road out of the desert, a kneeling camel, a palm grove. No figures. Ring position 3. | Pending |
+| 6 | Sticker sheet | The cloak shape with four corners marked, a palm, the Quba road, a caravan, small repeatable marks. | Pending |
+| 7 | Return postcard | Front: the cloak shape, single ink, no text. | Pending |
+
+---
+
 ## 2. Hadith card
 
 | | |
@@ -20,7 +34,19 @@ Running order, per `standard-lines.md` §5, prints inside the flap.
 
 Segment 1 of 14, because the silsila runs in historical order while the envelopes run in calendar order — this is envelope 3 of 14 and card 1 of 14, and that mismatch is deliberate and must survive proofreading.
 
-**Edition now fixed** — Tuhaf al-Uqul, trans. Badr Shahin, Ansariyan Publications, per `sourcing-rules.md`. Saying selection itself is a citation task and stays out of scope here; pick it against that edition when citation work resumes.
+**Edition fixed and saying now selected (2026-08-12):**
+
+> He who is deprived of kindness is deprived of goodness entirely.
+
+Tuhaf al-Uqul, short maxims of the Prophet, **no. 112**, trans. Badr Shahin, Ansariyan. Cited by maxim number, not page — that file is a web-generated PDF, see Trap 2 in `HANDOVER.md`.
+
+Deliberately *not* about trustworthiness. The letter and the fact panel already carry al-Amin, and the rulebook says the card must not repeat the letter.
+
+### ⚠ The segment number is blocked, and it is now blocking print
+
+This file's draft numbers the Prophet **segment 1**. `spec-check.md`'s silsila table numbers him **segment 13** and gives segment 1 to Imam Ali. Both are internally consistent documents and they disagree.
+
+`spec-check.md` already flags this as undecided — *"Two defensible schemes exist… Pick one and apply it to all fourteen cards."* It was harmless while no card had a number on it. **Now that a saying is selected for all fourteen, the number is the last thing standing between these cards and layout, and two cards currently claim segment 1.** Decide the scheme before any hadith card is set.
 
 ---
 
@@ -34,6 +60,16 @@ Segment 1 of 14, because the silsila runs in historical order while the envelope
 | Ink | Full palette |
 | Faces | None. No figures at all in the Fourteen. |
 | Destination | A wall. It is looked at daily for a year, so it must survive being looked at. |
+
+### First artwork received — 2026-08-12
+
+Ink-and-wash treatment: green dome, the near minaret and one further back, grey wash sky, no figures. The **no-faces rule is respected** and the register (hand-inked, restrained, generous negative space) matches the master style block. Three deltas to settle before this is accepted:
+
+| # | Delta | Why it matters |
+|---|---|---|
+| 1 | ~~The dome is green and there is no green in the fixed palette.~~ | ✅ **Resolved 2026-08-12.** The fixed palette now binds the typeset system only; artwork chooses its own colour, subject to being complementary. `design-system.md` §2. The dome is green because the dome is green. |
+| 2 | **The ground is white; the stock is warm ivory `#F3EDE1`.** *(Still open — this is a stock question, not a palette one, so the open-palette amendment does not touch it.)* | The paper is ivory. A white-ground image printed on it lands as a paler rectangle with a visible edge. **Supply the art on a transparent ground and let the stock show through** — then whatever colours the illustrator chooses sit on the same warm base as every other item. |
+| 3 | **No palm trunks, and the composition is inverted from the brief.** The prompt asked for the dome in the upper third with palm trunks grounding the bottom third; here the minaret dominates the upper half and the dome sits centre-left with no foreground. | Not wrong in itself — it is a good composition. But **envelopes 02, 05 and 09 are meant to hang beside it as one Medina set** with consistent light and line weight, so whichever composition wins has to be the one all four are drawn to. Decide now, before the other three are commissioned, not after. |
 
 **Note the tension.** The letter is set in Makkah, twenty-five years before the Hijra, and the person print is the mosque at Medina. That is correct — the person print is the place he is, not the place the letter is, and it pairs against the event print which carries the road that got him there.
 

@@ -24,9 +24,18 @@ Two faces, both SIL Open Font License (free, no royalty, no attribution required
 
 ## 2. Palette
 
-Two palettes. The mourning palette is not a mood variant of the standard one — it replaces it entirely for envelopes 01 and 02, the same way the pennant replaces the sticker sheet for those two issues.
+**Amended 2026-08-12. The palette binds the printed system, not the artwork.**
 
-### Standard palette
+| | Governed by |
+|---|---|
+| **The typeset system** — stock, body and display ink, seal, month-stamp ring, rules, the fact-panel skeleton, the flap block | **The fixed palette below. Unchanged.** This is what makes fourteen envelopes read as one product by envelope three, and the ivory-stock reasoning is about handling, not taste. |
+| **Artwork** — person prints, event prints, sticker sheets, postcard fronts, and independently designed cards | **No fixed palette.** Illustrators choose their own colour. The one rule is that **colours must be complementary** — they must sit together, and sit against ivory stock and gold seal, without fighting. |
+
+This resolves the Green Dome question outright: the dome is green because the dome is green, and no exception needs recording. It also settles the same question for every shrine, tilework and banner still to be drawn, which would otherwise have arrived one at a time.
+
+**What "complementary" is doing here.** It is a real constraint, not a licence. A drawing still has to hang on a wall beside thirteen others and read as one set. What was a hex list is now a judgement call, so it moves from being checked mechanically to being checked at sign-off — see §3.
+
+### Fixed palette — the typeset system
 
 | Role | Name | Hex |
 |---|---|---|
@@ -37,6 +46,8 @@ Two palettes. The mourning palette is not a mood variant of the standard one —
 | Tertiary accent — the woman slot marker, sticker sheets | Terracotta | `#B4472A` |
 
 Warm ivory over stark white because the product is handled and re-read, not displayed under gallery light — white stock shows handling faster and reads coldly next to gold foil or a wax seal. Gold as the primary accent because it is doing double duty: it is also the seal and the postal-cancellation-stamp ring color, so it needs to be one fixed ink the whole product recognises on sight by envelope three, same logic as the fact-panel skeleton.
+
+~~**Open: the Green Dome.**~~ **Resolved 2026-08-12** by the amendment above — artwork is not bound by the fixed palette, so the green dome needs no exception and no sixth colour is added to the table.
 
 ### Mourning palette — envelopes 01 and 02 only
 
@@ -49,6 +60,8 @@ Warm ivory over stark white because the product is handled and re-read, not disp
 
 No color accent in the mourning issues. Black on ivory, full stop — this is a restatement of common mourning convention (black is customary for Muharram and the early days of Safar), not a design flourish, and it is why the pennant replaces the sticker sheet rather than getting its own color: a sticker sheet is a reward object, and rewards are not the register of these two issues.
 
+> **This one survives the 2026-08-12 amendment, and deliberately.** It is not a palette rule that happens to restrict colour — it is a *content* rule about the register of Muharram and Safar, which is why it is stated in terms of mourning convention rather than of hexes. Freeing artwork from the fixed palette does not free envelopes 01 and 02 from being mourning issues. **If the intent was to free these two as well, say so explicitly — it is a decision about observance, not about design, and it should not be made by implication.**
+
 **CMYK / spot conversion is a prepress task**, not fixed here — hand these hex values to the printer once Phase 2 sets the print run and they will build the right build (spot gold foil vs. four-color gold, for instance, is a cost decision that belongs in Phase 5, not Phase 0).
 
 ---
@@ -57,14 +70,17 @@ No color accent in the mourning issues. Black on ivory, full stop — this is a 
 
 | Rule | Applies to |
 |---|---|
-| **No faces.** Figures shown from behind, in silhouette, at a distance, or via setting/object alone (a shield, a cloak, a doorway). | The Fourteen — all fourteen envelopes, every item |
+| **Never a depiction of any of the Fourteen.** No face, no figure, no likeness of a Masoom — shown instead by setting, object or absence (a shield, a cloak, a doorway, an empty road). **This half of the rule is absolute and is not what was relaxed.** | The Fourteen — all fourteen envelopes, every item |
+| **Incidental people in a place are allowed** (2026-08-12, scholar-approved). Pilgrims and visitors present at a shrine may be drawn, including faces — they are people who happen to be there, not a depiction of anyone the box is about. A photograph of a shrine contains them and raises no question; a drawing is the same. | The Fourteen — person prints and event prints |
 | **Faces allowed**, drawn plainly, no attempt at portraiture or likeness of a historical record that doesn't exist | The companions line — `08-companions/` only |
 | One illustration style throughout — same hand, same line weight, same restraint — so a family can tell a Fourteen item from a companion item at a glance even before reading the faces rule | Both lines |
 | No violence depicted. Where a letter's content is violent (Karbala, the shield case, the night search), illustrate the object, the aftermath, or the setting — never the act | The Fourteen |
 | Landscape and person prints share one linework style; the calendar ring and the wall of prints must read as one set, not fourteen separate commissions | Person prints, event prints |
 | Mourning issues (01, 02) drop color per §2 but keep the same line style — no separate "somber" illustration mode | 01, 02 |
 
-The faces rule is the one a new illustrator will break first, because it is invisible in a single commission and only shows as a mistake once two envelopes sit side by side. **Check it at every sign-off, not just the first.**
+**Amended 2026-08-12, on scholar approval.** The rule was previously a blanket ban on any human figure, which conflated two very different things. The concern it exists to protect is the depiction of the Masoomeen — that is untouched and absolute. Drawing the ordinary people who happen to be standing in a courtyard is a separate matter, and it is permitted.
+
+The remaining rule is still the one a new illustrator will break first, because it is invisible in a single commission and only shows once two envelopes sit side by side. **Check it at every sign-off, not just the first** — and check the right half: not "is there a face", but "is this a depiction of one of the Fourteen".
 
 ---
 

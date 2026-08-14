@@ -7,29 +7,37 @@
 ## Letter — *The House That Kept a Secret*
 
 <!-- LETTER START -->
-● Narjis was married to Imam al-Askari, in a household the ruling government watched more closely, for longer, and with more officials assigned to it, than almost any other household in the whole city, across generation after generation of that same family.
+● Narjis lived in the most watched house in Samarra. Samarra was a garrison city — the caliph had built it for his army, and her family had been moved there so the army could keep an eye on them. The government kept men on that street whose only job was to notice who went in and who came out.
 
-○ Why watch one particular household in the whole city that closely?
+○ Watching for what?
 
-● Because they were watching for exactly one thing, and had been for years already, patiently: a birth. They had good reason to believe a child would eventually be born there who mattered enormously to them, and they fully meant to know about it the very moment it happened, if they possibly could manage it.
+● A baby. That was the whole job. They had been told a child would be born in that house, and they meant to know the same hour it happened.
 
-○ Did Narjis know herself that she was being watched that closely?
+○ Why would they care about a baby?
 
-● She did, and she managed something genuinely very hard because of it: she carried an entire pregnancy almost entirely unannounced, in a house full of eyes that were not friendly to her family at all, without the household's usual daily routines ever giving the smallest thing away to anyone watching from outside.
+● Because of whose son he would be. That family had been watched by one caliph after another for two hundred years by then — grandfather, father, son, each one in turn. A government frightened of a family does not wait for the child to grow up. It waits by the door.
 
-○ How is that even really possible, hiding something that big for that long?
+○ Did she know they were out there?
 
-● Carefully, and for months on end, day after day without a break, with almost nobody outside a very small circle of trust ever told directly what was actually happening in that house.
+● Every day of it. And she did the hard thing anyway. She carried a whole pregnancy through that street without the street ever learning there was one.
 
-○ What happened once the child was actually finally born, after all of that?
+○ How do you hide a baby?
 
-● The birth itself was kept just as quiet as everything before it, known clearly to only a very small number of trusted people, in a household that had already spent months practising exactly that kind of care, every day, without once letting it slip.
+● You keep the house exactly as it has always been. The same visitors, the same hours, the washing out on the same days. Nothing new for anyone to notice. A few people were told, once, and never again after that.
 
-○ Could you keep a secret that important? Say if you think you could.
+○ How long did that last?
 
-● Very few people could actually manage it, honestly, for that long, under that much constant pressure, day after day, without a single slip anywhere along the entire way.
+● Months. Every one of them.
 
-●○ She carried the whole secret herself, quietly, for months on end, and it held all the way through.
+○ Could you keep a secret for months? Say honestly.
+
+● Most people could not manage a week. She did it with soldiers on the corner and her husband's name on a list, and when the baby came the street learned nothing then either.
+
+○ So what do we know about her?
+
+● Almost nothing, and that is the strange part. A house that gives nothing away leaves nothing behind. Most of what anyone would want to know about those years is missing — and the missing is how we know it worked.
+
+●○ The whole road was watching. Nobody saw a thing.
 <!-- LETTER END -->
 
 **One new thing for the adult:** most people know the occultation as an idea. Very few have pictured the actual months of an actual household keeping an actual secret, day after day.
@@ -70,6 +78,24 @@ Accounts of her later life vary and are held here loosely, per the same practice
 **Exterior:** no month cancellation — this line is dateless. Plain seal, name area, *The secret held* printed small.
 
 ---
+
+## Spec check
+
+Measured with the command in `03-content/spec-check.md`, not estimated.
+
+| Rule | Required | This letter |
+|---|---|---|
+| L5 | 330–370 words | **334** ✓ |
+| L6 | 6–9 child lines | **8** ✓ |
+| L7 | Every child line under 15 words | longest is 9 ✓ |
+| L8 | One child line demands a response | the "Say…" line ✓ |
+| L9 | Last line read together | ●○ ✓ |
+| L14 | Never builds to the death | ✓ |
+| L16 | No violence in scene | ✓ |
+
+**Child-line register:** average 6.3 words. The established letters run 4.0–6.3; this sits inside that band deliberately — the 15-word cap is a ceiling, not a target.
+
+**Child-word test:** every word in every child line sits inside Dolch + Fry 1000 or the madrasa list. Proper nouns (names, places) appear only where the child is naming a thing in the act of asking about it, which is the allowance used in `01-pilot/envelope-03/letter.md`. Nothing else flagged.
 
 ## Notes
 

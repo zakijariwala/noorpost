@@ -7,29 +7,41 @@
 ## Letter — *The Man Who Answered Without Answering*
 
 <!-- LETTER START -->
-● The third of the four men to hold the post was different from the first two. He was not an oil seller. He came from a family known across the city for learning, and everybody already knew his name before he ever took the job.
+● The third man was nothing like the first two. No stall, no oil, no cover at all. He came from a family everyone in Baghdad already knew, and everyone already knew his name.
 
-○ Wasn't that dangerous? Being known, when the whole point was staying hidden?
+○ Isn't that backwards?
 
-● It should have been. But Husayn ibn Ruh had a skill the other three didn't need in quite the same way: he could sit across from a hostile questioner, answer everything they asked, and give away nothing at all.
+● It should have ruined him. The first two hid behind an ordinary trade. He could not hide behind anything, so he did the other thing instead.
 
-○ How is that even possible? Answering everything and giving nothing away?
+○ Which was?
 
-● He chose his words the way a locksmith chooses which pins to move, one at a time, never all at once. A government official once questioned him for a long time, circling back and rephrasing, trying to trap him into naming names, and left with nothing at all he could act on — and, by some accounts, still walked away thinking the conversation had gone well for him.
+● He learned to answer everything and give away nothing.
 
-○ Did people ever actually catch him out?
+○ You can do both?
 
-● Rarely, and never for long. He was imprisoned more than once for the work, by rulers who suspected exactly what he was doing and still could not prove it.
+● He could. A government man once questioned him for a long stretch — circling back, rephrasing, trying to get a name out of him — and went away with nothing he could use. By some accounts he went away pleased with how it had gone.
 
-○ What was he actually protecting, all that time?
+○ Did they ever catch him?
 
-● The same thing all four protected, across seventy years: a network of ordinary people, spread across an entire empire, who could be hurt very badly if the wrong name ever reached the wrong ears at the wrong time. Every careful word he chose, in every conversation like that one, was somebody else's safety, not just his own.
+● Never with anything in his hands. They jailed him more than once anyway, on suspicion alone, held him, learned nothing, and let him out again exactly as suspicious as when they took him in.
 
-○ Could you talk that carefully for years? Say if you think you could.
+○ What was he protecting?
 
-● Almost nobody could, for that long, under that much pressure. That is exactly why he is remembered separately from the other three, and not just as one more name on the same list.
+● Names. Ordinary people, in a dozen cities, who had trusted him with letters and with money. One careless sentence in one long conversation and somebody he had never met would have paid for it.
 
-●○ He said everything they asked, and told them nothing at all.
+○ How do you even learn that?
+
+● Slowly, and by deciding beforehand. You work out what you will not say before you are ever asked, because nobody makes that decision well in the middle of being questioned. Then you answer generously about everything else, so the silence has somewhere to hide.
+
+○ Did he pick the next one too?
+
+● He did — Ali ibn Muhammad al-Samarri, the fourth and last. Three handovers by then, each man naming the next while he was still alive to be argued with.
+
+○ Could you guard a name for years? Say if you could.
+
+● Very few people can. Most of us give a thing away tired, or cornered, or wanting to be liked. He was all three at times and still did not.
+
+●○ He answered every question they had. He told them nothing.
 <!-- LETTER END -->
 
 **One new thing for the adult:** most people who know the four deputies by number don't know that one of them was famous, in his own time, specifically for how he spoke under pressure.
@@ -70,6 +82,24 @@ He died still holding the post, having named Ali ibn Muhammad al-Samarri as the 
 **Exterior:** no month cancellation — this line is dateless. Plain seal, name area, *He told them nothing at all* printed small.
 
 ---
+
+## Spec check
+
+Measured with the command in `03-content/spec-check.md`, not estimated.
+
+| Rule | Required | This letter |
+|---|---|---|
+| L5 | 330–370 words | **332** ✓ |
+| L6 | 6–9 child lines | **9** ✓ |
+| L7 | Every child line under 15 words | longest is 11 ✓ |
+| L8 | One child line demands a response | the "Say…" line ✓ |
+| L9 | Last line read together | ●○ ✓ |
+| L14 | Never builds to the death | ✓ |
+| L16 | No violence in scene | ✓ |
+
+**Child-line register:** average 5.2 words. The established letters run 4.0–6.3; this sits inside that band deliberately — the 15-word cap is a ceiling, not a target.
+
+**Child-word test:** every word in every child line sits inside Dolch + Fry 1000 or the madrasa list. Proper nouns (names, places) appear only where the child is naming a thing in the act of asking about it, which is the allowance used in `01-pilot/envelope-03/letter.md`. Nothing else flagged.
 
 ## Notes
 

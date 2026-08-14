@@ -107,7 +107,7 @@ He died in Medina in 95 AH. Shia accounts hold that he was killed on the orders 
 
 | # | Item | Spec | State |
 |---|---|---|---|
-| 2 | Hadith card | From Sahifa Sajjadiyya or Risalat al-Huquq. Silsila **segment 5**. Candidate: Risalat al-Huquq, entry 3 (the tongue), quoted exactly — see `citation-sheet.md`. | Edition fixed, quote verified; card copy not yet selected |
+| 2 | Hadith card | **Selected 2026-08-12.** “The right of the tongue is that you consider it too noble for obscenity, accustom it to good, refrain from any meddling in which there is nothing to be gained, express kindness to the people, and speak well concerning them.” — Risalat al-Huquq, **entry 3** (trans. Chittick). Silsila **segment 5**. | Saying selected and verified; card layout pending |
 | 3 | Person print | Jannat al-Baqi, third angle. | Pending |
 | 4 | Event print | Munajat Sha'baniyya. A courtyard at night, one lamp, no figures. Ring position 9. | Pending |
 | 6 | Sticker sheet | A list, an ear, a hand, a foot, a doorway, numbered marks | Pending |

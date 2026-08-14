@@ -27,14 +27,14 @@ unzip sources.zip -d 00-sources
 | `README.md` | Layout and status |
 | `TASKS.md` | Ten phases, gated. Checkboxes are current. |
 | `00-foundations/` | The rules. Everything else is checked against these. |
-| `00-sources/text/` | 19 source texts as plain text, page-numbered. **Tracked.** |
+| `00-sources/text/` | 15 source texts as plain text, page-numbered. **Tracked. Shia sources only** — see the hard rule in `sourcing-rules.md`. |
 | `00-sources/*.pdf` | The PDFs. **Not tracked** — from the release. |
 | `01-pilot/envelope-03/` | Envelope 03, split across four files |
 | `03-content/` | Envelopes 01, 02, 04–14, one file each, plus `spec-check.md` |
 | `08-companions/` | The six companion envelopes |
 | `09-zines/` | Zine template, two written in full, thirteen outlined |
 | `docs/` | The published site. **Generated — never edit by hand.** |
-| `tools/` | Three scripts |
+| `tools/` | Four scripts |
 
 ## The three scripts
 
@@ -44,7 +44,14 @@ python tools/fetch_sources.py    # find more sources (--download to fetch)
 python tools/extract_text.py     # PDFs -> 00-sources/text/ (only if you re-download)
 ```
 
-`build_site.py` strips every editorial note — the new-thing lines, blocking warnings, item specs, scholar flags, open questions. **The site shows only what a family receives.** If you add a new kind of internal note, check it does not leak: rebuild, then grep `docs/*.html` for it.
+`build_site.py` strips every editorial note — the new-thing lines, blocking warnings, scholar flags, open questions. **The envelope, companion and zine pages show only what a family receives.** If you add a new kind of internal note, check it does not leak: rebuild, then grep `docs/*.html` for it.
+
+**One deliberate exception: the card views** (`envelope-NN-cards.html`). These exist to show, internally, every physical item an envelope will hold and which of them nothing has been allocated to yet — so they *do* publish item specs and a written/placeholder status for each item. They are linked from the index and from each envelope page, carry `noindex`, and sit behind the same "draft for review, not for circulation" footer as the rest of the site, alongside the print proofs and art-prompt packs already published for internal access.
+
+Even there, two things are still stripped or refused:
+
+- **Internal cross-references** — `strip_internal()` removes any `` `something.md` `` reference from published spec text, so working notes in an Items table never reach the page.
+- **Nothing is rendered as a quotation.** Placeholder hadith cards state that no saying has been chosen; they never render invented filler inside quote marks or attribute it to a named figure. `sourcing-rules.md` says quote exactly or don't quote, and a screenshot of one card loses whatever label surrounded it.
 
 Site is at **https://zakijariwala.github.io/noorpost/** and serves from `main` `/docs`. Push and it updates.
 
@@ -80,27 +87,39 @@ grep -rn -i -C4 "shurayh" 00-sources/text/
 grep -rn "three hundred" 00-sources/text/irshad--*.txt
 ```
 
-Every page break in those files is a line reading `[[p 137]]`. **Read up from a hit to the nearest one — that is the page number for the citation.**
+Every page break in those files is a line reading `[[p 137]]`. Read up from a hit to the nearest one — but **that number is the PDF sheet, not necessarily the book's printed page.** Two traps, both of which have already produced a wrong citation in this repo:
+
+**Trap 1 — two-column scans.** Some files are two-page-per-sheet scans whose columns got merged onto single lines. There, one `[[p N]]` covers *two* book pages and the number is off by twenty or more. Check before citing:
+
+```bash
+# >25% means two-column: the [[p N]] markers are sheet numbers, not book pages
+awk 'BEGIN{g=0} /\S {10,}\S/{g++} END{print int(g*100/NR)"%"}' 00-sources/text/FILE.txt
+```
+
+**Known two-column file:** `kafi--alkafi-201601.txt` (27%) — a Tier 1 priority work, not yet cited from, so this trap is loaded and waiting. Read the running header on the line *after* the marker for the real book page (left column = even, right = odd). Run the check on every source acquired from here on.
+
+**Trap 2 — web-PDF pagination.** The al-Islam.org sources (Risalat al-Huquq, Sahifa Sajjadiyya, Uyun, Tuhaf) are generated PDFs. Their page numbers are artifacts of that generation and do **not** match the printed Ansariyan / Muhammadi Trust editions fixed in `sourcing-rules.md`. For these, **cite the work's own internal numbering** — entry number, hadith number, chapter-and-report — which is stable across editions. A page number there is decoration; the entry number is the citation.
 
 ### The loop
 
 1. Take one row from `00-foundations/citation-sheet.md`.
-2. Grep for it.
-3. Record work, page or hadith number, translator, edition on the row.
-4. Set the status: `V` verified, `TRAD` traditional, `CONT` contested, `CUT` did not hold.
-5. If it did not hold, fix the line in the envelope file — do not leave a claim standing on a `CUT` row.
+2. Grep for it — **and grep the whole work, not just the first hit.** A passage phrased differently is not disproof. This is exactly how envelope 13's correct line got wrongly cut and then restored.
+3. Check the file against Trap 1 and Trap 2 above before writing any page number.
+4. Record work, internal number (preferred) or verified book page, translator, edition on the row.
+5. Set the status: `V` verified, `TRAD` traditional, `CONT` contested, `CUT` did not hold.
+6. If it did not hold, fix the line in the envelope file — do not leave a claim standing on a `CUT` row. **Before cutting, confirm the claim is absent from the whole work, not just from the passage you happened to find.**
 
 **One row at a time. Ten rows is a good session.** The unit is the row, not the envelope and not the book.
 
 ### Where to start
 
-`00-foundations/sources-needed.md` ranks the ten claims most likely to fail. Work down that list. **The top three are now verified (2026-08-12):**
+`00-foundations/sources-needed.md` ranks the ten claims most likely to fail. Work down that list. **Two of the top three are verified; the first was reverted by the Shia-sources-only rule:**
 
-1. ~~Makkah called him al-Amin before revelation~~ — envelope 03. Guillaume, *The Life of Muhammad*, p. 67 — now a fixed edition, closing the sira gap for this envelope. See `sourcing-rules.md` and `citation-sheet.md`.
-2. ~~Risalat al-Huquq entry count, and the tongue entry quoted exactly~~ — envelope 09. **51 entries**, not "around fifty" — letter and panel corrected. Tongue entry (3), p. 9, quoted in full on `citation-sheet.md`.
-3. ~~Imam al-Rida's four conditions~~ — envelope 13. Uyun Akhbar al-Rida vol. 2, p. 227. **The draft's phrasing didn't match the source** and the letter line was rewritten to the real four: no orders, no objecting, no judging, no changing what stands.
+1. **Makkah called him al-Amin before revelation** — envelope 03. ⛔ **Was verified, now reopened.** It was checked against Guillaume's Ibn Ishaq, a Sunni work removed on 2026-08-12 under the Shia-sources-only rule in `sourcing-rules.md`. The claim is not in doubt; it needs a permitted edition. **Still the highest-priority row in the project.**
+2. ~~Risalat al-Huquq entry count, and the tongue entry quoted exactly~~ — envelope 09. **51 entries**, not "around fifty" — letter and panel corrected. Tongue entry is **entry 3**, quoted in full on `citation-sheet.md`. *(Cite the entry number, not a page — this is a web-generated PDF; see Trap 2 above.)*
+3. ~~Imam al-Rida's four conditions~~ — envelope 13. Uyun Akhbar al-Rida vol. 2 (Peiravi) carries them in **three** places. **The draft wording was already correct and stands** — appoint nobody, dismiss nobody, change nothing in place, no opinion unless asked. An earlier pass read only one of the three passages, wrongly declared the draft unsupported, and rewrote the printed line; that has been reverted.
 
-Next down the list: #4, al-Kadhim's four years (envelope 08) — al-Kafi or Uyun Akhbar al-Rida are the likely works; #5, the Shurayh shield case (envelope 07) — needs al-Irshad, which is still an open edition (no translator credit on the title page yet, see `sourcing-rules.md`).
+Next down the list: #4, al-Kadhim's four years (envelope 08) — al-Kafi or Uyun Akhbar al-Rida are the likely works; #5, the Shurayh shield case (envelope 07) — needs al-Irshad.
 
 ### Fill this in first
 
@@ -110,14 +129,14 @@ The fixed-editions table in `00-foundations/sourcing-rules.md` is **now filled �
 
 ## What is still missing
 
-**Sources.** `00-sources/text/` has Tuhaf al-Uqul, both parts of Nahj al-Balagha, Sahifa Sajjadiyya, Risalat al-Huquq, both volumes of Uyun Akhbar al-Rida, al-Kafi, two copies of Kitab al-Irshad, two of Guillaume's Sira, Subhani's *The Message*, two Qarashi lives, two Tabari volumes, and two on the Fourteen.
+**Sources.** `00-sources/text/` has Tuhaf al-Uqul, both parts of Nahj al-Balagha, Sahifa Sajjadiyya, Risalat al-Huquq, both volumes of Uyun Akhbar al-Rida, al-Kafi, two copies of Kitab al-Irshad, Subhani's *The Message*, two Qarashi lives, and two on the Fourteen. **All Shia.** Guillaume's Sira and the two Tabari volumes were removed on 2026-08-12 under the hard rule in `sourcing-rules.md`.
 
 Not there:
 
 | Missing | Blocks |
 |---|---|
 | Kamal al-Din / Jassim Hussain on the occultation | Envelope 10 — the four deputies |
-| Tabari vol 19 (Karbala) and the Abbasid volumes | The ruler bullet in several panels |
+| A **Shia** history covering 40–260 AH | The ruler bullet in all fourteen panels — this had no source even before the rule, and now has no candidate either |
 | Four of the six Qarashi lives | Envelopes 05, 07, 11, 13 |
 | **A world-history reference** | All fourteen "elsewhere in the world" bullets |
 

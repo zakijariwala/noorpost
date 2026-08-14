@@ -107,7 +107,7 @@ He was killed in the masjid at Kufa in 40 AH, during the dawn prayer, by Abd al-
 
 | # | Item | Spec | State |
 |---|---|---|---|
-| 2 | Hadith card | From Nahj al-Balagha or Tuhaf al-Uqul, conduct only. Silsila **segment 1**. | Blocked on fixed edition |
+| 2 | Hadith card | **Selected 2026-08-12.** “The value of a man is what he does expertly.” — Tuhaf al-Uqul, short maxims of Imam Ali, **no. 8** (trans. Badr Shahin, Ansariyan). Silsila **segment 1**. | Saying selected; card layout pending |
 | 3 | Person print | The shrine at Najaf. | Pending |
 | 4 | Event print | The Kaaba. He was born inside it on 13 Rajab. Ring position 7. | Pending |
 | 6 | Sticker sheet | A shield, a set of scales, a doorway, small repeatable marks | Pending |

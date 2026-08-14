@@ -113,7 +113,7 @@ He died in a prison in Baghdad in 183 AH, after four years held without charge. 
 
 | # | Item | Spec | State |
 |---|---|---|---|
-| 2 | Hadith card | Saying of Imam al-Kadhim, conduct only. Silsila **segment 8**. | Blocked on fixed edition |
+| 2 | Hadith card | **Selected 2026-08-12.** “Good neighborhood is not abstinence from harm. It is to tolerate the harm (of the neighbors).” — Tuhaf al-Uqul, short maxims of Imam al-Kadhim, **no. 13** (trans. Badr Shahin, Ansariyan). Silsila **segment 8**. | Saying selected; card layout pending |
 | 3 | Person print | **A barred window in Baghdad. Not the shrine.** Pairs with envelope 14, which takes Kadhimiya. | Pending |
 | 4 | Event print | The cave at Hira. The Mab'ath falls on 27 Rajab. Ring position 8. | Pending |
 | 5 | Session card | Case File — question, five evidence cards, sealed answer | Pending |

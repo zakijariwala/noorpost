@@ -103,7 +103,7 @@ He was killed at Karbala in 61 AH, with his family and companions, by the army s
 
 | # | Item | Spec | State |
 |---|---|---|---|
-| 2 | Hadith card | Saying of Imam Husayn, conduct only. Silsila **segment 3**. | Blocked on fixed edition |
+| 2 | Hadith card | **Selected 2026-08-12.** “The true stingy is that who refrains from greeting.” — Tuhaf al-Uqul, short maxims of Imam Husayn, **no. 18** (trans. Badr Shahin, Ansariyan). Silsila **segment 3**. | Saying selected; card layout pending |
 | 3 | Person print | The shrine at Karbala. Single ink, mourning palette. | Pending |
 | 4 | Event print | Karbala. **One object, no scene: a standard with no rider.** Ring position 1. | Pending |
 | 6 | Pennant | Replaces the sticker sheet. Single ink, mourning palette. | Pending |

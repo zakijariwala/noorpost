@@ -172,6 +172,20 @@ main > section h2 {
 .tile.small { padding: 0.9rem 1.1rem; }
 .tile.small .tilename { margin-top: 0; }
 
+.tilewrap { display: flex; flex-direction: column; }
+.tilewrap .tile { flex: 1; }
+
+.tilecards {
+  display: block;
+  margin-top: 0.35rem;
+  padding-left: 0.1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--soft);
+  text-decoration: none;
+}
+.tilecards:hover { color: var(--accent); text-decoration: underline; }
+
 /* ---------- envelope page ---------- */
 
 .kicker {

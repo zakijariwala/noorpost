@@ -1,2 +1,0 @@
-[[p 3]]
-Underlined titles are linked to corresponding pages.

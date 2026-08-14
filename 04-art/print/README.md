@@ -21,6 +21,31 @@ Hadith-card content is still blocked — no saying can be chosen until sourcing 
 
 **This is marked, loudly, in three places**: the on-screen note, a diagonal watermark on both faces, and a footnote on the back explaining it doesn't even qualify as real hadith-card content (a Qur'anic verse isn't "ethics and conduct," the register hadith cards are restricted to). Don't let this leak into anything that looks like a cleared page — same discipline as the `UNVERIFIED — TO VERIFY` watermark on the fact panel, whose six bullets are real copy but still `TV` on `citation-sheet.md`.
 
+## ⚠ Blocking defect — every letter template overflows its page
+
+**Found 2026-08-12. It affects all fifty-three letter templates and it predates the companions generator.**
+
+Every letter — all fourteen of the Fourteen and all thirty-nine companions — renders taller than the A5 page it is set on:
+
+| | Overflow |
+|---|---|
+| The Fourteen, letter templates | 39–76% over (envelope 03, the pilot, is the worst at +76%) |
+| Companion letter templates | 28–69% over |
+| Fact panels, cards, postcards, flaps | **all fit** |
+
+**Why nobody caught it.** `.page` carries `overflow: hidden`, which is what a trimmed page does — so the excess is clipped rather than shown, and `--print-to-pdf` then emits a clean, correct-looking, single-page PDF with roughly the last third of the letter missing. `pdf/envelope-03-letter.pdf` is one page and is missing text right now. The proof looks right, which is why it passed. Same failure shape the note at the bottom of this file already warns about for file paths: a valid-looking PDF of the wrong thing.
+
+**What has been done about it.** Nothing that changes a design decision. `assets/overflow-guard.js` plus the `.overflows` rule in `print.css` now flag any overflowing page on screen with a red bar reading *CONTENT OVERFLOWS THIS PAGE*, and log the overage to the console. Screen only, no geometry changed, no cost in print. It makes the defect visible; it does not resolve it.
+
+**What has to be decided, because all four options have real costs:**
+
+1. **Reduce letter type size or leading.** Cheapest. But `design-system.md` §1 fixes the body face and the letter is the thing a parent reads aloud — shrinking it works against the one item in the box that most needs to be readable.
+2. **Give the letter both sides of the A5 sheet.** But §4 assigns the back to the fact panel, so the fact panel would need its own sheet — a new item and a cost line.
+3. **Move the letter to A4 folded to A5.** Four sides, keeps the type size, changes the envelope's whole paper spec.
+4. **Cut the letters to fit.** They are specified at 330–370 words and measured against it; this would mean re-deciding the word spec, which every letter has been written and audited against.
+
+**This is a Gate 3 blocker, not a prepress detail.** The word-count spec, the A5 spec and the type spec are currently mutually incompatible, and one of the three has to give before any letter can print.
+
 ## Known limitations — fix before this becomes production-final
 
 - **Only regular and italic weights are embedded**, not true bold/black. Google's CSS2 API returned the same file for every weight requested (400/500/600/700 for EB Garamond; 400/600/900 for Fraunces) — likely a static-instance quirk of how those two families are served, not a font problem. Titles currently use size and spacing to read as "heavier," not a true bold cut. Re-fetch via the static (non-range) family API if a real bold is needed before print.

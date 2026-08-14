@@ -97,7 +97,7 @@ He died in Medina in 50 AH. Shia accounts hold that he was killed at the instiga
 
 | # | Item | Spec | State |
 |---|---|---|---|
-| 2 | Hadith card | Saying of Imam Hasan, conduct only. Silsila **segment 2**. | Blocked on fixed edition |
+| 2 | Hadith card | **Selected 2026-08-12.** “The people who consult for their affairs will surely be guided to the right.” — Tuhaf al-Uqul, short maxims of Imam Hasan, **no. 1** (trans. Badr Shahin, Ansariyan). Silsila **segment 2**. | Saying selected; card layout pending |
 | 3 | Person print | Jannat al-Baqi as it stands. Low wall, unmarked ground, date palms, no dome. Single ink. | Pending |
 | 4 | Event print | Arbaeen. An empty road to a flat horizon at dusk. Ring position 2. | Pending |
 | 6 | Pennant | Replaces the sticker sheet. | Pending |

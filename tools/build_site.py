@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build the review site from the content markdown into docs/."""
 
-import os, re, html, shutil
+import os, re, html, shutil, glob
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "docs")
@@ -332,8 +332,24 @@ ZINES = [
 ]
 
 
+INTERNAL_REF = re.compile(
+    r"\s*[—-]?\s*\(?\bsee\b[^.)]*`[^`]+\.md`[^.)]*\)?\.?"   # "— see `citation-sheet.md`."
+    r"|\s*\(?`[^`]*\.md`\)?"                                  # any bare `file.md`
+    r"|\s*\bper\s+`[^`]+`(\s*§\s*\d+)?",                      # "per `standard-lines.md` §4"
+    re.I)
+
+def strip_internal(text):
+    """Remove internal file references from anything that reaches docs/.
+
+    HANDOVER.md: the site shows only what a family receives. Item specs are
+    published on the card pages by design, but the cross-references inside
+    them are working notes and must not leak.
+    """
+    return re.sub(r"\s{2,}", " ", INTERNAL_REF.sub("", text)).strip(" .,—-") + "."
+
+
 def items_table(F):
-    """Parse the '## Items — artwork pending' markdown table into {num: (item, spec, state)}."""
+    """Parse the '## Items' markdown table into {num: (item, spec, state)}."""
     items = {}
     for ln in section(F, lambda x: x.startswith("## Items")):
         s = ln.strip()
@@ -344,14 +360,6 @@ def items_table(F):
             items[int(cols[0])] = (cols[1], cols[2], cols[3])
     return items
 
-
-ENVELOPE_03_ITEMS = {
-    2: ("Hadith card", "A saying of the Prophet, conduct or ethics only. Silsila **segment 1**. Edition fixed — Tuhaf al-Uqul, trans. Badr Shahin, Ansariyan Publications.", "Edition fixed; saying not yet selected"),
-    3: ("Person print", "Masjid an-Nabawi. Green dome, palm trunks, early light. Full palette, no faces.", "Pending"),
-    4: ("Event print", "The arrival at Quba. An empty road out of the desert, a kneeling camel, a palm grove. No figures. Ring position 3.", "Pending"),
-    6: ("Sticker sheet", "The cloak shape, four corners marked; a palm; the Quba road; a caravan; small repeatable marks.", "Pending"),
-    7: ("Return postcard", "Front: the cloak shape, single ink, no text.", "Pending"),
-}
 
 ENVELOPE_03_SEGMENT = ("Silsila segment 1: “It begins with him. Everyone else in this box is his family, "
                        "and every chain of teaching in it runs back through this one man to the words he was given.”")
@@ -368,7 +376,7 @@ def envelope_source(num):
         ph = frag(section(P, lambda x: x.startswith("## Letter, reverse")))
         sh = frag(section(S, lambda x: x.startswith("## Card front")))
         ch = ""
-        items = ENVELOPE_03_ITEMS
+        items = items_table(read("01-pilot/envelope-03/items.md"))
     else:
         F = read(f"03-content/envelope-{num}.md")
         ttl = letter_title(F)
@@ -422,9 +430,11 @@ def size_tag(name):
 
 
 def card_shell(n, name, pending, body):
+    # "Item", not "Card" — the product already means specific objects by "card"
+    # (hadith card, session card), and reusing the word collides with them.
     return f"""<div class="itemcard">
   <div class="itemcard-head">
-    <span class="itemtag">Card {n} · {html.escape(name)}</span>
+    <span class="itemtag">Item {n} · {html.escape(name)}</span>
     {size_tag(name)}
     {status_pill(pending)}
   </div>
@@ -437,20 +447,27 @@ def art_block(spec, orientation):
     return f"""<div class="artbox{land}">
   <div class="artbox-frame">{ART_ICON}</div>
 </div>
-<p class="artbox-caption">{inline(spec)}</p>
+<p class="artbox-caption">{inline(strip_internal(spec))}</p>
 <p class="placeholdertag">Placeholder — no artwork made yet</p>"""
 
 
 def hadith_block(spec, masoom, decided_note=None):
+    """No quotation marks and no name in quote position.
+
+    sourcing-rules.md: quote exactly, or don't quote. Rendering invented
+    filler inside quote marks, attributed to a named figure, is the wrong
+    shape even when labelled — a screenshot of one card loses the label.
+    """
     extra = ""
     if decided_note:
         extra = f'<div class="decidednote"><p class="itemlabel">Already decided</p><p>{inline(decided_note)}</p></div>'
-    return f"""<p class="itemspec">{inline(spec)}</p>
+    return f"""<p class="itemspec">{inline(strip_internal(spec))}</p>
 {extra}
 <div class="placeholderquote">
-  <p>“A saying of {html.escape(masoom)} — conduct or ethics only, quoted exactly once the specific line is chosen.”</p>
+  <p class="placeholderrule">Saying not yet selected.</p>
+  <p>The chosen line will be set here, quoted exactly from the fixed edition, with the citation on the reverse. Nothing is printed on this card until its row on the citation sheet reads verified.</p>
 </div>
-<p class="placeholdertag">Placeholder — saying not yet selected</p>"""
+<p class="placeholdertag">Placeholder — no saying chosen for this card</p>"""
 
 
 def postcard_block(spec):
@@ -458,7 +475,7 @@ def postcard_block(spec):
 <div class="artbox land">
   <div class="artbox-frame">{ART_ICON}</div>
 </div>
-<p class="artbox-caption">{inline(spec)}</p>
+<p class="artbox-caption">{inline(strip_internal(spec))}</p>
 <p class="placeholdertag">Placeholder — front art not yet made</p>
 <p class="itemlabel" style="margin-top:1.3rem">Back — fixed wording</p>
 <blockquote class="postcardtext">
@@ -498,7 +515,7 @@ def build_envelope_cards(num, month, masoom, session, src):
         note = ""
         if 5 in items:
             _, spec5, _ = items[5]
-            note = f'<p class="itemspec">{inline(spec5)}</p>'
+            note = f'<p class="itemspec">{inline(strip_internal(spec5))}</p>'
         cards.append(card_shell(n, "Session card", False, note + body)); n += 1
 
     if 6 in items:
@@ -584,12 +601,15 @@ def build():
     # index
     rows = []
     for num, month, masoom, session in ENVELOPES:
-        rows.append(f"""<a class="tile" href="envelope-{num}.html">
+        rows.append(f"""<div class="tilewrap">
+<a class="tile" href="envelope-{num}.html">
 <span class="tilenum">{num}</span>
 <span class="tilemonth">{html.escape(month)}</span>
 <span class="tilename">{html.escape(masoom)}</span>
 <span class="tilesession">{html.escape(session)}</span>
-</a>""")
+</a>
+<a class="tilecards" href="envelope-{num}-cards.html">All items as cards &rarr;</a>
+</div>""")
     comp = "".join(
         f'<a class="tile small" href="companion-{s}.html"><span class="tilename">{html.escape(n)}</span></a>'
         for s, n in COMPANIONS)
@@ -623,7 +643,12 @@ def build():
     with open(os.path.join(OUT, "index.html"), "w", encoding="utf-8") as f:
         f.write(page("Noor Post", "", body))
 
-    print("built", len(ENVELOPES) + len(COMPANIONS) + len(ZINES) + 1, "pages")
+    # count what was actually written, rather than a formula that silently
+    # drifts whenever a new page type is added (the card pages were missing)
+    written = len(glob.glob(os.path.join(OUT, "*.html")))
+    print(f"built {written} pages "
+          f"({len(ENVELOPES)} envelopes + {len(ENVELOPES)} card views + "
+          f"{len(COMPANIONS)} companions + {len(ZINES)} zines + index)")
 
 
 if __name__ == "__main__":

@@ -18,20 +18,20 @@ done
 
 | # | Masoom | Letter | Words | Child lines | Longest child line | Demand line | ●○ close |
 |---|---|---|---|---|---|---|---|
-| 01 | Imam Husayn | *The Man Who Was Sent to Stop Them* | 368 | 7 | 12 | ✓ | ✓ |
+| 01 | Imam Husayn | *The Man Who Was Sent to Stop Them* | 366 | 7 | 12 | ✓ | ✓ |
 | 02 | Imam Hasan | *The Word He Did Not Answer* | 349 | 6 | 13 | ✓ | ✓ |
 | 03 | Prophet Muhammad | *The Cloak* | 367 | 8 | 14 | ✓ | ✓ |
-| 04 | Imam al-Askari | *The Man Who Could Not Leave His Street* | 358 | 7 | 12 | ✓ | ✓ |
-| 05 | Imam al-Baqir | *The Small Boy on That Ground* | 364 | 6 | 12 | ✓ | ✓ |
-| 06 | Sayyida Fatima | *Thirty-Four, Thirty-Three, Thirty-Three* | 340 | 7 | 13 | ✓ | ✓ |
-| 07 | Imam Ali | *The Man Who Lost in Court* | 368 | 8 | 13 | ✓ | ✓ |
-| 08 | Imam al-Kadhim | *Four Years and No Charge* | 360 | 6 | 12 | ✓ | ✓ |
+| 04 | Imam al-Askari | *The Man Who Could Not Leave His Street* | 357 | 7 | 12 | ✓ | ✓ |
+| 05 | Imam al-Baqir | *The Small Boy on That Ground* | 361 | 6 | 12 | ✓ | ✓ |
+| 06 | Sayyida Fatima | *Thirty-Four, Thirty-Three, Thirty-Three* | 338 | 7 | 13 | ✓ | ✓ |
+| 07 | Imam Ali | *The Man Who Lost in Court* | 364 | 8 | 13 | ✓ | ✓ |
+| 08 | Imam al-Kadhim | *Four Years and No Charge* | 357 | 6 | 12 | ✓ | ✓ |
 | 09 | Imam al-Sajjad | *The List* | 367 | 7 | 12 | ✓ | ✓ |
-| 10 | Imam al-Mahdi | *Letters In, Answers Out* | 349 | 7 | 12 | ✓ | ✓ |
+| 10 | Imam al-Mahdi | *Letters In, Answers Out* | 348 | 7 | 12 | ✓ | ✓ |
 | 11 | Imam al-Hadi | *What They Found in the House* | 338 | 7 | 14 | ✓ | ✓ |
-| 12 | Imam al-Sadiq | *The Years Nobody Was Watching* | 330 | 6 | 13 | ✓ | ✓ |
-| 13 | Imam al-Rida | *The Job He Would Not Do* | 337 | 8 | 13 | ✓ | ✓ |
-| 14 | Imam al-Jawad | *The Room Full of Grown-Ups* | 359 | 6 | 14 | ✓ | ✓ |
+| 12 | Imam al-Sadiq | *The Years Nobody Was Watching* | 338 | 6 | 13 | ✓ | ✓ |
+| 13 | Imam al-Rida | *The Job He Would Not Do* | 349 | 8 | 13 | ✓ | ✓ |
+| 14 | Imam al-Jawad | *The Room Full of Grown-Ups* | 356 | 6 | 14 | ✓ | ✓ |
 
 **All fourteen inside 330–370. All inside 6–9 child lines. No child line reaches 15 words. Every letter carries a line that demands a response and closes on ●○.**
 

@@ -17,22 +17,30 @@ MEDIUM: hand-inked line illustration, fine consistent line weight, subtly imperf
 the look of a small devotional press woodcut or etching, not a corporate icon, not a cartoon,
 not a digital-clean vector.
 
-PALETTE — strict, no exceptions: warm ivory background #F3EDE1. Line and shadow in near-black
-ink #211B14. Spot accent fills ONLY from: deep gold #A9762F, muted teal #2C5F5A, terracotta
-#B4472A — used sparingly as flat fills, never gradients, never full-color rendering, never
-photorealistic color grading.
+PALETTE — open, but harmonious (amended 2026-08-12): warm ivory ground #F3EDE1, since that is
+the stock. Line and shadow read best in a near-black or deep neutral. Beyond that, colour is
+YOURS TO CHOOSE — use the subject's real colours, including the green of a green dome, the
+blue and gold of tilework, the colour of a banner.
+
+The one constraint is that colours must be COMPLEMENTARY: they must sit together, sit against
+warm ivory stock and a gold wax seal, and let this drawing hang beside thirteen others as one
+set. Prefer a restrained range within a single piece over every colour at once. No neon, no
+high-saturation digital colour, no photorealistic colour grading.
 
 COMPOSITION: quiet and restrained. One clear subject. Generous negative space. No busy or
 detailed background. No decorative border unless specified below.
 
 NEGATIVE PROMPT: no photorealism, no 3D render, no glossy gradients, no cartoon or anime
-style, no text or lettering baked into the image unless specified, no color outside the
-fixed palette, no violence, wounds, or weapons shown in use, no crowds.
+style, no text or lettering baked into the image unless specified, no neon or high-saturation
+digital colour, no violence, wounds, or weapons shown in use.
 ```
 
 ## Master style block — mourning palette (envelopes 01, 02 only)
 
-Same as above, with the palette clause replaced:
+**The open-palette amendment does NOT apply to these two.** Muharram and the early days of Safar
+are mourning issues, and the absence of colour there is a content decision about register, not a
+palette restriction — see `design-system.md` §2. Same style block as above, with the palette
+clause replaced entirely:
 
 ```
 PALETTE — strict, no exceptions: warm ivory background #F3EDE1. Line and shadow in charcoal-
@@ -43,10 +51,13 @@ black ink #1B1B1B only. No accent color anywhere — no gold, no teal, no terrac
 
 **The Fourteen (every envelope, no exceptions):**
 ```
-RULE — NO FACES, NO FIGURES: show place, object, setting, distance, or silhouette only.
-Never a human face. Never a recognisable human figure shown close or in detail. If a person
-must be implied, imply them by what they left behind or the space they occupied, not by
-drawing them.
+RULE — NEVER DEPICT ANY OF THE FOURTEEN: no face, no figure, no likeness of the Prophet or
+any Imam or Sayyida Fatima. Show them only by setting, object or absence — a shield, a cloak,
+a doorway, an empty road. This is absolute.
+
+Ordinary people present at a place ARE permitted (amended 2026-08-12, scholar-approved):
+pilgrims and visitors in a courtyard may be drawn, faces included. They are people who
+happen to be there, not a depiction of anyone this box is about.
 ```
 
 **The companions line only (`08-companions/`):**
@@ -104,8 +115,8 @@ Source: `01-pilot/envelope-03/items.md`. These five are what Phase 1 is actually
 
 SUBJECT: Masjid an-Nabawi, the Prophet's mosque at Medina. The green dome, catching early
 light. Palm trunks in the foreground, trunks only, no fronds cluttering the silhouette.
-Early morning — long shadows, low warm light, the gold accent used for the light itself,
-not for the dome.
+Early morning — long shadows, low warm light. The dome is green; draw it green. Keep the rest
+of the range narrow around it so the green is the thing the eye goes to.
 
 FORMAT: A5 portrait (148 × 210 mm), full bleed, vertical composition with the dome upper-
 third, palms grounding the bottom third.
