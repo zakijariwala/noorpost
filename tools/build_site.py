@@ -661,6 +661,15 @@ def build():
     except Exception as e:
         print(f"  status page NOT built: {e}")
 
+    # The storefront is a separate site under docs/shop/ — customer-facing, its
+    # own shell, no "draft for review" footer. Built here so one command builds
+    # everything and the GitHub Action needs no change.
+    try:
+        import build_shop
+        build_shop.build()
+    except Exception as e:
+        print(f"  shop NOT built: {e}")
+
     written = len(glob.glob(os.path.join(OUT, "*.html")))
     print(f"built {written} pages "
           f"({len(ENVELOPES)} envelopes + {len(ENVELOPES)} card views + "

@@ -1,0 +1,472 @@
+/* Noor Post — storefront.
+ *
+ * Hand-maintained, like docs/style.css. tools/build_shop.py writes the three
+ * HTML pages; it does not write this file.
+ *
+ * The tokens below are the PRINT palette from 00-foundations/design-system.md
+ * §2 — warm ivory stock, near-black ink, deep gold as the primary accent
+ * because it is also the wax seal and the cancellation ring. docs/style.css
+ * uses a lookalike of these; a storefront showing the product should not.
+ *
+ * Typefaces are the two the design system fixes: EB Garamond for body and all
+ * adult-facing copy, Fraunces for display. Both SIL Open Font License.
+ */
+
+:root {
+  --paper: #F3EDE1;   /* warm ivory — the stock */
+  --ink: #211B14;     /* near-black ink */
+  --soft: #6B6157;
+  --rule: #DCD2C0;
+  --accent: #A9762F;  /* deep gold — seal, stamp ring, headline rules */
+  --teal: #2C5F5A;    /* secondary, used sparingly */
+  --terracotta: #B4472A;
+  --card: #FBF7EE;
+  --shadow: rgba(60, 45, 30, 0.10);
+  --maxw: 44rem;
+}
+
+:root:not([data-theme="light"]) { color-scheme: light; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #17140F;
+    --ink: #EDE6D8;
+    --soft: #A79B8A;
+    --rule: #3A352C;
+    --accent: #D6A257;
+    --teal: #6FA9A2;
+    --terracotta: #D9795A;
+    --card: #1F1B15;
+    --shadow: rgba(0, 0, 0, 0.5);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #17140F;
+  --ink: #EDE6D8;
+  --soft: #A79B8A;
+  --rule: #3A352C;
+  --accent: #D6A257;
+  --teal: #6FA9A2;
+  --terracotta: #D9795A;
+  --card: #1F1B15;
+  --shadow: rgba(0, 0, 0, 0.5);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "EB Garamond", Georgia, "Iowan Old Style", serif;
+  font-size: 19px;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1, h2, h3, .wordmark, .tilename, .btn {
+  font-family: Fraunces, "EB Garamond", Georgia, serif;
+}
+
+a { color: inherit; }
+
+/* ---------------------------------------------------------------- header */
+
+.top {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1rem clamp(1rem, 5vw, 3rem);
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+}
+
+.wordmark {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.top nav { display: flex; gap: 1.2rem; }
+
+.top nav a {
+  font-size: 0.8rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--soft);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+}
+
+.top nav a:hover { color: var(--ink); }
+.top nav a.here { color: var(--ink); border-bottom-color: var(--accent); }
+
+main {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 2rem clamp(1rem, 5vw, 3rem) 4rem;
+}
+
+footer {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 1.5rem clamp(1rem, 5vw, 3rem) 3rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.85rem;
+  color: var(--soft);
+}
+
+.fine { font-size: 0.82rem; color: var(--soft); }
+.fine.placeholder {
+  border-left: 3px solid var(--terracotta);
+  padding-left: 0.8rem;
+}
+
+/* ------------------------------------------------------------------ hero */
+
+.hero { margin: 1.5rem 0 2.5rem; }
+
+.hero h1 {
+  font-size: clamp(2.6rem, 10vw, 4rem);
+  line-height: 1.02;
+  margin: 0 0 1rem;
+  letter-spacing: -0.01em;
+}
+
+.lede p { font-size: 1.16rem; margin: 0 0 0.8rem; }
+.lede.small p { font-size: 1rem; color: var(--soft); }
+
+.heroactions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.4rem 0 0; }
+
+/* -------------------------------------------------------------- sections */
+
+main > section { margin: 2.8rem 0; }
+
+main > section h2 {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.9rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+main > section h3 { font-size: 1.15rem; margin: 1.4rem 0 0.4rem; }
+
+.sectionnote { color: var(--soft); font-size: 0.95rem; margin-top: 0; }
+
+p.bullet { margin: 0.35rem 0 0.35rem 1.1rem; text-indent: -1.1rem; }
+p.bullet::before { content: "· "; color: var(--accent); }
+
+.aside {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent);
+  border-radius: 3px;
+  padding: 0.8rem 1rem;
+  margin: 1.2rem 0;
+  font-size: 0.94rem;
+}
+.aside p:first-child { margin-top: 0; }
+.aside p:last-child { margin-bottom: 0; }
+
+/* ------------------------------------------------------------ the buttons */
+
+.btn {
+  display: inline-block;
+  font-size: 0.86rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.62rem 1.15rem;
+  border-radius: 3px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--paper);
+}
+
+.btn:hover { filter: brightness(1.08); }
+
+.btn.ghost { background: transparent; color: var(--ink); }
+
+.btn.disabled {
+  background: transparent;
+  color: var(--soft);
+  border-color: var(--rule);
+  border-style: dashed;
+  cursor: default;
+}
+
+/* --------------------------------------------------------- envelope grid */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  gap: 0.9rem;
+}
+
+.tile {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.9rem 1rem 1rem;
+  box-shadow: 0 1px 2px var(--shadow);
+}
+
+.tile span { display: block; }
+
+.tilenum {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+}
+.tilemonth {
+  font-size: 0.78rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-top: 0.15rem;
+}
+.tilename { font-size: 1.1rem; margin-top: 0.4rem; line-height: 1.2; }
+.tilehon { font-size: 0.78rem; color: var(--soft); font-style: italic; }
+.tilesession {
+  font-size: 0.72rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-top: 0.5rem;
+}
+
+/* name chips — companions and zines */
+
+.chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+.chip {
+  display: inline-block;
+  font-size: 0.86rem;
+  padding: 0.28rem 0.62rem;
+  border: 1px solid var(--rule);
+  border-radius: 99px;
+  background: var(--card);
+  color: var(--ink);
+}
+
+/* -------------------------------------------------------- the seven items */
+
+.itemlist { list-style: none; margin: 1rem 0; padding: 0; }
+
+.itemlist li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.8rem;
+  align-items: baseline;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.itemlist li strong { min-width: 11rem; }
+.itemlist li span { color: var(--soft); font-size: 0.92rem; }
+
+/* ---------------------------------------------------------- print proofs */
+
+.proofs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: 1rem;
+}
+
+.proofs figure { margin: 0; }
+
+.proofs img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: 0 1px 3px var(--shadow);
+}
+
+.proofs figcaption {
+  font-size: 0.8rem;
+  color: var(--soft);
+  margin-top: 0.4rem;
+}
+
+/* ------------------------------------------------------------- products */
+
+.products { display: grid; gap: 1rem; }
+
+.product {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 1.1rem 1.2rem 1.2rem;
+}
+
+.product h3 { margin: 0 0 0.3rem; font-size: 1.25rem; }
+
+.product .region {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  vertical-align: middle;
+}
+
+.product .blurb { margin: 0 0 0.6rem; }
+
+.product .items { margin: 0 0 0.6rem 1.1rem; padding: 0; }
+.product .items li { font-size: 0.92rem; }
+
+.product .note { font-size: 0.9rem; color: var(--soft); margin: 0 0 0.8rem; }
+
+.price {
+  font-family: Fraunces, Georgia, serif;
+  font-size: 1.05rem;
+  margin: 0 0 0.2rem;
+}
+.price.none {
+  font-size: 0.82rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+
+.avail { font-size: 0.9rem; margin: 0 0 0.9rem; }
+
+/* ------------------------------------------------------------- waitlist */
+
+.waitlist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: flex-end;
+  margin: 1.2rem 0;
+}
+
+.waitlist label {
+  flex-basis: 100%;
+  font-size: 0.8rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+
+.waitlist input {
+  flex: 1 1 16rem;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.waitlist button {
+  font-family: Fraunces, Georgia, serif;
+  font-size: 0.86rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.62rem 1.15rem;
+  border-radius: 3px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--paper);
+  cursor: pointer;
+}
+
+/* ------------------------------------------------------------------ misc */
+
+@media (max-width: 30rem) {
+  body { font-size: 18px; }
+  .itemlist li strong { min-width: 0; flex-basis: 100%; }
+}
+
+@media print {
+  .top, footer, .heroactions, .btn { display: none; }
+  body { background: #fff; color: #000; }
+}
+
+/* ------------------------------------------------------------ placeholders
+   Anything invented for review wears one of these. The point is that a reader
+   can tell at a glance which values are decisions and which are holes — an
+   unmarked placeholder is just a wrong fact. */
+
+.ph {
+  border-bottom: 1px dashed var(--terracotta);
+  color: var(--terracotta);
+  font-style: normal;
+  white-space: nowrap;
+}
+
+.phbanner {
+  background: var(--card);
+  border: 1px solid var(--terracotta);
+  border-left-width: 4px;
+  border-radius: 3px;
+  padding: 0.7rem 0.9rem;
+  margin: 0 0 2rem;
+  font-size: 0.9rem;
+}
+
+.pricenote {
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-left: 0.4rem;
+  white-space: nowrap;
+}
+
+/* an empty frame where a photograph would go */
+.artbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  text-align: center;
+  border: 1px dashed var(--rule);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--soft);
+  font-size: 0.86rem;
+  padding: 1rem;
+  margin: 0 0 0.9rem;
+}
+
+.artbox.portrait { aspect-ratio: 0.705 / 1; }   /* A-series portrait */
+.artbox.wide { aspect-ratio: 1.42 / 1; }        /* A-series landscape */
+
+.artbox .phlabel {
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+
+.waitlist.placeholder input,
+.waitlist.placeholder button {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
