@@ -20,9 +20,22 @@
 #    same button becomes a real link. No page markup changes.
 
 storefront:
+  # Render a marked placeholder wherever a real value is missing, so the pages
+  # can be reviewed complete instead of full of holes.
+  #
+  # The real values stay null below. That is deliberate: a placeholder written
+  # into the data would be indistinguishable from a decision six weeks from now,
+  # and "£24.00" sitting in a YAML file is how a made-up number ends up on a
+  # printed price list. Every placeholder renders inside a marked element, every
+  # page says so at the top, and a test fails if an unmarked one appears.
+  #
+  # Set this false and the pages go back to stating plainly what is missing.
+  placeholders: true
+
   # false keeps <meta name="robots" content="noindex"> on every shop page.
   # Gate 6: "test with one real order before announcing anything" (TASKS.md 202),
   # and envelope 06 still blocks the print run. Flip when you mean it.
+  # Do not publish while placeholders is true.
   published: false
 
   # none | stripe | shopify | gumroad. Only "none" is implemented; the others
@@ -40,13 +53,39 @@ storefront:
 
   legal:
     # Collecting an email address needs a named data controller and a privacy
-    # line. Neither exists anywhere in this repo. While these are null the
-    # pages render a visible placeholder — they never invent a company,
-    # an address or a policy.
+    # notice. Neither exists anywhere in this repo. While these are null the
+    # pages render a marked placeholder — they never invent a company, an
+    # address or a policy that could be mistaken for a real one.
     entity: null
     contact: null
     privacy_url: null
     terms_url: null
+
+  # Fulfilment, all unknown. Shipping cannot be costed before the unit is
+  # (TASKS.md 80-81) and the posting workflow is Phase 6 work.
+  fulfilment:
+    ships_from: null
+    delivery_domestic: null
+    delivery_international: null
+    returns: null
+
+# The text used wherever a real value is missing and `placeholders` is true.
+# Written to be unmistakable: no plausible-looking price, no plausible-looking
+# company name, nothing a reader could take for a decision.
+placeholders:
+  price: "£00.00"
+  price_note: placeholder — not a price
+  price_monthly: "£00.00 a year"
+  entity: "[Seller name]"
+  contact: "[hello@example.com]"
+  privacy_url: "#privacy-placeholder"
+  terms_url: "#terms-placeholder"
+  ships_from: "[Country]"
+  delivery_domestic: "[N] working days"
+  delivery_international: "[N–N] working days"
+  returns: "[Returns window and conditions]"
+  waitlist: "[form endpoint not connected]"
+  artwork: Artwork not drawn yet
 
 products:
   - sku: FOURTEEN-BOX

@@ -173,6 +173,7 @@ def storefront():
         "provider": (store.get("provider") or "none"),
         "published": bool(store.get("published")),
         "waitlist_open": bool(wl.get("endpoint") or wl.get("email")),
+        "placeholders": bool(store.get("placeholders")),
         "legal_set": bool(legal.get("entity") and legal.get("contact")),
     }
 
@@ -488,6 +489,11 @@ def render(d):
         w(stat("Search engines", "indexed" if sf["published"] else "noindex",
                sub="published: %s" % str(sf["published"]).lower()))
         w("</div>")
+        if sf.get("placeholders"):
+            w('<p class="warn">The shop is in <strong>placeholder mode</strong>: prices, '
+              'seller details, shipping and artwork are shown as marked placeholders so '
+              'the pages can be reviewed complete. Every one of them is still undecided, '
+              'and none may be published.</p>')
         if not sf["legal_set"]:
             w('<p class="warn">No seller entity, contact or privacy notice is set. '
               'An email address cannot be collected without them, so the waitlist '

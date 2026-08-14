@@ -405,3 +405,68 @@ p.bullet::before { content: "· "; color: var(--accent); }
   .top, footer, .heroactions, .btn { display: none; }
   body { background: #fff; color: #000; }
 }
+
+/* ------------------------------------------------------------ placeholders
+   Anything invented for review wears one of these. The point is that a reader
+   can tell at a glance which values are decisions and which are holes — an
+   unmarked placeholder is just a wrong fact. */
+
+.ph {
+  border-bottom: 1px dashed var(--terracotta);
+  color: var(--terracotta);
+  font-style: normal;
+  white-space: nowrap;
+}
+
+.phbanner {
+  background: var(--card);
+  border: 1px solid var(--terracotta);
+  border-left-width: 4px;
+  border-radius: 3px;
+  padding: 0.7rem 0.9rem;
+  margin: 0 0 2rem;
+  font-size: 0.9rem;
+}
+
+.pricenote {
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-left: 0.4rem;
+  white-space: nowrap;
+}
+
+/* an empty frame where a photograph would go */
+.artbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  text-align: center;
+  border: 1px dashed var(--rule);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--soft);
+  font-size: 0.86rem;
+  padding: 1rem;
+  margin: 0 0 0.9rem;
+}
+
+.artbox.portrait { aspect-ratio: 0.705 / 1; }   /* A-series portrait */
+.artbox.wide { aspect-ratio: 1.42 / 1; }        /* A-series landscape */
+
+.artbox .phlabel {
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+
+.waitlist.placeholder input,
+.waitlist.placeholder button {
+  opacity: 0.55;
+  cursor: not-allowed;
+}

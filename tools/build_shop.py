@@ -110,7 +110,33 @@ def load_products():
                          "pip install -r requirements.txt")
     with open(PRODUCTS, encoding="utf-8") as f:
         doc = yaml.safe_load(f) or {}
-    return doc.get("storefront", {}) or {}, doc.get("products", []) or []
+    store = doc.get("storefront", {}) or {}
+    # carried on the store so every renderer can reach it without a new argument
+    store["_placeholders"] = doc.get("placeholders", {}) or {}
+    return store, doc.get("products", []) or []
+
+
+def ph(store, key, real=None):
+    """The real value, or a marked placeholder, or nothing.
+
+    Every invented value on these pages goes through here, so there is exactly
+    one way for one to appear and it always arrives wearing a marker. The
+    marker is what makes a placeholder honest: a reader can see at a glance
+    which numbers are decisions and which are holes.
+    """
+    if real not in (None, ""):
+        return html.escape(str(real))
+    if not store.get("placeholders"):
+        return ""
+    text = (store.get("_placeholders") or {}).get(key)
+    if not text:
+        return ""
+    return ('<span class="ph" title="Placeholder — not set">%s</span>'
+            % html.escape(str(text)))
+
+
+def has_ph(store):
+    return bool(store.get("placeholders"))
 
 
 def load_copy():
@@ -164,10 +190,22 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          'family=Fraunces:opsz,wght@9..144,400;9..144,700&display=swap">')
 
 
+PLACEHOLDER_BANNER = """<div class="phbanner" role="note">
+  <strong>Draft.</strong> Everything shown like <span class="ph">this</span> is a
+  placeholder — a price, a date, a company name or an address that has not been
+  decided. None of it is a commitment, and the page is not published.
+</div>"""
+
+
 def page(title, body, current, store, description):
     # Until storefront.published is true this stays out of search results.
     # Gate 6: test with one real order before announcing anything.
-    robots = "" if store.get("published") else '<meta name="robots" content="noindex">\n'
+    # Placeholder mode forces noindex whatever `published` says. A page showing
+    # £00.00 and "[Seller name]" must not be indexable because someone flipped
+    # one flag and forgot the other.
+    indexable = store.get("published") and not has_ph(store)
+    robots = "" if indexable else '<meta name="robots" content="noindex">\n'
+    banner = PLACEHOLDER_BANNER if has_ph(store) else ""
     nav = "\n".join(
         '    <a%s href="%s">%s</a>' % (' class="here"' if h == current else "", h, label)
         for h, label in NAV)
@@ -189,6 +227,7 @@ def page(title, body, current, store, description):
   </nav>
 </header>
 <main>
+{banner}
 {body}
 </main>
 <footer>
@@ -204,12 +243,21 @@ def page(title, body, current, store, description):
 # shared blocks
 # --------------------------------------------------------------------------
 
-def price_line(product):
-    """No price exists in this project. Say that, rather than showing a number
-    that would have to be invented, or an empty space that reads as free."""
-    if product.get("price") is None:
+def price_line(product, store):
+    """No price exists in this project — not one currency figure anywhere in the
+    repository. With placeholders on, the slot is filled so the layout can be
+    reviewed; the number is marked, and it is £00.00 rather than something that
+    could be mistaken for a decision."""
+    real = product.get("price")
+    if real is not None:
+        return '<p class="price">%s</p>' % html.escape(str(real))
+    key = "price_monthly" if product.get("kind") == "subscription" else "price"
+    marked = ph(store, key)
+    if not marked:
         return '<p class="price none">Price not set</p>'
-    return '<p class="price">%s</p>' % html.escape(str(product["price"]))
+    return ('<p class="price">%s <span class="pricenote">%s</span></p>'
+            % (marked, html.escape((store.get("_placeholders") or {})
+                                   .get("price_note", ""))))
 
 
 def action(product, store, on_checkout=False):
@@ -227,15 +275,27 @@ def action(product, store, on_checkout=False):
     return '<span class="btn disabled" aria-disabled="true">Not yet available</span>'
 
 
+def artbox(store, label, shape="portrait"):
+    """A marked empty frame where a photograph would go. No illustrations have
+    been drawn and nothing has been photographed, so the shape of the image is
+    shown and the absence is stated."""
+    if not has_ph(store):
+        return ""
+    return ('<div class="artbox %s"><span>%s</span><span class="phlabel">%s</span></div>'
+            % (shape, html.escape(label),
+               html.escape((store.get("_placeholders") or {}).get("artwork", ""))))
+
+
 def product_card(product, store, on_checkout=False):
     items = "".join("<li>%s</li>" % inline(i) for i in product.get("items", []) or [])
     region = product.get("region")
     return f"""<article class="product">
+  {artbox(store, product.get('name', ''), 'wide')}
   <h3>{inline(product.get('name', ''))}{'<span class="region">' + inline(region) + '</span>' if region else ''}</h3>
   <p class="blurb">{inline((product.get('blurb') or '').strip())}</p>
   <ul class="items">{items}</ul>
   <p class="note">{inline((product.get('contents_note') or '').strip())}</p>
-  {price_line(product)}
+  {price_line(product, store)}
   <p class="avail">{inline((product.get('availability_note') or '').strip())}</p>
   {action(product, store, on_checkout)}
 </article>"""
@@ -325,6 +385,12 @@ Five items, no event print, bought one at a time.</p>
 <h2>What it looks like</h2>
 <div class="proofs">{proofs}</div>
 <p class="sectionnote">{copy('landing.proofs')}</p>
+<div class="proofs">
+{artbox(store, 'The envelope', 'portrait')}
+{artbox(store, 'A person print', 'portrait')}
+{artbox(store, 'An event print', 'wide')}
+{artbox(store, 'The sticker sheet', 'portrait')}
+</div>
 </section>
 
 <section>
@@ -371,6 +437,20 @@ def waitlist_block(copy, store):
         return ('%s\n<p class="heroactions"><a class="btn" href="mailto:%s'
                 '?subject=Noor%%20Post%%20waitlist">Email to join the waitlist</a></p>'
                 % (invite, html.escape(email)))
+
+    if has_ph(store):
+        # The form is shown so the layout can be reviewed, and disabled so it
+        # cannot take an address there is nowhere to put. It has no action.
+        return f"""{invite}
+<form class="waitlist placeholder" onsubmit="return false;">
+  <label for="email">Email address {ph(store, 'waitlist')}</label>
+  <input id="email" type="email" name="email" disabled
+         placeholder="you@example.com" autocomplete="email">
+  <button type="submit" disabled>Tell me when it is ready</button>
+</form>
+<p class="fine">Disabled: no form endpoint is connected, and no privacy notice
+exists to collect an address under.</p>"""
+
     return '<div class="aside">%s</div>' % copy('checkout.no-legal')
 
 
@@ -383,9 +463,46 @@ def legal_block(store):
             if legal.get(key):
                 bits.append('<a href="%s">%s</a>' % (html.escape(legal[key]), label))
         return '<p class="fine">%s</p>' % " ".join(bits)
+
+    if has_ph(store):
+        return (
+            '<p class="fine">Sold by %s. Contact: %s.<br>'
+            '<a href="%s">Privacy notice</a> · <a href="%s">Terms</a> · '
+            'Returns: %s</p>'
+            '<p class="fine placeholder">None of these exist yet. A named seller '
+            'and a privacy notice have to be real before an address is collected '
+            'or anything is sold.</p>'
+            % (ph(store, "entity", legal.get("entity")),
+               ph(store, "contact", legal.get("contact")),
+               (store.get("_placeholders") or {}).get("privacy_url", "#"),
+               (store.get("_placeholders") or {}).get("terms_url", "#"),
+               ph(store, "returns", (store.get("fulfilment") or {}).get("returns"))))
+
     return ('<p class="fine placeholder">Seller details, privacy notice and terms '
             'are not set up yet. They have to exist before any address is '
             'collected or anything is sold.</p>')
+
+
+def fulfilment_block(store):
+    """Shipping and delivery, none of which is known — the unit has not been
+    costed, so the postage cannot be either (TASKS.md 80-81)."""
+    f = store.get("fulfilment") or {}
+    if not (has_ph(store) or any(f.values())):
+        return ""
+    rows = [
+        ("Ships from", ph(store, "ships_from", f.get("ships_from"))),
+        ("Delivery, domestic", ph(store, "delivery_domestic", f.get("delivery_domestic"))),
+        ("Delivery, international",
+         ph(store, "delivery_international", f.get("delivery_international"))),
+        ("Returns", ph(store, "returns", f.get("returns"))),
+    ]
+    body = "".join("<li><strong>%s</strong><span>%s</span></li>" % (k, v)
+                   for k, v in rows if v)
+    if not body:
+        return ""
+    return ('<ul class="itemlist">%s</ul>'
+            '<p class="fine">Postage cannot be priced before the unit is, and the '
+            'unit has not been costed.</p>' % body)
 
 
 def checkout(copy, store, products):
@@ -405,6 +522,11 @@ def checkout(copy, store, products):
 <h2>What there will be</h2>
 <p class="sectionnote">Five things, none of them priced yet.</p>
 <div class="products">{cards}</div>
+</section>
+
+<section>
+<h2>Shipping and returns</h2>
+{fulfilment_block(store)}
 </section>
 
 <section>
@@ -438,7 +560,9 @@ def build(check=False):
                 f.write(out)
         written.append(filename)
 
-    unused = copy.unused()
+    # These render in one mode only, so being unused in the other is expected.
+    conditional = {"checkout.no-legal", "checkout.invite"}
+    unused = [k for k in copy.unused() if k not in conditional]
     if unused:
         print("  copy.md sections not used by any page: %s" % ", ".join(unused))
 
@@ -450,6 +574,9 @@ def build(check=False):
              "no prices set" if not priced else "%d priced" % len(priced),
              store.get("provider") or "none",
              "published" if store.get("published") else "noindex"))
+    if store.get("placeholders"):
+        print("  note: placeholder mode is on — prices, seller details, shipping and "
+              "artwork are marked placeholders, and the pages stay noindex")
     if live and (store.get("provider") or "none") == "none":
         print("  note: %d SKU(s) marked available with a buy_url, but provider is "
               "none — the buttons stay inert" % len(live))

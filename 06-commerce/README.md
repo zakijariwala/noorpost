@@ -48,6 +48,31 @@ button becomes a real link. No markup changes.
 
 ---
 
+## Placeholder mode
+
+`storefront.placeholders: true` fills every empty slot — price, seller, contact,
+privacy, terms, shipping, delivery, returns, the waitlist form and the missing
+artwork — with a **marked** placeholder, so the three pages can be reviewed
+complete rather than full of holes.
+
+Two things make this safe rather than a way of lying to yourself:
+
+**The real values stay `null`.** A placeholder is never written into the data. A
+made-up price sitting in a YAML file is indistinguishable from a decision six
+weeks later; a placeholder rendered from a separate block is not. Set a real
+price and its placeholder disappears on the next build.
+
+**Every placeholder is visibly one.** It renders inside `<span class="ph">`,
+dashed and in terracotta, with a banner at the top of every page saying so. The
+placeholder price is `£00.00` on purpose — `£24.99` would read as a decision.
+`tests/test_shop.py` strips the marked spans and fails if any currency symbol,
+money-shaped number or bracket placeholder is left loose on the page.
+
+Set `placeholders: false` and the pages go back to stating plainly what is
+missing. Both modes are tested.
+
+**Do not publish while this is true.**
+
 ## Turning things on
 
 | To do this | Set |
@@ -55,7 +80,8 @@ button becomes a real link. No markup changes.
 | Open the waitlist with a form | `storefront.waitlist.endpoint` — a Formspree/Buttondown/Google Form action URL |
 | Open the waitlist with an email link instead | `storefront.waitlist.email` |
 | Show seller details instead of the placeholder | `storefront.legal.entity` **and** `.contact` |
-| Let search engines index it | `storefront.published: true` — removes `noindex` from all three pages |
+| Stop showing placeholders | `storefront.placeholders: false` |
+| Let search engines index it | `storefront.published: true` — removes `noindex` from all three pages. Not while `placeholders` is true. |
 | Actually sell something | `storefront.provider`, then per-SKU `buy_url`, `price`, and `status: available` |
 
 The waitlist has no third-party dependency until you give it one: with no
