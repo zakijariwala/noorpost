@@ -246,6 +246,7 @@ def companion_flap():
 <p class="flap-lead"><strong>Open together.</strong></p>
 <ol>
 <li>The letter — read it out loud, ● and ○ taking turns</li>
+<li>The hadith card</li>
 <li>The print</li>
 <li>The stickers</li>
 <li>The postcard</li>
@@ -637,7 +638,7 @@ def build():
 
 <section id="everyone-else">
 <h2>Everyone Else</h2>
-<p class="sectionnote">Single envelopes about the companions. Four items, no date, bought one at a time.</p>
+<p class="sectionnote">Single envelopes about the companions. Five items, no date, bought one at a time.</p>
 <div class="grid">{comp}</div>
 </section>
 

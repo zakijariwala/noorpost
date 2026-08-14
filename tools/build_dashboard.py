@@ -160,6 +160,22 @@ def _words(text):
     return len(re.findall(r"[A-Za-z'’\-]+", text))
 
 
+def denies_hadith_card(body):
+    """True when the file states the rule overturned on 2026-08-14."""
+    return bool(re.search(r"No hadith card", body, re.I))
+
+
+def reads_as_carrying_card(body):
+    """True when the file gives the entry a hadith card.
+
+    The negation matters more than the phrase. Every companion file used to
+    read "No hadith card. No event print." — the old rule — so a bare search
+    for "hadith card" reported all thirty-nine as carrying one, which was the
+    exact opposite of what the files said.
+    """
+    return bool(re.search(r"hadith card", body, re.I)) and not denies_hadith_card(body)
+
+
 def content():
     """What is actually written, measured by looking at the files."""
     envelopes = []
@@ -176,14 +192,10 @@ def content():
         if name.upper().startswith("README"):
             continue
         body = read("08-companions/" + name)
-        # Careful: every one of these files currently says "No hadith card" —
-        # the rule overturned on 2026-08-14. A bare search for the phrase reads
-        # the negation as the opposite of what it says.
-        denies = bool(re.search(r"No hadith card", body, re.I))
         companions.append({
             "slug": name[:-3], "words": _words(body),
-            "has_hadith_card": bool(re.search(r"hadith card", body, re.I)) and not denies,
-            "states_overturned_rule": denies})
+            "has_hadith_card": reads_as_carrying_card(body),
+            "states_overturned_rule": denies_hadith_card(body)})
 
     zines = []
     for p in sorted(glob.glob(os.path.join(ROOT, "09-zines", "*.md"))):
@@ -220,23 +232,47 @@ def content():
 def hadith_cards():
     """Box cards and companion cards, read off the citation sheet's own tables."""
     try:
-        from import_citation_sheet import parse_sheet, SHEET
-        rows, _, _ = parse_sheet(SHEET)
+        from import_citation_sheet import parse_sheet, SHEET, clean
+        rows, _, _, _ = parse_sheet(SHEET)
     except Exception as e:
         return {"available": False, "why": str(e)}
     # by envelope, not by row: envelope 03's card appears both in its own
     # section and in the all-fourteen table
     box = [c for c in rows if c.get("item") == "hadith card"]
-    companion = [c for c in rows if c.get("item") == "companion hadith card"]
+
+    # The companions line has its own table, which the importer deliberately
+    # does not turn into claims — in the sheet's own words, "the theme is the
+    # search brief, not the citation. Nothing here is a claim about a text."
+    # So it is read here directly, and counted as slots rather than claims.
+    companion = {"total": 0, "selected": 0, "blocked": 0}
+    in_table = False
+    for line in read("00-foundations/citation-sheet.md").split("\n"):
+        if line.startswith("#"):
+            in_table = False
+        if not line.startswith("|"):
+            continue
+        cells = [c.strip() for c in line.strip("|").split("|")]
+        sig = tuple(c.lower() for c in cells)
+        if sig[:2] == ("entry", "points to") and "saying" in sig and "status" in sig:
+            in_table = True
+            continue
+        if not in_table or len(cells) < 6 or set("".join(cells)) <= set("-: "):
+            continue
+        companion["total"] += 1
+        if "BLOCKED" in cells[5].upper():
+            companion["blocked"] += 1
+        elif clean(cells[4]) not in ("", "—", "-", "–"):
+            companion["selected"] += 1
+
     return {
         "available": True,
         "box_total": 14,
         "box_selected": len({c.get("env") for c in box if c.get("status") == "V"}),
         "box_blocked": len({c.get("env") for c in box
                             if c.get("status") == "needs-review"}),
-        "companion_total": 39,
-        "companion_selected": sum(1 for c in companion if c.get("status") == "V"),
-        "companion_blocked": len(companion),
+        "companion_total": companion["total"] or 39,
+        "companion_selected": companion["selected"],
+        "companion_blocked": companion["blocked"],
     }
 
 
@@ -342,7 +378,7 @@ def render(d):
         w(stat("Companion hadith cards",
                "%d / %d" % (hc["companion_selected"], hc["companion_total"]),
                bar(hc["companion_selected"], hc["companion_total"]),
-               sub="%d recorded as blocked; the rest not started"
+               sub="%d blocked — no permitted source, or no rule"
                    % hc["companion_blocked"]))
         w("</div>")
     w("</section>")

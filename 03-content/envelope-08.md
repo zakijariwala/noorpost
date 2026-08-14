@@ -7,7 +7,7 @@
 ## Letter — *Four Years and No Charge*
 
 <!-- LETTER START -->
-● Here is a thing that sounds impossible and is not. A man was held in a prison in Baghdad for about four years, and in all that time nobody ever said out loud what he had done.
+● Here is a thing that sounds impossible and is not. A man was held in prison, moved from city to city, for about four years, and in all that time nobody ever said out loud what he had done.
 
 ○ Nobody told him?
 
@@ -134,8 +134,10 @@ He died in a prison in Baghdad in 183 AH, after four years held without charge. 
 
 ## Open
 
-- [ ] Verify the length of imprisonment; accounts vary. **The letter, the sealed answer and the death line must all give the same number.**
-- [ ] Verify the moves between prisons and jailers
+- [x] ~~Verify the length of imprisonment; accounts vary.~~ **Done 2026-08-14** against Qarashi (trans. Jasim al-Rasheed, Ansariyan): arrested Shawwal 20, 179 AH, so *about* four years holds, and the letter, sealed answer and death line all give the same number. Recorded `TRAD` rather than `V` — no passage in the work states a length; it is arithmetic across two dates. **Keep the word *about*.**
+- [ ] **Re-source the death date. It is now `CONT`, not `TV`.** §22 of the held Qarashi prints *Rajab 25, 173 AH*, which cannot be right against that same book's arrest date of 179; 181 and 186 are named as variants, and 183 appears only inside a quotation from someone else. **The panel prints 183 and currently has nothing behind it.** Check a physical §22, or take the date from Uyun or al-Irshad. If it moves, the death line, the dateline and the `AH → CE` row move together.
+- [x] ~~Verify the moves between prisons and jailers~~ **Partly done 2026-08-14.** The move is confirmed — Medina, then a year in 'Isa b. Ja'far's custody in Basra, then Baghdad (al-Fadl b. al-Rabi's house, later al-Sindi b. Shahik). **This corrected the letter's opening line**, which had put all four years in Baghdad and disagreed with this envelope's own fact panel. The *number* of moves and the changes of jailer that Evidence 2 rests on are still unverified — see below.
+- [ ] Verify how many times the jailers changed, and that they changed because the jailers kept becoming a problem. **Evidence 2 and the sealed answer both rest on this**, and confirming that he was moved is not the same as confirming why.
 - [ ] Verify the informant account and how much is safe to assert
 - [ ] Verify Hamida's teaching, by name
 - [ ] Verify the Charlemagne framing

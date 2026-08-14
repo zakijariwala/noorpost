@@ -648,11 +648,26 @@ class DashboardTest(unittest.TestCase):
                                 "%s is unavailable without saying why" % key)
 
     def test_a_negated_rule_is_not_read_as_the_rule(self):
-        """Every companion file says "No hadith card" — the rule overturned on
-        2026-08-14. A bare phrase search reads that as the opposite."""
+        """The companion files once read "No hadith card" — the rule overturned
+        on 2026-08-14 — so a bare phrase search reported all thirty-nine as
+        carrying one, the exact opposite of what they said.
+
+        This tests the logic, not the state: the state is exactly what the
+        dashboard exists to report, so pinning it here would break the suite
+        every time the work moves.
+        """
+        self.assertFalse(self.B.reads_as_carrying_card(
+            "**No hadith card. No event print.** Rule enforced in the template."))
+        self.assertTrue(self.B.denies_hadith_card("**No hadith card.**"))
+        self.assertTrue(self.B.reads_as_carrying_card(
+            "| Hadith card | A saying of Imam Husayn, theme-matched |"))
+        self.assertFalse(self.B.reads_as_carrying_card("no mention of one at all"))
+
+        # and the two counts can never describe the same file
         ct = self.data["content"]
-        self.assertEqual(ct["companions_with_hadith_card"], 0)
-        self.assertEqual(ct["companions_stating_overturned_rule"], ct["companions_written"])
+        self.assertLessEqual(
+            ct["companions_with_hadith_card"] + ct["companions_stating_overturned_rule"],
+            ct["companions_written"])
 
     def test_box_cards_are_counted_by_envelope_not_by_row(self):
         """Envelope 03's card is on the sheet twice — in its own section and in

@@ -36,7 +36,23 @@ SHEET = os.path.join(config.ROOT, "00-foundations", "citation-sheet.md")
 EMPTY = {"", "—", "-", "–", "*to fill*", "*to fix*", "to fill", "n/a"}
 REFERENCE_TABLES = {"Status codes", "How to fill a row"}
 
-NO_SOURCE = {"needs a shia source", "non-islamic secondary source", "see `death-lines.md`"}
+NO_SOURCE = {"needs a shia source", "non-islamic secondary source", "see `death-lines.md`",
+             "contested inside the source itself"}
+
+# "Qarashi, same work" — the sheet's shorthand for the work named in the row
+# above. Resolved by carrying the last work forward within the same table,
+# never across a heading.
+SAME_WORK = re.compile(r"^(?:.*,\s*)?(?:same work|same|ibid\.?)$", re.I)
+
+# Tables that are recognised and deliberately not imported, with the reason.
+# They are selection briefs and working ledgers, not claims about texts — the
+# sheet says so itself: "Nothing here is a claim about a text."
+NOT_CLAIMS = {
+    ("entry", "points to", "theme to match", "look in", "saying", "status"):
+        "the thirty-nine companion rows are a selection brief, not claims about texts",
+    ("spent on", "saying", "where"):
+        "a struck-off list of sayings already used, not claims",
+}
 
 # Header signatures this tool understands. Anything else is left alone and
 # reported, so a table cannot be dropped silently.
@@ -105,9 +121,11 @@ def is_separator(cells):
 def parse_sheet(path):
     """-> (claims, rows_for_citations, skipped_tables)"""
     claims, cites, skipped = [], [], []
+    not_claims = set()
     heading = None
     shape = None
     ncols = None
+    last_work = None
 
     with open(path, encoding="utf-8") as f:
         lines = f.read().split("\n")
@@ -116,7 +134,7 @@ def parse_sheet(path):
         line = raw.rstrip()
         if line.startswith("#"):
             heading = line.lstrip("#").strip()
-            shape, ncols = None, None
+            shape, ncols, last_work = None, None, None
             continue
         if not line.startswith("|"):
             continue
@@ -126,8 +144,12 @@ def parse_sheet(path):
             continue
 
         sig = tuple(c.strip().lower() for c in cells)
+        if sig in NOT_CLAIMS:
+            shape, ncols = "skip", len(cells)
+            not_claims.add((heading, NOT_CLAIMS[sig]))
+            continue
         if sig in SHAPES:
-            shape, ncols = SHAPES[sig], len(cells)
+            shape, ncols, last_work = SHAPES[sig], len(cells), None
             continue
         if shape is None:
             # "Status codes" and "How to fill a row" are the sheet's own
@@ -135,8 +157,16 @@ def parse_sheet(path):
             if len(cells) >= 2 and heading and heading not in REFERENCE_TABLES:
                 skipped.append((heading, sig))
             continue
-        if len(cells) != ncols:
+        if shape == "skip" or len(cells) != ncols:
             continue
+
+        # carry a "same work" cell forward from the row that named the work
+        if shape == "claim_row" and len(cells) > 3:
+            if SAME_WORK.match(clean(cells[3])) and last_work:
+                cells = list(cells)
+                cells[3] = last_work
+            elif clean(cells[3]) and not is_empty(cells[3]):
+                last_work = cells[3]
 
         rec = ROW_PARSERS[shape](cells, heading)
         if rec:
@@ -152,7 +182,7 @@ def parse_sheet(path):
             continue
         seen.add(c["claim_id"])
         deduped.append(c)
-    return deduped, cites, sorted(set(skipped))
+    return deduped, cites, sorted(set(skipped)), sorted(not_claims)
 
 
 def _base(env, item, text, status, heading, notes=None, work=None, ref=None, translator=None):
@@ -340,7 +370,7 @@ def main():
     ap.add_argument("--no-resolve", action="store_true")
     args = ap.parse_args()
 
-    claims, stubs, skipped = parse_sheet(args.sheet)
+    claims, stubs, skipped, not_claims = parse_sheet(args.sheet)
     _, editions, by_id = metadata.load_sources()
     aliases = metadata.alias_map(editions)
 
@@ -398,6 +428,10 @@ def main():
         print("  work names with no edition in sources.yaml:")
         for cid, work in unresolved:
             print("    %s  %r" % (cid, work))
+    if not_claims:
+        print("  tables recognised and deliberately not imported:")
+        for heading, why in not_claims:
+            print("    § %s — %s" % (heading, why))
     if skipped:
         print("  tables not imported (no parser for their shape):")
         for heading, sig in skipped:

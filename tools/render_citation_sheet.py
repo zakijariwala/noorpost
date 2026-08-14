@@ -118,7 +118,7 @@ def main():
     ap.add_argument("--db", default=config.DB)
     args = ap.parse_args()
 
-    sheet_claims, sheet_cites, _ = parse_sheet(args.sheet)
+    sheet_claims, sheet_cites, _, _ = parse_sheet(args.sheet)
     con = db.connect(args.db, readonly=True)
     db_claims, db_cites, eds = load_db(con)
     _, editions, _ = metadata.load_sources()

@@ -40,13 +40,17 @@ Every row must reach `Verified` before Gate 3. A row still marked `TO VERIFY` at
 | 03 | letter | Quraysh rebuilt the Ka'ba when the Prophet was about thirty-five | **needs a Shia source** | — | — | TV | ⛔ Was `V` against Guillaume. **Removed 2026-08-12 under the Shia-sources-only rule.** The claim is not in doubt; the source is no longer permitted. Re-source from `al-Irshad` or another Shia work. |
 | 03 | letter | The clans disputed who would lift the Black Stone into place | **needs a Shia source** | — | — | TV | ⛔ Same. |
 | 03 | letter | He spread a cloak, set the stone on it, and had each clan carry a corner | **needs a Shia source** | — | — | TV | ⛔ Same. |
-| 03 | panel | Makkah called him al-Amin before revelation | **needs a Shia source** | — | — | TV | ⛔ Same — **and this is the one new thing for the adult**, so it is the highest-priority row in the envelope. |
+| 03 | panel | Makkah called him al-Amin before revelation | *The Fourteen Infallibles*, Yasin T. Al-Jibouri | "Holy Prophet", §*Year of the Elephant*, pp. 7–8 | English original — Al-Jibouri writes in English, no translator in the chain | **TV** → **passage found, edition not fixed** | **Reopened row, now half-closed 2026-08-14.** A permitted Shia source carrying the claim **has been found in the repo**: *"When Mohammed twenty years old, he was well-known for his truthfulness and uprightness, hence he was called AL-SADIQ, AL-AMIN"*, and the reasons follow on the same page — *"They used to seek his help to solve their problems. They entrusted him with their trusts. They never heard him lie or cheat."* That is the claim and the *"had reasons"* half of it, in one Shia work with a named author. **What stops it going to `V` is the edition, not the text** — this is an alhassanain.org web PDF with no publisher or year, and it is not one of the six fixed editions in `sourcing-rules.md`. Trap 1 checked: 0%, single-column, page markers are reliable. Trap 2 applies: cite the section heading, not the page. **This row closes the moment a sixth work is fixed** — see the decision below. |
 
 > ⛔ **2026-08-12 — the Shia-sources-only rule reverted these four rows.** They were the project's only fully verified letter, checked against Guillaume's Ibn Ishaq. That work is Sunni and has been removed from the project entirely, so the rows revert to `TV` and the extract has been deleted from `00-sources/text/`.
 >
 > **Nothing about the claims changed.** They are as well attested as they were an hour ago — the Kaaba rebuilding, the dispute, the cloak and the name *al-Amin* are all carried in Shia sira and history too. What is missing is a permitted edition to cite them from. **This is an acquisition problem, not a content problem**, and it is the reason `al-Irshad` is now the project's most valuable single purchase.
 >
 > The earlier page-number correction on these rows (pp. 66–67 → 84–86) is now moot and is kept only in the commit history.
+>
+> **Update 2026-08-14 — one of the four is now a decision, not a search.** The al-Amin row above has a permitted Shia passage behind it, found in `00-sources/text/fourteen--the-fourteen-infallibles.txt`, which is by a named author and is not a translation at all. **The blocker on that row is no longer "no Shia source exists in the repo" — it is that the work is not a fixed edition.** The other three rows (the Ka'ba rebuilding, the dispute, the cloak) were searched in the same pass across the whole of `00-sources/text/` and **are not carried by anything held** — those remain an acquisition problem and still point at `al-Irshad`.
+>
+> **The decision this forces:** the fixed-editions table has six works and all six are hadith or letter collections, which is exactly why the sira gap exists. Fixing a seventh — a Shia biographical work — closes the al-Amin row and gives the other narrative rows somewhere to go. *The Fourteen Infallibles* is a candidate but a weak one (aggregator PDF, no publisher, no year). **`al-Mufid's Kitab al-Irshad` with a named translator is still the better purchase and still the right answer**; this finding does not change that, it just means one row no longer has to wait for it.
 
 | 03 | panel | Khadija funded the early community out of her own trade | *to fill* | *to fill* | *to fill* | TV | Woman slot. Needs a documented statement of her funding, not a general statement of her wealth. |
 | 03 | panel | Twenty-three years of revelation | *to fill* | *to fill* | *to fill* | TV | Standard, still needs a row. |
@@ -71,6 +75,23 @@ Every row must reach `Verified` before Gate 3. A row still marked `TO VERIFY` at
 | Env | Item | Claim | Work | Ref | Translator | Status | Note |
 |---|---|---|---|---|---|---|---|
 | 13 | letter | Imam al-Rida's four conditions for accepting the succession — he would appoint nobody, dismiss nobody, change nothing already in place, and give no opinion unless asked | Uyun Akhbar al-Rida, vol. 2 | Three passages, all in vol. 2 of the fixed edition: the conditions as written to al-Ma'mun; the "distant advisor" statement; and his later reminder to al-Ma'mun when pressed to name a governor. Cite the second as primary. **Page numbers pending** — see the two-column/edition caveat in `sourcing-rules.md`; this edition's own internal chapter-and-report numbering is the stable reference, not the PDF page. | Dr. Ali Peiravi | V | Primary support: *"I will accept it under the condition that I do not interfere in dismissals or appointments, nor change any practices or traditions. I will just be a distant advisor."* Corroborated by: *"I will neither issue any orders, nor will I admonish anyone. I will not remove anyone from office, neither will I appoint anyone."* A third passage phrases the same conditions differently (*"I neither issue any orders, nor do I admonish against anything; I neither judge, nor change anything"*). **All three are the same event; the draft letter line is supported and stands.** ⚠ **2026-08-12 correction:** an earlier pass read only the third passage, wrongly recorded the draft as unsupported, and rewrote the printed line. Reverted. Lesson: a differently-worded passage is not disproof — search the whole work before cutting a line. |
+
+---
+
+## Envelope 08 — Imam al-Kadhim
+
+**Worked 2026-08-14.** Row #4 on the `sources-needed.md` priority list — *"al-Kadhim's four years, consistent across letter, sealed answer and death line."* The whole of `qarashi--the-life-of-imam-musa-bin-jafar-al-kazim.txt` was searched, not the first hit. Trap 1 checked: 0%, single-column, page markers reliable.
+
+**The work qualifies, and that is itself a finding.** Its title page credits **author Baqir Sharif al-Qarashi, translator Jasim al-Rasheed, publisher Ansariyan Publications, Qum** — author, translator *and* publisher. It is a better-credited source than the aggregator copies that fail this project's own rule, and `sources-needed.md` had it listed only as one of "four of the six Qarashi lives" missing without noting that the two held ones carry full credits.
+
+| Env | Item | Claim | Work | Ref | Translator | Status | Note |
+|---|---|---|---|---|---|---|---|
+| 08 | letter/panel | Arrested in Medina, Shawwal 20, 179 AH | Qarashi, *The Life of Imam Musa bin Ja'far al-Kazim* | Ch. "Imam Musa is arrested" | Jasim al-Rasheed (Ansariyan) | **V** | Stated flatly, with the Imam taken in chains from the Prophet's grave. This is the start date the "four years" is counted from. |
+| 08 | letter/panel | About a year of it was in Basra, before Baghdad | Qarashi, same work | Ch. "The Imam is carried to Baghdad", opening — *"stayed in the detention of 'Isa for a year"* | Jasim al-Rasheed (Ansariyan) | **V** | ⚠ **This corrected a printed line.** The letter opened *"held in a prison in Baghdad for about four years"*, which puts the whole span in the wrong city — roughly the first year was Basra, in 'Isa b. Ja'far's custody, and Baghdad came after. Fixed to *"held in prison, moved from city to city, for about four years"*; count re-measured, 357 → 359 words, still in range. **The fact panel was already right** (*"Medina for most of it, then Basra and Baghdad"*), so the two disagreed with each other and nobody had noticed. |
+| 08 | letter/panel/death line | Held about four years without charge | Qarashi, same work | Computed: arrest Shawwal 179 → death 183 ≈ 3 years 9 months | Jasim al-Rasheed (Ansariyan) | **TRAD** | **"About four years" holds and all three places agree.** It is not `V` because the number is arithmetic across two dates rather than a statement in the source — no passage in the work says "four years" of the imprisonment. Keep the word *about*; it is doing real work. |
+| 08 | panel | Died 183 AH | **contested inside the source itself** | §22 "The Time of his Death" | Jasim al-Rasheed (Ansariyan) | **CONT** | ⚠ **The held work does not support 183 in its own headline.** §22 gives *"Rajab 25, in the year 173 A. H."* as the famous narration, then names 181 and 186 as variants. **173 is impossible against this same book's arrest date of 179** and is almost certainly a digit error for 183; 183 appears in the book only inside a quotation from Dr. Muhammed Yousif Musa. **Do not print 183 on this source alone.** Check a physical copy of §22, or source the death date from Uyun or al-Irshad. The `AH → CE` table row for 183 is unaffected either way — but if the date moves, the death line, the panel dateline and that row all move together. |
+
+**Row #5 checked in the same pass and it did not move.** The Shurayh shield case (envelope 07) needs a named narrator for the judge, the ruling and the grounds. Searched across the whole of `00-sources/text/`: the two `al-Irshad` extracts still credit **no translator at all** and so remain uncitable; Nahj al-Balagha carries Shurayh only in Letter 3, the house-purchase rebuke, which is a different episode entirely; nothing in either Fourteen volume carries the case. **Still blocked on `al-Irshad` with a named translator, exactly as recorded** — this is a confirmed negative, not an unchecked row.
 
 ---
 
@@ -135,6 +156,67 @@ The companions line now carries a hadith card (`08-companions/README.md`; rulebo
 **What this changes about priority.** The Sayyida Fatima gap and the Imam al-Mahdi gap each blocked exactly one box card. **They now block four items and five items respectively.** Either acquisition buys four times what it did before — reflected in `sources-needed.md`.
 
 Asma bint Umays and Uthman ibn Sa'id point to more than one Masoom and are **not** blocked.
+
+### The thirty-nine rows
+
+**Written 2026-08-14. Every one is at `—` — no saying selected for any entry in this line.** The rows exist so that selection has somewhere to land one at a time, and so the shape of the job is visible before it starts: which Masoom each card draws on, what quality the saying has to match, and which section of which work is the place to look. **The theme is the search brief, not the citation.** Nothing here is a claim about a text.
+
+`Look in` names the likely section, taken from the fixed editions actually held. **Tuhaf al-Uqul carries a numbered short-maxims section for twelve of the Fourteen — every one except Sayyida Fatima and Imam al-Mahdi**, which is exactly why the six blocked entries are blocked. Confirmed against `00-sources/text/tuhaf_al-uqul.txt`: sections run the Prophet, then Imam Ali through Imam al-Askari.
+
+| Entry | Points to | Theme to match | Look in | Saying | Status |
+|---|---|---|---|---|---|
+| Salman al-Farsi | the Prophet | who counts as family | Tuhaf, short maxims of the Prophet | — | Not selected |
+| Bilal | the Prophet | steadfastness | Tuhaf, short maxims of the Prophet | — | Not selected |
+| Abu Dharr | the Prophet | speaking for the poor | Tuhaf, short maxims of the Prophet | — | Not selected |
+| Sumayyah bint Khabbat | the Prophet | holding on when it is not safe to | Tuhaf, short maxims of the Prophet | — | Not selected |
+| Nusaybah bint Ka'b | the Prophet | courage that shields somebody else | Tuhaf, short maxims of the Prophet | — | Not selected |
+| Umm Ayman | the Prophet | care that lasts a whole life | Tuhaf, short maxims of the Prophet | — | Not selected |
+| Halima al-Sa'diyya | the Prophet | kindness to a child in your care | Tuhaf, short maxims of the Prophet | — | Not selected |
+| Asma bint Umays | the Prophet | staying through every upheaval | Tuhaf, short maxims of the Prophet | — | Not selected |
+| Maytham al-Tammar | Imam Ali | truthfulness when it costs | Tuhaf, short maxims of Imam Ali; Nahj al-Balagha, sayings | — | Not selected |
+| Qambar | Imam Ali | service, and what a servant is owed | Tuhaf, short maxims of Imam Ali; Nahj al-Balagha, sayings | — | Not selected |
+| Malik al-Ashtar | Imam Ali | gentleness in authority | Nahj al-Balagha, sayings — **not the letter of instructions to Malik**, which his own fact panel already rests on | — | Not selected |
+| Fatima bint Asad | Imam Ali | raising a child who is not your own | Tuhaf, short maxims of Imam Ali; Nahj al-Balagha, sayings | — | Not selected |
+| Abbas ibn Ali | Imam Husayn | a trust kept when nobody would have known | Tuhaf, short maxims of Imam Husayn | — | Not selected |
+| Umm Kulthum bint Ali | Imam Husayn | children, in the worst of it | Tuhaf, short maxims of Imam Husayn | — | Not selected |
+| Rabab bint Imra' al-Qays | Imam Husayn | faithfulness that outlasts the person | Tuhaf, short maxims of Imam Husayn | — | Not selected |
+| Zaynab bint Ali | Imam Husayn | the truth said in front of a ruler | Tuhaf, short maxims of Imam Husayn | — | Not selected |
+| Sakina bint al-Husayn | Imam Husayn | remembering | Tuhaf, short maxims of Imam Husayn | — | Not selected |
+| Fitrus | Imam Husayn | grief, and what it is owed | Tuhaf, short maxims of Imam Husayn | — | Not selected |
+| Umm al-Banin | Imam Husayn | raising another woman's children as your own | Tuhaf, short maxims of Imam Husayn | — | Not selected |
+| Sayyida Ruqayya bint al-Husayn | Imam Husayn | the smallest person in the room | Tuhaf, short maxims of Imam Husayn | — | Not selected |
+| Qais ibn Sa'd | Imam Hasan | obeying when you think it is wrong | Tuhaf, short maxims of Imam al-Hasan | — | Not selected |
+| Tawus al-Yamani | Imam al-Sajjad | worship nobody is watching | Tuhaf, short maxims of Imam as-Sajjad; Risalat al-Huquq | — | Not selected |
+| Jabir ibn Abdullah al-Ansari | Imam al-Baqir | keeping a trust across a lifetime | Tuhaf, short maxims of Imam al-Baqir | — | Not selected |
+| Hisham ibn al-Hakam | Imam al-Sadiq | knowledge, whatever the age of the one holding it | Tuhaf, short maxims of Imam as-Sadiq | — | Not selected |
+| Umm Farwa | Imam al-Sadiq | honouring a mother by name | Tuhaf, short maxims of Imam as-Sadiq | — | Not selected |
+| Safwan al-Jammal | Imam al-Kadhim | the earnings you refuse | Tuhaf, short maxims of Imam al-Kadhim | — | Not selected |
+| Hamida Khatun | Imam al-Kadhim | teaching, and who is fit to teach | Tuhaf, short maxims of Imam al-Kadhim | — | Not selected |
+| Dibil al-Khuza'i | Imam al-Rida | saying the thing out loud | Tuhaf, short maxims of Imam ar-Ridha'; Uyun Akhbar al-Rida | — | Not selected |
+| Sayyida Ma'suma | Imam al-Rida | family, and the road toward it | Tuhaf, short maxims of Imam ar-Ridha'; Uyun Akhbar al-Rida | — | Not selected |
+| Ali ibn Mahziyar | Imam al-Jawad | discharging a trust, every time | Tuhaf, short maxims of Imam al-Jawad | — | Not selected |
+| Abu Hashim al-Ja'fari | Imam al-Hadi | giving before being asked | Tuhaf, short maxims of Imam al-Hadi | — | Not selected |
+| Ahmad ibn Ishaq al-Qummi | Imam al-Askari | carrying other people's questions | Tuhaf, short maxims of Imam al-Askari | — | Not selected |
+| Uthman ibn Sa'id al-Amri | Imam al-Hadi **or** Imam al-Askari | trustworthiness | Tuhaf, short maxims of whichever is chosen | — | Not selected — **and which of the two is itself undecided** |
+| Fizza | Sayyida Fatima | speech, and how little of it is needed | **nothing held** | — | **BLOCKED — no source** |
+| Muhammad ibn Uthman al-Amri | Imam al-Mahdi | keeping a post without being seen to | **nothing held** | — | **BLOCKED — no source** |
+| Husayn ibn Ruh al-Nawbakhti | Imam al-Mahdi | restraint in what is said | **nothing held** | — | **BLOCKED — no source** |
+| Ali ibn Muhammad al-Samarri | Imam al-Mahdi | the close of a trust | **nothing held** | — | **BLOCKED — no source** |
+| Narjis Khatun | Imam al-Mahdi | keeping what must be kept | **nothing held** | — | **BLOCKED — no source** |
+| Khawla bint al-Azwar | **nobody** | — | — | — | **BLOCKED — no rule.** Decision, not a source. |
+
+**Two constraints to hold while working down this table.**
+
+**Eight distinct sayings for the Prophet and eight for Imam Husayn.** Those are the first sixteen rows and they are the hard part — the temptation is a near-repeat, and a near-repeat across two envelopes a child may own both of is worse than a weaker match. Do those sixteen as a set, not one at a time.
+
+**No companion card repeats its Masoom's box card.** Two are already spent and must be struck off the candidate list before the Prophet's and Imam Husayn's sets are chosen:
+
+| Spent on | Saying | Where |
+|---|---|---|
+| the Prophet | "He who is deprived of kindness is deprived of goodness entirely." | Tuhaf, short maxims of the Prophet, **no. 112** — envelope 03 |
+| Imam Husayn | "The true stingy is that who refrains from greeting." | Tuhaf, short maxims of Imam Husayn, **no. 18** — envelope 01 |
+
+The other ten selected box cards are listed in the table above and are struck off in the same way for their own Masoom.
 
 ---
 

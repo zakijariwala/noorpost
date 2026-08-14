@@ -1,6 +1,6 @@
 # Everyone Else — Malik al-Ashtar
 
-**Points home:** *Imam Ali wrote Malik a letter about how to govern.* · Dateless · Four items
+**Points home:** *Imam Ali wrote Malik a letter about how to govern.* · Dateless · Five items
 
 ---
 
@@ -69,11 +69,14 @@ He died on the road to Egypt, before reaching it. The accounts hold that he was 
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Person print | **A portrait. Faces allowed.** A very large man in plain clothes walking through a market, unrecognised. | Pending |
-| 3 | Sticker sheet | A market street, a folded letter, a doorway, a road, small repeatable marks | Pending |
-| 4 | Return postcard | Fixed wording | Pending |
+| 2 | Hadith card | Saying of **Imam Ali**, matched to gentleness in authority. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 3 | Person print | **A portrait. Faces allowed.** A very large man in plain clothes walking through a market, unrecognised. | Pending |
+| 4 | Sticker sheet | A market street, a folded letter, a doorway, a road, small repeatable marks | Pending |
+| 5 | Return postcard | Fixed wording | Pending |
 
-**No hadith card. No event print.**
+**No event print. Ever.** The calendar ring stays box-only — it is now the only collection the box exclusively owns.
+
+**The card carries no silsila segment number.** Its chain is `FIRST EDITION nn/39`, kept visibly separate from the box's fourteen segments. Both rules are enforced in the template. *(The rule forbidding a card at all was overturned 2026-08-14; keeping the two chains apart is what replaced it.)*
 
 **Exterior:** dateless. Plain seal, *Imam Ali wrote Malik a letter about how to govern* printed small.
 

@@ -1,6 +1,6 @@
 # Everyone Else — Uthman ibn Sa'id al-Amri
 
-**Points home:** *Uthman carried messages for three Imams in a row, ending with Imam al-Mahdi.* · Dateless · Four items
+**Points home:** *Uthman carried messages for three Imams in a row, ending with Imam al-Mahdi.* · Dateless · Five items
 
 ---
 
@@ -61,11 +61,14 @@ He died in Baghdad, still in the role, and named the next man himself before he 
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Person print | **A portrait. Faces allowed in this line.** An older man at an oil stall, jars and a scale, market behind him — nothing to mark him as anything other than a trader. | Pending |
-| 3 | Sticker sheet | An oil jar, a scale, a sealed letter, a market stall, small repeatable marks | Pending |
-| 4 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |
+| 2 | Hadith card | Saying of **Imam al-Hadi or Imam al-Askari**, matched to trustworthiness. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 3 | Person print | **A portrait. Faces allowed in this line.** An older man at an oil stall, jars and a scale, market behind him — nothing to mark him as anything other than a trader. | Pending |
+| 4 | Sticker sheet | An oil jar, a scale, a sealed letter, a market stall, small repeatable marks | Pending |
+| 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |
 
-**No hadith card. No event print.** Rule enforced in the template.
+**No event print. Ever.** The calendar ring stays box-only — it is now the only collection the box exclusively owns.
+
+**The card carries no silsila segment number.** Its chain is `FIRST EDITION nn/39`, kept visibly separate from the box's fourteen segments. Both rules are enforced in the template. *(The rule forbidding a card at all was overturned 2026-08-14; keeping the two chains apart is what replaced it.)*
 
 **Exterior:** no month cancellation — this line is dateless. Plain seal, name area, *Uthman carried messages for three Imams in a row* printed small.
 

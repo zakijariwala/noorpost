@@ -9,6 +9,18 @@
 # source.db. It records where the words are, not that the claim is verified.
 
 citations:
+- citation_id: CIT-86e08f3b
+  claim_id: CLM-03-aa20b0ff
+  source_id: SRC-FTI-001
+  passage_id: null
+  ref: '"Holy Prophet", §*Year of the Elephant*, pp. 7–8'
+  citation_type: page
+  page_start: 7
+  page_end: 8
+  quote: null
+  translator: English original — Al-Jibouri writes in English, no translator in the chain
+  verified: 0
+  notes: null
 - citation_id: CIT-e4b3ea65
   claim_id: CLM-03-74e42151
   source_id: SRC-TAU-001
@@ -60,6 +72,42 @@ citations:
   quote: null
   translator: Dr. Ali Peiravi
   verified: 1
+  notes: null
+- citation_id: CIT-8b0d9141
+  claim_id: CLM-08-9fc5d326
+  source_id: SRC-QAR-001
+  passage_id: null
+  ref: Ch. "Imam Musa is arrested"
+  citation_type: internal-number
+  page_start: null
+  page_end: null
+  quote: null
+  translator: Jasim al-Rasheed (Ansariyan)
+  verified: 1
+  notes: null
+- citation_id: CIT-ceb0ab15
+  claim_id: CLM-08-70ac2035
+  source_id: SRC-QAR-001
+  passage_id: null
+  ref: Ch. "The Imam is carried to Baghdad", opening — *"stayed in the detention of 'Isa for a year"
+  citation_type: internal-number
+  page_start: null
+  page_end: null
+  quote: null
+  translator: Jasim al-Rasheed (Ansariyan)
+  verified: 1
+  notes: null
+- citation_id: CIT-af2545e4
+  claim_id: CLM-08-d9e27e08
+  source_id: SRC-QAR-001
+  passage_id: null
+  ref: 'Computed: arrest Shawwal 179 → death 183 ≈ 3 years 9 months'
+  citation_type: internal-number
+  page_start: null
+  page_end: null
+  quote: null
+  translator: Jasim al-Rasheed (Ansariyan)
+  verified: 0
   notes: null
 - citation_id: CIT-81081ff3
   claim_id: CLM-01-fb72d7f2

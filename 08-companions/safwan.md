@@ -1,6 +1,6 @@
 # Everyone Else — Safwan al-Jammal
 
-**Points home:** *Safwan turned down profitable work because of who it would help, and Imam al-Kadhim told him he had done right.* · Dateless · Four items
+**Points home:** *Safwan turned down profitable work because of who it would help, and Imam al-Kadhim told him he had done right.* · Dateless · Five items
 
 ---
 
@@ -67,11 +67,14 @@ Little else of his later life is recorded in detail.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Person print | **A portrait. Faces allowed in this line.** A man standing beside an empty rope line where camels would have been tethered. | Pending |
-| 3 | Sticker sheet | A camel harness, coins, an empty tether line, small repeatable marks | Pending |
-| 4 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |
+| 2 | Hadith card | Saying of **Imam al-Kadhim**, matched to the earnings you refuse. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 3 | Person print | **A portrait. Faces allowed in this line.** A man standing beside an empty rope line where camels would have been tethered. | Pending |
+| 4 | Sticker sheet | A camel harness, coins, an empty tether line, small repeatable marks | Pending |
+| 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |
 
-**No hadith card. No event print.** Rule enforced in the template.
+**No event print. Ever.** The calendar ring stays box-only — it is now the only collection the box exclusively owns.
+
+**The card carries no silsila segment number.** Its chain is `FIRST EDITION nn/39`, kept visibly separate from the box's fourteen segments. Both rules are enforced in the template. *(The rule forbidding a card at all was overturned 2026-08-14; keeping the two chains apart is what replaced it.)*
 
 **Exterior:** no month cancellation — this line is dateless. Plain seal, name area, *He sold the camels rather than stay tied to the wrong customer* printed small.
 

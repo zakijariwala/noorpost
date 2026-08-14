@@ -50,11 +50,19 @@ claims:
   item: panel
   claim_text: Makkah called him al-Amin before revelation
   status: TV
-  work_hint: needs a Shia source
-  ref_hint: —
-  translator_hint: —
-  notes: ⛔ Same — **and this is the one new thing for the adult**, so it is the highest-priority row in
-    the envelope.
+  work_hint: The Fourteen Infallibles*, Yasin T. Al-Jibouri
+  ref_hint: '"Holy Prophet", §*Year of the Elephant*, pp. 7–8'
+  translator_hint: English original — Al-Jibouri writes in English, no translator in the chain
+  notes: '**Reopened row, now half-closed 2026-08-14.** A permitted Shia source carrying the claim **has
+    been found in the repo**: *"When Mohammed twenty years old, he was well-known for his truthfulness
+    and uprightness, hence he was called AL-SADIQ, AL-AMIN"*, and the reasons follow on the same page
+    — *"They used to seek his help to solve their problems. They entrusted him with their trusts. They
+    never heard him lie or cheat."* That is the claim and the *"had reasons"* half of it, in one Shia
+    work with a named author. **What stops it going to `V` is the edition, not the text** — this is an
+    alhassanain.org web PDF with no publisher or year, and it is not one of the six fixed editions in
+    `sourcing-rules.md`. Trap 1 checked: 0%, single-column, page markers are reliable. Trap 2 applies:
+    cite the section heading, not the page. **This row closes the moment a sixth work is fixed** — see
+    the decision below.'
   created_from: citation-sheet.md
 - claim_id: CLM-03-75c5c0c3
   project_location: 00-foundations/citation-sheet.md § Envelope 03 — Rabi al-Awwal — Prophet Muhammad
@@ -177,6 +185,64 @@ claims:
     an earlier pass read only the third passage, wrongly recorded the draft as unsupported, and rewrote
     the printed line. Reverted. Lesson: a differently-worded passage is not disproof — search the whole
     work before cutting a line.'
+  created_from: citation-sheet.md
+- claim_id: CLM-08-9fc5d326
+  project_location: 00-foundations/citation-sheet.md § Envelope 08 — Imam al-Kadhim
+  env: 08
+  item: letter/panel
+  claim_text: Arrested in Medina, Shawwal 20, 179 AH
+  status: V
+  work_hint: Qarashi, *The Life of Imam Musa bin Ja'far al-Kazim
+  ref_hint: Ch. "Imam Musa is arrested"
+  translator_hint: Jasim al-Rasheed (Ansariyan)
+  notes: Stated flatly, with the Imam taken in chains from the Prophet's grave. This is the start date
+    the "four years" is counted from.
+  created_from: citation-sheet.md
+- claim_id: CLM-08-70ac2035
+  project_location: 00-foundations/citation-sheet.md § Envelope 08 — Imam al-Kadhim
+  env: 08
+  item: letter/panel
+  claim_text: About a year of it was in Basra, before Baghdad
+  status: V
+  work_hint: Qarashi, *The Life of Imam Musa bin Ja'far al-Kazim
+  ref_hint: Ch. "The Imam is carried to Baghdad", opening — *"stayed in the detention of 'Isa for a year"
+  translator_hint: Jasim al-Rasheed (Ansariyan)
+  notes: ⚠ **This corrected a printed line.** The letter opened *"held in a prison in Baghdad for about
+    four years"*, which puts the whole span in the wrong city — roughly the first year was Basra, in 'Isa
+    b. Ja'far's custody, and Baghdad came after. Fixed to *"held in prison, moved from city to city, for
+    about four years"*; count re-measured, 357 → 359 words, still in range. **The fact panel was already
+    right** (*"Medina for most of it, then Basra and Baghdad"*), so the two disagreed with each other
+    and nobody had noticed.
+  created_from: citation-sheet.md
+- claim_id: CLM-08-d9e27e08
+  project_location: 00-foundations/citation-sheet.md § Envelope 08 — Imam al-Kadhim
+  env: 08
+  item: letter/panel/death line
+  claim_text: Held about four years without charge
+  status: TRAD
+  work_hint: Qarashi, *The Life of Imam Musa bin Ja'far al-Kazim
+  ref_hint: 'Computed: arrest Shawwal 179 → death 183 ≈ 3 years 9 months'
+  translator_hint: Jasim al-Rasheed (Ansariyan)
+  notes: '**"About four years" holds and all three places agree.** It is not `V` because the number is
+    arithmetic across two dates rather than a statement in the source — no passage in the work says "four
+    years" of the imprisonment. Keep the word *about*; it is doing real work.'
+  created_from: citation-sheet.md
+- claim_id: CLM-08-ebda3d88
+  project_location: 00-foundations/citation-sheet.md § Envelope 08 — Imam al-Kadhim
+  env: 08
+  item: panel
+  claim_text: Died 183 AH
+  status: CONT
+  work_hint: contested inside the source itself
+  ref_hint: §22 "The Time of his Death"
+  translator_hint: Jasim al-Rasheed (Ansariyan)
+  notes: ⚠ **The held work does not support 183 in its own headline.** §22 gives *"Rajab 25, in the year
+    173 A. H."* as the famous narration, then names 181 and 186 as variants. **173 is impossible against
+    this same book's arrest date of 179** and is almost certainly a digit error for 183; 183 appears in
+    the book only inside a quotation from Dr. Muhammed Yousif Musa. **Do not print 183 on this source
+    alone.** Check a physical copy of §22, or source the death date from Uyun or al-Irshad. The `AH →
+    CE` table row for 183 is unaffected either way — but if the date moves, the death line, the panel
+    dateline and that row all move together.
   created_from: citation-sheet.md
 - claim_id: CLM-01-fb72d7f2
   project_location: 00-foundations/citation-sheet.md § Hadith cards — all fourteen

@@ -406,8 +406,16 @@ editions:
     permission: unchecked
     status: candidate
     complete: true
-    aliases: [The Life of Imam al-Kadhim, Qarashi al-Kadhim]
-    notes: 1 of 6 in the series. Not fixed as an edition.
+    aliases: [The Life of Imam al-Kadhim, Qarashi al-Kadhim, 'Qarashi, The Life of Imam Musa bin Ja''far al-Kazim']
+    notes: >-
+      1 of 6 in the series. ⚠ NOT FIXED, BUT NOW CITED. The envelope 08 rows added to
+      citation-sheet.md on 2026-08-14 are marked V against this edition, and its title
+      page credits author, translator and publisher — better credited than several
+      works that are fixed. But it is still absent from the fixed-editions table in
+      00-foundations/sourcing-rules.md, which lists six works and not this one.
+      Fixing an edition is an editorial act and is not done from here: add it to that
+      table, then change this status. tools/source_audit.py lists the affected
+      citations under "citations resting on an edition that is not fixed".
 
   - source_id: SRC-QAR-002
     work_id: WRK-QAR

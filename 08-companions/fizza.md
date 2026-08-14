@@ -1,6 +1,6 @@
 # Everyone Else — Fizza
 
-**Points home:** *Fizza served Sayyida Fatima's house, and is remembered for answering only in the words of the Qur'an.* · Dateless · Four items
+**Points home:** *Fizza served Sayyida Fatima's house, and is remembered for answering only in the words of the Qur'an.* · Dateless · Five items
 
 ---
 
@@ -65,11 +65,14 @@ What is known of her life afterward is not well recorded.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Person print | **A portrait. Faces allowed in this line.** A woman at household work, an open page nearby — nothing more staged than that. | Pending |
-| 3 | Sticker sheet | An open book, household objects (a jug, a broom), small repeatable marks | Pending |
-| 4 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |
+| 2 | Hadith card | Saying of **Sayyida Fatima**, matched to speech, and how little of it is needed. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Blocked on a fixed edition** — same blocker as envelope 06 |
+| 3 | Person print | **A portrait. Faces allowed in this line.** A woman at household work, an open page nearby — nothing more staged than that. | Pending |
+| 4 | Sticker sheet | An open book, household objects (a jug, a broom), small repeatable marks | Pending |
+| 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |
 
-**No hadith card. No event print.** Rule enforced in the template.
+**No event print. Ever.** The calendar ring stays box-only — it is now the only collection the box exclusively owns.
+
+**The card carries no silsila segment number.** Its chain is `FIRST EDITION nn/39`, kept visibly separate from the box's fourteen segments. Both rules are enforced in the template. *(The rule forbidding a card at all was overturned 2026-08-14; keeping the two chains apart is what replaced it.)*
 
 **Exterior:** no month cancellation — this line is dateless. Plain seal, name area, *Fizza served Sayyida Fatima's house* printed small.
 
