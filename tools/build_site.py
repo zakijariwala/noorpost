@@ -361,13 +361,19 @@ def build_reference():
 _HADITH = None
 
 
-def hadith_assignments():
-    global _HADITH
-    if _HADITH is None:
+_HADITH_DOC = None
+
+
+def hadith_assignments(which="assignments"):
+    """which="assignments" -> {slug: row} for Everyone Else.
+       which="box"         -> the Fourteen's rows, in envelope order."""
+    global _HADITH, _HADITH_DOC
+    if _HADITH_DOC is None:
         with open(os.path.join(ROOT, "00-foundations", "hadith-assignments.json"),
                   encoding="utf-8") as f:
-            _HADITH = {a["slug"]: a for a in json.load(f)["assignments"]}
-    return _HADITH
+            _HADITH_DOC = json.load(f)
+        _HADITH = {a["slug"]: a for a in _HADITH_DOC["assignments"]}
+    return _HADITH if which == "assignments" else _HADITH_DOC.get("box", [])
 
 
 def companion_card(slug):
@@ -405,6 +411,42 @@ def companion_card(slug):
   <p class="cardnote"><strong>No saying is rendered here, and none is invented.</strong>
   Nothing of {html.escape(a["masoom"] or "the figure this envelope points to")} is held in any
   source this project accepts. {html.escape(a.get("blocker", ""))}</p>
+</section>"""
+
+
+def box_card(num):
+    """The Fourteen's own hadith card, on the envelope page.
+
+    Same record as the companions' — 00-foundations/hadith-assignments.json —
+    so the two lines cannot drift. The chain mark is what keeps them apart: the
+    box carries a silsila segment, Everyone Else carries First Edition nn/39,
+    and both are written out in words because two bare numbers in the same
+    corner sort into one pile.
+    """
+    row = next((r for r in hadith_assignments("box") if r["envelope"] == num), None)
+    if not row:
+        return ""
+    seg = "Silsila segment %d of 14" % row["segment"]
+    conflict = ('<p class="cardnote">The segment number is disputed. %s</p>'
+                % html.escape(row["segment_conflict"])) if row.get("segment_conflict") else ""
+
+    if row.get("text"):
+        cite = "%s, %s" % (row["work"], row["ref"])
+        if row.get("translator"):
+            cite += " &middot; trans. %s" % row["translator"]
+        return f"""<section class="hadithcard">
+  <p class="itemlabel">Hadith card &middot; {seg}</p>
+  <blockquote class="saying">{html.escape(row["text"])}</blockquote>
+  <p class="cardcite">{html.escape(cite)}</p>
+  <p class="cardrule">A saying of {html.escape(row["masoom"])}. The envelope number never appears on this card.</p>
+  {conflict}
+</section>"""
+
+    return f"""<section class="hadithcard empty">
+  <p class="itemlabel">Hadith card &middot; {seg}</p>
+  <p class="cardnote"><strong>No saying is rendered here, and none is invented.</strong>
+  {html.escape(row.get("blocker", ""))}</p>
+  {conflict}
 </section>"""
 
 
@@ -457,7 +499,8 @@ def envelope_page(num, month, masoom, session, letter_ttl, letter_html, panel_ht
 <section class="panel">
   <p class="itemlabel">Letter, reverse</p>
   {panel_html}
-</section>"""]
+</section>
+{box_card(num)}"""]
     if casefile_html:
         parts.append(f'<section class="session">\n<p class="itemlabel">Case file</p>\n{casefile_html}\n</section>')
     if session_html:

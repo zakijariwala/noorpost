@@ -462,16 +462,17 @@ editions:
   pagination: unknown
   citation_unit: none
   permission: unchecked
-  status: candidate
+  status: verification-required
   complete: false
   aliases:
   - Kitab al-Irshad
   - al-Irshad
   - Kitab al-Irshad part 1
-  notes: 'Accepted for PROTOTYPE use by decision 2026-08-24: sourced from a reputable platform, citation
-    to be rectified before shipping. Still carries no translator credit, so tools/preflight_print.py blocks
-    a print run on it until one is recorded. The two files are near-duplicates of each other, not two
-    parts.'
+  notes: 'Superseded 2026-08-24 by SRC-IRS-003, which is complete and credits its translator. Kept only
+    as a second witness. Accepted for PROTOTYPE use by decision 2026-08-24: sourced from a reputable platform,
+    citation to be rectified before shipping. Still carries no translator credit, so tools/preflight_print.py
+    blocks a print run on it until one is recorded. The two files are near-duplicates of each other, not
+    two parts.'
   prototype_use: true
   scope: Volume 1 only — Imam Ali. Volume 2 (the other eleven Imams) is not held.
 - source_id: SRC-IRS-002
@@ -490,13 +491,14 @@ editions:
   pagination: unknown
   citation_unit: none
   permission: unchecked
-  status: candidate
+  status: verification-required
   complete: false
   aliases: []
-  notes: 'Accepted for PROTOTYPE use by decision 2026-08-24: sourced from a reputable platform, citation
-    to be rectified before shipping. Still carries no translator credit, so tools/preflight_print.py blocks
-    a print run on it until one is recorded. The two files are near-duplicates of each other, not two
-    parts.'
+  notes: 'Superseded 2026-08-24 by SRC-IRS-003, which is complete and credits its translator. Kept only
+    as a second witness. Accepted for PROTOTYPE use by decision 2026-08-24: sourced from a reputable platform,
+    citation to be rectified before shipping. Still carries no translator credit, so tools/preflight_print.py
+    blocks a print run on it until one is recorded. The two files are near-duplicates of each other, not
+    two parts.'
   prototype_use: true
   scope: Volume 1 only — Imam Ali. Volume 2 (the other eleven Imams) is not held.
 - source_id: SRC-MSG-001
@@ -1490,3 +1492,33 @@ editions:
   - The Source of Traditions on Imam al-Riḍā
   notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
     reports upstream drift.
+- source_id: SRC-IRS-003
+  work_id: WRK-IRS
+  volume: null
+  volume_title: Complete — all twelve Imams
+  translator: I. K. A. Howard
+  translator_kind: person
+  publisher: null
+  year: null
+  edition: archive.org 'kitab-al-irshad' (opensource), Muhammadi Trust commission; Archive's own OCR is
+    the text of record
+  language: en
+  file: 00-sources/irshad-howard-candidate.pdf
+  sha256: a742bf8607e8a6566153382c67c5e4ce9cb274aa1dd49d686dfa9a22f8f98f91
+  page_count: 555
+  text_file: 00-sources/text/irshad--howard-book-of-guidance.txt
+  pagination: unknown
+  citation_unit: chapter-report
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Kitab al-Irshad
+  - Kitab al-Irshad (Howard)
+  - The Book of Guidance
+  notes: 'Acquired 2026-08-24. Title page credits I. K. A. Howard (Edinburgh), preface by Seyyed Hossein
+    Nasr. COMPLETE — all twelve Imams, unlike SRC-IRS-001/002 which are Volume 1 only. The PDF''s own
+    text layer is unusable: its embedded font map drops h-dot, s-dot and the long vowels, so ''Muhammad''
+    extracts intact 8 times and damaged 1016. Archive''s OCR of the same item is clean on every probe
+    and is what 00-sources/text/ holds. No publisher, ISBN or year in this copy. [[p N]] is a CHAPTER
+    ordinal, not a page — pagination is unknown and no page number may be cited.'

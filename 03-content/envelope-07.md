@@ -4,49 +4,52 @@
 
 ---
 
-## Letter — *The Man Who Lost in Court*
+## Letter, front: *Two Loaves*
 
 <!-- LETTER START -->
-● He was running an empire that went from Egypt to the edge of India. He had an army. He had a treasury. And one week he noticed that a piece of his armour was missing.
 
-○ Somebody stole it?
+---
 
-● It had gone. And a while later he saw it, in a market, being sold by a man who said it was his.
+● A man called Uthman ibn Hunayf was the governor of Basra. One evening a rich family in the city invited him to dinner, and he went.
 
-○ Just take it back.
+○ Is that not allowed?
 
-● He could have. Nobody in that city would have stopped him. He was the ruler; the man was nobody; there were soldiers within shouting distance. Instead he went and found the judge.
+● On its own it is fine. But at that door the poor had been turned away and only the rich let in. Somebody noticed, and wrote to Kufa about it. Kufa was a long ride from Basra, so the news took days to arrive and the answer took days to come back.
 
-○ He had judges?
-
-● He had appointed them. This one was called Shurayh, and he had given him the job himself. So the ruler of the empire walked into a courtroom, sat down on the floor next to the man he was accusing, and said the armour was his.
-
-● The judge asked him what he would ask anybody. Do you have witnesses?
+● The man in Kufa was running everything from Egypt to the edge of India. He had given the governor the job himself. He could have taken it back that morning.
 
 ○ Did he?
 
-● He brought two. His son, and a man who worked in his household. And the judge looked at them, and said no — a son cannot be a witness for his father. That is the rule. And with that witness gone, there was not enough.
+● He wrote him a letter instead.
 
-○ So what happened?
+○ What did he say in it?
 
-● He lost. The judge — his own appointment, sitting in his own city, on his salary — ruled against him, and the armour stayed with the other man.
+● That he had heard about the dinner. That the dishes had come in many colours and the bowls had been large. And then he did something strange. He began describing his own house.
 
-○ What did he do?
+○ Why his own house?
 
-● He stood up and went home.
+● So the governor would know what the ruler of the empire actually kept in it. Two pieces of cloth, both worn thin. Bread, enough for the day. That was the list, and it was the whole list.
 
-○ Would you have gone home? Say yes or no before we go on.
+● Every storehouse between Egypt and India would have opened if he had asked for it. He did not ask.
 
-● Then something happened that nobody planned. The man who had won picked up the armour, and looked at it, and then came after him and said: it is yours, I know it is yours. He had watched a ruler take a case to a judge, be told no, and accept it, and he could not carry it home after that.
+○ Was he punishing himself?
 
-● And the reports of this do not just say *a judge*. They give his name. They give the ruling, and the reason for it, and what the ruler said afterwards — which was to congratulate the man for his answer.
+● No — and he said so. He wrote plainly that he was not asking the governor to live the same way. He said he knew he could not ask that of him.
 
-●○ He made the rule. Then the rule beat him.
+○ Then what did he want?
+
+● Help holding the line. That was all he asked for. And he left the man in his job.
+
+○ Would you have written, or fired him? Say it before we go on.
+
+● Nobody remembers that dinner now. Nobody remembers the family who gave it. Not the storehouses either. What lasted is the letter — copied out by hand for thirteen hundred years, because of what a man with everything within reach said he had at home.
+
+●○ Two worn cloths. Bread for the day. One letter.
 <!-- LETTER END -->
 
-**One new thing for the adult:** that the case is reported with the judge's name and the outcome — and that he congratulated the man afterwards.
+**One new thing for the adult:** that he told the governor outright he was *not* asking him to live the same way — he said he knew he could not ask it. The letter sets a standard for himself and explicitly declines to impose it.
 
-**How much room he had:** all of it. He was the ruler, and the whole story is one week when he chose not to use it.
+**How much room he had:** all of it. He appointed the man, he could have removed him, and every storehouse between Egypt and India was his to open. The whole letter is about what he did not take.
 
 ---
 
@@ -77,29 +80,29 @@ He was killed in the masjid at Kufa in 40 AH, during the dawn prayer, by Abd al-
 > ### Talk about it
 > **About ten minutes. No right answers, and no points.**
 >
-> **1.** He was in charge of everything and he still lost. Why did the judge get to decide?
+> **1.** The governor did not steal anything. So what was actually wrong with going to the dinner?
 >
 > ---
 >
 > **2.** ● **Grown-up answers this one first.**
-> Tell about a time you were in charge and had to accept an answer you did not like.
+> Tell about a time you asked someone to do something you were not doing yourself.
 >
 > ---
 >
-> **3.** The judge threw out the son's evidence because sons take their father's side. Is that fair to the son?
+> **3.** He described his own house instead of giving an order. Why do you think he did it that way?
 >
 > ---
 >
-> **4.** The man could have kept the armour. Nothing was going to happen to him. So why give it back?
+> **4.** He said he was not asking the governor to live like him. Was that letting him off, or something else?
 >
 > ---
 >
 > **5.** ⚑ **This one is hard for a grown-up.**
-> Who in your life is allowed to tell you that you are wrong — and when did one of them last do it?
+> He kept him in the job. If you had written that letter, could you have kept him?
 >
 > ---
 >
-> **Last:** Pick something small that one of you is right about and the other one is not. Settle it by looking it up, not by who says it louder.
+> **Last:** One of you names something in this house there is enough of. The other names something there is exactly enough of. Go and look at both.
 
 ---
 
@@ -110,7 +113,7 @@ He was killed in the masjid at Kufa in 40 AH, during the dawn prayer, by Abd al-
 | 2 | Hadith card | **Selected 2026-08-12.** “The value of a man is what he does expertly.” — Tuhaf al-Uqul, short maxims of Imam Ali, **no. 8** (trans. Badr Shahin, Ansariyan). Silsila **segment 1**. | Saying selected; card layout pending |
 | 3 | Person print | The shrine at Najaf. | Pending |
 | 4 | Event print | The Kaaba. He was born inside it on 13 Rajab. Ring position 7. | Pending |
-| 6 | Sticker sheet | A shield, a set of scales, a doorway, small repeatable marks | Pending |
+| 6 | Sticker sheet | Two loaves, a folded cloth, a sealed letter, a doorway, small repeatable marks | Pending |
 | 7 | Return postcard | Fixed wording. | Pending |
 
 **Exterior:** circular cancellation reading **RAJAB**. *Two envelopes carry this month — 07 and 08. The stamp is identical; the seal colour differs.*
@@ -127,7 +130,8 @@ He was killed in the masjid at Kufa in 40 AH, during the dawn prayer, by Abd al-
 
 ## Open
 
-- [ ] Verify the case against a printed source: Shurayh's name, the ruling, the grounds, the congratulation
+- [x] **Spine rewritten 2026-08-24.** The shield case was cut after five searches returned nothing — see `citation-sheet.md`. The letter now rests on Nahj al-Balagha **Letter 45**, to Uthman ibn Hunayf, which is in the fixed edition and citable by its own letter number.
+- [ ] Fact-check the new letter's claims against Letter 45, row by row
 - [ ] Decide how the other man is described. **Scholar.**
 - [ ] Verify Nahj al-Balagha's compilation date and compiler
 - [ ] Verify the Tikal framing and dates

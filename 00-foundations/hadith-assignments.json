@@ -1,5 +1,5 @@
 {
- "_note": "Hadith-card assignments, companions line. Written 2026-08-24 by tools/select_hadith_cards.py plus judgement. Every `text` is quoted verbatim from the fixed edition named in `work`; `ref` is the work's own internal number, never a page. `confidence` is the selector's, not a scholar's — every row below `high` is on the verification worklist in 00-foundations/hadith-verification-worklist.md. Chain numbers apply the standing proposal: grouped by the Masoom pointed to, in historical order, numbered independently of the silsila. Audited 2026-08-24 by tools/verify_hadith_assignments.py, which proves each saying is really in a held source at the reference given.",
+ "_note": "Hadith-card assignments, companions line. Written 2026-08-24 by tools/select_hadith_cards.py plus judgement. Every `text` is quoted verbatim from the fixed edition named in `work`; `ref` is the work's own internal number, never a page. `confidence` is the selector's, not a scholar's — every row below `high` is on the verification worklist in 00-foundations/hadith-verification-worklist.md. Chain numbers apply the standing proposal: grouped by the Masoom pointed to, in historical order, numbered independently of the silsila. Audited 2026-08-24 by tools/verify_hadith_assignments.py, which proves each saying is really in a held source at the reference given. The `box` array is the Fourteen's own cards, parsed from citation-sheet.md so the site and the templates render one record for all fifty-three.",
  "assignments": [
   {
    "n": 1,
@@ -569,6 +569,151 @@
    "text": null,
    "confidence": "blocked",
    "blocker": "Points to no Masoom, so the selection rule has nothing to draw on. Needs the scholar's call on whether the entry survives at all — a decision, not a source."
+  }
+ ],
+ "box": [
+  {
+   "envelope": "01",
+   "segment": 3,
+   "masoom": "Imam Husayn",
+   "text": "The true stingy is that who refrains from greeting.",
+   "work": "Tuhaf al-Uqul",
+   "ref": "short maxims, no. 18",
+   "translator": "Badr Shahin",
+   "status": "V"
+  },
+  {
+   "envelope": "02",
+   "segment": 2,
+   "masoom": "Imam Hasan",
+   "text": "The people who consult for their affairs will surely be guided to the right.",
+   "work": "Tuhaf al-Uqul",
+   "ref": "short maxims, no. 1",
+   "translator": "Badr Shahin",
+   "status": "V"
+  },
+  {
+   "envelope": "03",
+   "segment": 13,
+   "masoom": "The Prophet",
+   "text": "He who is deprived of kindness is deprived of goodness entirely.",
+   "work": "Tuhaf al-Uqul",
+   "ref": "short maxims, no. 112",
+   "translator": "Badr Shahin",
+   "status": "V",
+   "segment_conflict": "citation-sheet.md numbers the Prophet segment 13; 01-pilot/envelope-03/items.md numbers him segment 1, which is also envelope 07's number. Two cards claim segment 1 and the scheme is undecided."
+  },
+  {
+   "envelope": "04",
+   "segment": 11,
+   "masoom": "Imam al-Askari",
+   "text": "The heart of the foolish is in his mouth and the mouth of the wise is in his heart.",
+   "work": "Tuhaf al-Uqul",
+   "ref": "short maxims, no. 21",
+   "translator": "Badr Shahin",
+   "status": "V"
+  },
+  {
+   "envelope": "05",
+   "segment": 6,
+   "masoom": "Imam al-Baqir",
+   "text": "No mixture is better than the mixture of clemency and knowledge.",
+   "work": "Tuhaf al-Uqul",
+   "ref": "short maxims, no. 2",
+   "translator": "Badr Shahin",
+   "status": "V"
+  },
+  {
+   "envelope": "06",
+   "segment": 4,
+   "masoom": "Sayyida Fatima",
+   "text": null,
+   "work": null,
+   "ref": null,
+   "translator": null,
+   "status": "BLOCKED",
+   "blocker": "Tuhaf has no Fatima section at all. Searched every fixed edition and all 32,531 Thaqalayn records: nothing in the conduct register. Needs a credited edition of her sayings."
+  },
+  {
+   "envelope": "07",
+   "segment": 1,
+   "masoom": "Imam Ali",
+   "text": "The value of a man is what he does expertly.",
+   "work": "Tuhaf al-Uqul",
+   "ref": "short maxims, no. 8",
+   "translator": "Badr Shahin",
+   "status": "V"
+  },
+  {
+   "envelope": "08",
+   "segment": 8,
+   "masoom": "Imam al-Kadhim",
+   "text": "Good neighborhood is not abstinence from harm. It is to tolerate the harm (of the neighbors).",
+   "work": "Tuhaf al-Uqul",
+   "ref": "short maxims, no. 13",
+   "translator": "Badr Shahin",
+   "status": "V"
+  },
+  {
+   "envelope": "09",
+   "segment": 5,
+   "masoom": "Imam al-Sajjad",
+   "text": "The right of the tongue is that you consider it too noble for obscenity…",
+   "work": "Risalat al-Huquq",
+   "ref": "entry 3",
+   "translator": "William C. Chittick",
+   "status": "V"
+  },
+  {
+   "envelope": "10",
+   "segment": 14,
+   "masoom": "Imam al-Mahdi",
+   "text": null,
+   "work": null,
+   "ref": null,
+   "translator": null,
+   "status": "BLOCKED",
+   "blocker": "Specified as a tawqi' from the minor occultation. Both Kitab al-Ghayba works are now held with named translators, so this is a reading job — but rule Q3 bans a tawqi' about religious authority, which is most of what survives."
+  },
+  {
+   "envelope": "11",
+   "segment": 10,
+   "masoom": "Imam al-Hadi",
+   "text": "This world is like a market in which some profited and others lost.",
+   "work": "Tuhaf al-Uqul",
+   "ref": "short maxims, no. 15",
+   "translator": "Badr Shahin",
+   "status": "V"
+  },
+  {
+   "envelope": "12",
+   "segment": 7,
+   "masoom": "Imam al-Sadiq",
+   "text": "He who treats people kindly will be accepted as arbiter.",
+   "work": "Tuhaf al-Uqul",
+   "ref": "short maxims, no. 1",
+   "translator": "Badr Shahin",
+   "status": "V"
+  },
+  {
+   "envelope": "13",
+   "segment": 9,
+   "masoom": "Imam al-Rida",
+   "text": "Silence is one of the doors of wisdom. It yields amicability and leads to every goodness.",
+   "work": "Tuhaf al-Uqul",
+   "ref": "short maxims, no. 8",
+   "translator": "Badr Shahin",
+   "status": "V"
+  },
+  {
+   "envelope": "14",
+   "segment": 12,
+   "masoom": "Imam al-Jawad",
+   "text": "To show a matter before preparing for it properly is spoiling it.",
+   "work": "Tuhaf al-Uqul",
+   "ref": "short maxims, no. 12",
+   "translator": "Badr Shahin",
+   "status": "V"
   }
  ]
 }

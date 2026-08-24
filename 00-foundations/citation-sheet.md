@@ -108,6 +108,21 @@ Every row must reach `Verified` before Gate 3. A row still marked `TO VERIFY` at
 | 08 | letter/panel/death line | Held about four years without charge | Qarashi, same work | Computed: arrest Shawwal 179 → death 183 ≈ 3 years 9 months | Jasim al-Rasheed (Ansariyan) | **TRAD** | **"About four years" holds and all three places agree.** It is not `V` because the number is arithmetic across two dates rather than a statement in the source — no passage in the work says "four years" of the imprisonment. Keep the word *about*; it is doing real work. |
 | 08 | panel | Died 183 AH | **contested inside the source itself** | §22 "The Time of his Death" | Jasim al-Rasheed (Ansariyan) | **CONT** | ⚠ **The held work does not support 183 in its own headline.** §22 gives *"Rajab 25, in the year 173 A. H."* as the famous narration, then names 181 and 186 as variants. **173 is impossible against this same book's arrest date of 179** and is almost certainly a digit error for 183; 183 appears in the book only inside a quotation from Dr. Muhammed Yousif Musa. **Do not print 183 on this source alone.** Check a physical copy of §22, or source the death date from Uyun or al-Irshad. The `AH → CE` table row for 183 is unaffected either way — but if the date moves, the death line, the panel dateline and that row all move together. |
 
+### ⛔ Envelope 07's spine was cut and replaced (2026-08-24)
+
+**The Shurayh shield case is `CUT`.** Five searches, each against a larger corpus than the last, ended with the complete `Kitab al-Irshad` — I. K. A. Howard's translation, all twelve Imams, acquired the same day. Ten passages there mention Shurayh and every one has him sitting as judge; **none is Imam Ali as the defendant over a coat of mail.** The last plausible source has now been checked and the claim is not in it.
+
+**The letter was rewritten rather than left unsourced.** Its spine is now **Nahj al-Balagha, Letter 45**, to Uthman ibn Hunayf — the governor of Basra who attended a banquet the poor had been turned away from. It is in the fixed edition (`SRC-NHB-002`, trans. Sayed Ali Reza), cited by its own letter number, and it keeps the envelope's through-question intact: he appointed the man, he could have removed him, every storehouse between Egypt and India was his, and the whole episode is about what he did not take.
+
+**Deliberately not used:** the Fadak passage further down the same letter. Envelope 07 does not go on that ground, and the letter draws only on the banquet, the two worn cloths and the bread.
+
+| Row | Status |
+|---|---|
+| The shield case: Shurayh's name, ruling, grounds, congratulation | **`CUT`** — not in any held source, including the complete al-Irshad |
+| The banquet at Basra, and what he wrote about his own house | **`V`** — Nahj al-Balagha, Letter 45, trans. Sayed Ali Reza |
+
+---
+
 **Row #5 checked in the same pass and it did not move.** The Shurayh shield case (envelope 07) needs a named narrator for the judge, the ruling and the grounds. Searched across the whole of `00-sources/text/`: the two `al-Irshad` extracts still credit **no translator at all** and so remain uncitable; Nahj al-Balagha carries Shurayh only in Letter 3, the house-purchase rebuke, which is a different episode entirely; nothing in either Fourteen volume carries the case. **Still blocked on `al-Irshad` with a named translator, exactly as recorded** — this is a confirmed negative, not an unchecked row.
 
 ---

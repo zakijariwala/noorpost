@@ -26,7 +26,7 @@ Ordered by how much it unblocks.
 | **Fizza's companion card** | Same blocker, same reason. |
 | **Khawla's card** | Unaffected — she points to no Masoom. Still a decision, not a purchase. |
 | **Tier 2, the sira gap, in full** | The corpus is hadith. It carries no biography, no sira, no history. `Kitab al-Irshad` with a named translator is untouched as the top acquisition. |
-| **The Shurayh shield case** (envelope 07) | **Confirmed negative a third time**, now against a corpus twenty times larger. 31 hits on "Shurayh", every one a narrator's name — Mu'awiyah ibn Shurayh, Thabit ibn Shurayh, Muhammad ibn Shurayh — not the judge. |
+| ~~**The Shurayh shield case** (envelope 07)~~ | **`CUT` 2026-08-24.** Fifth and final negative, against the complete `Kitab al-Irshad`. The letter was rewritten onto Nahj Letter 45 instead of waiting for a source that does not exist. |
 | **A Shia history of 40–260 AH**, and a world-history reference | Neither is a hadith collection. No candidate here. |
 | **Tuhaf al-Uqul** | **Not served by the API at all.** The rank-1 work stays on the PDF corpus. |
 

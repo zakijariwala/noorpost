@@ -29,3 +29,10 @@ __pycache__/
 # pages/ file to record in the first place. Rebuilt by build_source_corpus.py.
 00-sources/md/SRC-TQ-*.md
 00-sources/pages/SRC-TQ-*.pages.jsonl
+
+# Raw upstream OCR for SRC-IRS-003. Untracked for the same reason the PDFs are:
+# it is the original, it is re-downloadable from archive.org's "kitab-al-irshad"
+# item, and the thing this project actually reads —
+# 00-sources/text/irshad--howard-book-of-guidance.txt — is derived from it,
+# tracked, and diffable.
+00-sources/*-djvu.txt
