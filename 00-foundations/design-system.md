@@ -90,13 +90,32 @@ Paper sizes run on the A-series so the seven items share stock and a printer can
 
 | Item | Size | Orientation | Notes |
 |---|---|---|---|
-| Letter | A5 (148 × 210 mm) | Portrait | Front: letter. Back: fact panel. One sheet, per `fact-panel-spec.md`. |
+| Letter + fact panel | **A4 landscape (297 × 210 mm), folded once to A5 portrait** | Portrait faces | **Amended 2026-08-24 — see below.** A bifolium: four A5 faces. Faces 1–2 letter, face 3 the ●○ close, face 4 the fact panel per `fact-panel-spec.md`. Still one sheet. |
 | Hadith card | A6 (105 × 148 mm) | Portrait | Front: saying, silsila segment number (never the envelope number — rulebook, `spec-check.md`). Back: citation, per `sourcing-rules.md` citation format. |
 | Person print | A5 (148 × 210 mm) | Portrait | Fixed by TASKS.md Phase 0.4. No faces on the Fourteen; faces allowed on companions. |
 | Event print | A5 (148 × 210 mm) | Landscape | Fixed by TASKS.md Phase 0.4. Punched — see §6, ring position. Same stock and linework as the person print so all 28 (14+14) read as one wall. |
 | Session card | A6 (105 × 148 mm) | Portrait | Same trim as the hadith card so both fit one card box. Conversation / Case File / Mourning / Open layouts per `spec-check.md` §Session types. |
 | Sticker sheet | A6 (105 × 148 mm) die-cut | Portrait | Not issued for 01, 02 — pennant instead. |
 | Return postcard | A6 (105 × 148 mm) | Landscape | Matches the international minimum postcard dimension, so it can post at postcard rate without a surcharge in most postal systems — confirm against the domestic carrier once Phase 6 sets the return-postcard process. Two signature lines, pre-addressed, per `HANDOVER.md`. |
+
+### The letter moved from A5 to A4 folded (2026-08-24)
+
+**This closes the Gate 3 blocker** recorded in `04-art/print/README.md` and `TASKS.md`: every letter template — all fourteen here and all thirty-nine companions — rendered 28–76% taller than the A5 sheet it was specified on, and the rendered PDFs clipped the excess silently. The word-count spec, the A5 single-sheet spec and the type spec were mutually incompatible.
+
+**The A5 spec is the one that gave.** Of the four options costed in `04-art/print/README.md`, this is the only one that changes nothing already written, measured or fixed:
+
+| Kept | |
+|---|---|
+| Body type size and face | Unchanged. The letter is the one item read aloud, and shrinking it works against that. |
+| 330–370 words, 6–9 child lines | Unchanged. All fifty-three letters stand exactly as written and audited in `03-content/spec-check.md`. |
+| Fact panel on the same sheet as the letter | Unchanged. `fact-panel-spec.md`'s "story on the front, facts on the back, one sheet" survives — it is now one folded sheet. |
+| Item count per envelope | Unchanged at seven. No new item, no new cost line. |
+
+**What it costs:** the envelope's paper spec moves from A5 to A4, and assembly gains one fold. The envelope itself must now take an A5 stack — **C5, 229 × 162 mm**, or a bespoke wallet at that trim.
+
+**Face 3 is not filler.** A 330–370 word letter needs about 1.8 A5 faces at the fixed type size, so faces 1–2 carry the whole letter with room. Face 3 takes the ●○ read-together close, set large, with space around it. The last line of every letter is the one the parent and child say together; giving it its own face is the design doing what §1 of the rulebook already asks for.
+
+Build geometry, imposition and the Canva mechanics are in `04-art/canva-build-brief.md`.
 
 **Pennant** (replaces sticker sheet, 01 and 02 only): triangular, cord-mounted, charcoal ink on ivory stock per the mourning palette. No fixed dimension yet — take it from whatever length reads well against the letter and fact panel once both are proofed; this is the one template better decided against a physical proof than a ruler.
 

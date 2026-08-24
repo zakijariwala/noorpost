@@ -24,11 +24,12 @@ Nothing gets written or drawn until the rules are fixed. Rewriting fourteen enve
 - [x] Write the envelope sign-off checklist. → `00-foundations/checklist.md`
 
 ### 0.2 Source library ∥
+- [x] **Approve and ingest the Thaqalayn corpus (2026-08-24).** 32 Shia collections, 32,531 records, every one with a named translator, pinned by SHA-256 in `00-sources/api/`. **Scholar-recommended and approved, so a claim carried by a passage here goes to `V`.** → `00-sources/api/README.md`, `sourcing-rules.md` § "Approved source of record". **Closes envelope 10's hadith card and the four companion cards behind it.** Does not touch the sira gap — the corpus is hadith only.
 - [ ] Acquire published translations in priority order: Tuhaf al-Uqul, Nahj al-Balagha, Sahifa Sajjadiyya, al-Kafi, Uyun Akhbar al-Rida.
 - [ ] Record translator, publisher, edition and year for each. Credit lines are needed on the cards.
 - [x] Build a citation sheet: one row per hadith or passage, with text, source, hadith or page number, and the translation credited. → `00-foundations/citation-sheet.md`, with status codes, the AH→CE table, and the fourteen women's rows. **Nothing prints on `TV`.**
 - [x] Rule set for sourcing, written down. → `00-foundations/sourcing-rules.md`
-- [ ] **Close the sira gap. Fully open again as of 2026-08-12.** It was briefly closed for envelope 03 with Guillaume's Ibn Ishaq, plus SUNY al-Tabari Vol. VIII — **both Sunni, both removed under the hard rule in `sourcing-rules.md`.** It must now be closed with a Shia work. **Acquiring al-Mufid's `Kitab al-Irshad` with a named translator is the single highest-value purchase in the project**; it has to carry the narrative spine of most of the fourteen letters and much of the companions line.
+- [ ] **Close the sira gap. Fully open again as of 2026-08-12, and untouched by the Thaqalayn approval — that corpus is hadith and carries no biography at all.** It was briefly closed for envelope 03 with Guillaume's Ibn Ishaq, plus SUNY al-Tabari Vol. VIII — **both Sunni, both removed under the hard rule in `sourcing-rules.md`.** It must now be closed with a Shia work. **Acquiring al-Mufid's `Kitab al-Irshad` with a named translator is the single highest-value purchase in the project**; it has to carry the narrative spine of most of the fourteen letters and much of the companions line.
 - [ ] **Fix one general reference for the "elsewhere in the world" bullet.** Fourteen claims about world history with no source rule at all.
 - [ ] Build the fact bank per Masoom: ruler of the day, length of the imamate, named students, attributed compilations, what was happening elsewhere in the world that year. This is the raw material for all fourteen fact panels and it is the slowest research task in the project. Start it now, finish it during Phase 3.
 
@@ -153,11 +154,17 @@ For each letter: 330–370 words, voice marks assigned, child lines counted and 
 
 **Gate 3:** Fourteen letters, fourteen fact panels, fourteen hadith cards and fourteen session cards are written, checked, and signed off. Text is frozen.
 
+> ✅ **RESOLVED 2026-08-24 — the letter moves to A4 landscape, folded once to four A5 faces.** Faces 1–2 the letter, face 3 the ●○ close, face 4 the fact panel. Of the four options this is the only one that changes nothing already written: type size, the 330–370 word spec, all fifty-three measured letters, the fact panel's place on the sheet and the seven-item count all stand. Cost: the envelope's paper spec moves A5 → A4, assembly gains one fold, and the envelope must take an A5 stack (C5, 229 × 162 mm). Recorded in `design-system.md` §4; build geometry in `04-art/canva-build-brief.md`. **The HTML templates in `04-art/print/` are still A5 and still overflow — they were a verification pass, and production art is being built in Canva.**
+>
+> The original finding, kept for the failure shape:
+>
 > ⚠ **Gate 3 blocker found 2026-08-12: no letter fits its page.** Every letter template — all fourteen here and all thirty-nine companions — renders 28–76% taller than the A5 sheet it is specified on. The rendered PDFs clip the excess silently and still look like valid proofs. **The word-count spec (330–370), the A5 single-side spec, and the type spec are mutually incompatible; one of the three has to give.** Four options with costs are laid out in `04-art/print/README.md`. This is a text-and-format decision, so it belongs before the freeze, not at prepress.
 
 ---
 
 ## Phase 4 — Art build
+
+**Build brief for Canva: `04-art/canva-build-brief.md`** — 24 master templates, every canvas size with bleed built in, the ring-punch coordinates, the placeholder discipline, and the build order. Written 2026-08-24 for Canva Free, which means **the display face may have to be substituted for Fraunces** (no font upload on that plan). That is a change to a fixed Phase 0 decision and is recorded as one, not treated as a workaround.
 
 - [ ] 14 person prints. Note the repeats and the pairings: Jannat al-Baqi appears three times at three angles (02, 05, 09); Samarra pairs 04 and 11; Kadhimiya in 14 pairs with the barred window in 08. Draw them as a deliberate set, not one at a time.
 - [ ] 14 event prints. Common landscape format, common ring punch. They must hang together as one calendar.

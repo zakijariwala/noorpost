@@ -159,6 +159,193 @@ def render_letter(body):
             out.append("<p>" + inline(s) + "</p>")
     return "\n".join(out)
 
+# ---------- reference documents ----------
+# The envelope renderer above deliberately strips internal notes, because an
+# envelope page shows only what a family receives. A reference document is the
+# opposite: the internal notes ARE the content. So it gets its own renderer,
+# which handles the things a spec uses and a letter never does — tables, fenced
+# blocks, numbered lists and links.
+
+def doc_inline(t):
+    t = html.escape(t)
+    t = re.sub(r"\[([^\]]+)\]\(([^)]+)\)",
+               lambda m: '<a href="%s">%s</a>' % (html.escape(m.group(2), quote=True), m.group(1)),
+               t)
+    t = re.sub(r"~~(.+?)~~", r"<del>\1</del>", t)
+    t = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", t)
+    t = re.sub(r"(?<!\*)\*([^*]+)\*(?!\*)", r"<em>\1</em>", t)
+    # A hex in backticks on a design page is a colour, not a string. Show it.
+    t = re.sub(r"`(#[0-9A-Fa-f]{6})`",
+               lambda m: '<code class="hex"><span class="swatch" style="background:%s">'
+                         "</span>%s</code>" % (m.group(1), m.group(1)),
+               t)
+    t = re.sub(r"`([^`]+)`", r"<code>\1</code>", t)
+    return t
+
+
+def slug(text):
+    s = re.sub(r"<[^>]+>", "", text)
+    s = re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
+    return s or "section"
+
+
+TABLE_ROW = re.compile(r"^\s*\|.*\|\s*$")
+TABLE_RULE = re.compile(r"^\s*\|[\s:|-]+\|\s*$")
+
+
+def doc_blocks(lines, heading_sink=None, level_offset=0):
+    """Markdown -> html for a spec document. Returns a list of html chunks."""
+    out, para, quote, table = [], [], [], []
+    code = None
+
+    def flush_para():
+        if para:
+            out.append("<p>" + doc_inline(" ".join(para)) + "</p>")
+            para.clear()
+
+    def flush_quote():
+        if quote:
+            out.append('<div class="callout">' + "".join(doc_blocks(quote)) + "</div>")
+            quote.clear()
+
+    def flush_table():
+        if not table:
+            return
+        rows = [[c.strip() for c in r.strip().strip("|").split("|")] for r in table]
+        head, rest = rows[0], rows[1:]
+        cells = "".join("<th>%s</th>" % doc_inline(c) for c in head)
+        trs = "".join("<tr>%s</tr>" % "".join("<td>%s</td>" % doc_inline(c) for c in r)
+                      for r in rest)
+        out.append('<div class="tablewrap"><table><thead><tr>%s</tr></thead>'
+                   "<tbody>%s</tbody></table></div>" % (cells, trs))
+        table.clear()
+
+    for ln in lines:
+        s = ln.rstrip()
+
+        if code is not None:
+            if s.strip().startswith("```"):
+                out.append("<pre><code>%s</code></pre>" % html.escape("\n".join(code)))
+                code = None
+            else:
+                code.append(s)
+            continue
+        if s.strip().startswith("```"):
+            flush_para(); flush_quote(); flush_table()
+            code = []
+            continue
+
+        if TABLE_ROW.match(s):
+            flush_para(); flush_quote()
+            if not TABLE_RULE.match(s):
+                table.append(s)
+            continue
+        flush_table()
+
+        if s.startswith(">"):
+            flush_para()
+            quote.append(s[1:].lstrip() if len(s) > 1 else "")
+            continue
+        flush_quote()
+
+        if not s.strip():
+            flush_para()
+            continue
+        if s.strip() in ("---", "***", "___"):
+            flush_para()
+            out.append("<hr>")
+            continue
+
+        m = re.match(r"^(#{1,6})\s+(.*)$", s)
+        if m:
+            flush_para()
+            lvl = min(len(m.group(1)) + level_offset, 6)
+            text = doc_inline(m.group(2).strip())
+            sid = slug(m.group(2))
+            # The source file's own H2s become H3s here (level_offset=1), and
+            # they are what the contents list needs — a two-item contents for a
+            # document this long is a decoration, not a way in.
+            if heading_sink is not None and lvl == 3:
+                heading_sink.append((sid, re.sub(r"<[^>]+>", "", text)))
+            out.append('<h%d id="%s">%s</h%d>' % (lvl, sid, text, lvl))
+            continue
+
+        m = re.match(r"^\s*[-*+]\s+(.*)$", s)
+        if m:
+            flush_para()
+            out.append('<p class="bullet">' + doc_inline(m.group(1).strip()) + "</p>")
+            continue
+
+        m = re.match(r"^\s*(\d+)\.\s+(.*)$", s)
+        if m:
+            flush_para()
+            out.append('<p class="bullet numbered"><span class="num">%s</span>%s</p>'
+                       % (m.group(1), doc_inline(m.group(2).strip())))
+            continue
+
+        para.append(s.strip())
+
+    if code is not None:
+        out.append("<pre><code>%s</code></pre>" % html.escape("\n".join(code)))
+    flush_para(); flush_quote(); flush_table()
+    return out
+
+
+def reference_section(path, kicker, title, lede, heads):
+    """One source file rendered as a part of the build page.
+
+    The file's own H1 is dropped — the part already has a title — and its
+    headings are demoted one level so the page keeps a single H1.
+    """
+    lines = [ln for ln in read(path) if not ln.startswith("# ")]
+    sid = slug(title)
+    subs = []
+    body = "".join(doc_blocks(lines, heading_sink=subs, level_offset=1))
+    heads.append((sid, title, subs))
+    return ('<section class="refpart" id="%s">\n'
+            '<p class="kicker">%s</p>\n'
+            "<h2>%s</h2>\n"
+            '<p class="points">%s</p>\n'
+            '<p class="sourcefile">Generated from <code>%s</code>. '
+            "Edit the markdown, not this page.</p>\n"
+            "%s\n</section>") % (sid, html.escape(kicker), html.escape(title),
+                                 html.escape(lede), html.escape(path), body)
+
+
+def build_reference():
+    """docs/build.html — the design system and the template build instructions.
+
+    Internal, like the card views and the print proofs: noindex, behind the same
+    draft footer. Published because the person building the artwork is not
+    necessarily the person holding the repository.
+    """
+    heads = []
+    parts = [
+        reference_section(
+            "00-foundations/design-system.md", "Part one", "The design system",
+            "Type, palette, illustration rules and the seven item templates. Fixed in "
+            "Phase 0 — art fills this frame, it does not redraw it.", heads),
+        reference_section(
+            "04-art/canva-build-brief.md", "Part two", "Building the templates",
+            "What to build, at what size, in what order. Twenty-four masters, every "
+            "canvas size with the bleed built in, and the placeholder rules.", heads),
+    ]
+    toc = "".join(
+        '<div class="tocpart"><a class="tocmain" href="#%s">%s</a>%s</div>'
+        % (sid, html.escape(t),
+           "".join('<a href="#%s">%s</a>' % (s2, html.escape(t2)) for s2, t2 in subs))
+        for sid, t, subs in heads)
+    body = ('<article class="reference">\n'
+            '<p class="kicker">For whoever is building the artwork</p>\n'
+            "<h1>Design and build</h1>\n"
+            '<p class="lede">Two documents, kept together because neither is usable '
+            "without the other. The first fixes the frame; the second says how to "
+            "build it.</p>\n"
+            '<nav class="toc">%s</nav>\n%s\n</article>') % (toc, "".join(parts))
+    with open(os.path.join(OUT, "build.html"), "w", encoding="utf-8") as f:
+        f.write(page("Design and build", "", body))
+
+
 # ---------- page shell ----------
 
 def page(title, subtitle, body, depth=0, nav_current=None):
@@ -179,6 +366,7 @@ def page(title, subtitle, body, depth=0, nav_current=None):
     <a href="{base}index.html#the-fourteen">The Fourteen</a>
     <a href="{base}index.html#everyone-else">Everyone Else</a>
     <a href="{base}index.html#notebook">Noori's Notebook</a>
+    <a href="{base}build.html">Design &amp; build</a>
     <a href="{base}status.html">Status</a>
   </nav>
 </header>
@@ -630,6 +818,11 @@ def build():
 <p class="sectionnote">Measured from the repository on every build — verification, what is written, the source library, and what is blocking. <a href="status.html">Open the status page &rarr;</a></p>
 </section>
 
+<section id="design-build">
+<h2>Design &amp; build</h2>
+<p class="sectionnote">The design system and the template build instructions, for whoever is making the artwork. Type, palette, every canvas size with bleed, the ring punch, and what has to stay a placeholder. <a href="build.html">Open the build page &rarr;</a></p>
+</section>
+
 <section id="the-fourteen">
 <h2>The Fourteen</h2>
 <p class="sectionnote">In calendar order, as they arrive.</p>
@@ -649,6 +842,8 @@ def build():
 </section>"""
     with open(os.path.join(OUT, "index.html"), "w", encoding="utf-8") as f:
         f.write(page("Noor Post", "", body))
+
+    build_reference()
 
     # count what was actually written, rather than a formula that silently
     # drifts whenever a new page type is added (the card pages were missing)

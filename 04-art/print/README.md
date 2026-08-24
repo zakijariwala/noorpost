@@ -21,7 +21,17 @@ Hadith-card content is still blocked — no saying can be chosen until sourcing 
 
 **This is marked, loudly, in three places**: the on-screen note, a diagonal watermark on both faces, and a footnote on the back explaining it doesn't even qualify as real hadith-card content (a Qur'anic verse isn't "ethics and conduct," the register hadith cards are restricted to). Don't let this leak into anything that looks like a cleared page — same discipline as the `UNVERIFIED — TO VERIFY` watermark on the fact panel, whose six bullets are real copy but still `TV` on `citation-sheet.md`.
 
-## ⚠ Blocking defect — every letter template overflows its page
+## ✅ RESOLVED 2026-08-24 — the letter moved to A4 folded to A5
+
+**Option 3 was taken.** The letter and fact panel now sit on an **A4 landscape sheet folded once**, giving four A5-portrait faces: faces 1–2 the letter, face 3 the ●○ close, face 4 the fact panel. Recorded in `00-foundations/design-system.md` §4; build geometry in `04-art/canva-build-brief.md`.
+
+It was chosen because it is the only one of the four that changes nothing already written or fixed — type size unchanged, 330–370 words unchanged, fact panel still on the same sheet, still seven items. The cost is a paper spec change and one fold in assembly, and the envelope must now take an A5 stack (C5, 229 × 162 mm).
+
+**The HTML templates in this directory have not been rebuilt against it.** They are still A5 single-face and still overflow; the overflow guard still fires on them. They are a design-system verification pass, not production art, and the production build is happening in Canva. Rebuild or retire them — do not treat a green proof here as evidence of anything until one or the other happens.
+
+The original defect, kept because the failure shape is worth remembering:
+
+## ⚠ ~~Blocking defect~~ — every letter template overflows its page
 
 **Found 2026-08-12. It affects all fifty-three letter templates and it predates the companions generator.**
 

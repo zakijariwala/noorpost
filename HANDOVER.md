@@ -28,6 +28,7 @@ unzip sources.zip -d 00-sources
 | `TASKS.md` | Ten phases, gated. Checkboxes are current. |
 | `00-foundations/` | The rules. Everything else is checked against these. |
 | `00-sources/text/` | 15 source texts as plain text, page-numbered. **Tracked. Shia sources only** — see the hard rule in `sourcing-rules.md`. |
+| `00-sources/api/` | **32 Thaqalayn collections, 32,531 records, pinned by SHA-256. Tracked.** Approved as a source of record 2026-08-24 — see `00-sources/api/README.md`. |
 | `00-sources/*.pdf`, `00-sources/originals/` | The PDFs. **Not tracked** — from the release. Immutable. |
 | `00-sources/metadata/` | `sources.yaml` (editions, hashes, pagination), `rejected.yaml` (the denylist), `claims.yaml`, `citations.yaml`. **Tracked.** |
 | `00-sources/source.db` | SQLite + FTS5 over every page and passage. **Not tracked — rebuild it.** |
@@ -53,11 +54,13 @@ And the source pipeline, added 2026-08-14. `pip install -r requirements.txt` fir
 (PyYAML, and nothing else). Full account in `00-sources/README.md`.
 
 ```bash
-python tools/build_source_corpus.py     # text/ -> pages -> md/ -> source.db + FTS5
+python tools/fetch_thaqalayn.py         # thaqalayn.net -> 00-sources/api/, pinned by sha256
+python tools/fetch_thaqalayn.py --check # has the upstream moved? writes nothing
+python tools/build_source_corpus.py     # text/ + api/ -> pages -> md/ -> source.db + FTS5
 python tools/source_search.py "Shurayh" # find evidence, with edition and page
 python tools/page_image.py --source SRC-NHB-002 --page 35   # look at the original page
 python tools/source_audit.py --write    # what is fixed, missing, TV, V, unverified
-python -m unittest discover -s tests    # 40 tests
+python -m unittest discover -s tests    # 84 tests
 ```
 
 `source_search.py` searches `00-sources/` and nothing else, so a draft can never
@@ -93,6 +96,8 @@ Site is at **https://zakijariwala.github.io/noorpost/** and serves from `main` `
 
 **Every factual claim in every fact panel is unverified.** They are marked `TV` on the citation sheet. Nothing prints on `TV`.
 
+**What changed on 2026-08-24: the corpus got twenty times bigger and the rule for clearing a row got shorter.** thaqalayn.net is now an approved source of record — 32 Shia collections, every one with a named translator, pinned in `00-sources/api/`. **A claim carried by a passage there goes straight to `V`.** The passage still has to actually say it, and scholar sign-off on *wording* is untouched, but there is no longer a separate sourcing decision per row. Read `00-foundations/sourcing-rules.md` § "Approved source of record" before working the loop — the acquisition list under it has changed.
+
 ---
 
 ## The 2026-08-14 decisions
@@ -125,7 +130,7 @@ Site is at **https://zakijariwala.github.io/noorpost/** and serves from `main` `
 
 ### Also learned, and it blocks the tooling
 
-**There is no Python on the Windows machine this repo sits on.** `build_site.py`, `build_print_templates.py` and the other two **cannot be run there.** Install Python, or do tooling work elsewhere.
+~~**There is no Python on the Windows machine this repo sits on.**~~ **No longer true as of 2026-08-24** — Python 3.13 is installed there and the whole toolchain runs, including the corpus build and the 84 tests. `pip install -r requirements.txt` first.
 
 > **Amended 2026-08-14, second session — "read the markdown, not the published site" no longer applies to `docs/`.**
 >
@@ -199,7 +204,7 @@ The fixed-editions table in `00-foundations/sourcing-rules.md` is **now filled �
 
 ## What is still missing
 
-**Sources.** `00-sources/text/` has Tuhaf al-Uqul, both parts of Nahj al-Balagha, Sahifa Sajjadiyya, Risalat al-Huquq, both volumes of Uyun Akhbar al-Rida, al-Kafi, two copies of Kitab al-Irshad, Subhani's *The Message*, two Qarashi lives, and two on the Fourteen. **All Shia.** Guillaume's Sira and the two Tabari volumes were removed on 2026-08-12 under the hard rule in `sourcing-rules.md`.
+**Sources.** `00-sources/api/` holds 32 approved Thaqalayn collections (32,531 records, all credited, all Shia) — including both `Kitab al-Ghayba` works, which **close the envelope 10 occultation gap and the four companion cards behind it.** `00-sources/text/` has Tuhaf al-Uqul, both parts of Nahj al-Balagha, Sahifa Sajjadiyya, Risalat al-Huquq, both volumes of Uyun Akhbar al-Rida, al-Kafi, two copies of Kitab al-Irshad, Subhani's *The Message*, two Qarashi lives, and two on the Fourteen. **All Shia.** Guillaume's Sira and the two Tabari volumes were removed on 2026-08-12 under the hard rule in `sourcing-rules.md`.
 
 **Check the title page before assuming a held file is uncitable — one already was and nobody had looked.** `qarashi--the-life-of-imam-musa-bin-jafar-al-kazim.txt` credits **author, translator (Jasim al-Rasheed) and publisher (Ansariyan, Qum)**, which is a full citation chain and better than several files being treated as usable. `head -12` on the extracted text shows it. The two `al-Irshad` files, by contrast, credit **no translator at all**, which is exactly why they still block envelope 07.
 
@@ -207,7 +212,7 @@ Not there:
 
 | Missing | Blocks |
 |---|---|
-| Kamal al-Din / Jassim Hussain on the occultation | Envelope 10 — the four deputies |
+| ~~Kamal al-Din / Jassim Hussain on the occultation~~ | **Closed 2026-08-24** by both `Kitab al-Ghayba` works in the approved corpus. Kamal al-Din itself is advertised by the API and served empty — an upstream scrape gap, no longer on the critical path. |
 | A **Shia** history covering 40–260 AH | The ruler bullet in all fourteen panels — this had no source even before the rule, and now has no candidate either |
 | Four of the six Qarashi lives | Envelopes 05, 07, 11, 13 |
 | **A world-history reference** | All fourteen "elsewhere in the world" bullets |
@@ -226,6 +231,8 @@ None of these need a source. They need you.
 
 | Decision | What it touches |
 |---|---|
+| **Does `Risalat al-Huquq` have 49 entries or 51?** | Envelope 09's letter and panel print fifty-one. Two renderings of the *same* Chittick translation disagree — the fixed edition's headers run 1–51, the approved corpus serves 49. The fixed edition is what envelope 09 cites and its count stands; someone has to find what the shorter one drops. |
+| **Do the approved corpus's editions ever supersede a fixed print edition?** | Today they sit alongside. The 49-vs-51 finding is the argument for keeping it that way — the API is not always the fuller rendering. |
 | **What orders the companions chain `01/39`–`39/39`?** | Every companion hadith card. Proposal: group by the Masoom pointed to, in historical order. **Number it independently of the silsila** — do not inherit the unresolved segment fight below. |
 | **What does Khawla's card carry?** | She points to no Masoom, so the selection rule has nothing to draw on. Answer the scholar's category call on her entry first. |
 | **What are the packs?** | How thirty-nine envelopes are sold. Groupings already in the material: the four nayibs, Karbala, the mothers, the Prophet's household. |
