@@ -160,8 +160,11 @@ def citation_string(ed, row):
     if tail:
         core += ". " + ", ".join(tail) + "."
 
-    return "%s  [%s · pdf p %s · %s]" % (core, ed["source_id"], row["pdf_page_start"],
-                                         row["passage_id"])
+    # An API snapshot has no pages at all, so naming one would invite a
+    # citation to a number that does not exist in any printing.
+    where = ("record %s" % row["pdf_page_start"] if ed.get("pagination") == "api-record"
+             else "pdf p %s" % row["pdf_page_start"])
+    return "%s  [%s · %s · %s]" % (core, ed["source_id"], where, row["passage_id"])
 
 
 def citation_ready(ed, row):
@@ -284,7 +287,9 @@ def print_human(results, header=None):
         return
     for i, r in enumerate(results, 1):
         loc = r["locator"]
-        page = "pdf p %s" % loc["pdf_page_start"]
+        api = r["edition"].get("pagination") == "api-record"
+        page = ("record %s" % loc["pdf_page_start"] if api
+                else "pdf p %s" % loc["pdf_page_start"])
         if loc["pdf_page_end"] != loc["pdf_page_start"]:
             page += "–%s" % loc["pdf_page_end"]
         if loc["printed_page_start"]:
@@ -310,10 +315,16 @@ def print_human(results, header=None):
             body = body[:700] + " …"
         print("     %s" % body)
         if r["arabic_raw"]:
-            print("   arabic_verified: %s — compare against the page image before quoting:"
-                  % r["arabic_verified"])
-            print("     python tools/page_image.py --source %s --page %s"
-                  % (r["source_id"], loc["pdf_page_start"]))
+            print("   arabic_verified: %s — check it before quoting:" % r["arabic_verified"])
+            if api:
+                # There is no page image for a snapshot. The upstream record is
+                # the only thing to check it against.
+                print("     %s" % (r.get("url") or "%s/%s/%s" % (
+                    "https://www.thaqalayn-api.net/api/v2",
+                    r["source_id"].replace("SRC-TQ-", ""), loc["pdf_page_start"])))
+            else:
+                print("     python tools/page_image.py --source %s --page %s"
+                      % (r["source_id"], loc["pdf_page_start"]))
         print("   cite: %s" % r["citation"])
         if not r["citation_ready"]:
             for b in r.get("citation_blockers", []):

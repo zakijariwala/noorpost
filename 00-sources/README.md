@@ -16,6 +16,7 @@ What counts as evidence, and what a citation has to be able to prove, is in
 |---|---|---|
 | `originals/`, `*.pdf` | The original PDFs. **Immutable.** The ultimate source of truth. | no — release zip, see `HANDOVER.md` |
 | `text/` | The `[[p N]]` page-marked plain text. 15 files, 6,328 pages. | **yes** |
+| `api/` | **32 pinned Thaqalayn collections, 32,531 records.** Approved as a source of record 2026-08-24 — `api/README.md`. | **yes** |
 | `metadata/sources.yaml` | Works and editions. `source_id`, translator, SHA-256, pagination character, status. | **yes** |
 | `metadata/rejected.yaml` | The denylist. Works that may never re-enter the project, by hash. | **yes** |
 | `metadata/claims.yaml` | One record per claim that reaches print. TV → V. | **yes** |
@@ -175,7 +176,7 @@ on.
 
 ### No edition has citable page numbers
 
-**Not one edition in this project has citable page numbers today.** Every fixed
+**Not one edition in this project has citable page numbers today**, and the 32 Thaqalayn editions have no pages at all — the number on a record is the work's own hadith number. They are stamped `pagination: api-record`, and `source_search.py` prints `record N` for them, never `p. N`. Every fixed
 edition is a web-generated al-islam.org PDF whose pagination is an artifact of
 generation, and `kafi--alkafi-201601` is a two-column scan whose `[[p N]]` is a
 sheet number covering two book pages.

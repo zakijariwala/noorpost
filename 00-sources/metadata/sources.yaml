@@ -31,520 +31,1442 @@
 # on a machine that has 00-sources/*.pdf to fill it in.
 
 works:
-  - work_id: WRK-TAU
-    work: Tuhaf al-Uqul
-    author: Ibn Shu'ba al-Harrani
-    tradition: shia
-    priority_rank: 1
-    note: Rank 1 in sourcing-rules.md. First choice for most hadith cards.
-
-  - work_id: WRK-NHB
-    work: Nahj al-Balagha
-    author: compiled by al-Sharif al-Radi
-    tradition: shia
-    priority_rank: 2
-
-  - work_id: WRK-SAJ
-    work: al-Sahifa al-Kamila al-Sajjadiyya
-    author: Imam Zayn al-Abidin (al-Sajjad)
-    tradition: shia
-    priority_rank: 3
-
-  - work_id: WRK-KAF
-    work: al-Kafi
-    author: al-Kulayni
-    tradition: shia
-    priority_rank: 4
-
-  - work_id: WRK-UYR
-    work: Uyun Akhbar al-Rida
-    author: al-Saduq
-    tradition: shia
-    priority_rank: 5
-
-  - work_id: WRK-RHU
-    work: Risalat al-Huquq
-    author: Imam Zayn al-Abidin (al-Sajjad)
-    tradition: shia
-    priority_rank: 3
-    note: Travels with the Sahifa in most editions and is fixed in the same one.
-
-  - work_id: WRK-IRS
-    work: Kitab al-Irshad
-    author: al-Shaykh al-Mufid
-    tradition: shia
-    priority_rank: null
-    note: >-
-      The outstanding acquisition. It is the Shia biographical work that has to
-      carry the narrative spine of most of the fourteen letters. Neither copy
-      held credits a translator, so nothing may be cited from either yet.
-
-  - work_id: WRK-MSG
-    work: 'The Message: The Life of the Holy Prophet of Islam'
-    author: Ayatullah Ja'far Subhani
-    tradition: shia
-    priority_rank: null
-
-  - work_id: WRK-QAR
-    work: The Life of Imam … (series)
-    author: Baqir Sharif al-Qarashi
-    tradition: shia
-    priority_rank: null
-    note: Six in the series. Two held.
-
-  - work_id: WRK-FTI
-    work: The Fourteen Infallibles
-    author: Yasin T. al-Jibouri
-    tradition: shia
-    priority_rank: null
-    note: >-
-      Authored directly in English, not a translation. Secondary/tertiary — use
-      it to locate material, never as the citation of record, same standing as
-      Bihar al-Anwar under sourcing-rules.md.
-
-  - work_id: WRK-NQI
-    work: Nuqoosh e Ismat (Seerah Fourteen Infallibles)
-    author: Allamah Sayyid Zeeshan Haider Jawadi
-    tradition: shia
-    priority_rank: null
-
-  - work_id: WRK-OCC
-    work: Occultation sources (Kamal al-Din / The Occultation of the Twelfth Imam)
-    author: al-Saduq / Jassim Hussain
-    tradition: shia
-    priority_rank: null
-    note: >-
-      Blocks envelope 10 and five companion cards. Aggregator copies exist but
-      are credited only to en.unknown, which fails the translator rule.
-
-  - work_id: WRK-HIS
-    work: A Shia history covering 40–260 AH
-    author: null
-    tradition: shia
-    priority_rank: null
-    note: >-
-      Needed for the ruler bullet in all fourteen fact panels. Had no source
-      before the Shia-sources-only rule and has no candidate after it.
-
-  - work_id: WRK-WHI
-    work: A single world-history reference
-    author: null
-    tradition: secular
-    priority_rank: null
-    note: >-
-      Fourteen "elsewhere in the world" bullets. Both Timetables of History
-      downloads are DRM-encrypted and will not extract; a different reference
-      is required.
-
+- work_id: WRK-TAU
+  work: Tuhaf al-Uqul
+  author: Ibn Shu'ba al-Harrani
+  tradition: shia
+  priority_rank: 1
+  note: Rank 1 in sourcing-rules.md. First choice for most hadith cards.
+- work_id: WRK-NHB
+  work: Nahj al-Balagha
+  author: compiled by al-Sharif al-Radi
+  tradition: shia
+  priority_rank: 2
+- work_id: WRK-SAJ
+  work: al-Sahifa al-Kamila al-Sajjadiyya
+  author: Imam Zayn al-Abidin (al-Sajjad)
+  tradition: shia
+  priority_rank: 3
+- work_id: WRK-KAF
+  work: al-Kafi
+  author: al-Kulayni
+  tradition: shia
+  priority_rank: 4
+- work_id: WRK-UYR
+  work: Uyun Akhbar al-Rida
+  author: al-Saduq
+  tradition: shia
+  priority_rank: 5
+- work_id: WRK-RHU
+  work: Risalat al-Huquq
+  author: Imam Zayn al-Abidin (al-Sajjad)
+  tradition: shia
+  priority_rank: 3
+  note: Travels with the Sahifa in most editions and is fixed in the same one.
+- work_id: WRK-IRS
+  work: Kitab al-Irshad
+  author: al-Shaykh al-Mufid
+  tradition: shia
+  priority_rank: null
+  note: The outstanding acquisition. It is the Shia biographical work that has to carry the narrative
+    spine of most of the fourteen letters. Neither copy held credits a translator, so nothing may be cited
+    from either yet.
+- work_id: WRK-MSG
+  work: 'The Message: The Life of the Holy Prophet of Islam'
+  author: Ayatullah Ja'far Subhani
+  tradition: shia
+  priority_rank: null
+- work_id: WRK-QAR
+  work: The Life of Imam … (series)
+  author: Baqir Sharif al-Qarashi
+  tradition: shia
+  priority_rank: null
+  note: Six in the series. Two held.
+- work_id: WRK-FTI
+  work: The Fourteen Infallibles
+  author: Yasin T. al-Jibouri
+  tradition: shia
+  priority_rank: null
+  note: Authored directly in English, not a translation. Secondary/tertiary — use it to locate material,
+    never as the citation of record, same standing as Bihar al-Anwar under sourcing-rules.md.
+- work_id: WRK-NQI
+  work: Nuqoosh e Ismat (Seerah Fourteen Infallibles)
+  author: Allamah Sayyid Zeeshan Haider Jawadi
+  tradition: shia
+  priority_rank: null
+- work_id: WRK-OCC
+  work: Occultation sources (Kamal al-Din / The Occultation of the Twelfth Imam)
+  author: al-Saduq / Jassim Hussain
+  tradition: shia
+  priority_rank: null
+  note: Blocks envelope 10 and five companion cards. Aggregator copies exist but are credited only to
+    en.unknown, which fails the translator rule.
+- work_id: WRK-HIS
+  work: A Shia history covering 40–260 AH
+  author: null
+  tradition: shia
+  priority_rank: null
+  note: Needed for the ruler bullet in all fourteen fact panels. Had no source before the Shia-sources-only
+    rule and has no candidate after it.
+- work_id: WRK-WHI
+  work: A single world-history reference
+  author: null
+  tradition: secular
+  priority_rank: null
+  note: Fourteen "elsewhere in the world" bullets. Both Timetables of History downloads are DRM-encrypted
+    and will not extract; a different reference is required.
+- work_id: WRK-TQ-Al-Amali-Mufid
+  work: Al-Amālī
+  author: Shaykh Muḥammad b. Muḥammad al-Mufīd
+  tradition: shia
+  priority_rank: null
+  note: Held as a pinned Thaqalayn API snapshot. Approved as a source of record. No page numbers exist
+    in this edition — cite the work's own hadith number.
+- work_id: WRK-TQ-Al-Amali-Saduq
+  work: Al-Amālī
+  author: Shaykh Muḥammad b. ʿAlī al-Ṣaduq
+  tradition: shia
+  priority_rank: null
+  note: Held as a pinned Thaqalayn API snapshot. Approved as a source of record. No page numbers exist
+    in this edition — cite the work's own hadith number.
+- work_id: WRK-TQ-Al-Kafi-Kulayni
+  work: Al-Kāfi
+  author: Shaykh Muḥammad b. Yaʿqūb al-Kulaynī
+  tradition: shia
+  priority_rank: null
+  note: Held as a pinned Thaqalayn API snapshot. Approved as a source of record. No page numbers exist
+    in this edition — cite the work's own hadith number.
+- work_id: WRK-TQ-Al-Khisal-Saduq
+  work: Al-Khiṣāl
+  author: Shaykh Muḥammad b. ʿAlī al-Ṣaduq
+  tradition: shia
+  priority_rank: null
+  note: Held as a pinned Thaqalayn API snapshot. Approved as a source of record. No page numbers exist
+    in this edition — cite the work's own hadith number.
+- work_id: WRK-TQ-Al-Tawhid-Saduq
+  work: Al-Tawḥīd
+  author: Shaykh Muḥammad b. ʿAlī al-Ṣaduq
+  tradition: shia
+  priority_rank: null
+  note: Held as a pinned Thaqalayn API snapshot. Approved as a source of record. No page numbers exist
+    in this edition — cite the work's own hadith number.
+- work_id: WRK-TQ-Fadail-al-Shia-Saduq
+  work: Faḍaʾil al-Shīʿa
+  author: Shaykh Muḥammad b. ʿAlī al-Ṣaduq
+  tradition: shia
+  priority_rank: null
+  note: Held as a pinned Thaqalayn API snapshot. Approved as a source of record. No page numbers exist
+    in this edition — cite the work's own hadith number.
+- work_id: WRK-TQ-Kamil-al-Ziyarat-Qummi
+  work: Kāmil al-Ziyārāt
+  author: Shaykh Jaʿfar b. Muḥammad al-Qummī
+  tradition: shia
+  priority_rank: null
+  note: Held as a pinned Thaqalayn API snapshot. Approved as a source of record. No page numbers exist
+    in this edition — cite the work's own hadith number.
+- work_id: WRK-TQ-Kitab-al-Duafa-Ghadairi
+  work: Kitāb al-Ḍuʿafāʾ
+  author: Abū al-Ḥusayn Aḥmad b. al-Ḥusayn al-Ghaḍā'irī
+  tradition: shia
+  priority_rank: null
+  note: Held as a pinned Thaqalayn API snapshot. Approved as a source of record. No page numbers exist
+    in this edition — cite the work's own hadith number.
+- work_id: WRK-TQ-Kitab-al-Ghayba-Numani
+  work: Kitāb al-Ghayba
+  author: Abū ʿAbd Allah Muḥammad b. Ibrāhīm al-Nuʿmānī
+  tradition: shia
+  priority_rank: null
+  note: Held as a pinned Thaqalayn API snapshot. Approved as a source of record. No page numbers exist
+    in this edition — cite the work's own hadith number.
+- work_id: WRK-TQ-Kitab-al-Ghayba-Tusi
+  work: Kitāb al-Ghayba
+  author: Shaykh Muḥammad b. al-Ḥasan al-Ṭūsī
+  tradition: shia
+  priority_rank: null
+  note: Held as a pinned Thaqalayn API snapshot. Approved as a source of record. No page numbers exist
+    in this edition — cite the work's own hadith number.
+- work_id: WRK-TQ-Kitab-al-Mumin-Ahwazi
+  work: Kitāb al-Muʾmin
+  author: Ḥusayn b. Saʿīd al-Ahwāzī
+  tradition: shia
+  priority_rank: null
+  note: Held as a pinned Thaqalayn API snapshot. Approved as a source of record. No page numbers exist
+    in this edition — cite the work's own hadith number.
+- work_id: WRK-TQ-Kitab-al-Zuhd-Ahwazi
+  work: Kitāb al-Zuhd
+  author: Ḥusayn b. Saʿīd al-Ahwāzī
+  tradition: shia
+  priority_rank: null
+  note: Held as a pinned Thaqalayn API snapshot. Approved as a source of record. No page numbers exist
+    in this edition — cite the work's own hadith number.
+- work_id: WRK-TQ-Maani-al-Akhbar-Saduq
+  work: Maʿānī al-ʾAkhbār
+  author: Shaykh Muḥammad b. ʿAlī al-Ṣaduq
+  tradition: shia
+  priority_rank: null
+  note: Held as a pinned Thaqalayn API snapshot. Approved as a source of record. No page numbers exist
+    in this edition — cite the work's own hadith number.
+- work_id: WRK-TQ-Man-La-Yahduruh-al-Faqih-Saduq
+  work: Man Lā Yaḥḍuruh al-Faqīh
+  author: Shaykh Muḥammad b. ʿAlī al-Ṣaduq
+  tradition: shia
+  priority_rank: null
+  note: Held as a pinned Thaqalayn API snapshot. Approved as a source of record. No page numbers exist
+    in this edition — cite the work's own hadith number.
+- work_id: WRK-TQ-Mujam-al-Ahadith-al-Mutabara-Muhsini
+  work: Muʿjam al-Aḥādīth al-Muʿtabara
+  author: Shaykh Muḥammad Āṣif al-Muḥsinī
+  tradition: shia
+  priority_rank: null
+  note: Held as a pinned Thaqalayn API snapshot. Approved as a source of record. No page numbers exist
+    in this edition — cite the work's own hadith number.
+- work_id: WRK-TQ-Nahj-al-Balagha-Radi
+  work: Nahj al-Balāgha
+  author: al-Sharīf al-Raḍī
+  tradition: shia
+  priority_rank: null
+  note: Held as a pinned Thaqalayn API snapshot. Approved as a source of record. No page numbers exist
+    in this edition — cite the work's own hadith number.
+- work_id: WRK-TQ-Risalat-al-Huquq-Abidin
+  work: Risālat al-Ḥuqūq
+  author: attributed to Imam Zayn al-ʿĀbidīn (a.s)
+  tradition: shia
+  priority_rank: null
+  note: Held as a pinned Thaqalayn API snapshot. Approved as a source of record. No page numbers exist
+    in this edition — cite the work's own hadith number.
+- work_id: WRK-TQ-Sifat-al-Shia-Saduq
+  work: Ṣifāt al-Shīʿa
+  author: Shaykh Muḥammad b. ʿAlī al-Ṣaduq
+  tradition: shia
+  priority_rank: null
+  note: Held as a pinned Thaqalayn API snapshot. Approved as a source of record. No page numbers exist
+    in this edition — cite the work's own hadith number.
+- work_id: WRK-TQ-Thawab-al-Amal-wa-iqab-al-Amal-Saduq
+  work: Thawāb al-Aʿmāl wa ʿiqāb al-Aʿmāl
+  author: Shaykh Muḥammad b. ʿAlī al-Ṣaduq
+  tradition: shia
+  priority_rank: null
+  note: Held as a pinned Thaqalayn API snapshot. Approved as a source of record. No page numbers exist
+    in this edition — cite the work's own hadith number.
+- work_id: WRK-TQ-Uyun-akhbar-al-Rida-Saduq
+  work: ʿUyūn akhbār al-Riḍā
+  author: Shaykh Muḥammad b. ʿAlī al-Ṣaduq
+  tradition: shia
+  priority_rank: null
+  note: Held as a pinned Thaqalayn API snapshot. Approved as a source of record. No page numbers exist
+    in this edition — cite the work's own hadith number.
 editions:
-  # ---------------------------------------------------------------- fixed ---
-  - source_id: SRC-TAU-001
-    work_id: WRK-TAU
-    volume: null
-    volume_title: null
-    translator: Badr Shahin
-    publisher: Ansariyan Publications, Qum
-    year: null
-    edition: al-islam.org PDF of the Ansariyan translation
-    language: en
-    file: null
-    sha256: null
-    page_count: 401
-    text_file: 00-sources/text/tuhaf_al-uqul.txt
-    pagination: web-generated
-    citation_unit: internal-number
-    permission: unchecked
-    status: fixed
-    complete: true
-    aliases: [Tuhaf al-Uqul, Tuhaf Al-Uqul, Tuhaf al-'Uqul]
-    notes: >-
-      Citation of record is the work's own numbering (short maxims, no. N), not
-      a page. Year still to fix in sourcing-rules.md.
-
-  - source_id: SRC-NHB-001
-    work_id: WRK-NHB
-    volume: 1
-    volume_title: Part 1 — The Sermons
-    translator: Sayed Ali Reza
-    publisher: null
-    year: null
-    edition: null
-    language: en
-    file: null
-    sha256: null
-    page_count: 591
-    text_file: 00-sources/text/nahjul_balagha_part_1_-_the_sermons.txt
-    pagination: web-generated
-    citation_unit: internal-number
-    permission: unchecked
-    status: fixed
-    complete: true
-    aliases: [Nahj al-Balagha, Nahjul Balagha, Nahj al-Balagha part 1, Nahj al-Balagha — sermons]
-    notes: >-
-      Carries the Arabic alongside the English. The extracted Arabic is
-      reordered by the PDF's font encoding and is not quotation-ready — every
-      Arabic passage is arabic_verified: false until checked against the page
-      image. Publisher and year still to fix.
-
-  - source_id: SRC-NHB-002
-    work_id: WRK-NHB
-    volume: 2
-    volume_title: Part 2 — Letters and Sayings
-    translator: Sayed Ali Reza
-    publisher: null
-    year: null
-    edition: null
-    language: en
-    file: null
-    sha256: null
-    page_count: 302
-    text_file: 00-sources/text/nahjul_balagha_part_2_letters_and_sayings.txt
-    pagination: web-generated
-    citation_unit: internal-number
-    permission: unchecked
-    status: fixed
-    complete: true
-    aliases: [Nahj al-Balagha part 2, Nahj al-Balagha — letters and sayings]
-    notes: Same Arabic caveat as part 1.
-
-  - source_id: SRC-SAJ-001
-    work_id: WRK-SAJ
-    volume: null
-    volume_title: null
-    translator: William C. Chittick
-    publisher: Muhammadi Trust of Great Britain and Northern Ireland
-    year: 1988
-    edition: Muhammadi Trust (foreword dated 17 Jan 1988)
-    language: en
-    file: null
-    sha256: null
-    page_count: 710
-    text_file: 00-sources/text/as-sahifa_al-kamilah_al-sajjadiyya_.txt
-    pagination: web-generated
-    citation_unit: internal-number
-    permission: unchecked
-    status: fixed
-    complete: true
-    aliases: [Sahifa Sajjadiyya, al-Sahifa al-Kamilah al-Sajjadiyya, Sahifa al-Sajjadiyya]
-    notes: Cite by supplication number.
-
-  - source_id: SRC-RHU-001
-    work_id: WRK-RHU
-    volume: null
-    volume_title: null
-    translator: William C. Chittick
-    publisher: Muhammadi Trust of Great Britain and Northern Ireland
-    year: 1988
-    edition: bound with the Sahifa Sajjadiyya
-    language: en
-    file: null
-    sha256: null
-    page_count: 29
-    text_file: 00-sources/text/treatise_on_rights_risalat_al-huquq.txt
-    pagination: web-generated
-    citation_unit: entry
-    permission: unchecked
-    status: fixed
-    complete: true
-    aliases: [Risalat al-Huquq, Treatise on Rights, Risalat al-Huquq (Treatise on Rights)]
-    notes: >-
-      Fifty-one entries, counted off the English headers. Cite the entry number;
-      the page number in this PDF is decoration.
-
-  - source_id: SRC-UYR-001
-    work_id: WRK-UYR
-    volume: 1
-    volume_title: Volume 1
-    translator: Dr. Ali Peiravi
-    publisher: Ansariyan Publications, Qum
-    year: null
-    edition: null
-    language: en
-    file: null
-    sha256: null
-    page_count: 459
-    text_file: 00-sources/text/uyun_akhbar_ar-ridha_volume_1.txt
-    pagination: web-generated
-    citation_unit: chapter-report
-    permission: unchecked
-    status: fixed
-    complete: true
-    aliases: [Uyun Akhbar al-Rida, Uyun Akhbar ar-Ridha, 'Uyun Akhbar al-Rida, vol. 1']
-    notes: Arabic present throughout; same extraction caveat as Nahj al-Balagha.
-
-  - source_id: SRC-UYR-002
-    work_id: WRK-UYR
-    volume: 2
-    volume_title: Volume 2
-    translator: Dr. Ali Peiravi
-    publisher: Ansariyan Publications, Qum
-    year: null
-    edition: null
-    language: en
-    file: null
-    sha256: null
-    page_count: 467
-    text_file: 00-sources/text/uyun_akhbar_ar-ridha_volume_2.txt
-    pagination: web-generated
-    citation_unit: chapter-report
-    permission: unchecked
-    status: fixed
-    complete: true
-    aliases: ['Uyun Akhbar al-Rida, vol. 2', Uyun Akhbar ar-Ridha Volume 2]
-    notes: Carries the four conditions on the succession — envelope 13.
-
-  # ------------------------------------------------ verification-required ---
-  - source_id: SRC-KAF-001
-    work_id: WRK-KAF
-    volume: 1
-    volume_title: Part 1 (Usul)
-    translator: Muhammad Sarwar
-    publisher: Islamic Seminary Inc. (unconfirmed)
-    year: null
-    edition: null
-    language: en
-    file: kafi--alkafi-201601.pdf
-    sha256: 969ff47af5fe9d0bf6ca542aa11f2d27130437b156448ee9cb4b141ba2f1d41a
-    page_count: 532
-    text_file: 00-sources/text/kafi--alkafi-201601.txt
-    pagination: two-column
-    citation_unit: internal-number
-    permission: unchecked
-    status: verification-required
-    complete: false
-    aliases: [al-Kafi, Al-Kafi, Usul al-Kafi, Kitab al-Kafi]
-    notes: >-
-      Two reasons this is not fixed. It is Part 1 only, of eight volumes. And it
-      is a two-column scan at 27% — one [[p N]] covers two book pages, so the
-      marker is a sheet number and is off by twenty or more. Trap 1,
-      HANDOVER.md. Not yet cited from; the trap is loaded and waiting.
-
-  # ------------------------------------------------------------ candidate ---
-  - source_id: SRC-IRS-001
-    work_id: WRK-IRS
-    volume: 1
-    volume_title: 'Kitab al-Irshad 1 — the Commander of the Faithful'
-    translator: null
-    publisher: null
-    year: null
-    edition: alhassanain.org copy
-    language: en
-    file: irshad--kitab-al-irshad-1.pdf
-    sha256: 187509575fc54ba020b4bda15ea8e1fdbab5b27b6abb7374cc33842b39d47741
-    page_count: 204
-    text_file: 00-sources/text/irshad--kitab-al-irshad-1.txt
-    pagination: unknown
-    citation_unit: none
-    permission: unchecked
-    status: candidate
-    complete: false
-    aliases: [Kitab al-Irshad, al-Irshad, Kitab al-Irshad part 1]
-    notes: >-
-      No translator credit survived extraction. I.K.A. Howard is the expected
-      translator, unconfirmed. Nothing may be cited from this until it is.
-
-  - source_id: SRC-IRS-002
-    work_id: WRK-IRS
-    volume: 1
-    volume_title: 'Kitab al-Irshad, Part 1 (second copy)'
-    translator: null
-    publisher: null
-    year: null
-    edition: archive.org copy
-    language: en
-    file: irshad--kitab-al-irshad-part-1.pdf
-    sha256: ff6dd8dbfb9a2f01c78420ca071fe6f64606ff4c88adca352d4a78800f970526
-    page_count: 203
-    text_file: 00-sources/text/irshad--kitab-al-irshad-part-1.txt
-    pagination: unknown
-    citation_unit: none
-    permission: unchecked
-    status: candidate
-    complete: false
-    aliases: []
-    notes: Second copy of the same part. Same missing translator credit.
-
-  - source_id: SRC-MSG-001
-    work_id: WRK-MSG
-    volume: null
-    volume_title: null
-    translator: null
-    publisher: Islamic Seminary Publications
-    year: null
-    edition: null
-    language: en
-    file: sira-subhani--the-message-201506.pdf
-    sha256: 7bea17cb3cf80ebe1ab8a1c7a9a5f3fe5ad0c23c0a11a545fbe4011ea6809da0
-    page_count: 549
-    text_file: 00-sources/text/sira-subhani--the-message-201506.txt
-    pagination: unknown
-    citation_unit: none
-    permission: unchecked
-    status: candidate
-    complete: true
-    aliases: [The Message, Subhani The Message]
-    notes: >-
-      Author confirmed in the text; the English translator's name is not in the
-      extracted front matter, so it is not fixed. A permitted Shia sira and the
-      nearest candidate for the envelope 03 rows.
-
-  - source_id: SRC-QAR-001
-    work_id: WRK-QAR
-    volume: null
-    volume_title: The Life of Imam Musa bin Ja'far al-Kazim
-    translator: Jasim al-Rasheed
-    publisher: Ansariyan Publications, Qum
-    year: null
-    edition: null
-    language: en
-    file: qarashi--the-life-of-imam-musa-bin-jafar-al-kazim.pdf
-    sha256: 6331ca0d02b116315647852fc28e489aaba3b968520b349f29b8653c45648f79
-    page_count: 612
-    text_file: 00-sources/text/qarashi--the-life-of-imam-musa-bin-jafar-al-kazim.txt
-    pagination: unknown
-    citation_unit: none
-    permission: unchecked
-    status: candidate
-    complete: true
-    aliases: [The Life of Imam al-Kadhim, Qarashi al-Kadhim, 'Qarashi, The Life of Imam Musa bin Ja''far al-Kazim']
-    notes: >-
-      1 of 6 in the series. ⚠ NOT FIXED, BUT NOW CITED. The envelope 08 rows added to
-      citation-sheet.md on 2026-08-14 are marked V against this edition, and its title
-      page credits author, translator and publisher — better credited than several
-      works that are fixed. But it is still absent from the fixed-editions table in
-      00-foundations/sourcing-rules.md, which lists six works and not this one.
-      Fixing an edition is an editorial act and is not done from here: add it to that
-      table, then change this status. tools/source_audit.py lists the affected
-      citations under "citations resting on an edition that is not fixed".
-
-  - source_id: SRC-QAR-002
-    work_id: WRK-QAR
-    volume: null
-    volume_title: The Life of Imam Mahdi
-    translator: Al-Qalam Translators & Writers Bureau, Vasai (India)
-    publisher: null
-    year: null
-    edition: null
-    language: en
-    file: qarashi--the-life-of-imam-mahdi-a-s.pdf
-    sha256: 749d64908b1516c7e4b5132cf9c2d47a2a8af2b2b5f9fc77558188f38c06dc89
-    page_count: 316
-    text_file: 00-sources/text/qarashi--the-life-of-imam-mahdi-a-s.txt
-    pagination: unknown
-    citation_unit: none
-    permission: unchecked
-    status: candidate
-    complete: true
-    aliases: [The Life of Imam Mahdi, Qarashi al-Mahdi]
-    notes: 2 of 6 in the series. Not fixed as an edition.
-
-  - source_id: SRC-FTI-001
-    work_id: WRK-FTI
-    volume: null
-    volume_title: null
-    translator: null
-    publisher: null
-    year: null
-    edition: archive.org copy
-    language: en
-    file: fourteen--the-fourteen-infallibles.pdf
-    sha256: eabadb3b64277dc67fa6963eaaf74f97b437be3a6d2e83bd5e9af187cf62641c
-    page_count: 105
-    text_file: 00-sources/text/fourteen--the-fourteen-infallibles.txt
-    pagination: unknown
-    citation_unit: none
-    permission: unchecked
-    status: candidate
-    complete: true
-    aliases: [The Fourteen Infallibles]
-    notes: >-
-      Not a translation. Locating use only — never the citation of record.
-
-  - source_id: SRC-NQI-001
-    work_id: WRK-NQI
-    volume: null
-    volume_title: null
-    translator: Sayyid Athar Husain S.H. Rizvi
-    publisher: Allamah Jawadi Trust
-    year: null
-    edition: null
-    language: en
-    file: fourteen--nuqoosh-e-ismat-eng-trns-s-athar-h-sh-rizvi.pdf
-    sha256: 4500ff5ba2b7bdb31c2d4a77567973232001663736bf3ab78a90bde057452b57
-    page_count: 868
-    text_file: 00-sources/text/fourteen--nuqoosh-e-ismat-eng-trns-s-athar-h-sh-rizvi.txt
-    pagination: unknown
-    citation_unit: none
-    permission: unchecked
-    status: candidate
-    complete: true
-    aliases: [Nuqoosh e Ismat, Nuqoosh-e-Ismat]
-    notes: Translator credited. Edition not fixed for the project.
-
-  # -------------------------------------------------------------- missing ---
-  - source_id: SRC-OCC-001
-    work_id: WRK-OCC
-    volume: null
-    volume_title: null
-    translator: null
-    publisher: null
-    year: null
-    edition: null
-    language: en
-    file: null
-    sha256: null
-    page_count: null
-    text_file: null
-    pagination: unknown
-    citation_unit: none
-    permission: unchecked
-    status: missing
-    complete: false
-    aliases: [Kamal al-Din, The Occultation of the Twelfth Imam]
-    notes: Blocks envelope 10 and five companion cards.
-
-  - source_id: SRC-HIS-001
-    work_id: WRK-HIS
-    volume: null
-    volume_title: null
-    translator: null
-    publisher: null
-    year: null
-    edition: null
-    language: en
-    file: null
-    sha256: null
-    page_count: null
-    text_file: null
-    pagination: unknown
-    citation_unit: none
-    permission: unchecked
-    status: missing
-    complete: false
-    aliases: []
-    notes: >-
-      Blocks the ruler bullet in all fourteen fact panels. Must be a Shia work —
-      al-Tabari was the candidate and is rejected.
-
-  - source_id: SRC-WHI-001
-    work_id: WRK-WHI
-    volume: null
-    volume_title: null
-    translator: null
-    publisher: null
-    year: null
-    edition: null
-    language: en
-    file: null
-    sha256: null
-    page_count: null
-    text_file: null
-    pagination: unknown
-    citation_unit: none
-    permission: unchecked
-    status: missing
-    complete: false
-    aliases: []
-    notes: >-
-      Blocks all fourteen "elsewhere in the world" bullets. The two Timetables
-      of History PDFs in manifest.json are DRM-encrypted and will not extract.
+- source_id: SRC-TAU-001
+  work_id: WRK-TAU
+  volume: null
+  volume_title: null
+  translator: Badr Shahin
+  publisher: Ansariyan Publications, Qum
+  year: null
+  edition: al-islam.org PDF of the Ansariyan translation
+  language: en
+  file: null
+  sha256: null
+  page_count: 401
+  text_file: 00-sources/text/tuhaf_al-uqul.txt
+  pagination: web-generated
+  citation_unit: internal-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Tuhaf al-Uqul
+  - Tuhaf Al-Uqul
+  - Tuhaf al-'Uqul
+  notes: Citation of record is the work's own numbering (short maxims, no. N), not a page. Year still
+    to fix in sourcing-rules.md.
+- source_id: SRC-NHB-001
+  work_id: WRK-NHB
+  volume: 1
+  volume_title: Part 1 — The Sermons
+  translator: Sayed Ali Reza
+  publisher: null
+  year: null
+  edition: null
+  language: en
+  file: null
+  sha256: null
+  page_count: 591
+  text_file: 00-sources/text/nahjul_balagha_part_1_-_the_sermons.txt
+  pagination: web-generated
+  citation_unit: internal-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Nahj al-Balagha
+  - Nahjul Balagha
+  - Nahj al-Balagha part 1
+  - Nahj al-Balagha — sermons
+  notes: 'Carries the Arabic alongside the English. The extracted Arabic is reordered by the PDF''s font
+    encoding and is not quotation-ready — every Arabic passage is arabic_verified: false until checked
+    against the page image. Publisher and year still to fix.'
+- source_id: SRC-NHB-002
+  work_id: WRK-NHB
+  volume: 2
+  volume_title: Part 2 — Letters and Sayings
+  translator: Sayed Ali Reza
+  publisher: null
+  year: null
+  edition: null
+  language: en
+  file: null
+  sha256: null
+  page_count: 302
+  text_file: 00-sources/text/nahjul_balagha_part_2_letters_and_sayings.txt
+  pagination: web-generated
+  citation_unit: internal-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Nahj al-Balagha part 2
+  - Nahj al-Balagha — letters and sayings
+  notes: Same Arabic caveat as part 1.
+- source_id: SRC-SAJ-001
+  work_id: WRK-SAJ
+  volume: null
+  volume_title: null
+  translator: William C. Chittick
+  publisher: Muhammadi Trust of Great Britain and Northern Ireland
+  year: 1988
+  edition: Muhammadi Trust (foreword dated 17 Jan 1988)
+  language: en
+  file: null
+  sha256: null
+  page_count: 710
+  text_file: 00-sources/text/as-sahifa_al-kamilah_al-sajjadiyya_.txt
+  pagination: web-generated
+  citation_unit: internal-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Sahifa Sajjadiyya
+  - al-Sahifa al-Kamilah al-Sajjadiyya
+  - Sahifa al-Sajjadiyya
+  notes: Cite by supplication number.
+- source_id: SRC-RHU-001
+  work_id: WRK-RHU
+  volume: null
+  volume_title: null
+  translator: William C. Chittick
+  publisher: Muhammadi Trust of Great Britain and Northern Ireland
+  year: 1988
+  edition: bound with the Sahifa Sajjadiyya
+  language: en
+  file: null
+  sha256: null
+  page_count: 29
+  text_file: 00-sources/text/treatise_on_rights_risalat_al-huquq.txt
+  pagination: web-generated
+  citation_unit: entry
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Risalat al-Huquq
+  - Treatise on Rights
+  - Risalat al-Huquq (Treatise on Rights)
+  notes: Fifty-one entries, counted off the English headers. Cite the entry number; the page number in
+    this PDF is decoration.
+- source_id: SRC-UYR-001
+  work_id: WRK-UYR
+  volume: 1
+  volume_title: Volume 1
+  translator: Dr. Ali Peiravi
+  publisher: Ansariyan Publications, Qum
+  year: null
+  edition: null
+  language: en
+  file: null
+  sha256: null
+  page_count: 459
+  text_file: 00-sources/text/uyun_akhbar_ar-ridha_volume_1.txt
+  pagination: web-generated
+  citation_unit: chapter-report
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Uyun Akhbar al-Rida
+  - Uyun Akhbar ar-Ridha
+  - Uyun Akhbar al-Rida, vol. 1
+  notes: Arabic present throughout; same extraction caveat as Nahj al-Balagha.
+- source_id: SRC-UYR-002
+  work_id: WRK-UYR
+  volume: 2
+  volume_title: Volume 2
+  translator: Dr. Ali Peiravi
+  publisher: Ansariyan Publications, Qum
+  year: null
+  edition: null
+  language: en
+  file: null
+  sha256: null
+  page_count: 467
+  text_file: 00-sources/text/uyun_akhbar_ar-ridha_volume_2.txt
+  pagination: web-generated
+  citation_unit: chapter-report
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Uyun Akhbar al-Rida, vol. 2
+  - Uyun Akhbar ar-Ridha Volume 2
+  notes: Carries the four conditions on the succession — envelope 13.
+- source_id: SRC-KAF-001
+  work_id: WRK-KAF
+  volume: 1
+  volume_title: Part 1 (Usul)
+  translator: Muhammad Sarwar
+  publisher: Islamic Seminary Inc. (unconfirmed)
+  year: null
+  edition: null
+  language: en
+  file: kafi--alkafi-201601.pdf
+  sha256: 969ff47af5fe9d0bf6ca542aa11f2d27130437b156448ee9cb4b141ba2f1d41a
+  page_count: 532
+  text_file: 00-sources/text/kafi--alkafi-201601.txt
+  pagination: two-column
+  citation_unit: internal-number
+  permission: unchecked
+  status: verification-required
+  complete: false
+  aliases:
+  - al-Kafi
+  - Al-Kafi
+  - Usul al-Kafi
+  - Kitab al-Kafi
+  notes: Two reasons this is not fixed. It is Part 1 only, of eight volumes. And it is a two-column scan
+    at 27% — one [[p N]] covers two book pages, so the marker is a sheet number and is off by twenty or
+    more. Trap 1, HANDOVER.md. Not yet cited from; the trap is loaded and waiting.
+- source_id: SRC-IRS-001
+  work_id: WRK-IRS
+  volume: 1
+  volume_title: Kitab al-Irshad 1 — the Commander of the Faithful
+  translator: null
+  publisher: null
+  year: null
+  edition: alhassanain.org copy
+  language: en
+  file: irshad--kitab-al-irshad-1.pdf
+  sha256: 187509575fc54ba020b4bda15ea8e1fdbab5b27b6abb7374cc33842b39d47741
+  page_count: 204
+  text_file: 00-sources/text/irshad--kitab-al-irshad-1.txt
+  pagination: unknown
+  citation_unit: none
+  permission: unchecked
+  status: candidate
+  complete: false
+  aliases:
+  - Kitab al-Irshad
+  - al-Irshad
+  - Kitab al-Irshad part 1
+  notes: No translator credit survived extraction. I.K.A. Howard is the expected translator, unconfirmed.
+    Nothing may be cited from this until it is.
+- source_id: SRC-IRS-002
+  work_id: WRK-IRS
+  volume: 1
+  volume_title: Kitab al-Irshad, Part 1 (second copy)
+  translator: null
+  publisher: null
+  year: null
+  edition: archive.org copy
+  language: en
+  file: irshad--kitab-al-irshad-part-1.pdf
+  sha256: ff6dd8dbfb9a2f01c78420ca071fe6f64606ff4c88adca352d4a78800f970526
+  page_count: 203
+  text_file: 00-sources/text/irshad--kitab-al-irshad-part-1.txt
+  pagination: unknown
+  citation_unit: none
+  permission: unchecked
+  status: candidate
+  complete: false
+  aliases: []
+  notes: Second copy of the same part. Same missing translator credit.
+- source_id: SRC-MSG-001
+  work_id: WRK-MSG
+  volume: null
+  volume_title: null
+  translator: null
+  publisher: Islamic Seminary Publications
+  year: null
+  edition: null
+  language: en
+  file: sira-subhani--the-message-201506.pdf
+  sha256: 7bea17cb3cf80ebe1ab8a1c7a9a5f3fe5ad0c23c0a11a545fbe4011ea6809da0
+  page_count: 549
+  text_file: 00-sources/text/sira-subhani--the-message-201506.txt
+  pagination: unknown
+  citation_unit: none
+  permission: unchecked
+  status: candidate
+  complete: true
+  aliases:
+  - The Message
+  - Subhani The Message
+  notes: Author confirmed in the text; the English translator's name is not in the extracted front matter,
+    so it is not fixed. A permitted Shia sira and the nearest candidate for the envelope 03 rows.
+- source_id: SRC-QAR-001
+  work_id: WRK-QAR
+  volume: null
+  volume_title: The Life of Imam Musa bin Ja'far al-Kazim
+  translator: Jasim al-Rasheed
+  publisher: Ansariyan Publications, Qum
+  year: null
+  edition: null
+  language: en
+  file: qarashi--the-life-of-imam-musa-bin-jafar-al-kazim.pdf
+  sha256: 6331ca0d02b116315647852fc28e489aaba3b968520b349f29b8653c45648f79
+  page_count: 612
+  text_file: 00-sources/text/qarashi--the-life-of-imam-musa-bin-jafar-al-kazim.txt
+  pagination: unknown
+  citation_unit: none
+  permission: unchecked
+  status: candidate
+  complete: true
+  aliases:
+  - The Life of Imam al-Kadhim
+  - Qarashi al-Kadhim
+  - Qarashi, The Life of Imam Musa bin Ja'far al-Kazim
+  notes: '1 of 6 in the series. ⚠ NOT FIXED, BUT NOW CITED. The envelope 08 rows added to citation-sheet.md
+    on 2026-08-14 are marked V against this edition, and its title page credits author, translator and
+    publisher — better credited than several works that are fixed. But it is still absent from the fixed-editions
+    table in 00-foundations/sourcing-rules.md, which lists six works and not this one. Fixing an edition
+    is an editorial act and is not done from here: add it to that table, then change this status. tools/source_audit.py
+    lists the affected citations under "citations resting on an edition that is not fixed".'
+- source_id: SRC-QAR-002
+  work_id: WRK-QAR
+  volume: null
+  volume_title: The Life of Imam Mahdi
+  translator: Al-Qalam Translators & Writers Bureau, Vasai (India)
+  publisher: null
+  year: null
+  edition: null
+  language: en
+  file: qarashi--the-life-of-imam-mahdi-a-s.pdf
+  sha256: 749d64908b1516c7e4b5132cf9c2d47a2a8af2b2b5f9fc77558188f38c06dc89
+  page_count: 316
+  text_file: 00-sources/text/qarashi--the-life-of-imam-mahdi-a-s.txt
+  pagination: unknown
+  citation_unit: none
+  permission: unchecked
+  status: candidate
+  complete: true
+  aliases:
+  - The Life of Imam Mahdi
+  - Qarashi al-Mahdi
+  notes: 2 of 6 in the series. Not fixed as an edition.
+- source_id: SRC-FTI-001
+  work_id: WRK-FTI
+  volume: null
+  volume_title: null
+  translator: null
+  publisher: null
+  year: null
+  edition: archive.org copy
+  language: en
+  file: fourteen--the-fourteen-infallibles.pdf
+  sha256: eabadb3b64277dc67fa6963eaaf74f97b437be3a6d2e83bd5e9af187cf62641c
+  page_count: 105
+  text_file: 00-sources/text/fourteen--the-fourteen-infallibles.txt
+  pagination: unknown
+  citation_unit: none
+  permission: unchecked
+  status: candidate
+  complete: true
+  aliases:
+  - The Fourteen Infallibles
+  notes: Not a translation. Locating use only — never the citation of record.
+- source_id: SRC-NQI-001
+  work_id: WRK-NQI
+  volume: null
+  volume_title: null
+  translator: Sayyid Athar Husain S.H. Rizvi
+  publisher: Allamah Jawadi Trust
+  year: null
+  edition: null
+  language: en
+  file: fourteen--nuqoosh-e-ismat-eng-trns-s-athar-h-sh-rizvi.pdf
+  sha256: 4500ff5ba2b7bdb31c2d4a77567973232001663736bf3ab78a90bde057452b57
+  page_count: 868
+  text_file: 00-sources/text/fourteen--nuqoosh-e-ismat-eng-trns-s-athar-h-sh-rizvi.txt
+  pagination: unknown
+  citation_unit: none
+  permission: unchecked
+  status: candidate
+  complete: true
+  aliases:
+  - Nuqoosh e Ismat
+  - Nuqoosh-e-Ismat
+  notes: Translator credited. Edition not fixed for the project.
+- source_id: SRC-OCC-001
+  work_id: WRK-OCC
+  volume: null
+  volume_title: null
+  translator: null
+  publisher: null
+  year: null
+  edition: null
+  language: en
+  file: null
+  sha256: null
+  page_count: null
+  text_file: null
+  pagination: unknown
+  citation_unit: none
+  permission: unchecked
+  status: missing
+  complete: false
+  aliases:
+  - Kamal al-Din
+  - The Occultation of the Twelfth Imam
+  notes: Blocks envelope 10 and five companion cards.
+- source_id: SRC-HIS-001
+  work_id: WRK-HIS
+  volume: null
+  volume_title: null
+  translator: null
+  publisher: null
+  year: null
+  edition: null
+  language: en
+  file: null
+  sha256: null
+  page_count: null
+  text_file: null
+  pagination: unknown
+  citation_unit: none
+  permission: unchecked
+  status: missing
+  complete: false
+  aliases: []
+  notes: Blocks the ruler bullet in all fourteen fact panels. Must be a Shia work — al-Tabari was the
+    candidate and is rejected.
+- source_id: SRC-WHI-001
+  work_id: WRK-WHI
+  volume: null
+  volume_title: null
+  translator: null
+  publisher: null
+  year: null
+  edition: null
+  language: en
+  file: null
+  sha256: null
+  page_count: null
+  text_file: null
+  pagination: unknown
+  citation_unit: none
+  permission: unchecked
+  status: missing
+  complete: false
+  aliases: []
+  notes: Blocks all fourteen "elsewhere in the world" bullets. The two Timetables of History PDFs in manifest.json
+    are DRM-encrypted and will not extract.
+- source_id: SRC-TQ-Al-Amali-Mufid
+  work_id: WRK-TQ-Al-Amali-Mufid
+  volume: null
+  volume_title: null
+  translator: Mulla Asgharali M M Jaffer
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Al-Amali-Mufid.jsonl
+  file: null
+  sha256: 28bd8127921dc885a8f032886fb1aa7285595d17930eebe10ea5a20b58a7adda
+  record_count: 387
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Al-Amālī
+  - The Dictations
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Al-Amali-Saduq
+  work_id: WRK-TQ-Al-Amali-Saduq
+  volume: null
+  volume_title: null
+  translator: Bilal Muhammad
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Al-Amali-Saduq.jsonl
+  file: null
+  sha256: 6637bcb8f78c44dcf06ce92f4db741f9e99c01be134f9019c03e6281fe8eada7
+  record_count: 1082
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Al-Amālī
+  - The Dictations
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Al-Kafi-Volume-1-Kulayni
+  work_id: WRK-TQ-Al-Kafi-Kulayni
+  volume: 1
+  volume_title: null
+  translator: Muhammad Sarwar
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Al-Kafi-Volume-1-Kulayni.jsonl
+  file: null
+  sha256: 119169276757953d6307e88395dd174577ce3dfe3e1c83ef19a8cb8b129d6939
+  record_count: 1449
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Al-Kāfi
+  - The Sufficient
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Al-Kafi-Volume-2-Kulayni
+  work_id: WRK-TQ-Al-Kafi-Kulayni
+  volume: 2
+  volume_title: null
+  translator: Muhammad Sarwar
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Al-Kafi-Volume-2-Kulayni.jsonl
+  file: null
+  sha256: 337d9926e587c65bdf34bcf2c333d931f2604a0beb80b342f473798c436384ff
+  record_count: 2343
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Al-Kāfi
+  - The Sufficient
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Al-Kafi-Volume-3-Kulayni
+  work_id: WRK-TQ-Al-Kafi-Kulayni
+  volume: 3
+  volume_title: null
+  translator: Muhammad Sarwar
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Al-Kafi-Volume-3-Kulayni.jsonl
+  file: null
+  sha256: f45206705b5aa9d0c81f3db7417ec800f241048805355740b0cac64bd83f1f32
+  record_count: 2178
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Al-Kāfi
+  - The Sufficient
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Al-Kafi-Volume-4-Kulayni
+  work_id: WRK-TQ-Al-Kafi-Kulayni
+  volume: 4
+  volume_title: null
+  translator: Muhammad Sarwar
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Al-Kafi-Volume-4-Kulayni.jsonl
+  file: null
+  sha256: 5e20f90172d07a11812d40edd2d54a4d1fd92cb91e76fb3f08359a17783762ba
+  record_count: 2190
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Al-Kāfi
+  - The Sufficient
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Al-Kafi-Volume-5-Kulayni
+  work_id: WRK-TQ-Al-Kafi-Kulayni
+  volume: 5
+  volume_title: null
+  translator: Muhammad Sarwar
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Al-Kafi-Volume-5-Kulayni.jsonl
+  file: null
+  sha256: ccce68e04dd40a4b6e9202e08c0e7c7d125aff7a0794a02f8fe0dc0d8cda4ffd
+  record_count: 2088
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Al-Kāfi
+  - The Sufficient
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Al-Kafi-Volume-6-Kulayni
+  work_id: WRK-TQ-Al-Kafi-Kulayni
+  volume: 6
+  volume_title: null
+  translator: Muhammad Sarwar
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Al-Kafi-Volume-6-Kulayni.jsonl
+  file: null
+  sha256: 2aed97f469e71b3dd0887e4aed2717ac998cefb7628ca83d72e86d0e5f79ca05
+  record_count: 2509
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Al-Kāfi
+  - The Sufficient
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Al-Kafi-Volume-7-Kulayni
+  work_id: WRK-TQ-Al-Kafi-Kulayni
+  volume: 7
+  volume_title: null
+  translator: Muhammad Sarwar
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Al-Kafi-Volume-7-Kulayni.jsonl
+  file: null
+  sha256: f028ba37a8e87545eacbe6a54039be24ed15575a3f6a6f3a95b1b5da6ef6656d
+  record_count: 891
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Al-Kāfi
+  - The Sufficient
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Al-Kafi-Volume-8-Kulayni
+  work_id: WRK-TQ-Al-Kafi-Kulayni
+  volume: 8
+  volume_title: null
+  translator: Muhammad Sarwar
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Al-Kafi-Volume-8-Kulayni.jsonl
+  file: null
+  sha256: cd035755ec44817f5a7ecbba76f509cdeea69808272539dcd549788abd76237c
+  record_count: 597
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Al-Kāfi
+  - The Sufficient
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Al-Khisal-Saduq
+  work_id: WRK-TQ-Al-Khisal-Saduq
+  volume: null
+  volume_title: null
+  translator: Dr. Ali Peiravi
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Al-Khisal-Saduq.jsonl
+  file: null
+  sha256: eef6fc7e012ad213b4fd2e0e38df9138267e9ff3b091ae850c8bda06240a3ed9
+  record_count: 1282
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Al-Khiṣāl
+  - The Book of Characteristics
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Al-Tawhid-Saduq
+  work_id: WRK-TQ-Al-Tawhid-Saduq
+  volume: null
+  volume_title: null
+  translator: Sayed Ali Raza Rizvi
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Al-Tawhid-Saduq.jsonl
+  file: null
+  sha256: e668741cae48fb70c2a776c7964fba790359dcf5e0093cccff60bd24b1dfc163
+  record_count: 575
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Al-Tawḥīd
+  - The Book of Divine Unity
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Fadail-al-Shia-Saduq
+  work_id: WRK-TQ-Fadail-al-Shia-Saduq
+  volume: null
+  volume_title: null
+  translator: Badr Shahin
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Fadail-al-Shia-Saduq.jsonl
+  file: null
+  sha256: ad484a7520550706bd480119760cdd7a18795e9345c00c6d0e91a26b7bd406c2
+  record_count: 45
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Faḍaʾil al-Shīʿa
+  - Virtues of the Shia
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Kamil-al-Ziyarat-Qummi
+  work_id: WRK-TQ-Kamil-al-Ziyarat-Qummi
+  volume: null
+  volume_title: null
+  translator: Sayyid Mohsen Al-Husayni Al-Milani
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Kamil-al-Ziyarat-Qummi.jsonl
+  file: null
+  sha256: 56b0ee7794642ee337d9ba68084ab57f8cdf908e6d59241890efc8577a294c36
+  record_count: 750
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Kāmil al-Ziyārāt
+  - The Complete Pilgrimage Guide
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Kitab-al-Duafa-Ghadairi
+  work_id: WRK-TQ-Kitab-al-Duafa-Ghadairi
+  volume: null
+  volume_title: null
+  translator: Tashayyu
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Kitab-al-Duafa-Ghadairi.jsonl
+  file: null
+  sha256: a2c7c648ac632897de4e87eb27f812867a8e65251c52e4cd937673f8b6dd668d
+  record_count: 226
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Kitāb al-Ḍuʿafāʾ
+  - The Weakened Ones
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Kitab-al-Ghayba-Numani
+  work_id: WRK-TQ-Kitab-al-Ghayba-Numani
+  volume: null
+  volume_title: null
+  translator: Abdullah al-Shahin
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Kitab-al-Ghayba-Numani.jsonl
+  file: null
+  sha256: b9ebc6f809f906091096b5033b76515c715709d703b85c40f4e2575c72f8db93
+  record_count: 468
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Kitāb al-Ghayba
+  - The Book of Occultation
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Kitab-al-Ghayba-Tusi
+  work_id: WRK-TQ-Kitab-al-Ghayba-Tusi
+  volume: null
+  volume_title: null
+  translator: Sayyid Athar Husain S. H. Rizvi
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Kitab-al-Ghayba-Tusi.jsonl
+  file: null
+  sha256: 9024206c9cf3bc31b5c0d7fd6fc62a17fcd9a419ecd1890bd105fea27e2bddbd
+  record_count: 774
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Kitāb al-Ghayba
+  - The Book of Occultation
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Kitab-al-Mumin-Ahwazi
+  work_id: WRK-TQ-Kitab-al-Mumin-Ahwazi
+  volume: null
+  volume_title: null
+  translator: Muhajir b. Ali
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Kitab-al-Mumin-Ahwazi.jsonl
+  file: null
+  sha256: 0b50cad3784280ba8b9d3cb9b27655fd2557fb57554869f865e6c20886632467
+  record_count: 201
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Kitāb al-Muʾmin
+  - The Book of the Believer
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Kitab-al-Zuhd-Ahwazi
+  work_id: WRK-TQ-Kitab-al-Zuhd-Ahwazi
+  volume: null
+  volume_title: null
+  translator: Shaykh Tahir Ridha Jaffer
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Kitab-al-Zuhd-Ahwazi.jsonl
+  file: null
+  sha256: ce4ec3a0d17fcb214bb206ea0b960ea2b467fe65e84e5d379a3a75305b1062ed
+  record_count: 290
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Kitāb al-Zuhd
+  - The Book of Asceticism
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Maani-al-Akhbar-Saduq
+  work_id: WRK-TQ-Maani-al-Akhbar-Saduq
+  volume: null
+  volume_title: null
+  translator: Basel Kadem
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Maani-al-Akhbar-Saduq.jsonl
+  file: null
+  sha256: c676f1df0e3e4f0e0604d2ce176b6e846089450b46a28a9fe59c06fff9606b94
+  record_count: 829
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Maʿānī al-ʾAkhbār
+  - The Meanings of Reports
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Man-La-Yahduruh-al-Faqih-Volume-1-Saduq
+  work_id: WRK-TQ-Man-La-Yahduruh-al-Faqih-Saduq
+  volume: 1
+  volume_title: null
+  translator: Bab Ul Qaim Publications
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Man-La-Yahduruh-al-Faqih-Volume-1-Saduq.jsonl
+  file: null
+  sha256: ae986465578910343767d165e958f31ee24c5cbe08af76988eeac7caf98b1703
+  record_count: 1569
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Man Lā Yaḥḍuruh al-Faqīh
+  - He who is without Jurist
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Man-La-Yahduruh-al-Faqih-Volume-2-Saduq
+  work_id: WRK-TQ-Man-La-Yahduruh-al-Faqih-Saduq
+  volume: 2
+  volume_title: null
+  translator: Bab Ul Qaim Publications
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Man-La-Yahduruh-al-Faqih-Volume-2-Saduq.jsonl
+  file: null
+  sha256: 1b90f6ac838e6cc1d2763c3b3865e7e18e692a2ea972de06df90339d0567d493
+  record_count: 1696
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Man Lā Yaḥḍuruh al-Faqīh
+  - He who is without Jurist
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Man-La-Yahduruh-al-Faqih-Volume-3-Saduq
+  work_id: WRK-TQ-Man-La-Yahduruh-al-Faqih-Saduq
+  volume: 3
+  volume_title: null
+  translator: Bab Ul Qaim Publications
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Man-La-Yahduruh-al-Faqih-Volume-3-Saduq.jsonl
+  file: null
+  sha256: f6115ed2a666eb014a92fd2097e1d7e60a9444aef0e9d89b85cb6e968ace2cdc
+  record_count: 1758
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Man Lā Yaḥḍuruh al-Faqīh
+  - He who is without Jurist
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Man-La-Yahduruh-al-Faqih-Volume-4-Saduq
+  work_id: WRK-TQ-Man-La-Yahduruh-al-Faqih-Saduq
+  volume: 4
+  volume_title: null
+  translator: Bab Ul Qaim Publications
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Man-La-Yahduruh-al-Faqih-Volume-4-Saduq.jsonl
+  file: null
+  sha256: 8cea29b82be3a55e46e82f2e0044347c5595cf64682746164ead879e1cb53a7a
+  record_count: 964
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Man Lā Yaḥḍuruh al-Faqīh
+  - He who is without Jurist
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Man-La-Yahduruh-al-Faqih-Volume-5-Saduq
+  work_id: WRK-TQ-Man-La-Yahduruh-al-Faqih-Saduq
+  volume: 5
+  volume_title: null
+  translator: Bab Ul Qaim Publications
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Man-La-Yahduruh-al-Faqih-Volume-5-Saduq.jsonl
+  file: null
+  sha256: 3e633bbe5df058feac8577cc553a9a728cad0cbbb19f768bf9685680b8d67744
+  record_count: 395
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Man Lā Yaḥḍuruh al-Faqīh
+  - He who is without Jurist
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Mujam-al-Ahadith-al-Mutabara-Muhsini
+  work_id: WRK-TQ-Mujam-al-Ahadith-al-Mutabara-Muhsini
+  volume: null
+  volume_title: null
+  translator: Ammaar Muslim
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Mujam-al-Ahadith-al-Mutabara-Muhsini.jsonl
+  file: null
+  sha256: c71e02df06f676f0236eef391e5e94df8e477c20c181cbf05887804874455af7
+  record_count: 555
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Muʿjam al-Aḥādīth al-Muʿtabara
+  - Compilation of Authenticated Narrations
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Nahj-al-Balagha-Radi
+  work_id: WRK-TQ-Nahj-al-Balagha-Radi
+  volume: null
+  volume_title: null
+  translator: Sayed Ali Raza
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Nahj-al-Balagha-Radi.jsonl
+  file: null
+  sha256: bbee60763dbc4e54acea8d02802e8593b7999cd19575cf165943655b908ee020
+  record_count: 2260
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Nahj al-Balāgha
+  - The Peak of Eloquence
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Risalat-al-Huquq-Abidin
+  work_id: WRK-TQ-Risalat-al-Huquq-Abidin
+  volume: null
+  volume_title: null
+  translator: William C. Chittick
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Risalat-al-Huquq-Abidin.jsonl
+  file: null
+  sha256: bccd47482550145018138b0259ab3b563bda6a30f17276c69e01832d8d290738
+  record_count: 49
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Risālat al-Ḥuqūq
+  - Treatise of Rights
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Sifat-al-Shia-Saduq
+  work_id: WRK-TQ-Sifat-al-Shia-Saduq
+  volume: null
+  volume_title: null
+  translator: Badr Shahin
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Sifat-al-Shia-Saduq.jsonl
+  file: null
+  sha256: 2391b745162973c8cdfbde4d6b4657e3638d8248c0596d2f36b8e2f6cba1fcc0
+  record_count: 71
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Ṣifāt al-Shīʿa
+  - Attributes of the Shia
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Thawab-al-Amal-wa-iqab-al-Amal-Saduq
+  work_id: WRK-TQ-Thawab-al-Amal-wa-iqab-al-Amal-Saduq
+  volume: null
+  volume_title: null
+  translator: Sayed Athar Husain Rizvi & Sayed Maqsood Athar
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Thawab-al-Amal-wa-iqab-al-Amal-Saduq.jsonl
+  file: null
+  sha256: 575b590982ef58a5849900289effff08abebac2ee37369a9a3ae2025e7b3dc2e
+  record_count: 1106
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - Thawāb al-Aʿmāl wa ʿiqāb al-Aʿmāl
+  - The Rewards & Punishments of Deeds
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Uyun-akhbar-al-Rida-Volume-1-Saduq
+  work_id: WRK-TQ-Uyun-akhbar-al-Rida-Saduq
+  volume: 1
+  volume_title: null
+  translator: Dr. Ali Peiravi
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Uyun-akhbar-al-Rida-Volume-1-Saduq.jsonl
+  file: null
+  sha256: 8dab1ce78b2c9af12664fb9bd8a6f4a32382fe9e8269753facf8b5f66abfbad5
+  record_count: 347
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - ʿUyūn akhbār al-Riḍā
+  - The Source of Traditions on Imam al-Riḍā
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.
+- source_id: SRC-TQ-Uyun-akhbar-al-Rida-Volume-2-Saduq
+  work_id: WRK-TQ-Uyun-akhbar-al-Rida-Saduq
+  volume: 2
+  volume_title: null
+  translator: Dr. Ali Peiravi
+  publisher: null
+  year: null
+  edition: thaqalayn.net, retrieved via thaqalayn-api.net
+  language: en
+  api_file: 00-sources/api/Uyun-akhbar-al-Rida-Volume-2-Saduq.jsonl
+  file: null
+  sha256: 4d0889f197c97f4fa925e8d6fca448b74c2d5b2f09c97238fc144e2be5335136
+  record_count: 607
+  page_count: null
+  text_file: null
+  pagination: api-record
+  citation_unit: hadith-number
+  permission: unchecked
+  status: fixed
+  complete: true
+  aliases:
+  - ʿUyūn akhbār al-Riḍā
+  - The Source of Traditions on Imam al-Riḍā
+  notes: Approved source of record. Pinned by sha256 of the snapshot; tools/fetch_thaqalayn.py --check
+    reports upstream drift.

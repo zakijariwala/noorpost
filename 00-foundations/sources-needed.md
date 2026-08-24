@@ -6,6 +6,34 @@ Ordered by how much it unblocks.
 
 ---
 
+## ✅ Closed 2026-08-24 — the Thaqalayn corpus
+
+**thaqalayn.net is approved as a source of record.** Thirty-two Shia collections, 32,531 records, every one with a named translator, pinned in `00-sources/api/`. See `sourcing-rules.md` for what the approval settles and what it does not.
+
+**What it closes outright:**
+
+| Was blocked | Now |
+|---|---|
+| **Envelope 10 · Imam al-Mahdi · segment 14** — needed *Kamal al-Din* or a *Kitab al-Ghayba* **with a named translator** | **Closed.** Both Ghayba works are held and credited — al-Nu'mani (trans. Abdullah al-Shahin, 468 records) and al-Tusi (trans. Sayyid Athar Husain S. H. Rizvi, 774). Selection under rule Q3 is the remaining work, not acquisition. |
+| **The four companion cards pointing to Imam al-Mahdi** — Muhammad ibn Uthman, Husayn ibn Ruh, al-Samarri, Narjis | **Closed by the same acquisition.** Five items, not one. |
+| **Every fixed edition's page-number trap** | Sidestepped for anything cited from this corpus: it has no pages, so `hadith N` is the only thing there is to cite. |
+
+**What it does not close, checked rather than assumed:**
+
+| Still open | What the check found |
+|---|---|
+| **Envelope 06 · Sayyida Fatima · segment 4** | Searched across all 32,531 records. **Two passages look like her speaking**, both inside al-Kafi narrator chains, neither a conduct maxim of the kind the card needs. This is a smaller gap than before and still a gap. `Musnad Fatima al-Zahra`, `Ilal al-Shara'i` or `Da'a'im al-Islam` remain the acquisitions that would settle it. |
+| **Fizza's companion card** | Same blocker, same reason. |
+| **Khawla's card** | Unaffected — she points to no Masoom. Still a decision, not a purchase. |
+| **Tier 2, the sira gap, in full** | The corpus is hadith. It carries no biography, no sira, no history. `Kitab al-Irshad` with a named translator is untouched as the top acquisition. |
+| **The Shurayh shield case** (envelope 07) | **Confirmed negative a third time**, now against a corpus twenty times larger. 31 hits on "Shurayh", every one a narrator's name — Mu'awiyah ibn Shurayh, Thabit ibn Shurayh, Muhammad ibn Shurayh — not the judge. |
+| **A Shia history of 40–260 AH**, and a world-history reference | Neither is a hadith collection. No candidate here. |
+| **Tuhaf al-Uqul** | **Not served by the API at all.** The rank-1 work stays on the PDF corpus. |
+
+> ⚠ **One regression-shaped finding, and it needs a decision.** The API serves *Risalat al-Huquq* credited to **Chittick — the same translator as the fixed edition** — and it carries **49 records where the fixed edition's English headers run 1–51**, ending on the same right (the people under the protection of Islam). Envelope 09's letter and panel print **fifty-one**, verified 2026-08-12 by counting the fixed edition's own headers, and that count stands. **The finding is that the approved corpus is not always the fuller rendering of a work**, which is the argument against treating it as a replacement for anything.
+
+---
+
 ## Tier 1 — Fixed editions of the five priority works
 
 **Blocks: all fourteen hadith cards, and every fact panel source credit.**

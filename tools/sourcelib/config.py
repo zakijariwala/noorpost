@@ -18,6 +18,7 @@ ORIGINAL_DIRS = [SOURCES, os.path.join(SOURCES, "originals")]
 ORIGINALS = os.path.join(SOURCES, "originals")
 
 TEXT = os.path.join(SOURCES, "text")            # existing corpus, [[p N]] marked
+API = os.path.join(SOURCES, "api")              # pinned Thaqalayn API snapshots
 PAGES = os.path.join(SOURCES, "pages")          # intermediate representation
 MD = os.path.join(SOURCES, "md")                # canonical markdown
 METADATA = os.path.join(SOURCES, "metadata")
@@ -30,6 +31,7 @@ REJECTED_YAML = os.path.join(METADATA, "rejected.yaml")
 CLAIMS_YAML = os.path.join(METADATA, "claims.yaml")
 CITATIONS_YAML = os.path.join(METADATA, "citations.yaml")
 FETCH_MANIFEST = os.path.join(SOURCES, "manifest.json")
+API_MANIFEST = os.path.join(API, "manifest.json")
 
 # --- status vocabularies -------------------------------------------------
 # Edition status. "fixed" means: this exact edition is the one the project
@@ -51,13 +53,16 @@ EXTRACTION_METHODS = ("native_text", "ocr", "inherited")
 # Pagination character of an edition, which decides whether a page number
 # may be cited at all. Both values other than "printed" come straight from
 # the two traps documented in sourcing-rules.md / HANDOVER.md.
-PAGINATION = ("printed", "web-generated", "two-column", "unknown")
+PAGINATION = ("printed", "web-generated", "two-column", "api-record", "unknown")
 
 PAGINATION_WARNING = {
     "web-generated": ("web-generated PDF: [[p N]] is an artifact of generation, not the printed "
                       "edition. Cite the work's own internal numbering."),
     "two-column": ("two-column scan: one [[p N]] covers two book pages. Read the running header "
                    "for the real book page before citing."),
+    "api-record": ("Thaqalayn API snapshot: there is no page number in this edition at all. "
+                   "The number is the work's own hadith number. Cite that, with the volume "
+                   "where the work has volumes."),
     "unknown": "pagination character not established for this edition; do not cite a page number.",
 }
 

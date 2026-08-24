@@ -33,7 +33,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from sourcelib import config, db, extract, metadata, passages as seg
+from sourcelib import config, db, extract, metadata, passages as seg, thaqalayn as tq
 from sourcelib.arabic import arabic_char_count, glyph_damage_ratio
 from sourcelib.pages import (Page, normalize_newlines, parse_txt, read_text_file, render_md,
                              render_txt, write_pages_jsonl, markers_monotonic)
@@ -66,6 +66,40 @@ def pages_from_text(edition):
     return pgs, prov
 
 
+def pages_from_api(edition):
+    """A pinned Thaqalayn snapshot -> pages, one per hadith.
+
+    The snapshot is verified against the sha256 recorded in sources.yaml before
+    anything is read from it. An edition whose bytes have changed is not the
+    edition the project fixed, so the build refuses it rather than quietly
+    citing a different text.
+    """
+    try:
+        records, digest = tq.read_snapshot(_book_id(edition))
+    except tq.ApiError as exc:
+        return None, {"error": str(exc)}
+    expected = edition.get("sha256")
+    if expected and expected != digest:
+        return None, {"error": "snapshot sha256 mismatch for %s: fixed as %s, on disk %s. "
+                               "Re-pin deliberately or restore the snapshot."
+                               % (edition["source_id"], expected[:16], digest[:16])}
+    prov = {
+        "extraction_method": "native_text",
+        "extraction_status": "api-snapshot",
+        "source_path": edition["api_file"],
+        "sha256": digest,
+        "records": len(records),
+        "pipeline_version": config.PIPELINE_VERSION,
+        "note": ("pinned snapshot of thaqalayn.net via thaqalayn-api.net. There are no page "
+                 "numbers in this edition; the number is the work's own hadith number."),
+    }
+    return tq.pages_from_records(records), prov
+
+
+def _book_id(edition):
+    return os.path.splitext(os.path.basename(edition["api_file"]))[0]
+
+
 def pages_from_pdf(edition, allow_ocr, ocr_lang, ocr_dpi, write_text, force_ocr=False):
     pdf = extract.find_original(edition.get("file"))
     if not pdf:
@@ -96,7 +130,9 @@ def build_edition(con, edition, args):
     if edition.get("status") in ("missing", "rejected"):
         return {"source_id": sid, "skipped": edition.get("status")}
 
-    if args.from_pdf:
+    if edition.get("api_file"):
+        pgs, prov = pages_from_api(edition)
+    elif args.from_pdf:
         pgs, prov = pages_from_pdf(edition, args.ocr, args.ocr_lang, args.ocr_dpi,
                                    not args.no_write_text, force_ocr=args.force_ocr)
         if pgs is None and args.fallback_to_text and edition.get("text_file"):
@@ -199,8 +235,16 @@ def build_edition(con, edition, args):
         "page_image_path": None,
     } for p in pgs])
 
-    ps = seg.segment(sid, pgs, join_pages=not args.no_join_pages,
-                     extraction_status=prov.get("extraction_status"))
+    if edition.get("api_file"):
+        # The API already carries the work's own divisions. Re-splitting on
+        # blank lines would cut a report in half; re-detecting a speaker would
+        # invent a field the record already states or leaves blank.
+        records, _ = tq.read_snapshot(_book_id(edition))
+        ps = tq.passages_from_records(sid, records,
+                                      extraction_status=prov.get("extraction_status"))
+    else:
+        ps = seg.segment(sid, pgs, join_pages=not args.no_join_pages,
+                         extraction_status=prov.get("extraction_status"))
     db.insert_passages(con, [p.as_row() for p in ps])
 
     # Is the Arabic in this edition usable at all? Measured, not assumed: a PDF

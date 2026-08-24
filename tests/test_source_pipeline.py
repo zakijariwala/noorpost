@@ -592,13 +592,38 @@ class RealCorpusTest(unittest.TestCase):
             "AND NOT EXISTS (SELECT 1 FROM passages p "
             "WHERE p.passage_id=ct.passage_id)").fetchone()["c"], 0)
 
-        # no Arabic passage is quotation-ready, and none has been normalised in place
+        # No passage whose OWN TEXT is Arabic is quotation-ready, and none has
+        # been normalised in place.
+        #
+        # The two corpora carry arabic_raw for different reasons and the
+        # distinction is the whole point of the flag:
+        #
+        #   PDF corpus  — the passage *is* the Arabic block. text == arabic_raw,
+        #                 extracted as positioned glyphs, and unquotable.
+        #   API corpus  — arabic_raw is a *parallel* field. text is the credited
+        #                 English translation and is what every claim rests on;
+        #                 the Arabic sits beside it, gated separately by
+        #                 arabic_verified, which is 0 for every one of them.
+        #
+        # So the rule is stated against register, not against the mere presence
+        # of an Arabic field. Widening it back to `arabic_raw IS NOT NULL` would
+        # mark 32,000 credited English translations unquotable and hide the real
+        # thing it protects.
         self.assertEqual(con.execute(
             "SELECT COUNT(*) c FROM passages WHERE arabic_raw IS NOT NULL "
-            "AND quotation_ready = 1").fetchone()["c"], 0)
+            "AND register != 'english' AND quotation_ready = 1").fetchone()["c"], 0)
+        # And no Arabic anywhere is verified until a human has compared it.
         self.assertEqual(con.execute(
             "SELECT COUNT(*) c FROM passages WHERE arabic_raw IS NOT NULL "
-            "AND arabic_raw = arabic_normalized").fetchone()["c"], 0)
+            "AND arabic_verified = 1").fetchone()["c"], 0)
+        # Normalisation is a no-op only where the Arabic arrived already
+        # normalised, which never happens in the PDF corpus — every block there
+        # comes through carrying bidi controls and private-use codepoints. It
+        # does happen in the API corpus, which is the point of that corpus.
+        self.assertEqual(con.execute(
+            "SELECT COUNT(*) c FROM passages WHERE arabic_raw IS NOT NULL "
+            "AND arabic_raw = arabic_normalized "
+            "AND source_id NOT LIKE 'SRC-TQ-%'").fetchone()["c"], 0)
 
         # markers are monotonic per edition
         for r in con.execute("SELECT DISTINCT source_id FROM pages"):

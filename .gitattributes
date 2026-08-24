@@ -1,0 +1,8 @@
+# Generated source artifacts are written LF by the pipeline. Without this,
+# core.autocrlf=true checks them out CRLF and every rebuild reports ~64 files
+# modified with no content change at all — which trains a reader to ignore a
+# diff in exactly the directory where a diff is supposed to mean something.
+00-sources/md/**       text eol=lf
+00-sources/pages/**    text eol=lf
+00-sources/api/**      text eol=lf
+00-sources/reports/**  text eol=lf

@@ -31,6 +31,53 @@ Both text extracts have been deleted from `00-sources/text/`, not merely unliste
 
 ---
 
+## ✅ Approved source of record — the Thaqalayn corpus (2026-08-24)
+
+**thaqalayn.net, retrieved through [`thaqalayn-api.net`](https://github.com/MohammedArab1/ThaqalaynAPI), is scholar-recommended and approved for this project.** Thirty-two books are held as pinned snapshots in `00-sources/api/`, 32,531 records, every one of them a Shia collection with a named translator.
+
+**What the approval means, exactly.** A passage found in this corpus does not need a further sourcing decision. Where a claim is carried by a passage here, the row goes to **`V`**, not `TV`, and it does so on the strength of the source alone — that is the change, and it is what turns the citation loop from a research task into a search task.
+
+**What it does not mean.** Three things are unaffected, and conflating them would undo the point of the apparatus:
+
+| Still required | Why |
+|---|---|
+| **The passage has to actually say it.** | An approved source is not a citation. `V` needs a row naming an edition and a number, and `metadata.validate()` refuses a `V` claim with no usable citation. The search is short now; it is not skipped. |
+| **Scholar sign-off on wording is a separate gate.** | Envelope 06 is signed line by line by a named scholar. That is a review of what the envelope says, not of where it came from, and no source approval closes it. |
+| **The Arabic is still unverified.** | This corpus carries real Unicode Arabic rather than the positioned glyphs the PDFs extract — a genuine improvement — but `arabic_verified` starts at 0 on every passage here as everywhere else. |
+
+### The pin, and why there is one
+
+The upstream is **re-scraped weekly**. An edition that can change under a printed citation is not a fixed edition, so nothing is cited live:
+
+* every book is written once to `00-sources/api/<bookId>.jsonl` and **pinned by SHA-256** in `00-sources/api/manifest.json`;
+* `python tools/fetch_thaqalayn.py --check` re-fetches and reports drift **without writing**, exiting non-zero when the upstream has moved;
+* `build_source_corpus.py` **refuses to build** an edition whose snapshot no longer hashes to the value fixed in `sources.yaml`.
+
+So "the API said so" is never the citation. The snapshot is.
+
+### These editions have no page numbers at all
+
+Not web-generated pagination, not two-column sheets — **no pages**. Every edition here is stamped `pagination: api-record` and `citation_unit: hadith-number`, and `source_search.py` prints `record N`, never `p. N`.
+
+**Citation format for this corpus**, which is the existing format minus the two fields that do not exist in it:
+
+> [Work], [vol. N,] hadith N. Trans. [translator], thaqalayn.net.
+
+Publisher and year are **null and stay null** — the API serves neither. That is a real difference from the six fixed print editions above, and it is recorded rather than papered over with a guess.
+
+### What it does not cover
+
+The corpus is hadith. **It carries no biography, no sira and no history**, so it does **not** close the Tier 2 gap in `sources-needed.md`:
+
+| Still open after this | Checked |
+|---|---|
+| **`Kitab al-Irshad` with a named translator** | Not served by the API. Still the project's most valuable single acquisition. |
+| **The Shurayh shield case** (envelope 07) | 31 hits on "Shurayh" across the corpus, **every one a narrator's name** — Mu'awiyah ibn Shurayh, Thabit ibn Shurayh — not the judge. Confirmed negative a second time, against a much larger corpus. |
+| **Tuhaf al-Uqul** | **Not in the API at all.** The rank-1 work stays on the PDF corpus, which is why `00-sources/text/` is not going anywhere. |
+| **A Shia history of 40–260 AH**, and a world-history reference | Neither is a hadith collection. No candidate here. |
+
+---
+
 ## Priority order
 
 Work down. A saying available in a higher work is cited from there.
@@ -125,7 +172,11 @@ The detection command is worth keeping even though the source that prompted it i
 awk 'BEGIN{g=0} /\S {10,}\S/{g++} END{print int(g*100/NR)"%"}' 00-sources/text/FILE.txt
 ```
 
-**A caution on ThaqalaynData specifically:** every hadith record in that dataset also carries an unlabelled `ai` block — LLM-generated narrator-identity guesses (with `"identity_confidence": "ambiguous"|"likely"|"definite"` tags), summaries, and machine translations into languages beyond the credited human one. It sits inside the same JSON object as the real citation. **Only ever use the field under `translations["<lang>.<named-translator>"]`. Never cite the `ai` block — it is unverified by definition, exactly what `TV` exists to stop.** Its `kamal-al-din`, `kitab-al-ghayba-numani`, and `kitab-al-ghayba-tusi` entries — which would otherwise close the envelope 10 occultation gap in `sources-needed.md` Tier 2 — are credited only to `en.unknown`. No translator name means no citation under this project's own rule above. Do not use them.
+**A caution on ThaqalaynData specifically** — this is the `narmafraz/ThaqalaynData` dataset, **not** the approved `thaqalayn-api.net` corpus above. The two are different things and the caution applies only to the first: every hadith record in that dataset also carries an unlabelled `ai` block — LLM-generated narrator-identity guesses (with `"identity_confidence": "ambiguous"|"likely"|"definite"` tags), summaries, and machine translations into languages beyond the credited human one. It sits inside the same JSON object as the real citation. **Only ever use the field under `translations["<lang>.<named-translator>"]`. Never cite the `ai` block — it is unverified by definition, exactly what `TV` exists to stop.** Its `kamal-al-din`, `kitab-al-ghayba-numani`, and `kitab-al-ghayba-tusi` entries are credited only to `en.unknown`. No translator name means no citation under this project's own rule above. Do not use them.
+
+**The gap they were failing to close is now closed from the other direction.** The approved Thaqalayn corpus serves both occultation works **with named translators** — `Kitab al-Ghayba` (al-Nu'mani), trans. Abdullah al-Shahin, 468 records, and `Kitab al-Ghayba` (al-Tusi), trans. Sayyid Athar Husain S. H. Rizvi, 774 records. **Envelope 10's source blocker is closed.** The remaining work there is selection under rule Q3, which bans a tawqi' about religious authority — and most surviving tawqi'at are exactly that, so budget reading time, not a purchase.
+
+**Kamal al-Din is still not held.** The API advertises it at 659 records and **serves none** — an upstream scrape gap, recorded in `00-sources/api/manifest.json` by its absence and reported by `fetch_thaqalayn.py` on every run. It is no longer on the critical path, because either Ghayba closes what it was needed for.
 
 **Fill this table before writing a single hadith card.** A card written against one edition and printed against another is a citation that points at the wrong page, which is worse than no citation.
 

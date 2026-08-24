@@ -20,3 +20,12 @@ __pycache__/
 00-sources/source.db-wal
 00-sources/source.db-shm
 00-sources/page-images/
+
+# Derived views of the Thaqalayn snapshots. md/ and pages/ are tracked for the
+# PDF corpus because they are the only readable form of a source whose original
+# is not in the repository. That reason does not hold here: 00-sources/api/*.jsonl
+# IS the source, it is plain text, and it diffs. These two would be 32 MB of
+# exact duplication of it — and the API editions have no page boundaries for a
+# pages/ file to record in the first place. Rebuilt by build_source_corpus.py.
+00-sources/md/SRC-TQ-*.md
+00-sources/pages/SRC-TQ-*.pages.jsonl
