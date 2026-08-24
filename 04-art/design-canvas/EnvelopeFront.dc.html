@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1&display=swap">
+  <style>
+    :root {
+      --ivory: #F3EDE1; --ink: #211B14; --gold: #A9762F;
+      --teal: #2C5F5A; --terra: #B4472A;
+      --body: 'EB Garamond', Georgia, 'Times New Roman', serif;
+      --display: 'Fraunces', Georgia, serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: var(--body); color: var(--ink); background: #bdb4a3; }
+    a { color: #a9762f; } a:hover { color: #b4472a; }
+    .bleed { position: relative; width: 235mm; height: 168mm; background: var(--ivory); overflow: hidden; }
+    .safe { position: absolute; top: 15mm; left: 15mm; right: 15mm; bottom: 15mm; }
+    .guide { position: absolute; pointer-events: none; }
+    .guide.trim { top: 3mm; left: 3mm; right: 3mm; bottom: 3mm; border: 1px dashed rgba(180,71,42,.5); }
+    .guide.safeline { top: 15mm; left: 15mm; right: 15mm; bottom: 15mm; border: 1px dashed rgba(44,95,90,.35); }
+    .glabel { position: absolute; bottom: 4.2mm; right: 4mm; font-size: 7px; letter-spacing: .1em;
+              text-transform: uppercase; color: rgba(33,27,20,.42); pointer-events: none; }
+
+    .brand { position: absolute; top: 0; left: 0; }
+    .brandname { font-family: var(--display); font-variation-settings: 'WONK' 0; font-weight: 800;
+                 font-size: 15px; letter-spacing: .2em; text-transform: uppercase;
+                 color: var(--ink); margin: 0; }
+    .brandline { font-size: 10px; font-style: italic; color: rgba(33,27,20,.55); margin: 3px 0 0; }
+
+    .cancel { position: absolute; top: 2mm; right: 0; width: 52mm; }
+    .cancel svg { display: block; width: 100%; height: auto; }
+
+    .nameblock { position: absolute; left: 0; right: 58mm; bottom: 6mm; }
+    .namelabel { font-size: 8px; font-variant: small-caps; letter-spacing: .18em;
+                 color: rgba(33,27,20,.45); margin: 0 0 5mm; }
+    .nameline { border-bottom: 1px solid rgba(33,27,20,.3); height: 13mm; }
+    .namehint { font-family: var(--display); font-variation-settings: 'WONK' 0; font-weight: 600;
+                font-size: 25px; color: rgba(33,27,20,.16); position: relative; top: -14mm; left: 1mm; }
+    .namenote { font-size: 8.5px; color: rgba(33,27,20,.45); margin: 1mm 0 0; }
+
+    .sealmark { position: absolute; right: 0; bottom: 6mm; width: 34mm; text-align: center; }
+    .sealcircle { width: 32mm; height: 32mm; border-radius: 50%; border: 1px dashed rgba(169,118,47,.6);
+                  margin: 0 auto 4px; display: flex; align-items: center; justify-content: center; }
+    .sealcircle span { font-size: 8px; font-variant: small-caps; letter-spacing: .12em;
+                       color: rgba(169,118,47,.85); line-height: 1.3; }
+    .sealnote { font-size: 7.5px; color: rgba(33,27,20,.42); margin: 0; line-height: 1.35; }
+  </style>
+</helmet>
+<div class="bleed">
+  <div class="safe">
+    <div class="brand">
+      <p class="brandname">Noor Post</p>
+      <p class="brandline">One of fourteen. Open it on the day.</p>
+    </div>
+
+    <div class="cancel">
+      <svg viewBox="0 0 260 200" role="img" aria-label="Postal cancellation, Rabi al-Awwal">
+        <defs>
+          <path id="arcTop" d="M 18 100 A 82 82 0 0 1 182 100"></path>
+          <path id="arcBot" d="M 22 100 A 78 78 0 0 0 178 100"></path>
+        </defs>
+        <g fill="none" stroke="#A9762F" stroke-width="3">
+          <circle cx="100" cy="100" r="92"></circle>
+          <circle cx="100" cy="100" r="71" stroke-width="1.5"></circle>
+        </g>
+        <g fill="#A9762F" font-family="Fraunces, Georgia, serif" font-weight="700"
+           letter-spacing="2.4" text-anchor="middle">
+          <text font-size="18"><textPath href="#arcTop" startOffset="50%">RABI AL-AWWAL</textPath></text>
+          <text font-size="12"><textPath href="#arcBot" startOffset="50%">NOOR POST</textPath></text>
+        </g>
+        <text x="100" y="112" fill="#A9762F" font-family="Fraunces, Georgia, serif"
+              font-weight="800" font-size="46" text-anchor="middle">03</text>
+        <g stroke="#A9762F" stroke-width="5" stroke-linecap="round" opacity="0.9">
+          <line x1="196" y1="76" x2="256" y2="76"></line>
+          <line x1="196" y1="94" x2="256" y2="94"></line>
+          <line x1="196" y1="112" x2="256" y2="112"></line>
+          <line x1="196" y1="130" x2="256" y2="130"></line>
+        </g>
+      </svg>
+    </div>
+
+    <div class="nameblock">
+      <p class="namelabel">For</p>
+      <div class="nameline"></div>
+      <p class="namehint">Named Edition prints here</p>
+      <p class="namenote">Everyone-else stock leaves this blank.</p>
+    </div>
+
+    <div class="sealmark">
+      <div class="sealcircle"><span>wax seal<br>32 mm</span></div>
+      <p class="sealnote">Seal closes the flap on the reverse. Named Edition ribbon is flat, and the seal sits over it.</p>
+    </div>
+  </div>
+
+  <sc-if value="{{guides}}" hint-placeholder-val="{{ true }}">
+    <div class="guide trim"></div>
+    <div class="guide safeline"></div>
+    <div class="glabel">C5 trim 229 &times; 162 mm &middot; takes the A5 stack &middot; bleed 3 mm</div>
+  </sc-if>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"guides":{"editor":"boolean","default":true,"section":"Proof"},"$preview":{"width":888,"height":635}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { guides: this.props.guides ?? true };
+  }
+}
+</script>
+</body>
+</html>

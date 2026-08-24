@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1&display=swap">
+  <style>
+    :root {
+      --ivory: #F3EDE1; --ink: #211B14; --gold: #A9762F;
+      --teal: #2C5F5A; --terra: #B4472A;
+      --body: 'EB Garamond', Georgia, 'Times New Roman', serif;
+      --display: 'Fraunces', Georgia, serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: var(--body); color: var(--ink); background: #bdb4a3; }
+    a { color: #a9762f; } a:hover { color: #b4472a; }
+    .bleed { position: relative; width: 154mm; height: 216mm; background: var(--ivory); overflow: hidden; }
+    .safe { position: absolute; top: 15mm; left: 15mm; right: 15mm; bottom: 15mm; display: flex; flex-direction: column; }
+    .guide { position: absolute; pointer-events: none; }
+    .guide.trim { top: 3mm; left: 3mm; right: 3mm; bottom: 3mm; border: 1px dashed rgba(180,71,42,.5); }
+    .guide.safeline { top: 15mm; left: 15mm; right: 15mm; bottom: 15mm; border: 1px dashed rgba(44,95,90,.35); }
+    .glabel { position: absolute; bottom: 4.2mm; right: 4mm; font-size: 7px; letter-spacing: .1em;
+              text-transform: uppercase; color: rgba(33,27,20,.42); pointer-events: none; }
+    .kicker { font-family: var(--display); font-variation-settings: 'WONK' 0; font-weight: 600;
+              font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
+              color: var(--gold); margin: 0 0 6px; }
+    .title { font-family: var(--display); font-variation-settings: 'WONK' 0; font-weight: 800;
+             font-size: 34px; line-height: 1.05; margin: 0 0 10px; font-style: italic; }
+    .rule { height: 1px; background: var(--gold); opacity: .55; margin: 0 0 12px; }
+    .voicekey { font-size: 11.5px; letter-spacing: .04em; color: rgba(33,27,20,.62); margin: 0 0 20px; }
+    .voicekey .m { color: var(--gold); }
+    .adult, .child { margin: 0 0 13px; padding-left: 22px; text-indent: -22px; }
+    .adult { font-size: 17px; line-height: 1.62; }
+    .child { font-family: var(--display); font-optical-sizing: auto;
+             font-variation-settings: 'SOFT' 100, 'WONK' 1; font-weight: 400;
+             font-size: 17px; line-height: 1.5; }
+    .mark { display: inline-block; width: 22px; font-family: var(--body); color: var(--gold); }
+    .foot { margin-top: auto; display: flex; justify-content: space-between;
+            font-size: 8px; letter-spacing: .12em; text-transform: uppercase; color: rgba(33,27,20,.38); }
+  </style>
+</helmet>
+<div class="bleed">
+  <div class="safe">
+    <p class="kicker">Envelope 03 &middot; Rabi al-Awwal &middot; The Prophet Muhammad</p>
+    <h1 class="title">The Cloak</h1>
+    <div class="rule"></div>
+    <p class="voicekey"><span class="m">&#9679;</span> is the grown-up &nbsp;&middot;&nbsp; <span class="m">&#9675;</span> is you &nbsp;&middot;&nbsp; <span class="m">&#9679;&#9675;</span> is together</p>
+
+    <p class="adult"><span class="mark">&#9679;</span>Makkah was hot that year, and the Kaaba was broken. A flood had come down the valley and cracked the walls, so the families of the city pulled the old stones out to build it up again, higher than before.</p>
+    <p class="child"><span class="mark">&#9675;</span>Who was building it?</p>
+    <p class="adult"><span class="mark">&#9679;</span>Everyone. Every family took a wall. That was the point &mdash; nobody was going to let another family say they had built the House of God on their own. It went up fast.</p>
+    <p class="adult"><span class="mark">&#9679;</span>Then they came to the Black Stone.</p>
+    <p class="child"><span class="mark">&#9675;</span>What is the Black Stone?</p>
+    <p class="adult"><span class="mark">&#9679;</span>The stone set into the corner of the Kaaba. It is the oldest thing there, older than anyone could count back. It had to go into the new wall, and one man would carry it, and one family would be the family who did.</p>
+    <p class="child"><span class="mark">&#9675;</span>Everybody wanted to be them.</p>
+
+    <div class="foot"><span>The Cloak</span><span>Face 1 of 4</span></div>
+  </div>
+  <sc-if value="{{guides}}" hint-placeholder-val="{{ true }}">
+    <div class="guide trim"></div>
+    <div class="guide safeline"></div>
+    <div class="glabel">A5 trim 148 &times; 210 mm &middot; bleed 3 mm &middot; margin 12 mm</div>
+  </sc-if>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"guides":{"editor":"boolean","default":true,"section":"Proof"},"$preview":{"width":582,"height":817}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { guides: this.props.guides ?? true };
+  }
+}
+</script>
+</body>
+</html>

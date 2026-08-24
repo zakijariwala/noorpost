@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1&display=swap">
+  <style>
+    :root {
+      --ivory: #F3EDE1; --ink: #211B14; --gold: #A9762F;
+      --teal: #2C5F5A; --terra: #B4472A;
+      --body: 'EB Garamond', Georgia, 'Times New Roman', serif;
+      --display: 'Fraunces', Georgia, serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: var(--body); color: var(--ink); background: #bdb4a3; }
+    a { color: #a9762f; } a:hover { color: #b4472a; }
+
+    /* The sheet is A5 + bleed = 216 mm. The frame is deliberately taller so the
+       overrun is VISIBLE rather than clipped — a page that silently hides its
+       own excess is the exact failure this project already shipped once. */
+    .bleed { position: relative; width: 154mm; height: 280mm; overflow: hidden;
+             background: linear-gradient(to bottom, #F3EDE1 0 216mm, #cdc2b0 216mm 100%); }
+    .safe { position: absolute; top: 15mm; left: 15mm; right: 15mm; display: flex; flex-direction: column; }
+    .guide { position: absolute; pointer-events: none; }
+    .guide.trim { top: 3mm; left: 3mm; right: 3mm; height: 210mm; border: 1px dashed rgba(180,71,42,.5); }
+    .guide.safeline { top: 15mm; left: 15mm; right: 15mm; height: 186mm; border: 1px dashed rgba(44,95,90,.35); }
+    .glabel { position: absolute; top: 217mm; left: 4mm; font-size: 7px; letter-spacing: .1em;
+              text-transform: uppercase; color: rgba(33,27,20,.42); pointer-events: none; }
+
+    .sheetend { position: absolute; left: 0; right: 0; top: 216mm; height: 0;
+                border-top: 1.5px solid #B4472A; pointer-events: none; }
+    .sheetendlabel { position: absolute; right: 4mm; top: 209mm; font-family: var(--body);
+                     font-size: 8px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+                     color: #B4472A; pointer-events: none; }
+
+    .name { font-family: var(--display); font-variation-settings: 'WONK' 0; font-weight: 800;
+            font-size: 25px; line-height: 1.12; margin: 0; letter-spacing: .005em; }
+    .honorific { font-size: 12px; font-style: italic; color: rgba(33,27,20,.6); margin: 3px 0 0; }
+    .dates { font-size: 12px; font-variant: small-caps; letter-spacing: .09em;
+             color: rgba(33,27,20,.72); margin: 7px 0 0; }
+    .rule { height: 1px; background: var(--gold); opacity: .5; margin: 11px 0 13px; }
+    .rule.thin { opacity: .3; margin: 14px 0 12px; }
+
+    .b { font-size: 16px; line-height: 1.42; margin: 0 0 11px; padding-left: 15px; text-indent: -15px; }
+    .b .dot { display: inline-block; width: 15px; color: var(--gold); }
+    .b strong { font-weight: 700; }
+    .b .woman { color: var(--terra); }
+    .b em { font-style: italic; color: rgba(33,27,20,.66); }
+
+    .death { font-size: 16px; line-height: 1.45; margin: 0; }
+    .differ { font-size: 12.5px; font-style: italic; line-height: 1.45;
+              color: rgba(33,27,20,.66); margin: 10px 0 0; }
+    .credit { font-size: 9px; text-align: right; color: rgba(33,27,20,.5); margin: 12px 0 0; }
+    .credit .missing { color: #B4472A; }
+
+    .stamp { position: absolute; top: 96mm; left: 50%; transform: translateX(-50%) rotate(-22deg);
+             font-family: var(--display); font-variation-settings: 'WONK' 0; font-weight: 800;
+             font-size: 26px; letter-spacing: .16em; white-space: nowrap;
+             color: rgba(180,71,42,.24); border: 3px solid rgba(180,71,42,.24);
+             padding: 8px 18px; pointer-events: none; }
+  </style>
+</helmet>
+<div class="bleed">
+  <div class="safe">
+    <h1 class="name">THE PROPHET MUHAMMAD</h1>
+    <p class="honorific">peace be upon him and his family</p>
+    <p class="dates">b. about 570 CE, Makkah &middot; d. 11 AH, Medina</p>
+    <div class="rule"></div>
+
+    <p class="b"><span class="dot">&#9679;</span><strong>Where and when.</strong> He was born in Makkah, a trading city in a dry valley with no river and no farmland, which lived on the caravans passing through it and on the pilgrims who came to the Kaaba.</p>
+    <p class="b"><span class="dot">&#9679;</span><strong>Who was ruling.</strong> Nobody. Makkah had no king. It was run by an assembly of the heads of its clans, which is why an argument over one stone could stop the whole city for four days &mdash; there was no one with the authority to end it.</p>
+    <p class="b"><span class="dot">&#9679;</span><strong>Revelation.</strong> Twenty-three years, from about the age of forty until his death. About thirteen of those in Makkah and ten in Medina.</p>
+    <p class="b"><span class="dot">&#9679;</span><strong>What he left.</strong> The Qur'an, complete. The community at Medina, which had been a set of quarrelling tribes and left an agreement in writing between them. And a road: the Hijra, from Makkah to Quba to Medina, still walked.</p>
+    <p class="b"><span class="dot woman">&#9679;</span><strong class="woman">Khadija.</strong> She ran a trading business of her own and sent caravans north under her own name. She employed him before she married him. When the early community had nothing, it was her money that carried it, and she spent it down to nothing doing so. <em>Traditionally, she was the first person to believe him.</em></p>
+    <p class="b"><span class="dot">&#9679;</span><strong>Elsewhere in the world.</strong> In the same years the Kaaba was being rebuilt, work was going on in China on the Grand Canal, linking the great rivers so grain could move north. In Britain nobody was building in stone at all.</p>
+
+    <div class="rule thin"></div>
+    <p class="death">He died in Medina in 11 AH, in the house of Aisha, and was buried where he died.</p>
+    <p class="differ">Communities observe this differently. Ask your family which we follow. &mdash; his birth is kept on the 12th or the 17th of Rabi al-Awwal, and his death on 28 Safar or 12 Rabi al-Awwal.</p>
+    <p class="credit"><span class="missing">[ source credit &mdash; no citation of record yet ]</span></p>
+  </div>
+
+  <div class="stamp">UNVERIFIED &mdash; TO VERIFY</div>
+
+  <sc-if value="{{guides}}" hint-placeholder-val="{{ true }}">
+    <div class="guide trim"></div>
+    <div class="guide safeline"></div>
+    <div class="sheetend"></div>
+    <div class="sheetendlabel">A5 sheet ends here</div>
+    <div class="glabel">everything below this line is off the sheet</div>
+  </sc-if>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"guides":{"editor":"boolean","default":true,"section":"Proof"},"$preview":{"width":582,"height":1058}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { guides: this.props.guides ?? true };
+  }
+}
+</script>
+</body>
+</html>

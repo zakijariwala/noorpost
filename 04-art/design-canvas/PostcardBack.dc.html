@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1&display=swap">
+  <style>
+    :root {
+      --ivory: #F3EDE1; --ink: #211B14; --gold: #A9762F;
+      --teal: #2C5F5A; --terra: #B4472A;
+      --body: 'EB Garamond', Georgia, 'Times New Roman', serif;
+      --display: 'Fraunces', Georgia, serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: var(--body); color: var(--ink); background: #bdb4a3; }
+    a { color: #a9762f; } a:hover { color: #b4472a; }
+    .bleed { position: relative; width: 154mm; height: 111mm; background: var(--ivory); overflow: hidden; }
+    .safe { position: absolute; top: 11mm; left: 11mm; right: 11mm; bottom: 11mm; display: flex; gap: 9mm; }
+    .guide { position: absolute; pointer-events: none; }
+    .guide.trim { top: 3mm; left: 3mm; right: 3mm; bottom: 3mm; border: 1px dashed rgba(180,71,42,.5); }
+    .guide.safeline { top: 11mm; left: 11mm; right: 11mm; bottom: 11mm; border: 1px dashed rgba(44,95,90,.35); }
+    .glabel { position: absolute; bottom: 4.2mm; right: 4mm; font-size: 6.5px; letter-spacing: .1em;
+              text-transform: uppercase; color: rgba(33,27,20,.42); pointer-events: none; }
+    .divider { position: absolute; top: 11mm; bottom: 11mm; left: 50%; width: 1px;
+               background: rgba(169,118,47,.4); }
+
+    .left { flex: 1 1 0; display: flex; flex-direction: column; }
+    .right { flex: 1 1 0; display: flex; flex-direction: column; }
+
+    .opener { font-family: var(--display); font-optical-sizing: auto;
+              font-variation-settings: 'SOFT' 70, 'WONK' 1; font-weight: 500;
+              font-size: 21px; line-height: 1.26; margin: 0 0 auto; text-wrap: pretty; }
+    .sigs { display: flex; flex-direction: column; gap: 9mm; margin: 0 0 7mm; }
+    .sig { display: flex; align-items: flex-end; gap: 7px; }
+    .sig .m { font-size: 13px; color: var(--gold); line-height: 1; padding-bottom: 2px; }
+    .sig .line { flex: 1 1 auto; border-bottom: 1px solid rgba(33,27,20,.42); height: 15px; }
+    .keep { font-size: 11.5px; font-style: italic; color: rgba(33,27,20,.6); margin: 0; }
+
+    .stampbox { align-self: flex-end; width: 22mm; height: 26mm;
+                border: 1px dashed rgba(33,27,20,.35); display: flex; align-items: center;
+                justify-content: center; text-align: center; padding: 3px; }
+    .stampbox span { font-size: 7px; letter-spacing: .1em; text-transform: uppercase;
+                     color: rgba(33,27,20,.4); line-height: 1.3; }
+    .addr { margin: auto 0 0; }
+    .addrlabel { font-size: 8px; font-variant: small-caps; letter-spacing: .16em;
+                 color: rgba(33,27,20,.45); margin: 0 0 7px; }
+    .addrline { border-bottom: 1px solid rgba(33,27,20,.22); height: 7mm; }
+    .addrfixed { font-size: 12px; line-height: 1.5; margin: 0; color: rgba(33,27,20,.8); }
+    .addrfixed .ph { color: var(--terra); }
+  </style>
+</helmet>
+<div class="bleed">
+  <div class="safe">
+    <div class="left">
+      <p class="opener">We opened this one together.</p>
+      <div class="sigs">
+        <div class="sig"><span class="m">&#9679;</span><span class="line"></span></div>
+        <div class="sig"><span class="m">&#9675;</span><span class="line"></span></div>
+      </div>
+      <p class="keep">Post it back to us, or keep it. Either is right.</p>
+    </div>
+
+    <div class="right">
+      <div class="stampbox"><span>Stamp</span></div>
+      <div class="addr">
+        <p class="addrlabel">Noor Post</p>
+        <p class="addrfixed"><span class="ph">[ RETURN ADDRESS &mdash; not set ]</span></p>
+        <div class="addrline"></div>
+        <div class="addrline"></div>
+      </div>
+    </div>
+  </div>
+
+  <sc-if value="{{guides}}" hint-placeholder-val="{{ true }}">
+    <div class="divider"></div>
+    <div class="guide trim"></div>
+    <div class="guide safeline"></div>
+    <div class="glabel">A6 landscape trim 148 &times; 105 mm &middot; postcard rate</div>
+  </sc-if>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"guides":{"editor":"boolean","default":true,"section":"Proof"},"$preview":{"width":582,"height":420}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { guides: this.props.guides ?? true };
+  }
+}
+</script>
+</body>
+</html>

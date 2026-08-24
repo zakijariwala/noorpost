@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1&display=swap">
+  <style>
+    :root {
+      --ivory: #F3EDE1; --ink: #211B14; --gold: #A9762F;
+      --teal: #2C5F5A; --terra: #B4472A;
+      --body: 'EB Garamond', Georgia, 'Times New Roman', serif;
+      --display: 'Fraunces', Georgia, serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: var(--body); color: var(--ink); background: #bdb4a3; }
+    a { color: #a9762f; } a:hover { color: #b4472a; }
+    .bleed { position: relative; width: 154mm; height: 216mm; background: var(--ivory); overflow: hidden; }
+    .safe { position: absolute; top: 15mm; left: 15mm; right: 15mm; bottom: 15mm; display: flex; flex-direction: column; }
+    .guide { position: absolute; pointer-events: none; }
+    .guide.trim { top: 3mm; left: 3mm; right: 3mm; bottom: 3mm; border: 1px dashed rgba(180,71,42,.5); }
+    .guide.safeline { top: 15mm; left: 15mm; right: 15mm; bottom: 15mm; border: 1px dashed rgba(44,95,90,.35); }
+    .glabel { position: absolute; bottom: 4.2mm; right: 4mm; font-size: 7px; letter-spacing: .1em;
+              text-transform: uppercase; color: rgba(33,27,20,.42); pointer-events: none; }
+    .adult, .child { margin: 0 0 13px; padding-left: 22px; text-indent: -22px; }
+    .adult { font-size: 17px; line-height: 1.62; }
+    .child { font-family: var(--display); font-optical-sizing: auto;
+             font-variation-settings: 'SOFT' 100, 'WONK' 1; font-weight: 400;
+             font-size: 17px; line-height: 1.5; }
+    .mark { display: inline-block; width: 22px; font-family: var(--body); color: var(--gold); }
+
+    /* The last line of every letter is said by both. It gets the rest of the
+       face — this is the one place in the envelope where space is the design. */
+    .close { margin-top: auto; margin-bottom: auto; padding: 18mm 0 14mm; text-align: center; }
+    .closerule { width: 26mm; height: 1px; background: var(--gold); opacity: .6; margin: 0 auto 10mm; }
+    .closemark { font-size: 15px; color: var(--gold); letter-spacing: .3em; margin: 0 0 7mm; }
+    .closetext { font-family: var(--display); font-optical-sizing: auto;
+                 font-variation-settings: 'SOFT' 100, 'WONK' 1; font-weight: 500;
+                 font-size: 30px; line-height: 1.28; margin: 0; text-wrap: pretty; }
+    .closenote { font-size: 11px; font-style: italic; color: rgba(33,27,20,.5); margin: 9mm 0 0; }
+    .foot { display: flex; justify-content: space-between;
+            font-size: 8px; letter-spacing: .12em; text-transform: uppercase; color: rgba(33,27,20,.38); }
+  </style>
+</helmet>
+<div class="bleed">
+  <div class="safe">
+    <p class="adult"><span class="mark">&#9679;</span>He listened. Then he asked for a cloak, spread it flat on the ground, and lifted the stone into the middle with his own hands. Then he told each family to take an edge.</p>
+    <p class="child"><span class="mark">&#9675;</span>All of them at once?</p>
+    <p class="adult"><span class="mark">&#9679;</span>All of them at once. They carried it to the wall together, and he set it into its place himself. Nobody had won. Nobody had lost.</p>
+
+    <div class="close">
+      <div class="closerule"></div>
+      <p class="closemark">&#9679;&#9675;</p>
+      <p class="closetext">Four days of arguing.<br>One cloak.</p>
+      <p class="closenote">Read this line together.</p>
+    </div>
+
+    <div class="foot"><span>The Cloak</span><span>Face 3 of 4</span></div>
+  </div>
+  <sc-if value="{{guides}}" hint-placeholder-val="{{ true }}">
+    <div class="guide trim"></div>
+    <div class="guide safeline"></div>
+    <div class="glabel">A5 trim 148 &times; 210 mm &middot; bleed 3 mm &middot; margin 12 mm</div>
+  </sc-if>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"guides":{"editor":"boolean","default":true,"section":"Proof"},"$preview":{"width":582,"height":817}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { guides: this.props.guides ?? true };
+  }
+}
+</script>
+</body>
+</html>

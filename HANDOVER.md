@@ -91,7 +91,7 @@ Site is at **https://zakijariwala.github.io/noorpost/** and serves from `main` `
 | 3 Content | **All fourteen letters, fact panels and session cards written.** Counts measured. Hadith cards blocked. |
 | 4 Art | Nothing drawn. Every item is specified. |
 | 5–7 | Not started. Gated behind the print run. |
-| 8 Companions | Thirty-nine written. **Restructured 2026-08-14 — see "The 2026-08-14 decisions" below. The structural sweep is done; 0 of 39 sayings selected.** |
+| 8 Companions | **29 of 39 hadith cards selected 2026-08-24** — 7 high, 10 medium, 12 low, 10 blocked; the 22 non-high rows are on `hadith-verification-worklist.md`. Thirty-nine written. **Restructured 2026-08-14 — see "The 2026-08-14 decisions" below. The structural sweep is done; 0 of 39 sayings selected.** |
 | 9 Zines | Template plus two full, thirteen outlined. |
 
 **Every factual claim in every fact panel is unverified.** They are marked `TV` on the citation sheet. Nothing prints on `TV`.

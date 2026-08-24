@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1&display=swap">
+  <style>
+    :root {
+      --ivory: #F3EDE1; --ink: #211B14; --gold: #A9762F;
+      --teal: #2C5F5A; --terra: #B4472A;
+      --body: 'EB Garamond', Georgia, 'Times New Roman', serif;
+      --display: 'Fraunces', Georgia, serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: var(--body); color: var(--ink); background: #bdb4a3; }
+    a { color: #a9762f; } a:hover { color: #b4472a; }
+    .bleed { position: relative; width: 111mm; height: 154mm; background: var(--ivory); overflow: hidden; }
+    .safe { position: absolute; top: 11mm; left: 11mm; right: 11mm; bottom: 11mm;
+            display: flex; flex-direction: column; }
+    .guide { position: absolute; pointer-events: none; }
+    .guide.trim { top: 3mm; left: 3mm; right: 3mm; bottom: 3mm; border: 1px dashed rgba(180,71,42,.5); }
+    .guide.safeline { top: 11mm; left: 11mm; right: 11mm; bottom: 11mm; border: 1px dashed rgba(44,95,90,.35); }
+    .glabel { position: absolute; bottom: 4.2mm; right: 4mm; font-size: 6.5px; letter-spacing: .1em;
+              text-transform: uppercase; color: rgba(33,27,20,.42); pointer-events: none; }
+
+    /* Design system §7: chain mark small caps, top corner, front. It must never
+       abbreviate to the companions line's "First Edition nn / 39". */
+    .chain { font-size: 10px; font-variant: small-caps; letter-spacing: .13em;
+             color: var(--gold); margin: 0; }
+    .chain .blocked { color: var(--terra); border-bottom: 1px dotted var(--terra); }
+    .rule { height: 1px; background: var(--gold); opacity: .45; margin: 9px 0 0; }
+
+    .saying { margin: auto 0; }
+    .saying p { font-family: var(--display); font-optical-sizing: auto;
+                font-variation-settings: 'SOFT' 40, 'WONK' 0; font-weight: 500;
+                font-size: 23px; line-height: 1.34; margin: 0; text-wrap: pretty; }
+    .attrib { font-size: 12px; font-style: italic; color: rgba(33,27,20,.62); margin: 7mm 0 0; }
+
+    .foot { font-size: 8px; letter-spacing: .1em; text-transform: uppercase;
+            color: rgba(33,27,20,.4); margin: 0; }
+    .note { position: absolute; left: 11mm; right: 11mm; bottom: 15mm; font-size: 8.5px;
+            line-height: 1.4; color: var(--terra); text-align: center; }
+  </style>
+</helmet>
+<div class="bleed">
+  <div class="safe">
+    <p class="chain">Silsila segment <span class="blocked">&nbsp;&#8211;&#8211;&nbsp;</span> of 14</p>
+    <div class="rule"></div>
+
+    <div class="saying">
+      <p>&ldquo;He who is deprived of kindness is deprived of goodness entirely.&rdquo;</p>
+      <p class="attrib">The Prophet Muhammad</p>
+    </div>
+
+    <p class="foot">Noor Post &middot; The Fourteen</p>
+  </div>
+
+  <p class="note">Segment number undecided &mdash; two schemes both number a card 1.</p>
+
+  <sc-if value="{{guides}}" hint-placeholder-val="{{ true }}">
+    <div class="guide trim"></div>
+    <div class="guide safeline"></div>
+    <div class="glabel">A6 trim 105 &times; 148 mm &middot; bleed 3 mm &middot; margin 8 mm</div>
+  </sc-if>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"guides":{"editor":"boolean","default":true,"section":"Proof"},"$preview":{"width":420,"height":582}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { guides: this.props.guides ?? true };
+  }
+}
+</script>
+</body>
+</html>

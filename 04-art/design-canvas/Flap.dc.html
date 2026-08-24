@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1&display=swap">
+  <style>
+    :root {
+      --ivory: #F3EDE1; --ink: #211B14; --gold: #A9762F;
+      --teal: #2C5F5A; --terra: #B4472A;
+      --body: 'EB Garamond', Georgia, 'Times New Roman', serif;
+      --display: 'Fraunces', Georgia, serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: var(--body); color: var(--ink); background: #bdb4a3; }
+    a { color: #a9762f; } a:hover { color: #b4472a; }
+    .bleed { position: relative; width: 154mm; height: 106mm; background: var(--ivory); overflow: hidden; }
+    .safe { position: absolute; top: 10mm; left: 14mm; right: 14mm; bottom: 10mm;
+            display: flex; flex-direction: column; }
+    .guide { position: absolute; pointer-events: none; }
+    .guide.trim { top: 3mm; left: 3mm; right: 3mm; bottom: 3mm; border: 1px dashed rgba(180,71,42,.5); }
+    .guide.safeline { top: 10mm; left: 14mm; right: 14mm; bottom: 10mm; border: 1px dashed rgba(44,95,90,.35); }
+    .glabel { position: absolute; bottom: 4.2mm; right: 4mm; font-size: 6.5px; letter-spacing: .1em;
+              text-transform: uppercase; color: rgba(33,27,20,.42); pointer-events: none; }
+
+    .head { font-family: var(--display); font-variation-settings: 'WONK' 0; font-weight: 800;
+            font-size: 21px; line-height: 1.15; margin: 0 0 4px; }
+    .runtime { font-size: 13px; color: rgba(33,27,20,.68); margin: 0 0 11px; }
+    .rule { height: 1px; background: var(--gold); opacity: .5; margin: 0 0 12px; }
+
+    .order { display: flex; flex-direction: column; gap: 7px; margin: 0; padding: 0; list-style: none; }
+    .order li { display: flex; gap: 10px; font-size: 14px; line-height: 1.4; }
+    .order .n { flex: 0 0 auto; min-width: 14px; font-family: var(--display);
+                font-variation-settings: 'WONK' 0; font-weight: 700;
+                font-size: 12px; color: var(--gold); line-height: 1.6; }
+    .order .m { color: var(--gold); }
+
+    .key { margin-top: auto; padding-top: 10px; border-top: 1px solid rgba(33,27,20,.16);
+           font-size: 12px; color: rgba(33,27,20,.66); }
+    .key .m { color: var(--gold); }
+  </style>
+</helmet>
+<div class="bleed">
+  <div class="safe">
+    <h1 class="head">Open together.</h1>
+    <p class="runtime">About twenty-five minutes.</p>
+    <div class="rule"></div>
+
+    <ul class="order">
+      <li><span class="n">1</span><span>The letter &mdash; read it out loud, <span class="m">&#9679;</span> and <span class="m">&#9675;</span> taking turns</span></li>
+      <li><span class="n">2</span><span>The hadith card</span></li>
+      <li><span class="n">3</span><span>The prints</span></li>
+      <li><span class="n">4</span><span>Talk about it</span></li>
+      <li><span class="n">5</span><span>The stickers</span></li>
+      <li><span class="n">6</span><span>The postcard</span></li>
+    </ul>
+
+    <p class="key"><span class="m">&#9679;</span> is the grown-up. <span class="m">&#9675;</span> is you.</p>
+  </div>
+
+  <sc-if value="{{guides}}" hint-placeholder-val="{{ true }}">
+    <div class="guide trim"></div>
+    <div class="guide safeline"></div>
+    <div class="glabel">Inside flap &middot; 148 &times; 100 mm working area &middot; size to the chosen envelope</div>
+  </sc-if>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"guides":{"editor":"boolean","default":true,"section":"Proof"},"$preview":{"width":582,"height":401}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { guides: this.props.guides ?? true };
+  }
+}
+</script>
+</body>
+</html>

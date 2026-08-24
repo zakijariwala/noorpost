@@ -661,3 +661,22 @@ code {
   display: inline-block; width: 0.75em; height: 0.75em; margin-right: 0.4em;
   border: 1px solid var(--rule); border-radius: 2px; vertical-align: baseline;
 }
+
+/* ---------- the companions' hadith cards ----------
+   Three states, and the difference has to survive a screenshot: a selection,
+   a specimen (real saying, wrong theme), and nothing at all. The specimen
+   band is a border and a label rather than a wash, because a wash is exactly
+   what gets cropped off when someone reposts the picture. */
+.hadithcard { margin: 3rem 0 0; padding: 1.5rem 1.75rem; border: 1px solid var(--rule);
+              border-radius: 4px; background: var(--card); }
+.hadithcard .saying { margin: 0.75rem 0 1rem; padding: 0; border: none;
+                      font-size: 1.25rem; line-height: 1.45; text-wrap: pretty; }
+.hadithcard .saying::before { content: "\201C"; }
+.hadithcard .saying::after  { content: "\201D"; }
+.hadithcard .cardcite { font-size: 0.82rem; color: var(--soft); margin: 0 0 0.5rem; }
+.hadithcard .cardrule { font-size: 0.88rem; margin: 0; }
+.hadithcard .cardnote { font-size: 0.85rem; margin: 0.75rem 0 0; color: var(--soft); }
+.hadithcard.specimen { border-left: 4px solid var(--accent); }
+.hadithcard.specimen .cardnote { color: var(--accent); }
+.hadithcard.empty .saying { display: none; }
+.hadithcard.empty { border-style: dashed; }
