@@ -6,7 +6,7 @@ author: al-Shaykh al-Mufid
 translator: 
 publisher: 
 year: 
-status: candidate
+status: verification-required
 pagination: unknown
 citation_unit: none
 sha256: 187509575fc54ba020b4bda15ea8e1fdbab5b27b6abb7374cc33842b39d47741
