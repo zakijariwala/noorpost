@@ -28,7 +28,7 @@ build, not only on --check. A card with no saying selected renders as an empty
 slot; it never renders invented filler inside quote marks.
 """
 
-import os, re, sys, html, difflib
+import os, re, sys, html, difflib, io, json
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC  = os.path.join(ROOT, "08-companions")
@@ -109,13 +109,43 @@ def items(lines):
     return out
 
 
+_ASSIGNMENTS = None
+
+
+def build_mode():
+    """prototype or print. See 00-foundations/build-mode.md — the rules are not
+    deleted in prototype mode, they are deferred to tools/preflight_print.py."""
+    try:
+        with io.open(os.path.join(ROOT, "00-foundations", "build-mode.json"),
+                     encoding="utf-8") as f:
+            return json.load(f).get("mode", "print")
+    except Exception:
+        return "print"
+
+
+def assignments():
+    """The selection record, keyed by entry slug.
+
+    00-foundations/hadith-assignments.json is the single source of truth for
+    what is on a card. The entry files' card rows are written FROM it by
+    tools/apply_hadith_assignments.py, and these templates render FROM it too —
+    so a template can never show a saying an entry file does not carry.
+    """
+    global _ASSIGNMENTS
+    if _ASSIGNMENTS is None:
+        path = os.path.join(ROOT, "00-foundations", "hadith-assignments.json")
+        with io.open(path, encoding="utf-8") as f:
+            _ASSIGNMENTS = {a["slug"]: a for a in json.load(f)["assignments"]}
+    return _ASSIGNMENTS
+
+
 def hadith_card(lines):
     """(masoom, theme, state) for the card row. masoom/theme are None when the
     selection rule cannot produce a candidate — Khawla points to no Masoom."""
     for _, item, spec, state in items(lines):
         if item != "Hadith card":
             continue
-        m = re.match(r"Saying of \*\*(.+?)\*\*, matched to (.+?)\. Conduct", spec)
+        m = re.search(r"Saying of \*\*(.+?)\*\*, matched to (.+?)\. Chain", spec)
         return (m.group(1), m.group(2), state) if m else (None, None, state)
     raise ValueError("no hadith card row")
 
@@ -191,22 +221,87 @@ def panel_html(name, heading, parts):
 """
 
 
-def card_html(name, masoom, theme, state):
+def card_html(slug, name, masoom, theme, state):
     """The hadith card, front + back. No saying is selected for any of the
     thirty-nine, so the saying area prints as an empty slot with the selection
     rule beside it. Nothing here is ever set inside quote marks."""
-    if masoom:
+    a = assignments().get(slug, {})
+    chosen = a.get("text")
+    conf = a.get("confidence")
+    chain = ("%02d" % a["n"]) if a.get("n") else "nn"
+
+    if chosen:
+        # Quoted exactly, from the fixed edition, cited by internal number.
+        # Trimming a saying to fit a card is rewriting it — sourcing-rules.md.
+        rule = (f"The saying is of <strong>{html.escape(a['masoom'])}</strong> — the Masoom this "
+                f"envelope points home to — matched to {inline(a['theme'])}, and never a repeat "
+                f"of that Masoom&rsquo;s box card.")
+        slot = None
+        cite = (f"<em>{html.escape(a['work'])}</em>, {html.escape(a['ref'])}."
+                f"<br>Translated by {html.escape(a['translator'])}, Ansariyan Publications, Qum.")
+    elif masoom:
         rule = (f"The saying is of <strong>{html.escape(masoom)}</strong> — the Masoom this "
                 f"envelope points home to — matched to {inline(theme)}, and never a repeat "
                 f"of that Masoom&rsquo;s box card.")
-        slot = ("SAYING NOT YET SELECTED<br>Arabic, translation and internal-number "
-                "citation set here<br>— nothing is printed in this slot until a row on "
-                "citation-sheet.md reaches V")
+        spec = a.get("specimen") or {}
+        if build_mode() == "prototype" and spec.get("text"):
+            # A real attributed saying of the same Masoom, not theme-verified.
+            # The card can be proofed at true length without anything false
+            # existing anywhere — the one rule that never relaxes.
+            chosen = spec["text"]
+            conf = "specimen"
+            slot = None
+            cite = (f"<em>{html.escape(spec['work'])}</em>, {html.escape(spec['ref'])}."
+                    f"<br>Translated by {html.escape(spec['translator'])}, Ansariyan "
+                    f"Publications, Qum.<br><strong>SPECIMEN</strong> — real saying, correct "
+                    f"Masoom, <strong>not matched to this envelope&rsquo;s theme</strong>."
+                    + ("<br>Also used on another card." if spec.get("reused") else ""))
+        elif build_mode() == "prototype":
+            # Nothing of this Masoom is held. No quote marks, no attribution —
+            # a screenshot of this can never read as a saying.
+            slot = ("TYPOGRAPHIC SPECIMEN &mdash; NOT A SAYING<br><br>"
+                    "This block holds the space a saying will occupy, at the length and "
+                    "leading it will be set in. Nothing of %s is held in any source this "
+                    "project accepts, so nothing is quoted here and no name is attached."
+                    % html.escape(masoom))
+            cite = None
+        else:
+            slot = ("SAYING BLOCKED ON A SOURCE<br>%s<br>— nothing is printed in this slot until "
+                    "a row on citation-sheet.md reaches V" % html.escape(a.get("blocker", "")))
+            cite = None
     else:
         rule = ("This envelope points home to no Masoom, so the selection rule produces no "
                 "candidate. What the card carries is an open decision, not a sourcing job.")
         slot = ("SAYING BLOCKED ON A DECISION<br>The entry itself is awaiting a scholar call "
                 "on whether it survives<br>— see 08-companions/khawla.md")
+        cite = None
+    if chosen:
+        low = conf in ("low", "medium", "specimen")
+        mark = ('<div class="watermark-placeholder"><span>%s</span></div>'
+                % ("SPECIMEN — NOT THEME-MATCHED" if conf == "specimen"
+                   else "UNVERIFIED SELECTION") if low else "")
+        lede = ("Saying selected, confidence <code>%s</code>%s Chain mark is the standing "
+                "grouped-by-Masoom proposal; if that decision goes another way the number "
+                "changes and nothing else does." % (
+                    conf,
+                    " — on <code>hadith-verification-worklist.md</code> and not yet cleared "
+                    "for print." if low else " — spot-check only."))
+        front_body = ('<blockquote class="saying" style="min-height:60mm; font-size:15pt; '
+                      'line-height:1.35; display:flex; align-items:center;">'
+                      "&ldquo;%s&rdquo;</blockquote>" % html.escape(chosen))
+        cite_block = ('<p style="margin-top:6mm; font-size:8pt;">%s</p>' % cite)
+    else:
+        mark = '<div class="watermark-placeholder"><span>NO SAYING SELECTED</span></div>'
+        lede = ("<strong>No saying is selected.</strong> The front carries an empty slot rather "
+                "than placeholder text, because a screenshot of a card loses whatever label "
+                "surrounded it.")
+        front_body = '<div class="placeholder-box" style="min-height:60mm;">%s</div>' % slot
+        cite_block = ('<p style="margin-top:6mm; font-size:8pt; opacity:0.8;">Work, internal '
+                      "number, translator and edition print here. Conduct and ethics only, quoted "
+                      "exactly, from a fixed edition, cited by the work&rsquo;s own internal "
+                      "number — the same bar as a box card, per <code>sourcing-rules.md</code>.</p>")
+    chain_mark = chain if chosen else "<em>%s</em>" % chain
+
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><title>Companion — {html.escape(name)} — Hadith card</title>
 <link rel="stylesheet" href="assets/print.css">\n<script defer src="assets/overflow-guard.js"></script>
@@ -218,28 +313,26 @@ def card_html(name, masoom, theme, state):
 @media print{{.page{{page-break-after:always;}}.page:last-child{{page-break-after:auto;}}}}
 </style></head><body>
 <p class="screen-only">Companion: {html.escape(name)} — hadith card, front + back, A6 portrait.
-<strong>No saying is selected.</strong> 0 of 39 selected across the line; the front carries an empty
-slot rather than placeholder text, because a screenshot of a card loses whatever label surrounded it.
-The chain mark reads <code>nn</code> because the ordering scheme is undecided — see TASKS.md Phase 8.</p>
+{lede}</p>
 <div class="sheet">
 
 <div class="page page-a6-portrait">
-  <div class="watermark-placeholder"><span>NO SAYING SELECTED</span></div>
+  {mark}
   <div class="hadith-front">
-    <p class="chain">First Edition <em>nn</em>&thinsp;/&thinsp;39</p>
-    <div class="placeholder-box" style="min-height:60mm;">{slot}</div>
+    <p class="chain">First Edition {chain_mark}&thinsp;/&thinsp;39</p>
+    {front_body}
     <p style="font-size:7pt; text-align:center; color:var(--accent-tertiary);">NOT A SILSILA SEGMENT — THIS LINE HAS ITS OWN CHAIN</p>
   </div>
 </div>
 
 <div class="page page-a6-portrait">
-  <div class="watermark-placeholder"><span>NO SAYING SELECTED</span></div>
+  {mark}
   <div class="hadith-front hadith-back">
     <p class="chain">Everyone Else &middot; {html.escape(name)}</p>
     <div class="citation">
       <p>{rule}</p>
       <p style="margin-top:6mm;"><strong>Status:</strong> {inline(state)}</p>
-      <p style="margin-top:6mm; font-size:8pt; opacity:0.8;">Work, internal number, translator and edition print here. Conduct and ethics only, quoted exactly, from a fixed edition, cited by the work&rsquo;s own internal number — the same bar as a box card, per <code>sourcing-rules.md</code>.</p>
+      {cite_block}
     </div>
   </div>
 </div>
@@ -310,7 +403,7 @@ def render(slug):
     out = {
         f"companion-{slug}-letter.html":      letter_html(name, letter_title(lines), letter_voices(lines)),
         f"companion-{slug}-fact-panel.html":  panel_html(name, heading, parts),
-        f"companion-{slug}-hadith-card.html": card_html(name, masoom, theme, state),
+        f"companion-{slug}-hadith-card.html": card_html(slug, name, masoom, theme, state),
         f"companion-{slug}-postcard.html":    postcard_html(name),
     }
     guard(slug, lines, out)

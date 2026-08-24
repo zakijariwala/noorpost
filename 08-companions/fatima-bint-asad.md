@@ -73,7 +73,7 @@ She lived to see her son grown, and died while he was still finding his place be
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam Ali**, matched to raising a child who is not your own. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“Keep Allāh in view in the matter of orphans. So do not allow them to starve and they should not be ruined in your presence.”** — Nahj al-Balagha, Letter 47, trans. Sayed Ali Reza. Saying of **Imam Ali**, matched to raising a child who is not your own. Chain mark **FIRST EDITION 13/39**. | **Selected** — confidence `high` |
 | 3 | Person print | **A portrait. Faces allowed in this line.** A woman in a doorway, two boys visible behind her at different heights — one clearly not like the other by blood, treated the same. | Pending |
 | 4 | Sticker sheet | A doorway, a shared meal, a folded shirt, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

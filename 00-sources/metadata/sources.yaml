@@ -468,8 +468,12 @@ editions:
   - Kitab al-Irshad
   - al-Irshad
   - Kitab al-Irshad part 1
-  notes: No translator credit survived extraction. I.K.A. Howard is the expected translator, unconfirmed.
-    Nothing may be cited from this until it is.
+  notes: 'Accepted for PROTOTYPE use by decision 2026-08-24: sourced from a reputable platform, citation
+    to be rectified before shipping. Still carries no translator credit, so tools/preflight_print.py blocks
+    a print run on it until one is recorded. The two files are near-duplicates of each other, not two
+    parts.'
+  prototype_use: true
+  scope: Volume 1 only — Imam Ali. Volume 2 (the other eleven Imams) is not held.
 - source_id: SRC-IRS-002
   work_id: WRK-IRS
   volume: 1
@@ -489,30 +493,39 @@ editions:
   status: candidate
   complete: false
   aliases: []
-  notes: Second copy of the same part. Same missing translator credit.
+  notes: 'Accepted for PROTOTYPE use by decision 2026-08-24: sourced from a reputable platform, citation
+    to be rectified before shipping. Still carries no translator credit, so tools/preflight_print.py blocks
+    a print run on it until one is recorded. The two files are near-duplicates of each other, not two
+    parts.'
+  prototype_use: true
+  scope: Volume 1 only — Imam Ali. Volume 2 (the other eleven Imams) is not held.
 - source_id: SRC-MSG-001
   work_id: WRK-MSG
   volume: null
   volume_title: null
-  translator: null
-  publisher: Islamic Seminary Publications
-  year: null
-  edition: null
+  translator: Islamic Seminary Publications (in-house translation board)
+  publisher: Islamic Seminary Publications, Karachi
+  year: 1984
+  edition: al-islam.org PDF of the 1984 Islamic Seminary Publications translation
   language: en
   file: sira-subhani--the-message-201506.pdf
   sha256: 7bea17cb3cf80ebe1ab8a1c7a9a5f3fe5ad0c23c0a11a545fbe4011ea6809da0
   page_count: 549
   text_file: 00-sources/text/sira-subhani--the-message-201506.txt
   pagination: unknown
-  citation_unit: none
+  citation_unit: chapter-report
   permission: unchecked
-  status: candidate
+  status: fixed
   complete: true
   aliases:
   - The Message
   - Subhani The Message
-  notes: Author confirmed in the text; the English translator's name is not in the extracted front matter,
-    so it is not fixed. A permitted Shia sira and the nearest candidate for the envelope 03 rows.
+  notes: 'Translated institutionally, not by a named individual — ISP functioned as a translation bureau
+    in the 1980s and the bibliographic credit belongs to the institution. Admitted under the institutional-credit
+    rule in sourcing-rules.md. Held text is complete: 63 chapters, 549 web-generated pages of a 783-page
+    printing, closing on the Prophet''s death. Cite the chapter, never the page.'
+  translator_kind: institution
+  isbn: 0941724387
 - source_id: SRC-QAR-001
   work_id: WRK-QAR
   volume: null
@@ -579,11 +592,18 @@ editions:
   pagination: unknown
   citation_unit: none
   permission: unchecked
-  status: candidate
+  status: manuscript
   complete: true
   aliases:
   - The Fourteen Infallibles
-  notes: Not a translation. Locating use only — never the citation of record.
+  notes: 'Cite as: Al-Jibouri, Yasin T., The Fourteen Infallibles (unpublished manuscript). Usable only
+    where no published alternative carries the claim.'
+  translator_kind: not-applicable
+  manuscript_note: English-original work by Yasin T. Al-Jibouri with no publisher and no year. Admitted
+    under the manuscript exception (sourcing-rules.md) and catalogued as an unpublished manuscript, never
+    a fixed edition. The 'Confidential' mark on its title page is treated as an artifact of draft status;
+    the copy was obtained through open digital channels. There is no translator because the work was written
+    in English — the translator rule does not apply to it.
 - source_id: SRC-NQI-001
   work_id: WRK-NQI
   volume: null

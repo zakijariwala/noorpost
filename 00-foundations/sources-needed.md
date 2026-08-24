@@ -97,6 +97,14 @@ Twelve of the fourteen cards were selected on 2026-08-12. These two could not be
 
 ---
 
+## ✅ Partly closed 2026-08-24 — *The Message* was in the library all along
+
+**`SRC-MSG-001` — Subhani, *The Message: The Life of the Holy Prophet of Islam*.** Complete, 63 chapters, translated in-house by **Islamic Seminary Publications, Karachi, 1984** (ISBN 0941724387). It was sitting unused because the title page credits no individual translator, and the credit rule was being read as *name a person*. That reading is now fixed — see `sourcing-rules.md` "Who counts as a translator".
+
+**What it closes:** the Prophet's own narrative material. **Three of envelope 03's four rows close outright**, and the fourth half-closes — see `citation-sheet.md`. It is also the natural source for the eight Prophet-facing companions.
+
+**What it does not close:** it is a sira *of the Prophet*. **It carries nothing for the other thirteen Masoomeen**, so `Kitab al-Irshad` with an attributable translator remains the top acquisition and Tier 2 below stands for envelopes 01, 02, 04–14 and their companions.
+
 ## Tier 2 — The sira gap
 
 **Blocks: every letter's citations. All twenty of them — fourteen envelopes plus six companions.**

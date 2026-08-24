@@ -69,7 +69,7 @@ He died on the road to Egypt, before reaching it. The accounts hold that he was 
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam Ali**, matched to gentleness in authority. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“The most capable of pardoning is he who is the most powerful to punish.”** — Nahj al-Balagha, Saying 52, trans. Sayed Ali Reza. Saying of **Imam Ali**, matched to gentleness in authority. Chain mark **FIRST EDITION 12/39**. | **Selected** — confidence `high` |
 | 3 | Person print | **A portrait. Faces allowed.** A very large man in plain clothes walking through a market, unrecognised. | Pending |
 | 4 | Sticker sheet | A market street, a folded letter, a doorway, a road, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording | Pending |

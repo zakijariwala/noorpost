@@ -61,6 +61,23 @@ Every row must reach `Verified` before Gate 3. A row still marked `TO VERIFY` at
 
 ---
 
+### ✅ Envelope 03's four rows close on *The Message* (2026-08-24)
+
+**Chapter 10, "From Marriage upto Prophethood"**, carries the whole letter narrative in one continuous passage — the flood and the demolition, the Copt mason, the walls to the height of a man, the Black Stone dispute, Bani Abduddar and Bani Adi, **the container filled with blood and the hands put into it**, the five days of suspended work, Abu Umayyah's proposal to accept whoever next entered the gate, and **the piece of cloth**.
+
+| Row | Claim | Status now |
+|---|---|---|
+| Ka'ba rebuilding after the flood | ✅ | `V` — *The Message*, ch. 10 |
+| The dispute over who sets the Stone | ✅ | `V` — same passage |
+| The cloak | ✅ | *"the Holy Prophet asked them to bring a piece of cloth"* — same passage |
+| Makkah called him al-Amin **before revelation, and had reasons** | ⚠ **half** | The passage has the crowd say *"It is Muhammad, the honest one. We agree to his acting as the arbitrator!"* — which carries the naming and the trust, at the gate, before revelation. **It does not carry "and had reasons."** Mark `CONT` and either narrow the panel's claim or close the second half from another work. |
+
+**A grep for `al-Amin` returns nothing in this work** — the translation renders it *"the honest one"*. That is why four searches missed a passage that was in the library the whole time, and it is worth remembering before declaring any row unsourced: **search the claim, not the epithet.**
+
+**Cite the chapter, never the page.** 549 web-generated pages against a 783-page printing; `[[p N]]` here is an artifact of the PDF.
+
+---
+
 ## Envelope 09 — Imam al-Sajjad
 
 | Env | Item | Claim | Work | Ref | Translator | Status | Note |
@@ -159,51 +176,61 @@ Asma bint Umays and Uthman ibn Sa'id point to more than one Masoom and are **not
 
 ### The thirty-nine rows
 
-**Written 2026-08-14. Every one is at `—` — no saying selected for any entry in this line.** The rows exist so that selection has somewhere to land one at a time, and so the shape of the job is visible before it starts: which Masoom each card draws on, what quality the saying has to match, and which section of which work is the place to look. **The theme is the search brief, not the citation.** Nothing here is a claim about a text.
+**Selected 2026-08-24. Twenty-nine of thirty-nine carry a saying; ten are blocked.** Every saying below is quoted verbatim from Tuhaf al-Uqul (rank 1 in `sourcing-rules.md`), cited by the work's own maxim number, never a page. The selector is `tools/select_hadith_cards.py`; the record is `hadith-assignments.json`, and `tools/apply_hadith_assignments.py` is the only thing that writes the card row into an entry file, so the two cannot drift.
 
-`Look in` names the likely section, taken from the fixed editions actually held. **Tuhaf al-Uqul carries a numbered short-maxims section for twelve of the Fourteen — every one except Sayyida Fatima and Imam al-Mahdi**, which is exactly why the six blocked entries are blocked. Confirmed against `00-sources/text/tuhaf_al-uqul.txt`: sections run the Prophet, then Imam Ali through Imam al-Askari.
+**Confidence is the selector's, not a scholar's.** `high` means the saying and the theme meet on more than one word and nothing else came close. Everything below `high` — twenty-two rows — is on `hadith-verification-worklist.md` and is to be checked by someone else before it reaches a card.
 
-| Entry | Points to | Theme to match | Look in | Saying | Status |
-|---|---|---|---|---|---|
-| Salman al-Farsi | the Prophet | who counts as family | Tuhaf, short maxims of the Prophet | — | Not selected |
-| Bilal | the Prophet | steadfastness | Tuhaf, short maxims of the Prophet | — | Not selected |
-| Abu Dharr | the Prophet | speaking for the poor | Tuhaf, short maxims of the Prophet | — | Not selected |
-| Sumayyah bint Khabbat | the Prophet | holding on when it is not safe to | Tuhaf, short maxims of the Prophet | — | Not selected |
-| Nusaybah bint Ka'b | the Prophet | courage that shields somebody else | Tuhaf, short maxims of the Prophet | — | Not selected |
-| Umm Ayman | the Prophet | care that lasts a whole life | Tuhaf, short maxims of the Prophet | — | Not selected |
-| Halima al-Sa'diyya | the Prophet | kindness to a child in your care | Tuhaf, short maxims of the Prophet | — | Not selected |
-| Asma bint Umays | the Prophet | staying through every upheaval | Tuhaf, short maxims of the Prophet | — | Not selected |
-| Maytham al-Tammar | Imam Ali | truthfulness when it costs | Tuhaf, short maxims of Imam Ali; Nahj al-Balagha, sayings | — | Not selected |
-| Qambar | Imam Ali | service, and what a servant is owed | Tuhaf, short maxims of Imam Ali; Nahj al-Balagha, sayings | — | Not selected |
-| Malik al-Ashtar | Imam Ali | gentleness in authority | Nahj al-Balagha, sayings — **not the letter of instructions to Malik**, which his own fact panel already rests on | — | Not selected |
-| Fatima bint Asad | Imam Ali | raising a child who is not your own | Tuhaf, short maxims of Imam Ali; Nahj al-Balagha, sayings | — | Not selected |
-| Abbas ibn Ali | Imam Husayn | a trust kept when nobody would have known | Tuhaf, short maxims of Imam Husayn | — | Not selected |
-| Umm Kulthum bint Ali | Imam Husayn | children, in the worst of it | Tuhaf, short maxims of Imam Husayn | — | Not selected |
-| Rabab bint Imra' al-Qays | Imam Husayn | faithfulness that outlasts the person | Tuhaf, short maxims of Imam Husayn | — | Not selected |
-| Zaynab bint Ali | Imam Husayn | the truth said in front of a ruler | Tuhaf, short maxims of Imam Husayn | — | Not selected |
-| Sakina bint al-Husayn | Imam Husayn | remembering | Tuhaf, short maxims of Imam Husayn | — | Not selected |
-| Fitrus | Imam Husayn | grief, and what it is owed | Tuhaf, short maxims of Imam Husayn | — | Not selected |
-| Umm al-Banin | Imam Husayn | raising another woman's children as your own | Tuhaf, short maxims of Imam Husayn | — | Not selected |
-| Sayyida Ruqayya bint al-Husayn | Imam Husayn | the smallest person in the room | Tuhaf, short maxims of Imam Husayn | — | Not selected |
-| Qais ibn Sa'd | Imam Hasan | obeying when you think it is wrong | Tuhaf, short maxims of Imam al-Hasan | — | Not selected |
-| Tawus al-Yamani | Imam al-Sajjad | worship nobody is watching | Tuhaf, short maxims of Imam as-Sajjad; Risalat al-Huquq | — | Not selected |
-| Jabir ibn Abdullah al-Ansari | Imam al-Baqir | keeping a trust across a lifetime | Tuhaf, short maxims of Imam al-Baqir | — | Not selected |
-| Hisham ibn al-Hakam | Imam al-Sadiq | knowledge, whatever the age of the one holding it | Tuhaf, short maxims of Imam as-Sadiq | — | Not selected |
-| Umm Farwa | Imam al-Sadiq | honouring a mother by name | Tuhaf, short maxims of Imam as-Sadiq | — | Not selected |
-| Safwan al-Jammal | Imam al-Kadhim | the earnings you refuse | Tuhaf, short maxims of Imam al-Kadhim | — | Not selected |
-| Hamida Khatun | Imam al-Kadhim | teaching, and who is fit to teach | Tuhaf, short maxims of Imam al-Kadhim | — | Not selected |
-| Dibil al-Khuza'i | Imam al-Rida | saying the thing out loud | Tuhaf, short maxims of Imam ar-Ridha'; Uyun Akhbar al-Rida | — | Not selected |
-| Sayyida Ma'suma | Imam al-Rida | family, and the road toward it | Tuhaf, short maxims of Imam ar-Ridha'; Uyun Akhbar al-Rida | — | Not selected |
-| Ali ibn Mahziyar | Imam al-Jawad | discharging a trust, every time | Tuhaf, short maxims of Imam al-Jawad | — | Not selected |
-| Abu Hashim al-Ja'fari | Imam al-Hadi | giving before being asked | Tuhaf, short maxims of Imam al-Hadi | — | Not selected |
-| Ahmad ibn Ishaq al-Qummi | Imam al-Askari | carrying other people's questions | Tuhaf, short maxims of Imam al-Askari | — | Not selected |
-| Uthman ibn Sa'id al-Amri | Imam al-Hadi **or** Imam al-Askari | trustworthiness | Tuhaf, short maxims of whichever is chosen | — | Not selected — **and which of the two is itself undecided** |
-| Fizza | Sayyida Fatima | speech, and how little of it is needed | **nothing held** | — | **BLOCKED — no source** |
-| Muhammad ibn Uthman al-Amri | Imam al-Mahdi | keeping a post without being seen to | **nothing held** | — | **BLOCKED — no source** |
-| Husayn ibn Ruh al-Nawbakhti | Imam al-Mahdi | restraint in what is said | **nothing held** | — | **BLOCKED — no source** |
-| Ali ibn Muhammad al-Samarri | Imam al-Mahdi | the close of a trust | **nothing held** | — | **BLOCKED — no source** |
-| Narjis Khatun | Imam al-Mahdi | keeping what must be kept | **nothing held** | — | **BLOCKED — no source** |
-| Khawla bint al-Azwar | **nobody** | — | — | — | **BLOCKED — no rule.** Decision, not a source. |
+**The chain is numbered by the standing proposal**: grouped by the Masoom the envelope points home to, in historical order, and numbered **independently of the silsila** so the box's unresolved segment fight cannot leak into it. If the ordering decision goes another way, the numbers change and nothing else does.
+
+| # | Entry | Points to | Theme | Saying | Ref | Confidence |
+|---|---|---|---|---|---|---|
+| 01/39 | Salman al-Farsi | the Prophet | who counts as family | “Regard your relatives even by means of mere greeting.” | short maxims of the Prophet, no. 165 | `medium` |
+| 02/39 | Bilal | the Prophet | steadfastness | “Faith is two halves; one half is lying in patience and the other in thankfulness.” | short maxims of the Prophet, no. 99 | `high` |
+| 03/39 | Abu Dharr | the Prophet | speaking for the poor | “Ask the scholars, speak with the wise, and sit with the poor.” | short maxims of the Prophet, no. 40 | `high` |
+| 04/39 | Sumayyah bint Khabbat | the Prophet | holding on when it is not safe to | “Blessed are those who leave a current passion for obtaining a promised one that they have not seen yet.” | short maxims of the Prophet, no. 119 | `medium` |
+| 05/39 | Nusaybah bint Ka'b | the Prophet | courage that shields somebody else | “It is illicit to violate anything of the believer: his honor, wealth, and blood—all are sanctified.” | short maxims of the Prophet, no. 164 | `low` |
+| 06/39 | Umm Ayman | the Prophet | care that lasts a whole life | “Hearts are molded on cherishing those who treat them charitably and abhorring those who treat them nastily.” | short maxims of the Prophet, no. 17 | `medium` |
+| 07/39 | Halima al-Sa'diyya | the Prophet | kindness to a child in your care | “Kindness gives embellishment to everything it joins, and clumsiness ruins everything it joins.” | short maxims of the Prophet, no. 95 | `medium` |
+| 08/39 | Asma bint Umays | the Prophet | staying through every upheaval | “The proper fulfillment of the pledges is a part of faith.” | short maxims of the Prophet, no. 100 | `low` |
+| 09/39 | Fizza | Sayyida Fatima | speech, and how little of it is needed | — | — | **BLOCKED** |
+| 10/39 | Maytham al-Tammar | Imam Ali | truthfulness when it costs | “No one will find the true taste of faith before he neglects telling lies whether seriously or jokingly.” | short maxims of Imam Ali, no. 104 | `high` |
+| 11/39 | Qambar | Imam Ali | service, and what a servant is owed | “Every powerful that is under God's control is humble.” | short maxims of Imam Ali, no. 95 | `low` |
+| 12/39 | Malik al-Ashtar | Imam Ali | gentleness in authority | “People's similarity to their rulers is more than their similarity to their fathers.” | short maxims of Imam Ali, no. 57 | `medium` |
+| 13/39 | Fatima bint Asad | Imam Ali | raising a child who is not your own | “A true friend is that who regards in misfortunes, absence, and after death.” | short maxims of Imam Ali, no. 129 | `low` |
+| 14/39 | Qais ibn Sa'd | Imam Hasan | obeying when you think it is wrong | “He who depends upon God's good option for him will not wish to be in a situation other than that which God opts for him.” | short maxims of Imam al-Hasan, no. 6 | `high` |
+| 15/39 | Abbas ibn Ali | Imam Husayn | a trust kept when nobody would have known | “Favors should be like the heavy rain that covers the pious and the sinful.” | short maxims of Imam al-Husayn, no. 3 | `medium` |
+| 16/39 | Umm Kulthum bint Ali | Imam Husayn | children, in the worst of it | “Beware of things for which you apologize.” | short maxims of Imam al-Husayn, no. 16 | `low` |
+| 17/39 | Rabab bint Imra' al-Qays | Imam Husayn | faithfulness that outlasts the person | — | — | **BLOCKED** |
+| 18/39 | Zaynab bint Ali | Imam Husayn | the truth said in front of a ruler | “He who tries to achieve something through acting disobediently to God will miss what he expects and fall in what he fears.” | short maxims of Imam al-Husayn, no. 19 | `medium` |
+| 19/39 | Sakina bint al-Husayn | Imam Husayn | remembering | — | — | **BLOCKED** |
+| 20/39 | Fitrus | Imam Husayn | grief, and what it is owed | — | — | **BLOCKED** |
+| 21/39 | Umm al-Banin | Imam Husayn | raising another woman's children as your own | — | — | **BLOCKED** |
+| 22/39 | Sayyida Ruqayya bint al-Husayn | Imam Husayn | the smallest person in the room | “O son, beware of wronging him who does not have a supporter except God the Majestic.” | short maxims of Imam al-Husayn, no. 10 | `high` |
+| 23/39 | Tawus al-Yamani | Imam al-Sajjad | worship nobody is watching | “Many are those whom are deceived by commendation.” | short maxims of Imam al-Sajjad, no. 23 | `low` |
+| 24/39 | Jabir ibn Abdullah al-Ansari | Imam al-Baqir | keeping a trust across a lifetime | “Abide by piety, diligence, honesty, and fulfillment of the trusts of the charitable as well as the sinful.” | short maxims of Imam al-Baqir, no. 56 | `high` |
+| 25/39 | Hisham ibn al-Hakam | Imam al-Sadiq | knowledge, whatever the age of the one holding it | “Everything has its tax and the tax of knowledge is to teach its people.” | short maxims of Imam al-Sadiq, no. 77 | `high` |
+| 26/39 | Umm Farwa | Imam al-Sadiq | honouring a mother by name | “A twenty-year friendship is kinship.” | short maxims of Imam al-Sadiq, no. 16 | `low` |
+| 27/39 | Safwan al-Jammal | Imam al-Kadhim | the earnings you refuse | “The expiation of working with the (unjust) rulers is to treat the friends with kindness.” | short maxims of Imam al-Kadhim, no. 20 | `medium` |
+| 28/39 | Hamida Khatun | Imam al-Kadhim | teaching, and who is fit to teach | “The astonishment of the ignorant at the intelligent is greater than the astonishment of the intelligent at the ignorant.” | short maxims of Imam al-Kadhim, no. 34 | `low` |
+| 29/39 | Dibil al-Khuza'i | Imam al-Rida | saying the thing out loud | “When you want to mention a present person, you should use his surname, but when you refer to an absent person, you should use his name.” | short maxims of Imam al-Rida, no. 13 | `low` |
+| 30/39 | Sayyida Ma'suma | Imam al-Rida | family, and the road toward it | “The elder brother is as same as the father.” | short maxims of Imam al-Rida, no. 10 | `medium` |
+| 31/39 | Ali ibn Mahziyar | Imam al-Jawad | discharging a trust, every time | “A believer is in need of successfulness from God, a self-preaching, and accession to the advisers.” | short maxims of Imam al-Jawad, no. 13 | `low` |
+| 32/39 | Abu Hashim al-Ja'fari | Imam al-Hadi | giving before being asked | “The thankful of a grace should be happy for thankfulness more than it is for the grace.” | short maxims of Imam al-Hadi, no. 10 | `low` |
+| 33/39 | Ahmad ibn Ishaq al-Qummi | Imam al-Askari | carrying other people's questions | “Those who advice their friends secretly are respecting them, and those who advice them openly are humiliating them.” | short maxims of Imam al-Askari, no. 33 | `medium` |
+| 34/39 | Uthman ibn Sa'id al-Amri | Imam al-Askari | trustworthiness | “The faithful believer is a blessing for the believers and a claim against the disbelievers.” | short maxims of Imam al-Askari, no. 20 | `low` |
+| 35/39 | Muhammad ibn Uthman al-Amri | Imam al-Mahdi | keeping a post without being seen to | — | — | **BLOCKED** |
+| 36/39 | Husayn ibn Ruh al-Nawbakhti | Imam al-Mahdi | restraint in what is said | — | — | **BLOCKED** |
+| 37/39 | Ali ibn Muhammad al-Samarri | Imam al-Mahdi | the close of a trust | — | — | **BLOCKED** |
+| 38/39 | Narjis Khatun | Imam al-Mahdi | keeping what must be kept | — | — | **BLOCKED** |
+| 39/39 | Khawla bint al-Azwar | nobody | — | — | — | **BLOCKED** |
+
+### What the selection pass found
+
+**Imam al-Husayn's section cannot fill his eight rows.** Tuhaf's short maxims of Imam al-Husayn yield nine numbered items; two are theological in register, one is an exegesis of a verse, one is a sermon fragment, and **no. 17 is a second saying about greeting, which would near-repeat box card 01's no. 18** — the exact failure the "do the eight as a set" note was written to prevent. Four usable maxims remain, and they are on rows 15, 16, 18 and 22. **Rows 17, 19, 20 and 21 are blocked on a source, not on effort.**
+
+**The Thaqalayn corpus did not help here, and the reason is worth recording.** It is organised by topic rather than by speaker, so attribution has to be read off each report — and every apparent Imam al-Husayn hit in it turned out to be Imam al-Sajjad (*Ali ibn al-Husayn*) or a report *about* Imam al-Husayn rather than by him. Likewise every apparent Sayyida Fatima and Imam al-Mahdi hit. **The corpus is 32,531 records and it moved none of the six source-blocked rows.**
+
+**Sayyida Fatima and Imam al-Mahdi remain blocked**, which keeps box cards 06 and 10 blocked with them. Both Kitab al-Ghayba works are now held with named translators, so the four al-Mahdi rows are a reading job rather than a purchase — but rule Q3 bans a tawqi' about religious authority, and that is most of what survives.
 
 **Two constraints to hold while working down this table.**
 

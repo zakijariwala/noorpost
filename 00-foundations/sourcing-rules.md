@@ -133,10 +133,42 @@ Published translations only. No in-house rendering of Arabic, ever, even where a
 | al-Kafi | Muhammad Sarwar | Islamic Seminary Inc. (unconfirmed) | *to fix* | ☐ |
 | Uyun Akhbar al-Rida | Dr. Ali Peiravi | Ansariyan Publications, Qum | *to fix* | ☐ |
 | Risalat al-Huquq | William C. Chittick | Muhammadi Trust of Great Britain and Northern Ireland (bound with Sahifa Sajjadiyya) | 1988 | ☐ |
+| **The Message** — Subhani, the Prophet's sira | **Islamic Seminary Publications (in-house board)** | Islamic Seminary Publications, Karachi | **1984** (ISBN 0941724387) | ☐ |
 
 All six translators confirmed. Four read straight off the title page already sitting in `00-sources/text/`. Two — Nahj al-Balagha and al-Kafi — carried no translator credit in the extracted text itself; candidates were cross-referenced against [ThaqalaynData](https://github.com/narmafraz/ThaqalaynData) and **confirmed against the physical/PDF title page on 2026-08-12.** Publisher and year still need filling for Nahj al-Balagha and al-Kafi, and permission is unchecked for all six.
 
 **Six works, all Shia.** Two further works were briefly fixed here to close the sira gap and were **removed on 2026-08-12 under the hard rule at the top of this file** — Guillaume's Ibn Ishaq and SUNY's al-Tabari Vol. VIII. Do not re-add them. The gap they were filling is real and still open; it has to be closed with a Shia work, and `al-Irshad` is the candidate.
+
+### Who counts as a translator (decided 2026-08-24)
+
+The rule said **name the translator**, and it was being read as *name a person*. That reading was freezing four held works, three of them for no reason the rule actually cares about. What the rule is protecting is **attributability** — that a reader can go to a named party and check the rendering. Three states, not two:
+
+| State | Example | Citable |
+|---|---|---|
+| **Named person** | Badr Shahin; William C. Chittick; Jasim al-Rasheed | ✅ Yes. Still the preferred form. |
+| **Named institution** | Islamic Seminary Publications; Al-Qalam Translators & Writers Bureau; Bab Ul Qaim Publications | ✅ **Yes.** A publishing house that translated in-house is an attributable party with a legal identity. Record it as the translator and mark `translator_kind: institution`. |
+| **Unattributed** | `en.unknown` in an aggregator dataset | ⛔ **No, and this does not change.** Nobody is named, so nothing can be checked. |
+
+**What this unfreezes immediately:** `The Message` (Subhani), `Life of Imam Mahdi` (Qarashi), and the three `Man La Yahduruh al-Faqih` volumes already carrying companion hadith cards 06, 08 and 26.
+
+**What it does not touch:** the aggregator copies of Kamal al-Din and the two `Kitab al-Ghayba` credited `en.unknown` remain refused — and are moot anyway, since the approved Thaqalayn corpus serves both Ghayba works with named translators.
+
+**Cite an institutional translation as the institution**, in the same slot a person's name would occupy:
+
+> *The Message*, ch. 10. Translated by Islamic Seminary Publications, Karachi 1984.
+
+### The manuscript exception (decided 2026-08-24)
+
+**An English-original work with no formal publication data may close a gap where no published alternative carries the claim** — provided it is catalogued as an unpublished manuscript and never as a fixed edition.
+
+| | |
+|---|---|
+| **Status** | `manuscript` in `sources.yaml`, which is a distinct state from `fixed` and `candidate`. The build refuses a `manuscript` edition that carries no `manuscript_note` saying why it was admitted. |
+| **Citation form** | Al-Jibouri, Yasin T., *The Fourteen Infallibles* (unpublished manuscript). The parenthesis is not optional — it is the whole protection. |
+| **Precedence** | Last resort. If a published work carries the same claim, cite that instead and drop the manuscript. |
+| **Translator** | Not applicable. The work was written in English; there is nothing to translate, which is why the translator rule never had any grip on it and why treating it as an uncredited translation was a category error. |
+
+**On the "Confidential" mark** carried on `The Fourteen Infallibles`' title page: treated as an artifact of draft status, the copy having been obtained through open digital channels. If that ever turns out to be wrong, the work moves to `rejected.yaml` and every row resting on it reopens — so do not build anything load-bearing on it.
 
 ### ⚠ Page numbers: two traps before you record one
 

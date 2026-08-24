@@ -73,7 +73,7 @@ She lived on in Medina after Karbala, and is remembered for mourning Imam Husayn
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam Husayn**, matched to raising another woman's children as your own. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | Saying of **Imam Husayn**, matched to raising another woman's children as your own. Chain mark **FIRST EDITION 21/39**. | **BLOCKED** — Tuhaf's Imam al-Husayn short-maxims section is exhausted. |
 | 3 | Person print | **A portrait. Faces allowed in this line.** A woman standing among children of different ages, hands on the shoulders of two who are clearly not her own by looks — no distinction shown in her posture. | Pending |
 | 4 | Sticker sheet | A doorway, a water skin, four small marks in a row, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

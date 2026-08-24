@@ -115,7 +115,8 @@ def is_rejected(*, sha256=None, name=None, filename=None, index=None):
 def active_editions(editions):
     """Editions that may be retrieved from. Rejected and missing never are."""
     return [e for e in editions if e.get("status") in ("fixed", "candidate",
-                                                       "verification-required")]
+                                                       "verification-required",
+                                                       "manuscript")]
 
 
 def alias_map(editions):
@@ -187,6 +188,12 @@ def validate(works, editions, claims, citations, rejected):
                 problems.append("%s is marked fixed but complete: false" % sid)
             if not e.get("translator"):
                 problems.append("%s is marked fixed but has no translator" % sid)
+        # Rule: a manuscript must say why it is one, and may never be fixed.
+        # The classification is the whole protection — an unpublished draft that
+        # loses its label reads exactly like a published edition.
+        if e.get("status") == "manuscript" and not e.get("manuscript_note"):
+            problems.append("%s is status manuscript but carries no manuscript_note "
+                            "explaining why it is admitted" % sid)
         # Rule: a rejected work may not appear in the active manifest.
         if e.get("status") != "rejected" and is_rejected(
                 name=e.get("work"), filename=e.get("file"), sha256=e.get("sha256"), index=idx):

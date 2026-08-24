@@ -65,7 +65,7 @@ He was killed at Kufa, on the orders of al-Hajjaj ibn Yusuf.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam Ali**, matched to service, and what a servant is owed. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“Do you not know that walking with the rider ruins the manners of the rider and humiliate the walker? Leave me now.”** — Tuhaf al-Uqul, short maxims of Imam Ali, no. 62, trans. Badr Shahin. Saying of **Imam Ali**, matched to service, and what a servant is owed. Chain mark **FIRST EDITION 11/39**. | **Selected** — confidence `high` |
 | 3 | Person print | **A portrait. Faces allowed.** A young man in a good shirt, standing in a market street. | Pending |
 | 4 | Sticker sheet | Two shirts, coins, a market street, a door, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording | Pending |

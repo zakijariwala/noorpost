@@ -61,7 +61,7 @@ Little else of his life connects directly to this account.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam al-Sajjad**, matched to worship nobody is watching. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“Many are those whom are deceived by commendation…”** — Tuhaf al-Uqul, short maxims of Imam al-Sajjad, no. 23, trans. Badr Shahin. Saying of **Imam al-Sajjad**, matched to worship nobody is watching. Chain mark **FIRST EDITION 23/39**. | **Selected** — confidence `low`, to verify |
 | 3 | Person print | **A portrait. Faces allowed in this line.** A man seated at a respectful distance in darkness, a sliver of light ahead of him. | Pending |
 | 4 | Sticker sheet | A star field, a prayer mat, a single lamp, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

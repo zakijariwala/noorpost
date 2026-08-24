@@ -67,7 +67,7 @@ He died in Syria, in the years after the Prophet, and is buried there.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **the Prophet**, matched to steadfastness. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“Faith is two halves; one half is lying in patience and the other in thankfulness.”** — Tuhaf al-Uqul, short maxims of the Prophet, no. 99, trans. Badr Shahin. Saying of **the Prophet**, matched to steadfastness. Chain mark **FIRST EDITION 02/39**. | **Selected** — confidence `high` |
 | 3 | Person print | **A portrait. Faces allowed.** A man standing high up, early light, mouth open, city below. | Pending |
 | 4 | Sticker sheet | A rooftop, sun, sound marks, small repeatable shapes. **No chains.** | Pending |
 | 5 | Return postcard | Fixed wording | Pending |

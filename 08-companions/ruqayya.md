@@ -69,7 +69,7 @@ Accounts of her exact age and the circumstances of her death vary, and are held 
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam Husayn**, matched to the smallest person in the room. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“O son, beware of wronging him who does not have a supporter except God the Majestic.”** — Tuhaf al-Uqul, short maxims of Imam al-Husayn, no. 10, trans. Badr Shahin. Saying of **Imam Husayn**, matched to the smallest person in the room. Chain mark **FIRST EDITION 22/39**. | **Selected** — confidence `high` |
 | 3 | Person print | **A portrait. Faces allowed in this line.** A very young girl, seated, still, smaller and younger in bearing than Sakina's portrait — composed, not distressed. | Pending |
 | 4 | Sticker sheet | A small lantern, a single flower, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

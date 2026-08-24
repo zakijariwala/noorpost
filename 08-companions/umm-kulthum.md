@@ -61,7 +61,7 @@ She is recorded as surviving the journey and its aftermath.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam Husayn**, matched to children, in the worst of it. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“Beware of things for which you apologize…”** — Tuhaf al-Uqul, short maxims of Imam al-Husayn, no. 16, trans. Badr Shahin. Saying of **Imam Husayn**, matched to children, in the worst of it. Chain mark **FIRST EDITION 16/39**. | **Selected** — confidence `low`, to verify |
 | 3 | Person print | **A portrait. Faces allowed in this line.** A woman walking, a small child's hand in hers, road dust at her feet. | Pending |
 | 4 | Sticker sheet | A water skin, a small sandal, a road marker, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

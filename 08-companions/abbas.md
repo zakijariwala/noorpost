@@ -65,7 +65,7 @@ He was killed at Karbala, on the day of Ashura, on his way back to the tents wit
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam Husayn**, matched to a trust kept when nobody would have known. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“Favors should be like the heavy rain that covers the pious and the sinful.”** — Tuhaf al-Uqul, short maxims of Imam al-Husayn, no. 3, trans. Badr Shahin. Saying of **Imam Husayn**, matched to a trust kept when nobody would have known. Chain mark **FIRST EDITION 15/39**. | **Selected** — confidence `medium`, to verify |
 | 3 | Person print | **A portrait. Faces allowed in this line.** A young man at a riverbank, waterskin in hand, looking back toward camp rather than at the water. | Pending |
 | 4 | Sticker sheet | A waterskin, a flag, a river's edge, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

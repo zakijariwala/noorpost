@@ -1,0 +1,6 @@
+{
+  "mode": "prototype",
+  "note": "See build-mode.md. prototype = everything renders, nothing blocks, provisional content is marked on the artwork. print = every rule returns and tools/preflight_print.py gates the run.",
+  "set_on": "2026-08-24",
+  "rests_on": "No order ships without human verification."
+}

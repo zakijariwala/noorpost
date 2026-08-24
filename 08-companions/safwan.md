@@ -67,7 +67,7 @@ Little else of his later life is recorded in detail.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam al-Kadhim**, matched to the earnings you refuse. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“The expiation of working with the (unjust) rulers is to treat the friends with kindness.”** — Tuhaf al-Uqul, short maxims of Imam al-Kadhim, no. 20, trans. Badr Shahin. Saying of **Imam al-Kadhim**, matched to the earnings you refuse. Chain mark **FIRST EDITION 27/39**. | **Selected** — confidence `medium`, to verify |
 | 3 | Person print | **A portrait. Faces allowed in this line.** A man standing beside an empty rope line where camels would have been tethered. | Pending |
 | 4 | Sticker sheet | A camel harness, coins, an empty tether line, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

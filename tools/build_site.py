@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build the review site from the content markdown into docs/."""
 
-import os, re, html, shutil, glob
+import os, re, html, shutil, glob, json
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "docs")
@@ -344,6 +344,68 @@ def build_reference():
             '<nav class="toc">%s</nav>\n%s\n</article>') % (toc, "".join(parts))
     with open(os.path.join(OUT, "build.html"), "w", encoding="utf-8") as f:
         f.write(page("Design and build", "", body))
+
+
+# ---------- the companions' hadith cards ----------
+# 00-foundations/hadith-assignments.json is the record; tools/apply_hadith_
+# assignments.py writes it into the entry files and build_print_templates.py
+# renders the print side from it. This publishes the same record, so the site
+# cannot show a saying the templates do not carry.
+#
+# Three states, and the difference between them has to survive a screenshot:
+#   selected   a real saying, matched to this envelope's theme
+#   specimen   a real saying of the right Masoom, NOT theme-matched, shown so
+#              the card can be judged at true length
+#   none       nothing of that Masoom is held; no quotation is rendered at all
+
+_HADITH = None
+
+
+def hadith_assignments():
+    global _HADITH
+    if _HADITH is None:
+        with open(os.path.join(ROOT, "00-foundations", "hadith-assignments.json"),
+                  encoding="utf-8") as f:
+            _HADITH = {a["slug"]: a for a in json.load(f)["assignments"]}
+    return _HADITH
+
+
+def companion_card(slug):
+    a = hadith_assignments().get(slug)
+    if not a:
+        return ""
+    chain = ("First Edition %02d&thinsp;/&thinsp;39" % a["n"]) if a.get("n") else ""
+
+    if a.get("text"):
+        note = ("" if a.get("confidence") == "high" else
+                '<p class="cardnote">Selected, confidence <code>%s</code> — on the verification '
+                "worklist and not yet cleared for print.</p>" % html.escape(a["confidence"]))
+        return f"""<section class="hadithcard">
+  <p class="itemlabel">Hadith card &middot; {chain}</p>
+  <blockquote class="saying">{html.escape(a["text"])}</blockquote>
+  <p class="cardcite">{html.escape(a["work"])}, {html.escape(a["ref"])} &middot; trans. {html.escape(a["translator"])}</p>
+  <p class="cardrule">A saying of {html.escape(a["masoom"])}, matched to {html.escape(a["theme"])}.</p>
+  {note}
+</section>"""
+
+    spec = a.get("specimen") or {}
+    if spec.get("text"):
+        return f"""<section class="hadithcard specimen">
+  <p class="itemlabel">Hadith card &middot; {chain} &middot; <strong>SPECIMEN</strong></p>
+  <blockquote class="saying">{html.escape(spec["text"])}</blockquote>
+  <p class="cardcite">{html.escape(spec["work"])}, {html.escape(spec["ref"])} &middot; trans. {html.escape(spec["translator"])}</p>
+  <p class="cardnote"><strong>This is a specimen, not a selection.</strong> A real saying of
+  {html.escape(a["masoom"] or "")}, quoted exactly &mdash; but <strong>not matched to this
+  envelope&rsquo;s theme</strong>. It stands here so the card can be judged at its true length.
+  {"It is also used on another card. " if spec.get("reused") else ""}{html.escape(a.get("blocker", ""))}</p>
+</section>"""
+
+    return f"""<section class="hadithcard empty">
+  <p class="itemlabel">Hadith card &middot; {chain}</p>
+  <p class="cardnote"><strong>No saying is rendered here, and none is invented.</strong>
+  Nothing of {html.escape(a["masoom"] or "the figure this envelope points to")} is held in any
+  source this project accepts. {html.escape(a.get("blocker", ""))}</p>
+</section>"""
 
 
 # ---------- page shell ----------
@@ -765,6 +827,7 @@ def build():
   <p class="itemlabel">Letter, reverse</p>
   {ph}
 </section>
+{companion_card(slug)}
 </article>"""
         with open(os.path.join(OUT, f"companion-{slug}.html"), "w", encoding="utf-8") as f:
             f.write(page(name, "Everyone Else", body))

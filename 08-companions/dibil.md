@@ -65,7 +65,7 @@ Little else of his later life connects directly to this account.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam al-Rida**, matched to saying the thing out loud. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“When you want to mention a present person, you should use his surname, but when you refer to an absent person, you should use his name.”** — Tuhaf al-Uqul, short maxims of Imam al-Rida, no. 13, trans. Badr Shahin. Saying of **Imam al-Rida**, matched to saying the thing out loud. Chain mark **FIRST EDITION 29/39**. | **Selected** — confidence `low`, to verify |
 | 3 | Person print | **A portrait. Faces allowed in this line.** A man mid-recitation, one hand raised slightly, no audience shown. | Pending |
 | 4 | Sticker sheet | A scroll, an inkwell, a folded cloak, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

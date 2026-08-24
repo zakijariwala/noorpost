@@ -73,7 +73,7 @@ She lived to see her son recognised as Imam after his father's death.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam al-Kadhim**, matched to teaching, and who is fit to teach. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | Saying of **Imam al-Kadhim**, matched to teaching, and who is fit to teach. Chain mark **FIRST EDITION 28/39**. | **BLOCKED** — Text found and perfect — 'learn whatever you ignore and teach the ignorant your knowledge', in Imam al-Kadhim's commandment to Hisham. But that commandment is unnumbered prose in Tuhaf, and sourcing-rules.md forbids a citation without a number. al-Kafi vol. 1 hadith 13 carries a Hisham sermon but not this clause. Needs a numbered edition of the commandment, or a different saying. |
 | 3 | Person print | **A portrait. Faces allowed in this line.** A seated woman, several other women around her listening, a young boy nearby watching — teaching shown as an ordinary scene, not a special occasion. | Pending |
 | 4 | Sticker sheet | An open book, a seated circle, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

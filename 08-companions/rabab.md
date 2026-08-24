@@ -61,7 +61,7 @@
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam Husayn**, matched to faithfulness that outlasts the person. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | Saying of **Imam Husayn**, matched to faithfulness that outlasts the person. Chain mark **FIRST EDITION 17/39**. | **BLOCKED** — Tuhaf's Imam al-Husayn short-maxims section is exhausted — see the worklist. Four of his eight rows cannot be filled from anything held. |
 | 3 | Person print | **A portrait. Faces allowed in this line.** A woman seated alone, hands folded, a plain interior room. | Pending |
 | 4 | Sticker sheet | A folded shawl, a single lamp, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

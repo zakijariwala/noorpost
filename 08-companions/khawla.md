@@ -61,7 +61,7 @@ Later accounts describe her continued involvement in the campaigns of that perio
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | **The selection rule has nothing to draw on here.** She is the one entry in the line that points to no Masoom, so "the saying is of the Masoom the envelope points home to" produces no candidate. Answer the scholar's call on whether this entry survives at all before deciding what its card carries. | **Blocked on a decision, not a source** |
+| 2 | Hadith card | Saying of **nobody**, matched to —. Chain mark **FIRST EDITION 39/39**. | **BLOCKED** — Points to no Masoom, so the selection rule has nothing to draw on. Needs the scholar's call on whether the entry survives at all — a decision, not a source. |
 | 3 | Person print | **A portrait. Faces allowed in this line.** A rider in plain armour, face uncovered for the portrait itself, reins held loosely. | Pending |
 | 4 | Sticker sheet | A helmet, reins, a battle standard, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

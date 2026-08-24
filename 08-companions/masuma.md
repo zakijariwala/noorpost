@@ -73,7 +73,7 @@ Her shrine continues to be visited by pilgrims from across the world.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam al-Rida**, matched to family, and the road toward it. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“The elder brother is as same as the father.”** — Tuhaf al-Uqul, short maxims of Imam al-Rida, no. 10, trans. Badr Shahin. Saying of **Imam al-Rida**, matched to family, and the road toward it. Chain mark **FIRST EDITION 30/39**. | **Selected** — confidence `high` |
 | 3 | Person print | **A portrait. Faces allowed in this line.** A composed woman on a road, looking ahead toward a distance not yet reached — travel implied, not a deathbed scene. | Pending |
 | 4 | Sticker sheet | A road, a domed shrine outline, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

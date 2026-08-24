@@ -65,7 +65,7 @@ Little is recorded of his later life in detail.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam Hasan**, matched to obeying when you think it is wrong. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“He who depends upon God's good option for him will not wish to be in a situation other than that which God opts for him.”** — Tuhaf al-Uqul, short maxims of Imam al-Hasan, no. 6, trans. Badr Shahin. Saying of **Imam Hasan**, matched to obeying when you think it is wrong. Chain mark **FIRST EDITION 14/39**. | **Selected** — confidence `high` |
 | 3 | Person print | **A portrait. Faces allowed in this line.** A man in plain soldier's dress, standing at ease, sword sheathed, not drawn. | Pending |
 | 4 | Sticker sheet | A sheathed sword, a folded treaty document, a command tent, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

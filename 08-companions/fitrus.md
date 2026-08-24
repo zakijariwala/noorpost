@@ -63,7 +63,7 @@ The account continues to be retold in mourning gatherings associated with Imam H
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam Husayn**, matched to grief, and what it is owed. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | Saying of **Imam Husayn**, matched to grief, and what it is owed. Chain mark **FIRST EDITION 20/39**. | **BLOCKED** — Tuhaf's Imam al-Husayn short-maxims section is exhausted. |
 | 3 | Person print | **Not a portrait in the usual sense of this line — a single feather, or a folded wing shape, standing in for the figure rather than depicting an angel directly.** | Pending |
 | 4 | Sticker sheet | A feather, a small bird-in-flight motif, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

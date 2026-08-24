@@ -69,7 +69,7 @@ She lived to see her son become one of the most widely followed teachers of his 
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam al-Sadiq**, matched to honouring a mother by name. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“Be good to your parents, and your children will be good to you.”** — Man Lā Yaḥḍuruh al-Faqīh, vol. 4, hadith 19, trans. Bab Ul Qaim Publications. Saying of **Imam al-Sadiq**, matched to honouring a mother by name. Chain mark **FIRST EDITION 26/39**. | **Selected** — confidence `high` |
 | 3 | Person print | **A portrait. Faces allowed in this line.** A composed woman with a book or scroll nearby, seated, a young boy reading beside her rather than being read to. | Pending |
 | 4 | Sticker sheet | An open book, a household doorway, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

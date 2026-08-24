@@ -65,7 +65,7 @@ He died at al-Rabadha, in exile, with almost no one present.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **the Prophet**, matched to speaking for the poor. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“Ask the scholars, speak with the wise, and sit with the poor.”** — Tuhaf al-Uqul, short maxims of the Prophet, no. 40, trans. Badr Shahin. Saying of **the Prophet**, matched to speaking for the poor. Chain mark **FIRST EDITION 03/39**. | **Selected** — confidence `high` |
 | 3 | Person print | **A portrait. Faces allowed.** An old man sitting on the ground in front of a large new building. | Pending |
 | 4 | Sticker sheet | A door, coins, a road out of a city, a water skin, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording | Pending |

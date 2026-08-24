@@ -73,7 +73,7 @@ He died shortly after, and no fifth deputy was ever named.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam al-Mahdi**, matched to the close of a trust. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Blocked on a fixed edition** — same blocker as envelope 10 |
+| 2 | Hadith card | Saying of **Imam al-Mahdi**, matched to the close of a trust. Chain mark **FIRST EDITION 37/39**. | **BLOCKED** — Same as 35 — Kitab al-Ghayba held, no conduct-register tawqi' found. |
 | 3 | Person print | **A portrait. Faces allowed in this line.** An older man holding a single letter, still, composed — the last in a set of four, without dramatising it. | Pending |
 | 4 | Sticker sheet | A sealed letter, a closing door left ajar, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

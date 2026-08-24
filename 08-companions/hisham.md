@@ -65,7 +65,7 @@ He continued as a respected figure in these circles for the rest of his life.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam al-Sadiq**, matched to knowledge, whatever the age of the one holding it. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“Everything has its tax and the tax of knowledge is to teach its people.”** — Tuhaf al-Uqul, short maxims of Imam al-Sadiq, no. 77, trans. Badr Shahin. Saying of **Imam al-Sadiq**, matched to knowledge, whatever the age of the one holding it. Chain mark **FIRST EDITION 25/39**. | **Selected** — confidence `high` |
 | 3 | Person print | **A portrait. Faces allowed in this line.** A young man standing among seated older figures, mid-gesture, in a plain teaching room. | Pending |
 | 4 | Sticker sheet | An open scroll, a raised hand, a seating circle, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

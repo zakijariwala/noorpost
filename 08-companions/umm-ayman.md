@@ -61,7 +61,7 @@ She lived to a considerable age, still connected to the household she had first 
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **the Prophet**, matched to care that lasts a whole life. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“Hearts are naturally inclined to love those who do good to them and to dislike those who harm them.”** — Man Lā Yaḥḍuruh al-Faqīh, vol. 4, hadith 872, trans. Bab Ul Qaim Publications. Saying of **the Prophet**, matched to care that lasts a whole life. Chain mark **FIRST EDITION 06/39**. | **Selected** — confidence `high` |
 | 3 | Person print | **A portrait. Faces allowed in this line.** An older woman in a doorway, plain dress, a household scene faintly behind her. | Pending |
 | 4 | Sticker sheet | A doorway, a woven basket, a small child's sandal, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

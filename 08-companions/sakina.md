@@ -61,7 +61,7 @@ Accounts of her later life vary, and are held here loosely rather than asserted 
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam Husayn**, matched to remembering. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | Saying of **Imam Husayn**, matched to remembering. Chain mark **FIRST EDITION 19/39**. | **BLOCKED** — Tuhaf's Imam al-Husayn short-maxims section is exhausted. |
 | 3 | Person print | **A portrait. Faces allowed in this line.** A young girl, seated, still, hands in her lap — composed rather than distressed. | Pending |
 | 4 | Sticker sheet | A small folded cloth, a single flower, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

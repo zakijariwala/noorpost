@@ -65,7 +65,7 @@ What is known of her life afterward is not well recorded.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Sayyida Fatima**, matched to speech, and how little of it is needed. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Blocked on a fixed edition** — same blocker as envelope 06 |
+| 2 | Hadith card | Saying of **Sayyida Fatima**, matched to speech, and how little of it is needed. Chain mark **FIRST EDITION 09/39**. | **BLOCKED** — No credited edition of her sayings is held. Searched all 32,531 Thaqalayn records and every fixed edition: two passages read as her speaking, both inside al-Kafi narrator chains, neither a conduct maxim. Same blocker as box card 06. |
 | 3 | Person print | **A portrait. Faces allowed in this line.** A woman at household work, an open page nearby — nothing more staged than that. | Pending |
 | 4 | Sticker sheet | An open book, household objects (a jug, a broom), small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

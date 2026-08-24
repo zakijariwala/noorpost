@@ -73,7 +73,7 @@ He died still holding the post, having named his successor himself.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam al-Mahdi**, matched to keeping a post without being seen to. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Blocked on a fixed edition** — same blocker as envelope 10 |
+| 2 | Hadith card | Saying of **Imam al-Mahdi**, matched to keeping a post without being seen to. Chain mark **FIRST EDITION 35/39**. | **BLOCKED** — Both Kitab al-Ghayba works are now held with named translators, so this is a search job rather than a purchase — but no conduct-register tawqi' surfaced in the pool, and rule Q3 bans one about religious authority. |
 | 3 | Person print | **A portrait. Faces allowed in this line.** A man older than Uthman's portrait, same market stall, same jars — visibly the same trade, a generation on. | Pending |
 | 4 | Sticker sheet | An oil jar, a scale, a sealed letter, small repeatable marks — deliberately close to Uthman's sheet | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

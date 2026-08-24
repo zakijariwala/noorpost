@@ -36,7 +36,11 @@ API_MANIFEST = os.path.join(API, "manifest.json")
 # --- status vocabularies -------------------------------------------------
 # Edition status. "fixed" means: this exact edition is the one the project
 # cites, and it is complete. Nothing incomplete is ever "fixed".
-EDITION_STATUS = ("fixed", "candidate", "verification-required", "missing", "rejected")
+# "manuscript" is the quarantine state added 2026-08-24: an English-original
+# work with no formal publication data, usable to close a gap only where no
+# published alternative exists, and never catalogued as a fixed edition.
+EDITION_STATUS = ("fixed", "candidate", "verification-required", "manuscript",
+                  "missing", "rejected")
 
 # Claim status. TV -> V is the project's existing state machine; the other
 # three codes are the citation sheet's own and are carried through unchanged.

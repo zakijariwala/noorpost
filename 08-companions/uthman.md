@@ -61,7 +61,7 @@ He died in Baghdad, still in the role, and named the next man himself before he 
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam al-Hadi or Imam al-Askari**, matched to trustworthiness. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“The faithful believer is a blessing for the believers and a claim against the disbelievers.”** — Tuhaf al-Uqul, short maxims of Imam al-Askari, no. 20, trans. Badr Shahin. Saying of **Imam al-Askari**, matched to trustworthiness. Chain mark **FIRST EDITION 34/39**. | **Selected** — confidence `low`, to verify |
 | 3 | Person print | **A portrait. Faces allowed in this line.** An older man at an oil stall, jars and a scale, market behind him — nothing to mark him as anything other than a trader. | Pending |
 | 4 | Sticker sheet | An oil jar, a scale, a sealed letter, a market stall, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

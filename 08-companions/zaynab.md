@@ -61,7 +61,7 @@ She lived on after the captivity, continuing to be a central figure in how Karba
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam Husayn**, matched to the truth said in front of a ruler. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“He who tries to achieve something through acting disobediently to God will miss what he expects and fall in what he fears.”** — Tuhaf al-Uqul, short maxims of Imam al-Husayn, no. 19, trans. Badr Shahin. Saying of **Imam Husayn**, matched to the truth said in front of a ruler. Chain mark **FIRST EDITION 18/39**. | **Selected** — confidence `high` |
 | 3 | Person print | **A portrait. Faces allowed in this line.** A woman standing upright, composed, facing outward — dignity rather than defeat. | Pending |
 | 4 | Sticker sheet | A raised hand, a chain link (unbroken, not depicted as bondage imagery), a road, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

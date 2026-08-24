@@ -65,7 +65,7 @@ Little else of his later life connects directly to this account.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam al-Askari**, matched to carrying other people's questions. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“Those who advice their friends secretly are respecting them, and those who advice them openly are humiliating them.”** — Tuhaf al-Uqul, short maxims of Imam al-Askari, no. 33, trans. Badr Shahin. Saying of **Imam al-Askari**, matched to carrying other people's questions. Chain mark **FIRST EDITION 33/39**. | **Selected** — confidence `medium`, to verify |
 | 3 | Person print | **A portrait. Faces allowed in this line.** A man on a well-worn road, a satchel at his side, a city skyline distant behind him. | Pending |
 | 4 | Sticker sheet | A satchel, a folded letter, a road marker, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

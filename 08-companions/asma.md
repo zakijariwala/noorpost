@@ -61,7 +61,7 @@ She lived to see much of the family's later history unfold.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **the Prophet**, matched to staying through every upheaval. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“First the companion, then the journey.”** — Man Lā Yaḥḍuruh al-Faqīh, vol. 2, hadith 869, trans. Bab Ul Qaim Publications. Saying of **the Prophet**, matched to staying through every upheaval. Chain mark **FIRST EDITION 08/39**. | **Selected** — confidence `high` |
 | 3 | Person print | **A portrait. Faces allowed in this line.** A woman standing quietly by a doorway, hands folded, plain dress. | Pending |
 | 4 | Sticker sheet | A folded cloth, a doorway, a small lamp, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

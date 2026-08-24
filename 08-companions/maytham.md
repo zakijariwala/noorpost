@@ -67,7 +67,7 @@ He was killed at Kufa, on the orders of Ubaydullah ibn Ziyad, shortly before Kar
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam Ali**, matched to truthfulness when it costs. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“No one will find the true taste of faith before he neglects telling lies whether seriously or jokingly.”** — Tuhaf al-Uqul, short maxims of Imam Ali, no. 104, trans. Badr Shahin. Saying of **Imam Ali**, matched to truthfulness when it costs. Chain mark **FIRST EDITION 10/39**. | **Selected** — confidence `high` |
 | 3 | Person print | **A portrait. Faces allowed.** A man at a market stall, dates in baskets, scales, ordinary morning. | Pending |
 | 4 | Sticker sheet | Dates, baskets, scales, market awnings, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording | Pending |

@@ -61,7 +61,7 @@ Little else of his later life connects directly to this account.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam al-Hadi**, matched to giving before being asked. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“The thankful of a grace should be happy for thankfulness more than it is for the grace.”** — Tuhaf al-Uqul, short maxims of Imam al-Hadi, no. 10, trans. Badr Shahin. Saying of **Imam al-Hadi**, matched to giving before being asked. Chain mark **FIRST EDITION 32/39**. | **Selected** — confidence `low`, to verify |
 | 3 | Person print | **A portrait. Faces allowed in this line.** A man at a bare table, a wrapped provision parcel set down beside him. | Pending |
 | 4 | Sticker sheet | A wrapped parcel, a bare table, a doorway, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

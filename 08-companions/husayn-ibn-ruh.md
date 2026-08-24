@@ -73,7 +73,7 @@ He died still holding the post, having named Ali ibn Muhammad al-Samarri as the 
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam al-Mahdi**, matched to restraint in what is said. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Blocked on a fixed edition** — same blocker as envelope 10 |
+| 2 | Hadith card | Saying of **Imam al-Mahdi**, matched to restraint in what is said. Chain mark **FIRST EDITION 36/39**. | **BLOCKED** — Same as 35 — Kitab al-Ghayba held, no conduct-register tawqi' found. |
 | 3 | Person print | **A portrait. Faces allowed in this line.** A composed man seated across a table from an unseen questioner, hands still, giving nothing away. | Pending |
 | 4 | Sticker sheet | A closed door, a locked chest, a sealed letter, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

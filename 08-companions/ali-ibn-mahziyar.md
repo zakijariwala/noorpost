@@ -61,7 +61,7 @@ He is remembered as a long-serving, trusted figure across this period.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam al-Jawad**, matched to discharging a trust, every time. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“A believer is in need of successfulness from God, a self-preaching, and accession to the advisers.”** — Tuhaf al-Uqul, short maxims of Imam al-Jawad, no. 13, trans. Badr Shahin. Saying of **Imam al-Jawad**, matched to discharging a trust, every time. Chain mark **FIRST EDITION 31/39**. | **Selected** — confidence `low`, to verify |
 | 3 | Person print | **A portrait. Faces allowed in this line.** A man on a dockside, cargo crates stacked beside him, a ship's mast behind. | Pending |
 | 4 | Sticker sheet | A ship's wheel, a cargo crate, a coiled rope, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

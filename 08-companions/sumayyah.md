@@ -61,7 +61,7 @@ She died in Makkah, in the earliest years, for that refusal.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **the Prophet**, matched to holding on when it is not safe to. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“The most intelligent of people are the most fearful of God and the most obedient to Him. The most unintelligent of people are the most fearful of the rulers and the most obedient to them.”** — Tuhaf al-Uqul, short maxims of the Prophet, no. 126, trans. Badr Shahin. Saying of **the Prophet**, matched to holding on when it is not safe to. Chain mark **FIRST EDITION 04/39**. | **Selected** — confidence `high` |
 | 3 | Person print | **A portrait. Faces allowed in this line.** An older woman standing plainly, upright, hands loose at her sides — composed, not posed as a victim. | Pending |
 | 4 | Sticker sheet | A single upright figure motif, a closed fist gently open, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

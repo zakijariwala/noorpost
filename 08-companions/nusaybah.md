@@ -61,7 +61,7 @@ She is remembered as one of the notable defenders of that battle for the rest of
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **the Prophet**, matched to courage that shields somebody else. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“It is illicit to violate anything of the believer: his honor, wealth, and blood—all are sanctified.”** — Tuhaf al-Uqul, short maxims of the Prophet, no. 164, trans. Badr Shahin. Saying of **the Prophet**, matched to courage that shields somebody else. Chain mark **FIRST EDITION 05/39**. | **Selected** — confidence `low`, to verify |
 | 3 | Person print | **A portrait. Faces allowed in this line.** A woman standing with a shield lowered, facing outward, calm rather than fierce. | Pending |
 | 4 | Sticker sheet | A shield, a water skin, a sword laid flat, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |

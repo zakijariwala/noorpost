@@ -65,7 +65,7 @@ He died in Medina, an old man, not long after.
 | # | Item | Spec | State |
 |---|---|---|---|
 | 1 | Letter + fact panel | Written | ✓ |
-| 2 | Hadith card | Saying of **Imam al-Baqir**, matched to keeping a trust across a lifetime. Conduct and ethics only — the same evidentiary bar as a box card. Chain mark **FIRST EDITION nn/39**; the number waits on the ordering decision. | **Not selected** — 0 of 39 |
+| 2 | Hadith card | **“Abide by piety, diligence, honesty, and fulfillment of the trusts of the charitable as well as the sinful. If the killer of Ali Ibn Abi Talib ('a) deposits with me a trust, I will surely keep it for him.”** — Tuhaf al-Uqul, short maxims of Imam al-Baqir, no. 56, trans. Badr Shahin. Saying of **Imam al-Baqir**, matched to keeping a trust across a lifetime. Chain mark **FIRST EDITION 24/39**. | **Selected** — confidence `high` |
 | 3 | Person print | **A portrait. Faces allowed in this line.** An elderly man, led by the hand, doorway ahead of him. | Pending |
 | 4 | Sticker sheet | A doorway, a walking hand-in-hand pair, an open hand extended, small repeatable marks | Pending |
 | 5 | Return postcard | Fixed wording per `standard-lines.md` §4 | Pending |
