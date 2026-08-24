@@ -6,7 +6,7 @@ author: Yasin T. al-Jibouri
 translator: 
 publisher: 
 year: 
-status: candidate
+status: manuscript
 pagination: unknown
 citation_unit: none
 sha256: eabadb3b64277dc67fa6963eaaf74f97b437be3a6d2e83bd5e9af187cf62641c

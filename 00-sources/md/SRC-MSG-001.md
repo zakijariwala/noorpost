@@ -3,12 +3,12 @@ source_id: SRC-MSG-001
 work: The Message: The Life of the Holy Prophet of Islam
 volume: 
 author: Ayatullah Ja'far Subhani
-translator: 
-publisher: Islamic Seminary Publications
-year: 
-status: candidate
+translator: Islamic Seminary Publications (in-house translation board)
+publisher: Islamic Seminary Publications, Karachi
+year: 1984
+status: fixed
 pagination: unknown
-citation_unit: none
+citation_unit: chapter-report
 sha256: 7bea17cb3cf80ebe1ab8a1c7a9a5f3fe5ad0c23c0a11a545fbe4011ea6809da0
 extraction_method: inherited
 extraction_status: inherited-from-text-corpus
