@@ -28,7 +28,8 @@ Envelope front and back with the wax seal · inside flap · the letter, one A4 s
 ```bash
 python tools/build_envelopes.py                               # writes envelope-NN.html and index.html
 python tools/build_envelopes.py --check                       # exit 1 if stale
-NODE_PATH=$(npm root -g) node tools/render_envelopes.js       # writes pdf/, refuses any envelope that overflows
+NODE_PATH=$(npm root -g) node tools/render_envelopes.js       # writes pdf/ and preview/, refuses any envelope that overflows
+python tools/build_site.py                                    # copies the set into docs/envelopes/ and onto each envelope's page
 python -m unittest discover -s tests                          # includes tests/test_envelopes.py
 ```
 
@@ -41,6 +42,10 @@ python -m unittest discover -s tests                          # includes tests/t
 | `envelope.css` | What every style shares: sizes, the folded letter, voices, card positions, ring punch. |
 | `envelope.js` | Lays each envelope out in the browser: flows the letter across faces 1–2 for that style's fonts, shrinks dense cards slightly, flags anything that still overflows. |
 | `fonts/` | All fourteen families (SIL OFL), local, for offline print. |
+
+## On the site
+
+`tools/build_site.py` copies this folder into `docs/envelopes/` and puts each envelope's design on its own page: a **The design** section under the heading (every item, plus links to the true-size set and the print PDF), the design on each item in the card view, and the front on the home-page tile. Re-run `render_envelopes.js` before the site build whenever an envelope changes, so the previews and PDFs match.
 
 ## Rules held on every build
 

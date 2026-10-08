@@ -75,9 +75,11 @@ def theme_css(t):
 
 # ---------------------------------------------------------------- shells
 
-def page(cls, inner, t, band=True):
+def page(cls, inner, t, band=True, item=""):
+    """`item` names the piece for the site's previews (tools/render_envelopes.js)."""
     m = " mourning" if t.get("mourning") else ""
-    return f'<div class="page {cls}{" band" if band else ""}{m}">{inner}</div>'
+    di = f' data-item="{item}"' if item else ""
+    return f'<div class="page {cls}{" band" if band else ""}{m}"{di}>{inner}</div>'
 
 
 def item(cap, pg):
@@ -154,7 +156,7 @@ def env_front(d, t, sc):
              '<div class="tag">One of fourteen. Open it on the day.</div></div>'
              + stamp_ring(d["stamp"], d["nn"], v["stamp"], v["ground"])
              + '<div class="name-area"><p class="kicker">For</p><div class="who">[Child&#39;s name]</div></div>')
-    return page("p-env env-front", inner, t, band=False)
+    return page("p-env env-front", inner, t, band=False, item="front")
 
 
 def env_back(d, t):
@@ -170,7 +172,7 @@ def env_back(d, t):
            f'<path {fl("flap")} d="M0 0 H229 V10 Q172 42 114.5 78 Q57 42 0 10Z"/>')
     inner = (A.svg(p, w, h, art) + seal(t["vars"]["seal"], t["vars"]["ground"])
              + '<div class="return"><strong>Noor Post</strong><br>[ Return address — not set ]</div>')
-    return page("p-env env-back", inner, t, band=False)
+    return page("p-env env-back", inner, t, band=False, item="back")
 
 
 FLAP_RUN = {"conversation": "Talk about it", "mourning": "Sit with it", "case": "Open the case file", "open": "Write one"}
@@ -188,7 +190,7 @@ def flap(d, t):
              f'<div class="big">Open together.</div><div class="time">{clock} About twenty-five minutes</div>'
              f'<p class="voicekey"><span class="mark">●</span> is the grown-up. <span class="mark">○</span> is you.</p>{extra}</div>'
              f'<ol>{"".join(f"<li><span>{r}</span></li>" for r in runs)}</ol></div>')
-    return page("p-flap", inner, t)
+    return page("p-flap", inner, t, item="flap")
 
 
 # ---------------------------------------------------------------- letter
@@ -221,8 +223,8 @@ def letter_sheets(d, t, sc):
              + f'<p class="dates">{E(pn["dates"])}</p><hr>{bl}<hr>'
              f'<p class="death-line">{death}</p>' + "".join(f'<p class="standard">{r}</p>' for r in rest)
              + (f'<p class="credit">{pn["credit"]}</p>' if pn["credit"] else "") + '</div><div class="facenum">4</div></div>')
-    a = page("p-spread", face4 + '<div class="fold"></div>' + face1, t, band=False)
-    b = page("p-spread", face2 + '<div class="fold"></div>' + face3, t, band=False)
+    a = page("p-spread", face4 + '<div class="fold"></div>' + face1, t, band=False, item="side-a")
+    b = page("p-spread", face2 + '<div class="fold"></div>' + face3, t, band=False, item="side-b")
     return a, b
 
 
@@ -309,7 +311,8 @@ def hadith_cards(d, t):
         words = ('<div class="saying blocked">No saying selected<br><span>Blocked on a source — '
                  'nothing prints here until its row on citation-sheet.md reads V</span></div>')
         mark_wm = '<div class="watermark-placeholder"><span>NO SAYING SELECTED</span></div>'
-    front = page(f"p-a6p card-front card-{t['card']}", art + f'<p class="chain-mark">{mark}</p>' + words + mark_wm, t, band=False)
+    front = page(f"p-a6p card-front card-{t['card']}", art + f'<p class="chain-mark">{mark}</p>' + words + mark_wm, t,
+                 band=False, item="card-front")
     dots = "".join(f'<span class="{"on" if seg == i else ""}"></span>' for i in range(1, 15))
     note = ('<p class="note">Segment number undecided — two schemes both number this card. '
             'The dot fills when it is fixed.</p>' if seg is None else "")
@@ -317,7 +320,7 @@ def hadith_cards(d, t):
             if s.get("text") else f'<strong>Blocked:</strong> {E(s.get("blocker", ""))}')
     back = page("p-a6p", f'<div class="card-back"><p class="kicker">Noor Post · The Fourteen</p><h3>The chain</h3>'
                 f'<p>{CHAIN_03 if d["nn"] == "03" else CHAIN}</p><div class="chain-dots">{dots}</div>'
-                f'<p class="note">Fourteen segments · historical order</p>{note}<p class="cite">{cite}</p></div>', t)
+                f'<p class="note">Fourteen segments · historical order</p>{note}<p class="cite">{cite}</p></div>', t, item="card-back")
     text = re.sub(r"<[^>]+>", " ", front + back)
     if re.search(r"\benvelope\b|\b0\d\b", text, re.I):
         raise SystemExit(f"envelope {d['nn']}: a hadith card carries an envelope number — design-system.md §7")
@@ -340,7 +343,7 @@ def session_pages(d, t):
              + "".join(q(*x) for x in front) + '<p class="over">Turn over →</p></div>')
         b = (f'<div class="session" data-fit><p class="kicker">{E(s["title"])} · continued</p>'
              + "".join(q(*x) for x in back) + "</div>")
-        return [("Session card — front", page("p-a6p", f, t)), ("Session card — back", page("p-a6p", b, t))]
+        return [("Session card — front", page("p-a6p", f, t, item="session")), ("Session card — back", page("p-a6p", b, t))]
     if kind in ("mourning", "open"):
         blocks = s["blocks"]
         sizes = [sum(len(x) for x in b) for b in blocks]
@@ -353,12 +356,12 @@ def session_pages(d, t):
         f = (f'<div class="session" data-fit><h2 class="s-title">{E(s["title"])}</h2><p class="s-sub">{E(s["sub"])}</p>'
              f'{blk(blocks[:cut])}<p class="over">Turn over →</p></div>')
         b = f'<div class="session" data-fit><p class="kicker">{E(s["title"])} · continued</p>{blk(blocks[cut:])}</div>'
-        return [("Session card — front", page("p-a6p", f, t)), ("Session card — back", page("p-a6p", b, t))]
+        return [("Session card — front", page("p-a6p", f, t, item="session")), ("Session card — back", page("p-a6p", b, t))]
     # case file: a question card, five evidence cards, a sealed answer
     out = [("Case file — the question", page("p-a6p", f'<div class="session" data-fit><p class="kicker">The case file</p>'
             f'<h2 class="s-title">The question</h2><p class="case-q">{s["question"]}</p>'
             f'<p class="s-sub">Five evidence cards. Read them in any order. Then say your answer out loud, before '
-            f'anyone opens the sealed card.</p></div>', t))]
+            f'anyone opens the sealed card.</p></div>', t, item="session"))]
     for ev in s["evidence"]:
         out.append((f"Evidence {ev['n']}", page("p-a7p", f'<div class="evidence" data-fit><p class="kicker">Evidence</p>'
                     f'<div class="ev-n">{ev["n"]}</div>' + "".join(f"<p>{x}</p>" for x in ev["text"]) + "</div>", t)))
@@ -373,13 +376,14 @@ def session_pages(d, t):
 
 def person_print(d, t, sc):
     p = pen(t)
-    return page("p-a5p", A.svg(p, 148, 210, subject_or_object(p, 148, 210, sc["person"], sc["time"])), t, band=False)
+    return page("p-a5p", A.svg(p, 148, 210, subject_or_object(p, 148, 210, sc["person"], sc["time"])), t, band=False,
+                item="person")
 
 
 def event_print(d, t, sc):
     p = pen(t)
     return page("p-a5l", A.svg(p, 210, 148, subject_or_object(p, 210, 148, sc["event"], sc["time"]))
-                + '<div class="punch" title="Ring punch: 6 mm, centred, 12 mm from the top"></div>', t, band=False)
+                + '<div class="punch" title="Ring punch: 6 mm, centred, 12 mm from the top"></div>', t, band=False, item="event")
 
 
 def stickers(d, t, sc):
@@ -393,7 +397,7 @@ def stickers(d, t, sc):
     body = f'<defs>{kiss}</defs><rect width="105" height="148" fill="#FFFFFF"/>'
     for (x, y), key in zip(slots, sc["stickers"]):
         body += f'<g filter="url(#kiss)">{A.OBJECTS[key](p, x, y, 0.5)}</g>'
-    return page("p-a6p", A.svg(p, 105, 148, body), t, band=False)
+    return page("p-a6p", A.svg(p, 105, 148, body), t, band=False, item="stickers")
 
 
 def pennant(d, t, sc):
@@ -406,12 +410,13 @@ def pennant(d, t, sc):
             f'<path d="M0 22 Q74 30 148 22" fill="none" stroke="{ink}" stroke-width="0.6"/>'
             f'<path d="M22 26 H126 L74 192Z" fill="{ivory}" stroke="{ink}" stroke-width="0.5" stroke-dasharray="2 1.2"/>'
             f'<g clip-path="url(#pen)">{motif}</g><path d="M22 26 H126 V34 H22Z" fill="none" stroke="{ink}" stroke-width="0.4"/>')
-    return page("p-a5p", A.svg(p, 148, 210, body), t, band=False)
+    return page("p-a5p", A.svg(p, 148, 210, body), t, band=False, item="pennant")
 
 
 def postcard_front(d, t, sc):
     p = pen(t)
-    return page("p-a6l", A.svg(p, 148, 105, subject_or_object(p, 148, 105, sc["postcard"], sc["time"])), t, band=False)
+    return page("p-a6l", A.svg(p, 148, 105, subject_or_object(p, 148, 105, sc["postcard"], sc["time"])), t, band=False,
+                item="postcard")
 
 
 def postcard_back(d, t):

@@ -450,6 +450,79 @@ def box_card(num):
 </section>"""
 
 
+# ---------- the built envelopes (04-art/envelopes/) ----------
+
+ENV_SET = os.path.join(ROOT, "04-art", "envelopes")
+DESIGN_ITEMS = [
+    ("front", "Envelope front"), ("back", "Back, with the seal"), ("flap", "Inside the flap"),
+    ("side-a", "The letter, outside — fact panel and page 1"), ("side-b", "The letter, inside — page 2 and the line said together"),
+    ("card-front", "Hadith card"), ("card-back", "Hadith card, back"), ("session", "Session card"),
+    ("person", "Person print"), ("event", "Event print"), ("stickers", "Sticker sheet"), ("pennant", "Pennant"),
+    ("postcard", "Return postcard"),
+]
+
+
+def sync_envelope_set():
+    """Copy the built envelopes into docs/envelopes/ — the pages, their CSS, JS
+    and fonts, the print PDFs and the item previews. Nothing here is edited by
+    hand: tools/build_envelopes.py writes the pages, tools/render_envelopes.js
+    the PDFs and previews."""
+    dst = os.path.join(OUT, "envelopes")
+    if os.path.isdir(dst):
+        shutil.rmtree(dst)
+    if not os.path.isdir(ENV_SET):
+        return
+    keep = lambda d, names: [n for n in names if n in ("overview", "README.md", "__pycache__")]
+    shutil.copytree(ENV_SET, dst, ignore=keep)
+
+
+def preview(num, item):
+    rel = f"envelopes/preview/{num}-{item}.jpg"
+    return rel if os.path.exists(os.path.join(ENV_SET, "preview", f"{num}-{item}.jpg")) else None
+
+
+def envelope_style(num):
+    try:
+        import envelope_themes
+        t = envelope_themes.THEMES[num]
+        return t["key"], t["name"], t["fonts"]
+    except Exception:
+        return None
+
+
+def design_section(num):
+    """The envelope's finished design, every item, on its page."""
+    style = envelope_style(num)
+    figs = "".join(
+        f'<figure><a href="{src}"><img src="{src}" alt="{html.escape(cap)}" loading="lazy"></a>'
+        f'<figcaption>{html.escape(cap)}</figcaption></figure>'
+        for item, cap in DESIGN_ITEMS for src in [preview(num, item)] if src)
+    if not figs or not style:
+        return ""
+    key, name, fonts = style
+    pdf = f"envelopes/pdf/envelope-{num}.pdf"
+    pdf_link = (f' &middot; <a href="{pdf}">Print PDF</a>' if os.path.exists(os.path.join(ENV_SET, "pdf", f"envelope-{num}.pdf")) else "")
+    return f"""<section class="design" id="design">
+<p class="itemlabel">The design</p>
+<h2>Style {html.escape(key)} — {html.escape(name)}</h2>
+<p class="sectionnote">Every envelope in the box has its own style. This one is set in {html.escape(fonts[0])} and {html.escape(fonts[1])}.
+<a href="envelopes/envelope-{num}.html">Every item at true size &rarr;</a>{pdf_link}</p>
+<div class="designgrid">{figs}</div>
+<p class="sectionnote small">The artwork fixes composition, colour and medium for every item; final illustration is still to be commissioned. The fact panel is still to verify.</p>
+</section>"""
+
+
+def tile_front(num):
+    src = preview(num, "front")
+    return f'<img class="tilefront" src="{src}" alt="" loading="lazy">' if src else ""
+
+
+def design_img(num, item):
+    src = preview(num, item)
+    return (f'<a class="carddesign" href="envelopes/envelope-{num}.html"><img src="{src}" alt="" loading="lazy"></a>'
+            if src else "")
+
+
 # ---------- page shell ----------
 
 def page(title, subtitle, body, depth=0, nav_current=None):
@@ -490,6 +563,7 @@ def envelope_page(num, month, masoom, session, letter_ttl, letter_html, panel_ht
 <p class="kicker">Envelope {num} · {html.escape(month)}</p>
 <h1>{html.escape(masoom)}</h1>
 <p class="cardsback"><a href="envelope-{num}-cards.html">View every item as a card &rarr;</a></p>
+{design_section(num)}
 {flap_html}
 <section class="letter">
   <h2 class="letter-title">{html.escape(letter_ttl)}</h2>
@@ -784,7 +858,7 @@ def build_envelope_cards(num, month, masoom, session, src):
     items = src["items"]
     cards, n = [], 1
 
-    cards.append(card_shell(n, "Letter", False, f"""
+    cards.append(card_shell(n, "Letter", False, design_img(num, "side-a") + f"""
 <h2 class="letter-title">{html.escape(src['ttl'])}</h2>
 <p class="voicekey"><span class="mark">●</span> the grown-up &nbsp;·&nbsp; <span class="mark">○</span> the child &nbsp;·&nbsp; <span class="mark">●○</span> together</p>
 {src['lh']}
@@ -795,15 +869,20 @@ def build_envelope_cards(num, month, masoom, session, src):
     if 2 in items:
         _, spec, _ = items[2]
         decided = ENVELOPE_03_SEGMENT if num == "03" else None
-        cards.append(card_shell(n, "Hadith card", True, hadith_block(spec, masoom, decided))); n += 1
+        row = next((r for r in hadith_assignments("box") if r["envelope"] == num), {})
+        body2 = (design_img(num, "card-front") + box_card(num)) if row.get("text") else \
+            (design_img(num, "card-front") + hadith_block(spec, masoom, decided))
+        cards.append(card_shell(n, "Hadith card", not row.get("text"), body2)); n += 1
 
     if 3 in items:
         _, spec, state = items[3]
-        cards.append(card_shell(n, "Person print", is_pending(state), art_block(spec, "portrait"))); n += 1
+        cards.append(card_shell(n, "Person print", is_pending(state),
+                                design_img(num, "person") or art_block(spec, "portrait"))); n += 1
 
     if 4 in items:
         _, spec, state = items[4]
-        cards.append(card_shell(n, "Event print", is_pending(state), art_block(spec, "landscape"))); n += 1
+        cards.append(card_shell(n, "Event print", is_pending(state),
+                                design_img(num, "event") or art_block(spec, "landscape"))); n += 1
 
     body = src["ch"] or src["sh"]
     if body:
@@ -811,15 +890,17 @@ def build_envelope_cards(num, month, masoom, session, src):
         if 5 in items:
             _, spec5, _ = items[5]
             note = f'<p class="itemspec">{inline(strip_internal(spec5))}</p>'
-        cards.append(card_shell(n, "Session card", False, note + body)); n += 1
+        cards.append(card_shell(n, "Session card", False, design_img(num, "session") + note + body)); n += 1
 
     if 6 in items:
         name6, spec, state = items[6]
-        cards.append(card_shell(n, name6, is_pending(state), art_block(spec, "portrait"))); n += 1
+        cards.append(card_shell(n, name6, is_pending(state),
+                                design_img(num, "pennant" if name6 == "Pennant" else "stickers")
+                                or art_block(spec, "portrait"))); n += 1
 
     if 7 in items:
         _, spec, _ = items[7]
-        cards.append(card_shell(n, "Return postcard", True, postcard_block(spec))); n += 1
+        cards.append(card_shell(n, "Return postcard", True, design_img(num, "postcard") + postcard_block(spec))); n += 1
 
     return f"""<article class="envelope cardsview">
 <p class="kicker">Envelope {num} · {html.escape(month)} · card view</p>
@@ -899,6 +980,7 @@ def build():
     for num, month, masoom, session in ENVELOPES:
         rows.append(f"""<div class="tilewrap">
 <a class="tile" href="envelope-{num}.html">
+{tile_front(num)}
 <span class="tilenum">{num}</span>
 <span class="tilemonth">{html.escape(month)}</span>
 <span class="tilename">{html.escape(masoom)}</span>
@@ -950,6 +1032,7 @@ def build():
         f.write(page("Noor Post", "", body))
 
     build_reference()
+    sync_envelope_set()
 
     # count what was actually written, rather than a formula that silently
     # drifts whenever a new page type is added (the card pages were missing)

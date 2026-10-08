@@ -680,3 +680,47 @@ code {
 .hadithcard.specimen .cardnote { color: var(--accent); }
 .hadithcard.empty .saying { display: none; }
 .hadithcard.empty { border-style: dashed; }
+
+/* ---------- the built design, per envelope (tools/build_site.py: design_section) ---------- */
+
+.design { margin: 0 0 2.4rem; }
+.design h2 { margin: 0.2rem 0 0.4rem; }
+.design .sectionnote.small { font-size: 0.85rem; margin-top: 1rem; }
+.designgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.designgrid figure { margin: 0; }
+.designgrid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  box-shadow: 0 1px 3px var(--shadow);
+  background: var(--card);
+}
+.designgrid figcaption { font-size: 0.8rem; color: var(--soft); margin-top: 0.35rem; line-height: 1.35; }
+
+.carddesign { display: block; margin: 0.2rem 0 1rem; }
+.carddesign img {
+  display: block;
+  max-width: 100%;
+  max-height: 22rem;
+  margin: 0 auto;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  box-shadow: 0 1px 3px var(--shadow);
+}
+
+.tilefront {
+  display: block;
+  width: 100%;
+  aspect-ratio: 229 / 162;
+  object-fit: cover;
+  border-radius: 2px;
+  margin-bottom: 0.7rem;
+}
+.design a { color: var(--accent); }
