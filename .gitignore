@@ -36,3 +36,12 @@ __pycache__/
 # 00-sources/text/irshad--howard-book-of-guidance.txt — is derived from it,
 # tracked, and diffable.
 00-sources/*-djvu.txt
+
+# Third-party placeholder art (Pinterest), for placement tests only. This
+# repository is public, so the images and anything rendered from them stay
+# local. The manifest, README and build script are tracked. See
+# 04-art/placeholders/README.md.
+04-art/placeholders/src/
+04-art/placeholders/*.jpg
+04-art/placeholders/placement-test.html
+04-art/placeholders/pdf/

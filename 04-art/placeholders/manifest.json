@@ -1,0 +1,15 @@
+{
+  "_note": "Third-party art saved from Pinterest, used ONLY to test placement in the Paper Dunes layouts. Not licensed, not ours, never printed, never published. The image files are git-ignored because this repository is public. crop is [left, top, right, bottom] in the 923 x 2000 phone-screenshot frame (scaled to the real file size at build time), chosen to cut away the Pinterest buttons drawn over the art.",
+  "images": [
+    {"id": "c9147ea5", "subject": "Imam al-Rida's shrine, Mashhad — dome and minaret, watercolour on torn paper", "credit": "Pinterest — Fadak all zahraa", "crop": [40, 260, 883, 1600]},
+    {"id": "83de8618", "subject": "Shrine of al-Abbas, Karbala — minaret, clock tower, pigeons", "credit": "Pinterest — Syed Kash", "crop": [20, 255, 905, 1130]},
+    {"id": "17d6291a", "subject": "Imam al-Rida's shrine, Mashhad — sun, birds, blossom, on white", "credit": "Pinterest — fatemeh moghaddas", "crop": [20, 255, 905, 1200]},
+    {"id": "c9793d2b", "subject": "Kadhimiya shrine, Baghdad — reflected in the courtyard", "credit": "Pinterest — sawsan (AI-modified)", "crop": [20, 255, 905, 1350]},
+    {"id": "6e4b3941", "subject": "A minaret seen through an arched window", "credit": "Pinterest — Naba al-Asadi", "crop": [20, 255, 905, 1610]},
+    {"id": "f6c2feb6", "subject": "Golden dome with a red Ya Husayn flag", "credit": "Pinterest — Syed Kash", "crop": [20, 255, 905, 1175]},
+    {"id": "b07bbb9c", "subject": "Golden dome and two minarets, Karbala, reflected", "credit": "Pinterest — sawsan", "crop": [20, 255, 905, 1350]},
+    {"id": "06f91c22", "subject": "Jamkaran mosque — tiled dome and colonnade", "credit": "Pinterest — Ahmed Raza Bhatti (karbala-tv.iq)", "crop": [20, 255, 905, 1115]},
+    {"id": "7e2038d2", "subject": "Imam al-Rida's shrine at dusk, a tea tray in the courtyard", "credit": "Pinterest — Syed Kash", "crop": [20, 255, 905, 1205]},
+    {"id": "c9d10feb", "subject": "Shrine grille with green and red votive ties", "credit": "Pinterest — Syed Kash", "crop": [140, 140, 780, 1170]}
+  ]
+}
