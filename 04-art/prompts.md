@@ -8,7 +8,30 @@ Every prompt below is the **master style block** plus **item specifics**. Paste 
 
 ---
 
-## Paper Dunes style block (2026-10-08) — use this one
+## Fourteen styles — the MEDIUM line for each envelope (2026-10-08)
+
+**Each envelope now has its own style** (`design-system.md` §1, amended). Use the line for the envelope you are generating in place of MEDIUM and PALETTE; keep the faces rules, the mourning rule and the negative prompt. The built sets in `04-art/envelopes/` show the target composition for every item.
+
+| Env | Style | MEDIUM and PALETTE |
+|---|---|---|
+| 01 | Ink Wash | Black ink wash on ivory paper, soft bleeding edges, greys only, no colour. Mourning. |
+| 02 | Charcoal Line | Fine charcoal line drawing on ivory, no fill, no colour, quiet and sparse. Mourning. |
+| 03 | Paper Dunes | Layered cut paper, soft shadows between layers; sand, apricot, rose clay, oasis teal, dusk plum. |
+| 04 | Big Shapes | Bold flat geometric shapes, two inks — cobalt #1D3FBF and saffron #F5A623 — on warm white. |
+| 05 | Illuminated | Persian manuscript illumination: lapis, gold leaf, vermilion, malachite on vellum; fine gold outlines. |
+| 06 | Suzani | Central Asian embroidery and felt appliqué: madder red, indigo, saffron, leaf green on linen; visible running stitch. |
+| 07 | Mosaic Stars | Flat graphic at night in shrine green #0F3B3A with gold and turquoise; geometric star tiling. |
+| 08 | Lantern Night | Flat graphic night: deep blue #1F2552, lantern gold, ember coral; one warm light source. |
+| 09 | Dune Night | Layered cut paper at night: violet dunes, plum sky, a gold moon. |
+| 10 | Lantern Dawn | Flat graphic at dawn: pale blue sky, rose and peach horizon bands, gold sun. |
+| 11 | Tile Explorer | Flat graphic in Persian tile colours: cobalt, turquoise, saffron, pomegranate; tile borders. |
+| 12 | Riso Press | Risograph print: fluorescent pink, riso blue and yellow, overprinted, slight misregistration, halftone dots. |
+| 13 | Watercolour | Watercolour on textured paper: gold dome, blue tile, sand, loose edges fading into the paper. |
+| 14 | Garden Pop-up | Layered cut paper in a garden: palm greens, sage, pomegranate, morning sky; arched window frame. |
+
+---
+
+## Paper Dunes style block (2026-10-08) — envelope 03
 
 **The house style changed to Paper Dunes** (`design-system.md` §1–2, amended 2026-10-08). Every drawing in `04-art/paper-dunes/` is already made in it by `tools/paperdunes_art.py`; use the block below when commissioning or generating final art so it matches. It **replaces the MEDIUM and PALETTE clauses** of the master blocks that follow; the faces rules, the mourning rule and the negative prompt still apply unchanged.
 

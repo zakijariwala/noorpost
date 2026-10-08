@@ -6,6 +6,30 @@ Phase 0.4. Rules for the seven items, the envelope, and the two collectible sets
 
 ## 1. Typefaces
 
+> **Amended again 2026-10-08 — fourteen envelopes, fourteen styles.** Decided by the owner after the Paper Dunes pass: every envelope in the box gets its own style, because the run prints once and is not redesigned for at least a year. **Paper Dunes becomes envelope 03's style, not the house style.** Each envelope's faces, palette and illustration mode are now set per envelope in `tools/envelope_themes.py`; the full sets are built by `tools/build_envelopes.py` into `04-art/envelopes/`.
+>
+> | Env | Style | Faces | Art |
+> |---|---|---|---|
+> | 01 Muharram | M2 Ink Wash | Cormorant Garamond / Nunito Sans | black wash on ivory |
+> | 02 Safar | M1 Charcoal Line | Young Serif / Nunito Sans | charcoal line on ivory |
+> | 03 Rabi al-Awwal | C Paper Dunes | Young Serif / Nunito Sans | cut paper |
+> | 04 Rabi al-Thani | B3 Big Shapes | Bricolage Grotesque / Newsreader | flat, two inks |
+> | 05 Jumada al-Awwal | D Illuminated | Cormorant Garamond / Alegreya | gilded, manuscript |
+> | 06 Jumada al-Thani | F Suzani | Gloock / Karla | stitched |
+> | 07 Rajab | A3 Mosaic Stars | Fraunces / Literata | flat, night tile |
+> | 08 Rajab | A Lantern Night | Fraunces / Literata | flat, night |
+> | 09 Sha'ban | C2 Dune Night | Young Serif / Nunito Sans | cut paper, night |
+> | 10 Sha'ban | A2 Lantern Dawn | Fraunces / Literata | flat, dawn |
+> | 11 Ramadan | B Tile Explorer | Bricolage Grotesque / Newsreader | flat, tile |
+> | 12 Shawwal | E Riso Press | Space Grotesk / Atkinson Hyperlegible | riso overprint |
+> | 13 Dhul Qa'dah | G Watercolour | Marcellus / Lora | wash, colour |
+> | 14 Dhul Hijjah | C4 Garden Pop-up | Young Serif / Nunito Sans | cut paper, garden |
+>
+> **What still holds across all fourteen, because it is function and not look:** trim sizes and the A4-folded letter; the ● ○ ●○ voice marks; the fact-panel order; the chain mark, written out as *Silsila segment n of 14*; no envelope number on any hadith card; the ring punch; the name area on the front; the mourning register of 01 and 02 (black on ivory, no reward objects). `tests/test_envelopes.py` checks these on every build.
+>
+> **What this overrides, knowingly:** §3's "one illustration style throughout" no longer binds the box — each envelope has its own; the prompt-pack pairings 04/11 and 08/14 ("identical linework") no longer hold, since each pair now spans two styles. §3's absolute rule — never a depiction of any of the Fourteen — is untouched; the art kit has no figure in it. The companions line is not covered by this amendment and still prints from `04-art/print/assets/print.css` (Paper Dunes).
+
+
 > **Amended 2026-10-08 — Paper Dunes.** The two faces below are **retired** for the typeset system. Feedback on the envelope 03 proofs was that the product read as too plain for children; of four directions tried (`04-art/paper-dunes/`), the owner chose **Paper Dunes**. The faces are now:
 >
 > | Role | Face | Why |
