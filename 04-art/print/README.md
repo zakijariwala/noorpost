@@ -1,5 +1,7 @@
 # Print templates — envelope 03 proof set
 
+> **2026-10-08: restyled to Paper Dunes.** `assets/print.css` now carries the Paper Dunes palette and faces (`design-system.md` §1–2, amended), so every template here picks the new look up without being rebuilt. The **complete** envelope — exterior, seal, flap, the folded A4 letter, cards, prints, stickers, postcard — is built separately and at true size in `../paper-dunes/` by `tools/build_paper_dunes.py`. The notes below about fonts (EB Garamond, Fraunces) describe the original pass.
+
 Job 2: the text-layout templates, built from `00-foundations/design-system.md`'s exact type, palette and page specs. This is a **design-system verification pass**, not finished production art — it proves the fonts, palette, page geometry, and content structure all render correctly together, using envelope 03 (the pilot) as the live example.
 
 ## What's here

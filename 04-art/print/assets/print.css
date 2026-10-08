@@ -1,33 +1,58 @@
-/* Noor Post — shared print stylesheet
-   Built from 00-foundations/design-system.md and 00-foundations/fact-panel-spec.md.
+/* Noor Post — shared print stylesheet — PAPER DUNES
+   Built from 00-foundations/design-system.md (amended 2026-10-08: Paper Dunes)
+   and 00-foundations/fact-panel-spec.md.
    This is a derived artifact — if the design system changes, update it there first. */
 
-@import url('fonts.css');
+@import url('fonts.css');              /* Noto Naskh Arabic (and the retired faces) */
+@import url('fonts-paper-dunes.css');  /* Young Serif, Nunito Sans */
 
 :root {
-  /* Standard palette — design-system.md §2 */
-  --ivory: #F3EDE1;
-  --ink: #211B14;
-  --gold: #A9762F;
-  --teal: #2C5F5A;
-  --terracotta: #B4472A;
+  /* Paper Dunes palette — design-system.md §2 */
+  --sand: #FFF6EA;        /* stock / ground */
+  --dune: #FCEBD5;        /* second ground: pills, panels, envelope stock */
+  --apricot: #F6B48A;     /* first paper layer */
+  --clay: #E58F7B;        /* second paper layer */
+  --clay-ink: #B0503E;    /* clay dark enough to set small type in */
+  --oasis: #1F5C63;       /* child's voice, deep layer */
+  --dusk: #5B3A63;        /* silhouettes, seal, card grounds */
+  --plum-ink: #3B2440;    /* primary text */
 
-  /* Mourning palette — envelopes 01, 02 only */
+  /* Mourning palette — envelopes 01, 02 only. Unchanged by Paper Dunes. */
+  --ivory: #F3EDE1;
   --mourn-ink: #1B1B1B;
 
-  --ground: var(--ivory);
-  --text: var(--ink);
-  --accent-primary: var(--gold);
-  --accent-secondary: var(--teal);
-  --accent-tertiary: var(--terracotta);
+  --ground: var(--sand);
+  --text: var(--plum-ink);
+  --accent-primary: var(--clay-ink);
+  --accent-secondary: var(--oasis);
+  --accent-tertiary: var(--dusk);
+  --pill: var(--dune);
+  --bar: var(--apricot);
+
+  --display: 'Young Serif', Georgia, serif;
+  --body: 'Nunito Sans', 'Helvetica Neue', Arial, sans-serif;
+
+  /* The paper-cut dune band at the foot of every page. Two layers, soft shadow. */
+  --dunes: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 60' preserveAspectRatio='none'%3E%3Cdefs%3E%3Cfilter id='s' x='-5%25' y='-40%25' width='110%25' height='180%25'%3E%3CfeDropShadow dx='0' dy='-1.2' stdDeviation='1.2' flood-color='%233B2440' flood-opacity='.22'/%3E%3C/filter%3E%3C/defs%3E%3Cpath filter='url(%23s)' fill='%23F6B48A' d='M0 26 Q100 6 200 22 T400 16 V60 H0Z'/%3E%3Cpath filter='url(%23s)' fill='%23E58F7B' d='M0 42 Q120 26 250 40 T400 34 V60 H0Z'/%3E%3C/svg%3E");
 }
 
+/* No colour accent in the mourning issues: black on ivory, full stop.
+   The paper-cut survives as a single charcoal line, so the issue still
+   belongs to the set without borrowing a single colour from it. */
 .mourning {
+  /* Every Paper Dunes colour collapses to charcoal or ivory, so nothing built
+     on the palette can leak a colour into a mourning page. */
+  --sand: #F3EDE1; --dune: #F3EDE1;
+  --apricot: #1B1B1B; --clay: #1B1B1B; --clay-ink: #1B1B1B;
+  --oasis: #1B1B1B; --dusk: #1B1B1B; --plum-ink: #1B1B1B;
   --ground: var(--ivory);
   --text: var(--mourn-ink);
   --accent-primary: var(--mourn-ink);
   --accent-secondary: var(--mourn-ink);
   --accent-tertiary: var(--mourn-ink);
+  --pill: transparent;
+  --bar: var(--mourn-ink);
+  --dunes: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 60' preserveAspectRatio='none'%3E%3Cpath fill='none' stroke='%231B1B1B' stroke-width='1' d='M0 26 Q100 6 200 22 T400 16'/%3E%3Cpath fill='none' stroke='%231B1B1B' stroke-width='1' d='M0 42 Q120 26 250 40 T400 34'/%3E%3C/svg%3E");
 }
 
 * { box-sizing: border-box; }
@@ -39,7 +64,7 @@ html, body {
 }
 
 body {
-  font-family: 'EB Garamond', Georgia, serif;
+  font-family: var(--body);
   color: var(--text);
 }
 
@@ -49,7 +74,22 @@ body {
   position: relative;
   overflow: hidden;
   margin: 0 auto 12mm auto; /* on-screen only; @page margin below governs actual print */
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
+
+/* The dune band. Sits under the text (z-index 0) inside the bottom margin. */
+.page::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 11mm;
+  background: var(--dunes) bottom / 100% 100% no-repeat;
+  pointer-events: none;
+  z-index: 0;
+}
+.page > * { position: relative; z-index: 1; }
+.page > .watermark-placeholder { position: absolute; z-index: 5; }
 
 /* ---------- overflow guard ----------
    `overflow: hidden` above is what a real trimmed page does, but it also means
@@ -76,6 +116,7 @@ body {
     letter-spacing: 0.06em;
     text-align: center;
     padding: 1.5mm 2mm;
+    z-index: 10;
   }
 }
 
@@ -91,22 +132,16 @@ body {
 
 /* ---------- typography ---------- */
 
-.display {
-  font-family: 'Fraunces', Georgia, serif;
-}
-
+.display,
 .display-title {
-  font-family: 'Fraunces', Georgia, serif;
-  font-weight: 700;
+  font-family: var(--display);
+  font-weight: 400;
   font-style: normal;
-  letter-spacing: 0.01em;
 }
 
 .child-voice {
-  font-family: 'Fraunces', Georgia, serif;
-  font-weight: 400;
-  font-style: italic; /* approximates the "soft" warmth of the WONK axis until a true
-                          variable-font instance is embedded — see print/README.md note */
+  font-family: var(--display);
+  color: var(--accent-secondary);
 }
 
 .small-caps {
@@ -123,72 +158,87 @@ body {
 /* ---------- letter (two-voice) ---------- */
 
 .voicekey {
-  font-size: 8.5pt;
+  font-size: 8pt;
+  font-weight: 600;
   color: var(--text);
-  opacity: 0.7;
-  margin-bottom: 6mm;
+  opacity: 0.75;
+  margin-bottom: 5mm;
 }
+.voicekey .mark { color: var(--accent-primary); }
 
 .letter p.voice {
-  margin: 0 0 3.2mm 0;
-  font-size: 11.5pt;
+  margin: 0 0 3mm 0;
+  font-size: 10.5pt;   /* Nunito's x-height sets 10.5pt at the read-aloud size of 11.5pt Garamond */
   line-height: 1.5;
 }
 
 .letter p.voice .mark {
-  font-weight: 700;
+  font-weight: 800;
   color: var(--accent-primary);
   margin-right: 2mm;
 }
 
 .letter p.voice.adult {
-  font-family: 'EB Garamond', serif;
+  font-family: var(--body);
 }
 
+/* The child's line: the display face, oasis teal, an apricot paper strip beside it. */
 .letter p.voice.child {
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  color: var(--text);
+  font-family: var(--display);
+  font-size: 11.5pt;
+  line-height: 1.35;
+  color: var(--accent-secondary);
+  border-left: 1.2mm solid var(--bar);
+  padding-left: 3mm;
 }
+.letter p.voice.child .mark { color: var(--accent-secondary); }
 
+/* Said together: a dune-coloured pill, set large. */
 .letter p.voice.together {
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
-  font-style: normal;
-  border-top: 0.3mm solid var(--accent-primary);
-  padding-top: 3mm;
+  font-family: var(--display);
+  font-size: 13pt;
+  line-height: 1.3;
+  color: var(--accent-tertiary);
+  background: var(--pill);
+  border-radius: 6mm;
+  padding: 3mm 5mm;
   margin-top: 5mm;
 }
+.letter p.voice.together .mark { color: var(--accent-tertiary); }
 
 .letter-title {
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
-  font-size: 20pt;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 22pt;
+  line-height: 1.1;
   margin: 0 0 2mm 0;
 }
 
 /* ---------- fact panel — 8-slot skeleton, fact-panel-spec.md ---------- */
 
+.panel h3,
 .panel .name {
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
+  font-family: var(--display);
+  font-weight: 400;
   font-size: 15pt;
-  line-height: 1.05;
-  margin: 0;
+  line-height: 1.1;
+  margin: 0 0 2mm 0;
 }
 
 .panel .dates {
   font-variant: small-caps;
   letter-spacing: 0.04em;
-  font-size: 9pt;
+  font-size: 8.5pt;
+  font-weight: 600;
   color: var(--text);
-  opacity: 0.75;
+  opacity: 0.8;
   margin: 1mm 0 2.5mm 0;
 }
 
+.panel hr,
 .panel hr.rule {
   border: none;
-  border-top: 0.25mm solid var(--accent-primary);
+  border-top: 0.4mm solid var(--bar);
   margin: 2.5mm 0;
 }
 
@@ -196,8 +246,8 @@ body {
   padding-left: 4mm;
   text-indent: -4mm;
   margin: 0 0 1.6mm 0;
-  font-size: 8.7pt;
-  line-height: 1.26;
+  font-size: 8.3pt;
+  line-height: 1.3;
 }
 
 .panel .bullet .dot {
@@ -210,7 +260,7 @@ body {
 .panel .death-line {
   /* F8/F9, fact-panel-spec.md: no bold, no box, no colour — set apart by space only */
   margin-top: 3.5mm;
-  font-size: 9.3pt;
+  font-size: 9pt;
   font-weight: 400;
   font-style: normal;
   color: var(--text);
@@ -232,14 +282,37 @@ body {
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  padding: 10mm 9mm;
+  padding: 12mm 10mm 13mm;
+  position: relative;
 }
 
-.hadith-front .segment {
-  font-size: 8pt;
-  font-variant: small-caps;
-  letter-spacing: 0.05em;
+/* The arch: the card's one fixed piece of furniture, front and back. */
+.hadith-front::before {
+  content: "";
+  position: absolute;
+  inset: 5mm 5mm 5mm 5mm;
+  border: 0.5mm solid var(--bar);
+  border-radius: 46mm 46mm 3mm 3mm;
+  pointer-events: none;
+}
+
+.hadith-front .segment,
+.hadith-front .chain {
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: var(--accent-primary);
+  text-align: center;
+}
+
+.hadith-front .saying,
+.hadith-front blockquote {
+  font-family: var(--display);
+  color: var(--accent-tertiary);
+  text-align: center;
+  justify-content: center;
+  margin: 0;
 }
 
 .hadith-front .saying-ar {
@@ -250,14 +323,16 @@ body {
 }
 
 .hadith-front .saying-en {
-  font-family: 'EB Garamond', serif;
-  font-size: 11pt;
-  line-height: 1.5;
-  font-style: italic;
+  font-family: var(--display);
+  font-size: 12pt;
+  line-height: 1.4;
+  color: var(--accent-tertiary);
+  text-align: center;
 }
 
 .hadith-back .citation {
-  font-size: 9pt;
+  font-size: 8.5pt;
+  line-height: 1.4;
   color: var(--text);
 }
 
@@ -265,13 +340,14 @@ body {
 
 .session-card {
   font-size: 8pt;
-  line-height: 1.28;
+  line-height: 1.32;
 }
 
 .session-card h2, .session-card h3 {
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
-  font-size: 11pt;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 12pt;
+  color: var(--accent-secondary);
   margin: 0 0 1.5mm 0;
 }
 
@@ -281,8 +357,7 @@ body {
 
 .session-card hr {
   border: none;
-  border-top: 0.2mm solid var(--accent-primary);
-  opacity: 0.4;
+  border-top: 0.3mm solid var(--bar);
   margin: 2mm 0;
 }
 
@@ -297,7 +372,7 @@ body {
 }
 
 .session-card.compact h2, .session-card.compact h3 {
-  font-size: 10.5pt;
+  font-size: 11pt;
 }
 
 .session-card .bullet {
@@ -310,48 +385,53 @@ body {
 
 .session-card .sealed-banner {
   text-align: center;
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
+  font-family: var(--display);
   font-size: 11pt;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   color: var(--accent-tertiary);
+  background: var(--pill);
   border: 0.4mm dashed var(--accent-tertiary);
+  border-radius: 4mm;
   padding: 3mm;
   margin-bottom: 4mm;
 }
 
 .session-card h2.card-title {
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
-  font-size: 13pt;
+  font-family: var(--display);
+  font-size: 14pt;
   margin: 0 0 4mm 0;
 }
 
 .session-card .question {
-  font-size: 10.5pt;
-  line-height: 1.5;
+  font-size: 9.5pt;
+  line-height: 1.45;
   margin: 0 0 3.5mm 0;
 }
 
 .session-card .flag-label {
   margin: 0 0 1mm 0;
-  font-size: 8.5pt;
-  font-weight: 700;
-  color: var(--accent-tertiary);
+  font-size: 8pt;
+  font-weight: 800;
+  color: var(--accent-primary);
 }
 
 .session-card .flag-label .flag {
   margin-right: 1.5mm;
 }
 
+/* ---------- postcard ---------- */
+
+.sig-line span.blank { border-bottom-color: var(--text); }
+
 /* ---------- shared page furniture ---------- */
 
 .kicker {
-  font-size: 8.5pt;
-  letter-spacing: 0.08em;
+  font-size: 7.5pt;
+  font-weight: 800;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--accent-primary);
-  margin: 0 0 1mm 0;
+  margin: 0 0 1.5mm 0;
 }
 
 .stamp-ring {
@@ -361,18 +441,19 @@ body {
   width: 20mm;
   height: 20mm;
   border-radius: 50%;
-  border: 0.4mm solid var(--accent-primary);
+  border: 0.4mm dashed var(--accent-tertiary);
 }
 
 .placeholder-box {
   border: 0.3mm dashed var(--accent-secondary);
+  border-radius: 3mm;
   color: var(--accent-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   font-size: 8pt;
-  font-family: 'EB Garamond', serif;
+  font-family: var(--body);
   padding: 4mm;
 }
 
@@ -388,9 +469,9 @@ body {
 
 .watermark-placeholder span {
   transform: rotate(-28deg);
-  font-family: 'EB Garamond', serif;
-  font-weight: 700;
-  font-size: 13pt;
+  font-family: var(--body);
+  font-weight: 800;
+  font-size: 12pt;
   letter-spacing: 0.08em;
   color: rgba(180, 71, 42, 0.35);
   border: 0.4mm solid rgba(180, 71, 42, 0.35);

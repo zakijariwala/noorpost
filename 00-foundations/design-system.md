@@ -6,6 +6,39 @@ Phase 0.4. Rules for the seven items, the envelope, and the two collectible sets
 
 ## 1. Typefaces
 
+> **Amended again 2026-10-08 — fourteen envelopes, fourteen styles.** Decided by the owner after the Paper Dunes pass: every envelope in the box gets its own style, because the run prints once and is not redesigned for at least a year. **Paper Dunes becomes envelope 03's style, not the house style.** Each envelope's faces, palette and illustration mode are now set per envelope in `tools/envelope_themes.py`; the full sets are built by `tools/build_envelopes.py` into `04-art/envelopes/`.
+>
+> | Env | Style | Faces | Art |
+> |---|---|---|---|
+> | 01 Muharram | M2 Ink Wash | Cormorant Garamond / Nunito Sans | black wash on ivory |
+> | 02 Safar | M1 Charcoal Line | Young Serif / Nunito Sans | charcoal line on ivory |
+> | 03 Rabi al-Awwal | C Paper Dunes | Young Serif / Nunito Sans | cut paper |
+> | 04 Rabi al-Thani | B3 Big Shapes | Bricolage Grotesque / Newsreader | flat, two inks |
+> | 05 Jumada al-Awwal | D Illuminated | Cormorant Garamond / Alegreya | gilded, manuscript |
+> | 06 Jumada al-Thani | F Suzani | Gloock / Karla | stitched |
+> | 07 Rajab | A3 Mosaic Stars | Fraunces / Literata | flat, night tile |
+> | 08 Rajab | A Lantern Night | Fraunces / Literata | flat, night |
+> | 09 Sha'ban | C2 Dune Night | Young Serif / Nunito Sans | cut paper, night |
+> | 10 Sha'ban | A2 Lantern Dawn | Fraunces / Literata | flat, dawn |
+> | 11 Ramadan | B Tile Explorer | Bricolage Grotesque / Newsreader | flat, tile |
+> | 12 Shawwal | E Riso Press | Space Grotesk / Atkinson Hyperlegible | riso overprint |
+> | 13 Dhul Qa'dah | G Watercolour | Marcellus / Lora | wash, colour |
+> | 14 Dhul Hijjah | C4 Garden Pop-up | Young Serif / Nunito Sans | cut paper, garden |
+>
+> **What still holds across all fourteen, because it is function and not look:** trim sizes and the A4-folded letter; the ● ○ ●○ voice marks; the fact-panel order; the chain mark, written out as *Silsila segment n of 14*; no envelope number on any hadith card; the ring punch; the name area on the front; the mourning register of 01 and 02 (black on ivory, no reward objects). `tests/test_envelopes.py` checks these on every build.
+>
+> **What this overrides, knowingly:** §3's "one illustration style throughout" no longer binds the box — each envelope has its own; the prompt-pack pairings 04/11 and 08/14 ("identical linework") no longer hold, since each pair now spans two styles. §3's absolute rule — never a depiction of any of the Fourteen — is untouched; the art kit has no figure in it. The companions line is not covered by this amendment and still prints from `04-art/print/assets/print.css` (Paper Dunes).
+
+
+> **Amended 2026-10-08 — Paper Dunes.** The two faces below are **retired** for the typeset system. Feedback on the envelope 03 proofs was that the product read as too plain for children; of four directions tried (`04-art/paper-dunes/`), the owner chose **Paper Dunes**. The faces are now:
+>
+> | Role | Face | Why |
+> |---|---|---|
+> | Body — letters, fact panels, cards, all adult-facing copy | **Nunito Sans** | A round, open humanist sans with a large x-height. Easy for an 8-year-old to follow over a parent's shoulder, and calm enough for the adult reading it aloud. Variable weight 400–800, real italics. |
+> | Display — titles, the child's lines (○), the line said together (●○), the fact-panel name, envelope lettering | **Young Serif** | A warm, slightly soft serif. Still a serif and still dignified, so the §1 brief below (warm, not a cartoon face) is kept; it separates from the sans body at a glance, which is the job the display face has always had. Single weight. |
+>
+> Both SIL OFL, both on Google Fonts, both embedded for offline print in `04-art/print/assets/fonts-paper-dunes.css`. Letter body moves from 11.5 pt Garamond to **10.5 pt Nunito Sans** — the same reading size, because Nunito's x-height is larger. Noto Naskh Arabic stays the Arabic face. What follows is kept as the record of the original decision.
+
 Two faces, both SIL Open Font License (free, no royalty, no attribution required, safe for a commercial print run), both on Google Fonts so every contributor can pull the identical file.
 
 | Role | Face | Why |
@@ -23,6 +56,21 @@ Two faces, both SIL Open Font License (free, no royalty, no attribution required
 ---
 
 ## 2. Palette
+
+> **Amended 2026-10-08 — Paper Dunes.** The fixed palette for the typeset system is now the Paper Dunes palette below. It replaces the ivory / gold / teal / terracotta table that follows, which is kept as the record. **The mourning palette is unchanged** — envelopes 01 and 02 stay black on ivory, and every Paper Dunes colour collapses to charcoal or ivory on a `.mourning` page (`04-art/print/assets/print.css`), so nothing built on the new palette can leak colour into a mourning issue.
+>
+> | Role | Name | Hex |
+> |---|---|---|
+> | Stock / ground | Sand | `#FFF6EA` |
+> | Second ground — envelope stock, pills, panels | Dune | `#FCEBD5` |
+> | Primary text | Plum ink | `#3B2440` |
+> | First paper layer; the child's-line strip | Apricot | `#F6B48A` |
+> | Second paper layer | Rose clay | `#E58F7B` |
+> | Small type in clay — kickers, marks, rules | Clay ink | `#B0503E` |
+> | The child's voice; deep layer | Oasis | `#1F5C63` |
+> | Silhouettes, the wax seal, the hadith-card arch | Dusk | `#5B3A63` |
+>
+> **The look:** layered cut paper. Dunes in two or three layers with a soft shadow between them, flat colour, no gradients, no outlines. Every page carries a two-layer dune band at its foot. The seal is dusk (was gold) and the cancellation ring is dusk (was gold). The illustration rules in §3 are untouched; the art kit in `tools/paperdunes_art.py` has no figure in it at all, so it cannot depict one of the Fourteen.
 
 **Amended 2026-08-12. The palette binds the printed system, not the artwork.**
 
