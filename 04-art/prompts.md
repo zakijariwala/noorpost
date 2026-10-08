@@ -8,6 +8,28 @@ Every prompt below is the **master style block** plus **item specifics**. Paste 
 
 ---
 
+## Paper Dunes style block (2026-10-08) — use this one
+
+**The house style changed to Paper Dunes** (`design-system.md` §1–2, amended 2026-10-08). Every drawing in `04-art/paper-dunes/` is already made in it by `tools/paperdunes_art.py`; use the block below when commissioning or generating final art so it matches. It **replaces the MEDIUM and PALETTE clauses** of the master blocks that follow; the faces rules, the mourning rule and the negative prompt still apply unchanged.
+
+```
+MEDIUM: layered cut-paper illustration, like a pop-up book or a paper diorama. Flat colour
+in each layer, visible paper edges, a soft drop shadow between layers. Simple rounded
+shapes, no outlines, no gradients, no texture beyond the paper itself. Warm and handmade,
+calm, not cute and not cartoon. For children aged 8-12 and the parents beside them.
+
+PALETTE: sand #FFF6EA, dune #FCEBD5, apricot #F6B48A, rose clay #E58F7B, oasis teal #1F5C63,
+dusk plum #5B3A63, plum ink #3B2440. Real colours where the subject has them (the green dome
+is green, #3E8E6E). Two to four layers of dunes or ground; a low sun in apricot.
+
+COMPOSITION: one clear subject, generous empty sky, layered ground at the foot of the picture.
+
+MOURNING (envelopes 01, 02 only) — replace PALETTE with: the same cut-paper shapes drawn as
+fine charcoal line #1B1B1B on ivory #F3EDE1. No fill colour at all.
+```
+
+---
+
 ## Master style block — standard palette
 
 Prepend to every prompt for **The Fourteen (except 01, 02)**, **event prints**, and the **envelope exterior**:

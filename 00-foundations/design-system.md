@@ -6,6 +6,15 @@ Phase 0.4. Rules for the seven items, the envelope, and the two collectible sets
 
 ## 1. Typefaces
 
+> **Amended 2026-10-08 — Paper Dunes.** The two faces below are **retired** for the typeset system. Feedback on the envelope 03 proofs was that the product read as too plain for children; of four directions tried (`04-art/paper-dunes/`), the owner chose **Paper Dunes**. The faces are now:
+>
+> | Role | Face | Why |
+> |---|---|---|
+> | Body — letters, fact panels, cards, all adult-facing copy | **Nunito Sans** | A round, open humanist sans with a large x-height. Easy for an 8-year-old to follow over a parent's shoulder, and calm enough for the adult reading it aloud. Variable weight 400–800, real italics. |
+> | Display — titles, the child's lines (○), the line said together (●○), the fact-panel name, envelope lettering | **Young Serif** | A warm, slightly soft serif. Still a serif and still dignified, so the §1 brief below (warm, not a cartoon face) is kept; it separates from the sans body at a glance, which is the job the display face has always had. Single weight. |
+>
+> Both SIL OFL, both on Google Fonts, both embedded for offline print in `04-art/print/assets/fonts-paper-dunes.css`. Letter body moves from 11.5 pt Garamond to **10.5 pt Nunito Sans** — the same reading size, because Nunito's x-height is larger. Noto Naskh Arabic stays the Arabic face. What follows is kept as the record of the original decision.
+
 Two faces, both SIL Open Font License (free, no royalty, no attribution required, safe for a commercial print run), both on Google Fonts so every contributor can pull the identical file.
 
 | Role | Face | Why |
@@ -23,6 +32,21 @@ Two faces, both SIL Open Font License (free, no royalty, no attribution required
 ---
 
 ## 2. Palette
+
+> **Amended 2026-10-08 — Paper Dunes.** The fixed palette for the typeset system is now the Paper Dunes palette below. It replaces the ivory / gold / teal / terracotta table that follows, which is kept as the record. **The mourning palette is unchanged** — envelopes 01 and 02 stay black on ivory, and every Paper Dunes colour collapses to charcoal or ivory on a `.mourning` page (`04-art/print/assets/print.css`), so nothing built on the new palette can leak colour into a mourning issue.
+>
+> | Role | Name | Hex |
+> |---|---|---|
+> | Stock / ground | Sand | `#FFF6EA` |
+> | Second ground — envelope stock, pills, panels | Dune | `#FCEBD5` |
+> | Primary text | Plum ink | `#3B2440` |
+> | First paper layer; the child's-line strip | Apricot | `#F6B48A` |
+> | Second paper layer | Rose clay | `#E58F7B` |
+> | Small type in clay — kickers, marks, rules | Clay ink | `#B0503E` |
+> | The child's voice; deep layer | Oasis | `#1F5C63` |
+> | Silhouettes, the wax seal, the hadith-card arch | Dusk | `#5B3A63` |
+>
+> **The look:** layered cut paper. Dunes in two or three layers with a soft shadow between them, flat colour, no gradients, no outlines. Every page carries a two-layer dune band at its foot. The seal is dusk (was gold) and the cancellation ring is dusk (was gold). The illustration rules in §3 are untouched; the art kit in `tools/paperdunes_art.py` has no figure in it at all, so it cannot depict one of the Fourteen.
 
 **Amended 2026-08-12. The palette binds the printed system, not the artwork.**
 

@@ -52,18 +52,21 @@ COPY = os.path.join(COMMERCE, "copy.md")
 # one envelope, and the page says so rather than passing them off as product
 # photography.
 PROOFS = [
-    ("envelope-03-letter.png", "The letter, front"),
-    ("envelope-03-fact-panel.png", "The fact panel, on the letter's reverse"),
-    ("envelope-03-hadith-card.png", "The hadith card"),
-    ("envelope-03-session-card.png", "The session card"),
-    ("envelope-03-postcard.png", "The return postcard"),
-    ("envelope-03-flap.png", "Inside the flap"),
+    ("paper-dunes-envelope-front.png", "The envelope, sealed"),
+    ("paper-dunes-letter-side-a.png", "The letter opens, with the fact panel on the back"),
+    ("paper-dunes-letter-side-b.png", "Inside the fold: the line you say together"),
+    ("paper-dunes-hadith-card.png", "The hadith card"),
+    ("paper-dunes-session-card.png", "The session card"),
+    ("paper-dunes-person-print.png", "The person print"),
+    ("paper-dunes-event-print.png", "The event print"),
+    ("paper-dunes-stickers.png", "The sticker sheet"),
+    ("paper-dunes-postcard.png", "The return postcard"),
 ]
 
 # The seven items, from design-system.md §4. Sizes are the product spec and are
 # checkable facts about the object, not claims about anybody.
 ITEMS = [
-    ("The letter", "A5, two voices, with the fact panel on its reverse"),
+    ("The letter", "A4 folded to A5, two voices, with the fact panel on the back"),
     ("The hadith card", "A6, sized for a child's Qur'an"),
     ("The person print", "A5 portrait, for a wall"),
     ("The event print", "A5 landscape, punched for the ring"),
@@ -186,8 +189,8 @@ NAV = [("index.html", "The series"), ("about.html", "About"), ("checkout.html", 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
-         'family=EB+Garamond:ital,wght@0,400;0,600;1,400&'
-         'family=Fraunces:opsz,wght@9..144,400;9..144,700&display=swap">')
+         'family=Nunito+Sans:ital,opsz,wght@0,6..12,400..800;1,6..12,400&'
+         'family=Young+Serif&display=swap">')
 
 
 PLACEHOLDER_BANNER = """<div class="phbanner" role="note">

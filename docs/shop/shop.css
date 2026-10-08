@@ -4,23 +4,23 @@
  * HTML pages; it does not write this file.
  *
  * The tokens below are the PRINT palette from 00-foundations/design-system.md
- * §2 — warm ivory stock, near-black ink, deep gold as the primary accent
- * because it is also the wax seal and the cancellation ring. docs/style.css
- * uses a lookalike of these; a storefront showing the product should not.
+ * §2 — Paper Dunes (2026-10-08): sand stock, plum ink, clay and oasis accents,
+ * the same values tools/build_paper_dunes.py prints with. A storefront showing
+ * the product should look like the product.
  *
- * Typefaces are the two the design system fixes: EB Garamond for body and all
- * adult-facing copy, Fraunces for display. Both SIL Open Font License.
+ * Typefaces are the two the design system fixes: Nunito Sans for body copy,
+ * Young Serif for display. Both SIL Open Font License.
  */
 
 :root {
-  --paper: #F3EDE1;   /* warm ivory — the stock */
-  --ink: #211B14;     /* near-black ink */
-  --soft: #6B6157;
-  --rule: #DCD2C0;
-  --accent: #A9762F;  /* deep gold — seal, stamp ring, headline rules */
-  --teal: #2C5F5A;    /* secondary, used sparingly */
-  --terracotta: #B4472A;
-  --card: #FBF7EE;
+  --paper: #FFF6EA;   /* sand — the stock */
+  --ink: #3B2440;     /* plum ink */
+  --soft: #6B5A64;
+  --rule: #EBD9C4;
+  --accent: #B0503E;  /* clay, dark enough for type — rules, links, the ring */
+  --teal: #1F5C63;    /* oasis — the child's voice */
+  --terracotta: #B0503E;
+  --card: #FFFBF4;
   --shadow: rgba(60, 45, 30, 0.10);
   --maxw: 44rem;
 }
@@ -29,28 +29,28 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #17140F;
-    --ink: #EDE6D8;
-    --soft: #A79B8A;
-    --rule: #3A352C;
-    --accent: #D6A257;
-    --teal: #6FA9A2;
-    --terracotta: #D9795A;
-    --card: #1F1B15;
+    --paper: #1E1520;
+    --ink: #F6EADB;
+    --soft: #BCA9B2;
+    --rule: #3D2F40;
+    --accent: #F2A07F;
+    --teal: #74B9B5;
+    --terracotta: #E58F7B;
+    --card: #281C2B;
     --shadow: rgba(0, 0, 0, 0.5);
     color-scheme: dark;
   }
 }
 
 :root[data-theme="dark"] {
-  --paper: #17140F;
-  --ink: #EDE6D8;
-  --soft: #A79B8A;
-  --rule: #3A352C;
-  --accent: #D6A257;
-  --teal: #6FA9A2;
-  --terracotta: #D9795A;
-  --card: #1F1B15;
+  --paper: #1E1520;
+  --ink: #F6EADB;
+  --soft: #BCA9B2;
+  --rule: #3D2F40;
+  --accent: #F2A07F;
+  --teal: #74B9B5;
+  --terracotta: #E58F7B;
+  --card: #281C2B;
   --shadow: rgba(0, 0, 0, 0.5);
   color-scheme: dark;
 }
@@ -61,14 +61,23 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: "EB Garamond", Georgia, "Iowan Old Style", serif;
-  font-size: 19px;
+  font-family: "Nunito Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px;
   line-height: 1.6;
   -webkit-text-size-adjust: 100%;
 }
 
 h1, h2, h3, .wordmark, .tilename, .btn {
-  font-family: Fraunces, "EB Garamond", Georgia, serif;
+  font-family: "Young Serif", Georgia, serif;
+  font-weight: 400;
+}
+
+/* The paper-cut dunes from the print set, at the foot of every page. */
+body::after {
+  content: "";
+  display: block;
+  height: 72px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 60' preserveAspectRatio='none'%3E%3Cpath fill='%23F6B48A' d='M0 26 Q100 6 200 22 T400 16 V60 H0Z'/%3E%3Cpath fill='%23E58F7B' d='M0 42 Q120 26 250 40 T400 34 V60 H0Z'/%3E%3C/svg%3E") bottom / 100% 100% no-repeat;
 }
 
 a { color: inherit; }
@@ -90,7 +99,7 @@ a { color: inherit; }
 }
 
 .wordmark {
-  font-weight: 700;
+  font-weight: 400;
   font-size: 1.05rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -154,8 +163,9 @@ footer {
 main > section { margin: 2.8rem 0; }
 
 main > section h2 {
+  font-family: "Nunito Sans", Arial, sans-serif;
   font-size: 0.82rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--accent);
@@ -323,7 +333,7 @@ p.bullet::before { content: "· "; color: var(--accent); }
 .product .region {
   display: inline-block;
   margin-left: 0.5rem;
-  font-family: "EB Garamond", Georgia, serif;
+  font-family: "Nunito Sans", Arial, sans-serif;
   font-size: 0.72rem;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -339,7 +349,7 @@ p.bullet::before { content: "· "; color: var(--accent); }
 .product .note { font-size: 0.9rem; color: var(--soft); margin: 0 0 0.8rem; }
 
 .price {
-  font-family: Fraunces, Georgia, serif;
+  font-family: "Young Serif", Georgia, serif;
   font-size: 1.05rem;
   margin: 0 0 0.2rem;
 }
@@ -382,7 +392,7 @@ p.bullet::before { content: "· "; color: var(--accent); }
 }
 
 .waitlist button {
-  font-family: Fraunces, Georgia, serif;
+  font-family: "Young Serif", Georgia, serif;
   font-size: 0.86rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -429,7 +439,7 @@ p.bullet::before { content: "· "; color: var(--accent); }
 }
 
 .pricenote {
-  font-family: "EB Garamond", Georgia, serif;
+  font-family: "Nunito Sans", Arial, sans-serif;
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
