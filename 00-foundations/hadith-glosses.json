@@ -14,5 +14,36 @@
     "12": "Be kind to people, and they will trust you to settle their arguments.",
     "13": "Being quiet is a door to being wise. It makes friends, and it leads to every good thing.",
     "14": "Showing something off before it is ready spoils it."
-  }
+  },
+  "companions": {
+    "salman": "Stay close to your family, even if all you can do is say hello.",
+    "bilal": "Being a believer is half staying patient when things are hard, and half saying thank you when they are good.",
+    "abu-dharr": "Learn from people who know things, talk with people who are wise, and spend time with people who have little.",
+    "sumayyah": "Wise people care about what God thinks, not about what powerful people think.",
+    "nusaybah": "A believer's good name, belongings and life must never be harmed.",
+    "umm-ayman": "We love the people who are good to us, and we pull away from the people who hurt us.",
+    "halima": "Being gentle makes everything better. Being rough spoils everything.",
+    "asma": "Choose who you travel with before you set off.",
+    "maytham": "You cannot really taste faith until you stop lying — even as a joke.",
+    "qambar": "When one person rides and another walks behind, it is bad for both of them.",
+    "malik": "The person who could punish the most is the one best able to forgive.",
+    "fatima-bint-asad": "Look after children who have no parents. Never let them go hungry or be left to struggle while you are there.",
+    "qais": "If you trust that God chooses what is good for you, you will not wish you were somewhere else.",
+    "abbas": "Be kind to everyone, the way rain falls on everyone.",
+    "umm-kulthum": "Stay away from doing things you will have to say sorry for.",
+    "zaynab": "If you try to get something by disobeying God, you will not get it — and you will end up with what you were afraid of.",
+    "ruqayya": "Never be unfair to someone who has nobody to stand up for them except God.",
+    "tawus": "Lots of people are fooled when others praise them.",
+    "jabir": "Be good, work hard, tell the truth, and give back what people trust you with — whoever they are.",
+    "hisham": "If you know something, you owe it to the people around you to teach it.",
+    "umm-farwa": "Be good to your parents, and your own children will be good to you.",
+    "safwan": "If you have to work for unfair rulers, make up for it by being kind to your friends.",
+    "dibil": "When someone is with you, call them by their respectful name. When they are not there, you can use their own name.",
+    "masuma": "An older brother is like a father.",
+    "ali-ibn-mahziyar": "A believer needs three things: help from God, a voice inside that keeps them on track, and good advice they listen to.",
+    "abu-hashim": "When something good happens, be even happier that you remembered to say thank you.",
+    "ahmad-ibn-ishaq": "If you need to correct a friend, do it quietly, just between you. Doing it in front of others embarrasses them.",
+    "uthman": "A true believer is a gift to other believers, and a proof to those who do not believe."
+  },
+  "_note_companions": "Companions line (Everyone Else): the same kind of line, under 'companions', keyed by entry slug, printed on the back of that entry's hadith card. Same rule: Noor Post's own words, not a translation; DRAFT until the scholar checks each one against the Arabic."
 }

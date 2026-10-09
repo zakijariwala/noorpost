@@ -1,0 +1,22 @@
+/* Everyone Else — the companions line. One style for all thirty-nine.
+   Everything shared with the box (page sizes, the folded letter, the two
+   voices, the fact panel, the postcard) comes from the box's stylesheet; this
+   file holds what is the line's own: the stamp front, the seal, the card.
+   Built by tools/build_companions.py. */
+
+@import url('../envelopes/envelope.css');
+
+.ee-front .brand { max-width: 92mm; top: 15mm; left: 15mm; }
+.ee-front .brand .tag { font-size: 21pt; line-height: 1.15; margin-top: 2.5mm; }
+.ee-front .brand .tag.long { font-size: 16.5pt; }
+.ee-front .ee-seal { position: absolute; left: 96mm; top: 110mm; width: 32mm; height: 32mm; transform: rotate(-12deg);
+  opacity: 0.85; z-index: 2; }
+.ee-front .name-area { bottom: 17mm; left: 15mm; min-width: 88mm; }
+
+.card-ee .chain-mark { top: 14mm; color: var(--accent); }
+.card-ee .who-said { top: 26mm; }
+.card-ee .saying { top: 33mm; left: 17mm; right: 17mm; height: 66mm; font-size: 14pt; }
+.card-ee .by { bottom: 38mm; }
+.card-ee .own-chain { position: absolute !important; left: 0; right: 0; bottom: 14.5mm; font-size: 5.6pt; font-weight: 800;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--soft); margin: 0; }
+.card-back .ee-grid { width: 100%; height: auto; display: block; margin: 1mm 0; }
