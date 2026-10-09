@@ -29,6 +29,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import envelope_art as A
 import envelope_sources as S
 import mourning_art as M
+import companion_art as C
 from envelope_themes import THEMES, SCENES
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -96,6 +97,10 @@ def group(title, items):
 
 # ---------------------------------------------------------------- art helpers
 
+def grainy(t, w, h):
+    return "" if t.get("mourning") else A.grain(w, h, 0.32)
+
+
 def pen(t):
     return A.Pen(t["mode"], t["art"], mourning=t.get("mourning", False), heavy=t.get("heavy", False))
 
@@ -118,26 +123,76 @@ FRONT_SUN = {"03": (0.54, 0.64, 1.7), "04": None, "05": (0.3, 0.64, 1.7), "06": 
 # would put it on the name label (the pen reaches far to its left).
 FRONT_AT = {"qalam": (0.66, 0.74), "cloak": (0.66, 0.7)}
 
+# Each front's object stands in its place, not on a bare horizon: a few things
+# from the envelope's world around it, kept off the brand line, the postmark and
+# the name label. (key, x, y, size, layer) in fractions of the face; "back"
+# stands behind the near ground, "front" over it.
+FRONT_EXTRA = {
+    "03": [("palm", 0.12, 0.67, 0.3), ("palm", 0.19, 0.68, 0.22), ("palm", 0.9, 0.68, 0.28), ("camel_big", 0.3, 0.665, 0.5)],
+    "04": [("city", 0.22, 0.665, 0.5), ("malwiya", 0.9, 0.665, 0.11)],
+    "05": [("palm", 0.12, 0.67, 0.28), ("books", 0.88, 0.9, 0.4, "front"), ("inkwell", 0.95, 0.9, 0.3, "front")],
+    "06": [("house", 0.2, 0.665, 0.45), ("palm", 0.08, 0.68, 0.3), ("flower", 0.84, 0.92, 0.3, "front"),
+           ("flower", 0.9, 0.9, 0.22, "front")],
+    "07": [("house", 0.2, 0.665, 0.5), ("lamp", 0.84, 0.9, 0.36, "front")],
+    "08": [("lamp", 0.84, 0.86, 0.32, "front")],
+    "09": [("lantern", 0.84, 0.9, 0.36, "front"), ("mat", 0.9, 0.96, 0.32, "front")],
+    "10": [("shrine", 0.76, 0.66, 0.16), ("milestone", 0.9, 0.86, 0.3, "front")],
+    "11": [("lantern", 0.86, 0.72, 0.36), ("open_book", 0.84, 0.93, 0.3, "front")],
+    "12": [("open_book", 0.88, 0.94, 0.3, "front")],
+    "13": [("shrine", 0.86, 0.66, 0.16), ("caravan", 0.22, 0.665, 0.32)],
+    "14": [("tree", 0.09, 0.665, 0.45), ("pool", 0.84, 0.74, 0.3), ("palm", 0.93, 0.67, 0.26)],
+}
+# The same for the prints that are a place without a building to fill them.
+PRINT_EXTRA = {
+    ("05", "person"): [("house", 0.5, 0.7, 0.32), ("house", 0.66, 0.7, 0.26), ("shrine", 0.36, 0.7, 0.14),
+                       ("bird", 0.6, 0.3, 0.14), ("bird", 0.68, 0.26, 0.1), ("flower", 0.84, 0.95, 0.24, "front")],
+    ("06", "person"): [("palm", 0.12, 0.72, 0.36), ("bird", 0.7, 0.3, 0.14), ("lamp", 0.2, 0.93, 0.3, "front"),
+                       ("flower", 0.78, 0.94, 0.26, "front"), ("flower", 0.86, 0.92, 0.2, "front")],
+    ("08", "person"): [("lantern", 0.18, 0.56, 0.4), ("lamp", 0.62, 0.71, 0.18)],
+    ("09", "person"): [("lantern", 0.3, 0.68, 0.22), ("lantern", 0.7, 0.68, 0.22), ("house", 0.5, 0.71, 0.26)],
+    ("10", "person"): [("shrine", 0.55, 0.705, 0.11), ("milestone", 0.2, 0.86, 0.3, "front"), ("bird", 0.7, 0.32, 0.12),
+                       ("bird", 0.78, 0.28, 0.09)],
+    ("13", "event"): [("palm", 0.86, 0.7, 0.3), ("palm", 0.92, 0.72, 0.24), ("milestone", 0.3, 0.92, 0.3, "front"),
+                      ("bird", 0.5, 0.3, 0.12)],
+}
+EXTRA_ART = {"malwiya": A.malwiya, "books": A.books, "caravan": A.caravan, "tree": A.tree, "pool": A.pool}
+
+
+def extras(p, w, h, nn, layer, item="front"):
+    k = min(w, h) / 100
+    out = ""
+    for el in (FRONT_EXTRA.get(nn, []) if item == "front" else PRINT_EXTRA.get((nn, item), [])):
+        key, xf, yf, sf = el[:4]
+        if (el[4] if len(el) > 4 else "back") != layer:
+            continue
+        fn = EXTRA_ART.get(key) or C.SCENERY.get(key) or C.OBJECTS.get(key) or A.OBJECTS[key]
+        out += fn(p, w * xf, h * yf, sf * k)
+    return out
+
+
 FOREGROUND = {
     "quba": lambda p, w, h, base, s: A.camel_standing(p, w * 0.22, base + h * 0.07, s * 1.15),
 }
 
 
-def subject_or_object(p, w, h, key, time, where="print", road_x=0.55, road_half=None, sun="default"):
+def subject_or_object(p, w, h, key, time, where="print", road_x=0.55, road_half=None, sun="default", nn=None):
     at = SKY_AT[where] if sun == "default" else sun
     if key == "road_dawn":
-        return A.scene(p, w, h, A.SUBJECTS["road_dawn"], time, road_to=road_x, road_half=road_half, at=at)
+        return (A.scene(p, w, h, A.SUBJECTS["road_dawn"], time, road_to=road_x, road_half=road_half, at=at)
+                + (extras(p, w, h, nn, "back") + extras(p, w, h, nn, "front") if where == "front" else ""))
     if key in A.SUBJECTS and not (where == "front" and key in FRONT_AT):
-        return A.scene(p, w, h, A.SUBJECTS[key], time, at=at, fg=FOREGROUND.get(key))
+        return (A.scene(p, w, h, A.SUBJECTS[key], time, at=at, fg=FOREGROUND.get(key))
+                + (extras(p, w, h, nn, "front") if where == "front" else ""))
     obj = A.OBJECTS[key]
     if where == "front":
         # On an envelope front the object sits right of centre, small enough to
         # leave the brand line, the postmark and the name label clear.
-        return (A.sky(p, w, h, time, at) + A.dune(p, w, h, h * 0.66, h * 0.06, "far", 0.1)
+        return (A.sky(p, w, h, time, at) + A.dune(p, w, h, h * 0.66, h * 0.06, "far", 0.1) + A.haze(p, w, h, h * 0.62, time)
+                + extras(p, w, h, nn, "back")
                 + obj(p, w * FRONT_AT.get(key, (0.54, 0.78))[0], h * FRONT_AT.get(key, (0.54, 0.78))[1],
                       min(w, h) / 175)
-                + A.dune(p, w, h, h * 0.86, h * 0.05, "mid", -0.1))
-    return (A.sky(p, w, h, time, SKY_AT["object"]) + A.dune(p, w, h, h * 0.66, h * 0.06, "far", 0.1)
+                + A.dune(p, w, h, h * 0.86, h * 0.05, "mid", -0.1) + extras(p, w, h, nn, "front"))
+    return (A.sky(p, w, h, time, SKY_AT["object"]) + A.dune(p, w, h, h * 0.66, h * 0.06, "far", 0.1) + A.haze(p, w, h, h * 0.62, time)
             + obj(p, w / 2, h * 0.74, min(min(w, h) / 95, h * 0.6 / OBJ_HEIGHT.get(key, 60)))
             + A.dune(p, w, h, h * 0.86, h * 0.05, "mid", -0.1))
 
@@ -189,7 +244,7 @@ def env_front(d, t, sc):
     # 10's road comes in at the bottom right, clear of the name label
     art = A.svg(p, 229, 162, M.render(d["nn"], "front", 229, 162)
                 or subject_or_object(p, 229, 162, sc["front"], sc["time"], "front", road_x=0.76, road_half=36,
-                                     sun=FRONT_SUN.get(d["nn"], "default")))
+                                     sun=FRONT_SUN.get(d["nn"], "default"), nn=d["nn"]) + grainy(t, 229, 162))
     v = t["vars"]
     inner = (art + '<div class="brand"><p class="kicker">Noor Post</p>'
              '<div class="tag">One of fourteen. Open it on the day.</div></div>'
@@ -242,7 +297,7 @@ def letter_sheets(d, t, sc):
     close_text = re.sub(r"</?p[^>]*>", "", close_text).strip()
     head = A.svg(p, 148.5, 50, M.render(d["nn"], "head", 148.5, 50) or A.scene(p, 148.5, 50, A.SUBJECTS[sc["head"]], sc["time"], ground=0.86,
                                        scale=0.22, cx=0.78, road_to=0.72 if sc["head"] == "road_dawn" else None,
-                                       road_half=14, at=SKY_AT["head"]), cls="head-art")
+                                       road_half=14, at=SKY_AT["head"]) + grainy(t, 148.5, 50), cls="head-art")
     title = E(d["title"]).replace("-", "\u2011")   # never break "Grown-Ups" at its hyphen
     face1 = (f'<div class="face face-letter first">{head}'
              f'<div class="head-text"><p class="kicker">Envelope {d["nn"]} · {E(d["month"])}</p>'
@@ -284,7 +339,7 @@ def card_art(t):
         return f'<path d="{ARCH}" fill="none" stroke="{v["ink"]}" stroke-width="0.5"/>'
     if kind == "wash":
         # one wash, one shape: the name sits inside it, not on a second blot
-        return f'<g filter="url(#wash)"><path d="{ARCH}" fill="rgba(27,27,27,0.10)"/></g>'
+        return f'<g filter="url(#wash)"><path d="{ARCH}" fill="{v["card_bg"]}"/></g>'
     if kind in ("arch", "garden"):
         inner = (A.star(p, 30, 34, 1.6, "sun") + A.star(p, 74, 28, 1.2, "sun") +
                  A.dune(p, w, h, 120, 7, "far", 0.1) + A.dune(p, w, h, 128, 5, "mid", -0.1))
@@ -426,14 +481,18 @@ def session_pages(d, t):
 def person_print(d, t, sc):
     p = pen(t)
     return page("p-a5p", A.svg(p, 148, 210, M.render(d["nn"], "person", 148, 210)
-                               or subject_or_object(p, 148, 210, sc["person"], sc["time"], "print")), t, band=False,
+                               or subject_or_object(p, 148, 210, sc["person"], sc["time"], "print")
+                               + extras(p, 148, 210, d["nn"], "back", "person") + extras(p, 148, 210, d["nn"], "front", "person")
+                               + grainy(t, 148, 210)), t, band=False,
                 item="person")
 
 
 def event_print(d, t, sc):
     p = pen(t)
     return page("p-a5l", A.svg(p, 210, 148, M.render(d["nn"], "event", 210, 148)
-                               or subject_or_object(p, 210, 148, sc["event"], sc["time"], "print"))
+                               or subject_or_object(p, 210, 148, sc["event"], sc["time"], "print")
+                               + extras(p, 210, 148, d["nn"], "back", "event") + extras(p, 210, 148, d["nn"], "front", "event")
+                               + grainy(t, 210, 148))
                 + '<div class="punch" title="Ring punch: 6 mm, centred, 12 mm from the top"></div>', t, band=False, item="event")
 
 
@@ -467,7 +526,7 @@ def pennant(d, t, sc):
 def postcard_front(d, t, sc):
     p = pen(t)
     return page("p-a6l", A.svg(p, 148, 105, M.render(d["nn"], "postcard", 148, 105)
-                               or subject_or_object(p, 148, 105, sc["postcard"], sc["time"], "print")), t, band=False,
+                               or subject_or_object(p, 148, 105, sc["postcard"], sc["time"], "print") + grainy(t, 148, 105)), t, band=False,
                 item="postcard")
 
 

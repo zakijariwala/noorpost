@@ -6,11 +6,16 @@ shape of the hadith card. What does NOT vary lives in tools/build_envelopes.py
 and 04-art/envelopes/envelope.css: page sizes, the ●○ voices, the fact-panel
 order, the chain mark wording, the ring punch, the name area.
 
-The two mourning styles (01, 02) use charcoal and ivory only, art included —
-tests/test_envelopes.py checks every colour on those pages.
+The two mourning styles (01, 02) are two-ink prints on ivory: black and red
+for Muharram, black and green for Safar (decided 2026-10-09; before that,
+charcoal and ivory only). Nothing else, art included — tests/test_envelopes.py
+checks every colour on those pages.
 """
 
 INK, IVORY = "#1B1B1B", "#F3EDE1"
+# The second ink of each mourning issue (decided 2026-10-09): red for Muharram,
+# green for Safar. Black still carries the line and the shade.
+RED, GREEN = "#9E1B1E", "#1F6B45"
 
 
 def _art(**kw):
@@ -89,9 +94,9 @@ def _night(bg, dot):
 THEMES = {
     "01": dict(
         key="M2", name="Ink Wash", fonts=("Cormorant Garamond", "Nunito Sans"), dweight=700, mode="wash",
-        vars=dict(ground=IVORY, ground2=IVORY, ink=INK, soft="rgba(27,27,27,0.72)", accent=INK, child=INK,
-                  bar=INK, pill="rgba(27,27,27,0.08)", pill_ink=INK, card_bg="rgba(27,27,27,0.12)",
-                  card_ink=INK, card_accent=INK, seal=INK, name_bg=IVORY, stamp=INK),
+        vars=dict(ground=IVORY, ground2=IVORY, ink=INK, soft="rgba(27,27,27,0.72)", accent=RED, child=RED,
+                  bar=RED, pill="rgba(158,27,30,0.08)", pill_ink=INK, card_bg="rgba(158,27,30,0.12)",
+                  card_ink=INK, card_accent=RED, seal=RED, name_bg=IVORY, stamp=RED),
         art=_art(sky=IVORY, sun="rgba(27,27,27,0.10)", moon="rgba(27,27,27,0.3)", star="rgba(27,27,27,0.4)",
                  far="rgba(27,27,27,0.12)", mid="rgba(27,27,27,0.18)", near="rgba(27,27,27,0.3)",
                  road="rgba(27,27,27,0.06)", trunk="rgba(27,27,27,0.6)", frond="rgba(27,27,27,0.45)",
@@ -99,16 +104,16 @@ THEMES = {
                  shade="rgba(27,27,27,0.6)", accent="rgba(27,27,27,0.5)", ink=INK, cloak="rgba(27,27,27,0.45)",
                  cube=INK, cube2="rgba(27,27,27,0.8)", gold="rgba(27,27,27,0.4)", water="rgba(27,27,27,0.14)",
                  paper=IVORY, beast="rgba(27,27,27,0.6)", ground=IVORY, stitch=IVORY, shadow=INK, riso2=INK),
-        band=_wash(INK), card="wash", mourning=True),
+        band=_wash(RED), card="wash", mourning=True),
     "02": dict(
         key="M1", name="Charcoal Line", fonts=("Young Serif", "Nunito Sans"), dweight=400, mode="line", heavy=True,
-        vars=dict(ground=IVORY, ground2=IVORY, ink=INK, soft="rgba(27,27,27,0.72)", accent=INK, child=INK,
-                  bar=INK, pill="transparent", pill_ink=INK, card_bg=IVORY, card_ink=INK, card_accent=INK,
-                  seal=INK, name_bg=IVORY, stamp=INK),
+        vars=dict(ground=IVORY, ground2=IVORY, ink=INK, soft="rgba(27,27,27,0.72)", accent=GREEN, child=GREEN,
+                  bar=GREEN, pill="transparent", pill_ink=INK, card_bg=IVORY, card_ink=INK, card_accent=GREEN,
+                  seal=GREEN, name_bg=IVORY, stamp=GREEN),
         art=_art(**{k: IVORY for k in ("sky", "sun", "moon", "star", "far", "mid", "near", "road", "trunk", "frond",
                                        "dome", "body", "tile", "shade", "accent", "cloak", "cube", "cube2", "gold",
                                        "water", "paper", "beast", "ground", "stitch")}, ink=INK, shadow=INK, riso2=INK),
-        band=_line_dunes(INK), card="outline", mourning=True),
+        band=_line_dunes(GREEN), card="outline", mourning=True),
     "03": dict(
         key="C", name="Paper Dunes", fonts=("Young Serif", "Nunito Sans"), dweight=400, mode="cut",
         vars=dict(ground="#FFF6EA", ground2="#FCEBD5", ink="#3B2440", soft="#6B4E5E", accent="#B0503E",
