@@ -88,15 +88,25 @@ def perforated(x, y, w, h, paper, hole, r=1.9, step=5.2):
     return out
 
 
+def place(p, t, w, h, at=None):
+    """(back, front) of the person's place, from a backdrop key or a place spec."""
+    bd = t["backdrop"]
+    if isinstance(bd, dict):
+        return C.compose(p, w, h, t["time"], bd, at)
+    kw = {"at": at} if at else {}
+    return C.BACKDROPS[bd](p, w, h, t["time"], **kw)
+
+
 def portrait(p, t, w, h, figure_scale=1.0, at=None):
     """The person in their place, filling a w × h box: backdrop, figure, foreground."""
-    kw = {"at": at} if at else {}
-    back, front = C.BACKDROPS[t["backdrop"]](p, w, h, t["time"], **kw)
+    back, front = place(p, t, w, h, at)
+    if t["figure"] is None:          # Fitrus: the feather stands in for the figure
+        return back + front
     sp = dict(t["figure"])
     if isinstance(sp.get("prop"), str):
         sp["prop"] = C.PROPS[sp["prop"]]
-    s = h * 0.74 / 125 * figure_scale
-    return back + C.figure(p, w / 2, h + 1, s, sp) + front
+    s = h * 0.74 / 125 * figure_scale * t.get("scale", 1.0)
+    return back + C.figure(p, w / 2 + w * t.get("dx", 0), h + 1, s, sp) + front
 
 
 def stamp(p, d, t, x, y, w, h, hole, clip_id, rot=-2.5):
@@ -107,7 +117,7 @@ def stamp(p, d, t, x, y, w, h, hole, clip_id, rot=-2.5):
     inner = (f'<clipPath id="{clip_id}"><rect x="0" y="0" width="{pic_w}" height="{pic_h}"/></clipPath>'
              f'<g transform="translate({pic_x} {pic_y})"><g clip-path="url(#{clip_id})">{portrait(p, t, pic_w, pic_h)}</g></g>')
     name = d["name"].upper()
-    fs = min(w * 0.053, w * 1.53 / max(len(name), 12))
+    fs = min(w * 0.053, (w - 2 * m - 6) / (len(name) * 0.8))
     return (f'<g transform="rotate({rot} {x + w / 2} {y + h / 2})" filter="url(#lift)">'
             + perforated(x, y, w, h, "#FFFDF8", hole)
             + f'<rect x="{x + m * 0.65:.2f}" y="{y + m * 0.65:.2f}" width="{w - m * 1.3:.2f}" height="{h - m * 1.3:.2f}" fill="{c}"/>'
@@ -154,7 +164,7 @@ def env_front(d, t):
             + stamp(p, d, t, 116, 14, 98, 132, t["tint"], "sf"))
     inner = (A.svg(p, w, h, body)
              + f'<div class="brand"><p class="kicker">Noor Post · Everyone Else</p>'
-               f'<div class="tag">{E(d["points"])}</div></div>'
+               f'<div class="tag{" long" if len(d["points"]) > 95 else ""}">{E(d["points"])}</div></div>'
              + line_seal(t["colour"], t["tint"])
              + '<div class="name-area"><p class="kicker">For</p><div class="who">[Child&#39;s name]</div></div>')
     return page("p-env env-front ee-front", inner, t, band=False, item="front")
@@ -250,8 +260,9 @@ def hadith_cards(d, t):
         wm = ('<div class="watermark-placeholder"><span>UNVERIFIED SELECTION</span></div>'
               if s.get("confidence") in ("low", "medium") else "")
     else:
-        words = ('<div class="saying blocked">No saying selected<br><span>Blocked on a source — '
-                 'nothing prints here until its row on citation-sheet.md reads V</span></div>')
+        why = ("Blocked on a decision — this entry points to no Masoom and awaits a scholar call"
+               if not masoom else "Blocked on a source — nothing prints here until its row on citation-sheet.md reads V")
+        words = f'<div class="saying blocked">No saying selected<br><span>{why}</span></div>'
         wm = '<div class="watermark-placeholder"><span>NO SAYING SELECTED</span></div>'
     front = page("p-a6p card-front card-ee", art + f'<p class="chain-mark">{mark}</p>' + words
                  + '<p class="own-chain">Not a silsila segment · this set has its own chain</p>' + wm, t,
@@ -280,9 +291,12 @@ def hadith_cards(d, t):
 def person_print(d, t):
     p = pen(t)
     body = portrait(p, t, 148, 210, figure_scale=1.05)
-    plate = (f'<rect x="34" y="188" width="80" height="13" rx="2" fill="#FFFBF3" filter="url(#lift)"/>'
+    n = len(d["name"])
+    pw = max(80, min(128, n * 2.9 + 16))                      # the plate grows with the name
+    fs = min(5.4, (pw - 10) / (n * 0.5))
+    plate = (f'<rect x="{74 - pw / 2:.1f}" y="188" width="{pw:.1f}" height="13" rx="2" fill="#FFFBF3" filter="url(#lift)"/>'
              f'<text x="74" y="196.6" text-anchor="middle" style="font-family:var(--display)" font-weight="700" '
-             f'font-size="5.4" fill="{t["colour"]}">{E(d["name"])}</text>')
+             f'font-size="{fs:.2f}" fill="{t["colour"]}">{E(d["name"])}</text>')
     return page("p-a5p", A.svg(p, 148, 210, f"<defs>{LIFT}</defs>" + body + plate), t, band=False, item="person")
 
 
@@ -305,8 +319,13 @@ def stickers(d, t):
 
 def postcard_front(d, t):
     p = pen(t)
-    return page("p-a6l", A.svg(p, 148, 105, C.POSTCARDS[t["postcard"]](p, 148, 105, t["time"])), t, band=False,
-                item="postcard")
+    pc = t["postcard"]
+    if isinstance(pc, dict):
+        back, front = C.compose(p, 148, 105, t["time"], pc)
+        art = back + front
+    else:
+        art = C.POSTCARDS[pc](p, 148, 105, t["time"])
+    return page("p-a6l", A.svg(p, 148, 105, art), t, band=False, item="postcard")
 
 
 def postcard_back(d, t):

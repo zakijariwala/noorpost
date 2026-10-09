@@ -21,7 +21,25 @@ fourteen. Thirty-nine envelopes that belong together, like a set of stamps:
 
 Each person brings their own colours, place, portrait and stickers:
 `tools/companion_themes.py`. Built in batches of three, in card order
-(`hadith-assignments.json` `n`); `BATCHES` there lists what is done.
+(`hadith-assignments.json` `n`); all thirty-nine are done.
+
+## Decisions taken in the art, for review
+
+- **The family of the Fourteen are veiled in light.** Faces are allowed in
+  this line, but for the mothers, wives, sons and daughters of a Masoom
+  (`VEILED` in `companion_themes.py`: Fatima bint Asad, Abbas, Umm Kulthum,
+  Rabab, Zaynab, Sakina, Umm al-Banin, Ruqayya, Umm Farwa, Hamida, Ma'suma,
+  Narjis) the face is drawn as light, with no features — the convention of
+  devotional art. A test holds it. Reverse it per person if the scholar says so.
+- **No Masoom is ever drawn, even where an entry's print spec implies one.**
+  Fatima bint Asad's "two boys" (the Prophet and Imam Ali), the boy beside
+  Umm Farwa and Hamida (Imam al-Sadiq, Imam al-Kadhim) and Umm al-Banin's
+  children are replaced by objects: two pairs of sandals, a book, four marks.
+- **Fitrus has no figure** — a feather stands in for him, per his item spec.
+- **Zaynab's sticker sheet leaves out the chain link** the spec allowed; a
+  raised hand and a road carry it instead.
+- **Khawla's card** prints its own block: a decision (the entry points to no
+  Masoom), not a missing source.
 
 The shared stylesheet, layout script and fonts are the box's
 (`../envelopes/`); `companion.css` holds only what is the line's own.

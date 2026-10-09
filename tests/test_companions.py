@@ -21,7 +21,7 @@ sys.path.insert(0, os.path.join(ROOT, "tools"))
 
 import build_companions as B
 import companion_sources as S
-from companion_themes import BUILT, PEOPLE
+from companion_themes import BUILT, PEOPLE, VEILED
 
 TEXT = lambda h: re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", h))
 
@@ -91,6 +91,23 @@ class Companions(unittest.TestCase):
     def test_fact_panel_carries_to_verify(self):
         for s, html in self.built.items():
             self.assertIn("UNVERIFIED — TO VERIFY", html, s)
+
+    def test_all_thirty_nine_are_built(self):
+        self.assertEqual(sorted(BUILT), sorted(S.ALL))
+        self.assertEqual(len(BUILT), 39)
+
+    def test_family_of_the_fourteen_is_veiled_in_light(self):
+        """Mothers, wives, sons and daughters of a Masoom: no drawn features."""
+        for s, html in self.built.items():
+            person = re.search(r'data-item="person".*?(?=<p class="cap)', html, re.S).group(0)
+            if s in VEILED:
+                self.assertIn('id="veil"', person, s)
+                self.assertNotIn('rx="1.5" ry="1.9"', person, f"{s}: eyes drawn on a veiled face")
+            else:
+                self.assertNotIn('id="veil"', person, s)
+
+    def test_fitrus_has_no_figure(self):
+        self.assertIsNone(PEOPLE["fitrus"]["figure"])
 
     def test_every_built_companion_has_a_style(self):
         for s in BUILT:
