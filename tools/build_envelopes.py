@@ -104,6 +104,10 @@ def pen(t):
 SKY_AT = {"print": (0.2, 0.15), "front": (0.17, 0.42), "head": (0.93, 0.3), "object": (0.86, 0.24)}
 
 # Things that stand on the near ground, drawn over it: 03's camel on the dune.
+# Height above its foot of each tall object, in its own units, so a print can
+# keep its top on the page.
+OBJ_HEIGHT = {"tasbih": 76, "scroll": 78, "lantern": 56}
+
 # Where a front object stands, as fractions of the face, when the default
 # would put it on the name label (the pen reaches far to its left).
 FRONT_AT = {"qalam": (0.66, 0.74)}
@@ -128,7 +132,7 @@ def subject_or_object(p, w, h, key, time, where="print", road_x=0.55, road_half=
                       min(w, h) / 175)
                 + A.dune(p, w, h, h * 0.86, h * 0.05, "mid", -0.1))
     return (A.sky(p, w, h, time, SKY_AT["object"]) + A.dune(p, w, h, h * 0.66, h * 0.06, "far", 0.1)
-            + obj(p, w / 2, h * 0.74, min(w, h) / 95)
+            + obj(p, w / 2, h * 0.74, min(min(w, h) / 95, h * 0.6 / OBJ_HEIGHT.get(key, 60)))
             + A.dune(p, w, h, h * 0.86, h * 0.05, "mid", -0.1))
 
 
@@ -176,8 +180,8 @@ def seal(colour, inner):
 
 def env_front(d, t, sc):
     p = pen(t)
-    # 10's road keeps to the right, clear of the name label
-    art = A.svg(p, 229, 162, subject_or_object(p, 229, 162, sc["front"], sc["time"], "front", road_x=0.66, road_half=36))
+    # 10's road comes in from both bottom corners and turns away right of centre
+    art = A.svg(p, 229, 162, subject_or_object(p, 229, 162, sc["front"], sc["time"], "front", road_x=0.62))
     v = t["vars"]
     inner = (art + '<div class="brand"><p class="kicker">Noor Post</p>'
              '<div class="tag">One of fourteen. Open it on the day.</div></div>'
@@ -442,7 +446,7 @@ def pennant(d, t, sc):
     ink, ivory = t["vars"]["ink"], t["vars"]["ground"]
     clip = '<clipPath id="pen"><path d="M22 26 H126 L74 192Z"/></clipPath>'
     motif = (A.standard(p, 74, 152, 0.62) if sc["event"] == "standard"
-             else f'<path d="M22 62 H126" {p.s("ink", 0.5)}/>' + A.road(p, None, 196, 62, 74, half=40))
+             else A.treaty(p, 74, 118, 0.9))  # the treaty, not a road: a road's taper echoes the pennant's own outline
     body = (f'{clip}<rect width="148" height="210" fill="{ivory}"/>'
             f'<path d="M0 22 Q74 30 148 22" fill="none" stroke="{ink}" stroke-width="0.6"/>'
             f'<path d="M22 26 H126 L74 192Z" fill="{ivory}" stroke="{ink}" stroke-width="0.5" stroke-dasharray="2 1.2"/>'

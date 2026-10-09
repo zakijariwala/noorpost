@@ -289,15 +289,25 @@ def camel_standing(p, x, y, s=1.0, key="beast"):
 
 
 def road(p, w, h, horizon, x_far, key="road", half=None):
-    """An empty road running to a point on the horizon: tapered, edged, a centre
-    dash — so it reads as a road and not a shape."""
-    hb = half if half is not None else (w or 148) * 0.15
-    body = (f'<path {p.f(key)} d="M{x_far - hb:.1f} {h:.1f} L{x_far - 0.6:.1f} {horizon:.1f} '
-            f'L{x_far + 0.6:.1f} {horizon:.1f} L{x_far + hb:.1f} {h:.1f}Z"/>')
-    edges = (f'<path d="M{x_far - hb:.1f} {h:.1f} L{x_far - 0.6:.1f} {horizon:.1f} M{x_far + hb:.1f} {h:.1f} '
-             f'L{x_far + 0.6:.1f} {horizon:.1f}" {p.s("shade", 0.5)}/>')
-    dash = (f'<path d="M{x_far:.1f} {h:.1f} L{x_far:.1f} {horizon + 2:.1f}" {p.s("tile", max(0.6, hb / 14))} '
-            f'stroke-dasharray="{hb / 4:.1f} {hb / 5:.1f}"/>')
+    """An empty road running to a point on the horizon. Its near edge runs off the
+    bottom corners of the frame and it bends on the way, so it reads as a road
+    and never as a triangle (or as the fold of a pennant)."""
+    yn = h + 3
+    if half is None and w:
+        xl, xr = -w * 0.08, w * 1.08          # the near edge leaves by the bottom corners
+    else:
+        hb = half if half is not None else 22
+        xl, xr = x_far - hb * 1.6, x_far + hb * 1.6
+    xc, yc = (xl + xr) / 2, horizon + (h - horizon) * 0.42
+    bend = -(xr - xl) * 0.16                  # sweeps in from the right, turns away left
+    lq, rq = x_far + bend - (xr - xl) * 0.05, x_far + bend + (xr - xl) * 0.05
+    body = (f'<path {p.f(key)} d="M{xl:.1f} {yn:.1f} Q{lq:.1f} {yc:.1f} {x_far - 0.5:.1f} {horizon:.1f} '
+            f'L{x_far + 0.5:.1f} {horizon:.1f} Q{rq:.1f} {yc:.1f} {xr:.1f} {yn:.1f}Z"/>')
+    edges = (f'<path d="M{xl:.1f} {yn:.1f} Q{lq:.1f} {yc:.1f} {x_far - 0.5:.1f} {horizon:.1f} '
+             f'M{xr:.1f} {yn:.1f} Q{rq:.1f} {yc:.1f} {x_far + 0.5:.1f} {horizon:.1f}" {p.s("shade", 0.5)}/>')
+    span = (xr - xl)
+    dash = (f'<path d="M{xc:.1f} {yn:.1f} Q{x_far + bend:.1f} {yc:.1f} {x_far:.1f} {horizon + 1.5:.1f}" '
+            f'{p.s("tile", max(0.5, span / 70))} stroke-dasharray="{span / 22:.1f} {span / 26:.1f}"/>')
     return body + edges + dash
 
 def cloak(p, x, y, s=1.0):
@@ -349,13 +359,21 @@ def coin(p, x, y, s=1.0):
                       + star(p, 0, -20, 8, "ink"))
 
 def handmill(p, x, y, s=1.0):
-    """A hand-mill from the side: two flat stones, one on the other, a wooden handle."""
-    return g(x, y, s, f'<ellipse cx="0" cy="0" rx="36" ry="4" {p.f("shade", False)} opacity="0.3"/>'
-                      f'<rect x="-32" y="-12" width="64" height="12" rx="3" {p.f("far")}/>'
-                      f'<rect x="-28" y="-23" width="56" height="11" rx="3" {p.f("mid")}/>'
-                      f'<path d="M-28 -12 H28" {p.s("shade", 0.8)}/>'
-                      f'<rect x="16" y="-40" width="5" height="18" rx="2" {p.f("trunk")}/>'
-                      f'<ellipse cx="0" cy="-23" rx="5" ry="1.6" {p.f("shade", False)}/>')
+    """A hand-mill (quern) seen from a little above: two round stones, one on the
+    other, the hole in the top, an upright wooden handle, flour at its foot."""
+    return g(x, y, s, f'<ellipse cx="0" cy="2" rx="40" ry="6" {p.f("shade", False)} opacity="0.25"/>'
+                      # lower stone: side, then its top face
+                      f'<path d="M-34 -14 V-4 A34 9 0 0 0 34 -4 V-14Z" {p.f("body")}/>'
+                      f'<ellipse cx="0" cy="-14" rx="34" ry="9" {p.f("body")}/>'
+                      f'<path d="M-34 -4 A34 9 0 0 0 34 -4" {p.s("shade", 0.9)}/>'
+                      # upper stone
+                      f'<path d="M-27 -25 V-17 A27 7 0 0 0 27 -17 V-25Z" {p.f("tile")}/>'
+                      f'<ellipse cx="0" cy="-25" rx="27" ry="7" {p.f("tile")}/>'
+                      f'<path d="M-27 -17 A27 7 0 0 0 27 -17" {p.s("shade", 0.9)}/>'
+                      f'<ellipse cx="0" cy="-25" rx="5" ry="1.8" {p.f("shade", False)}/>'
+                      # handle, and flour spilling from between the stones
+                      f'<rect x="15" y="-46" width="5" height="22" rx="2.4" {p.f("trunk")}/>'
+                      f'<path d="M-40 2 Q-34 -9 -26 -6 Q-22 1 -16 2Z" {p.f("paper", False)}/>')
 
 def bowl(p, x, y, s=1.0):
     """A clay bowl with water in it."""
@@ -530,7 +548,9 @@ SUBJECTS = {
     "road_dawn": lambda p, x, y, s: "",
     "jamkaran":  lambda p, x, y, s: shrine(p, x, y, s, 1, 2),
     "qadr":      lambda p, x, y, s: arcade(p, x, y, s, 4) + star(p, x, y - 90 * s, 6 * s, "sun"),
-    "teaching":  lambda p, x, y, s: arcade(p, x, y, s) + books(p, x - 20 * s, y, 0.5 * s) + lantern(p, x + 24 * s, y - 10 * s, 0.6 * s),
+    # the arcade alone: nothing stood inside the arches, which read as clutter
+    "teaching":  lambda p, x, y, s: (arcade(p, x, y, s) + rect(p, x - 64 * s, y - 58 * s, 128 * s, 6 * s, "shade", True)
+                                     + palm(p, x - 84 * s, y + 2, 0.7 * s) + palm(p, x + 86 * s, y + 4, 0.6 * s, lean=-3)),
     "eid":       lambda p, x, y, s: shrine(p, x, y, s * 0.9, 1, 1) + lantern(p, x - 60 * s, y - 80 * s, 0.9 * s) + lantern(p, x + 50 * s, y - 92 * s, 0.8 * s),
     "mashhad":   lambda p, x, y, s: shrine(p, x, y, s, 1, 2, tall=1.1),
     "qom":       lambda p, x, y, s: shrine(p, x, y, s, 1, 2),
