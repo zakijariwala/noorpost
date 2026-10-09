@@ -30,25 +30,8 @@ def _uid(*parts):
 
 
 def sky(p, w, h, time, at=(0.2, 0.17)):
-    """The box's sky, given air: a gradient that pales toward the horizon (or
-    deepens overhead at night) and a soft glow round the sun."""
-    out = A.sky(p, w, h, time, at)
-    gid = _uid("sky", w, h, time, p.c("sky"))
-    if time == "night":
-        out += (f'<defs><linearGradient id="n{gid}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#05060F" stop-opacity="0.45"/>'
-                f'<stop offset="0.7" stop-color="#05060F" stop-opacity="0"/></linearGradient></defs>'
-                f'<rect width="{w}" height="{h}" fill="url(#n{gid})"/>')
-        return out
-    out += (f'<defs><linearGradient id="s{gid}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{p.c("tile")}" stop-opacity="0.16"/>'
-            f'<stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0"/><stop offset="0.7" stop-color="#FFF6E2" stop-opacity="0.55"/>'
-            f'</linearGradient></defs><rect width="{w}" height="{h * 0.75:.1f}" fill="url(#s{gid})"/>')
-    if at:
-        cx, cy = w * at[0], h * at[1]
-        r = min(w, h) * 0.11 * (at[2] if len(at) > 2 else 1)
-        out += (f'<defs><radialGradient id="g{gid}"><stop offset="0.35" stop-color="{p.c("sun")}" stop-opacity="0.45"/>'
-                f'<stop offset="1" stop-color="{p.c("sun")}" stop-opacity="0"/></radialGradient></defs>'
-                f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r * 2.8:.1f}" fill="url(#g{gid})"/>')
-    return out
+    """The box's sky, which now carries its own air (envelope_art.sky)."""
+    return A.sky(p, w, h, time, at)
 
 
 def haze(w, h, y):

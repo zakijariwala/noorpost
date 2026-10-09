@@ -10,8 +10,8 @@ Phase 0.4. Rules for the seven items, the envelope, and the two collectible sets
 >
 > | Env | Style | Faces | Art |
 > |---|---|---|---|
-> | 01 Muharram | M2 Ink Wash | Cormorant Garamond / Nunito Sans | black wash on ivory |
-> | 02 Safar | M1 Charcoal Line | Young Serif / Nunito Sans | charcoal line on ivory |
+> | 01 Muharram | M2 Ink Wash | Cormorant Garamond / Nunito Sans | black wash and red on ivory (2026-10-09) |
+> | 02 Safar | M1 Charcoal Line | Young Serif / Nunito Sans | black line and green on ivory (2026-10-09) |
 > | 03 Rabi al-Awwal | C Paper Dunes | Young Serif / Nunito Sans | cut paper |
 > | 04 Rabi al-Thani | B3 Big Shapes | Bricolage Grotesque / Newsreader | flat, two inks |
 > | 05 Jumada al-Awwal | D Illuminated | Cormorant Garamond / Alegreya | gilded, manuscript |
@@ -30,6 +30,8 @@ Phase 0.4. Rules for the seven items, the envelope, and the two collectible sets
 > **What this overrides, knowingly:** §3's "one illustration style throughout" no longer binds the box — each envelope has its own; the prompt-pack pairings 04/11 and 08/14 ("identical linework") no longer hold, since each pair now spans two styles. §3's absolute rule — never a depiction of any of the Fourteen — is untouched; the art kit has no figure in it. The companions line is not covered by this amendment and still prints from `04-art/print/assets/print.css` (Paper Dunes).
 
 
+> **Amended 2026-10-09 — mourning in two inks.** Envelopes 01 and 02 are no longer charcoal and ivory only: each is a two-ink print on ivory — **black and red for 01 (Muharram), black and green for 02 (Safar)**. Black carries the line and the shade; the second ink marks what matters (01: the banner, the dusk over the camp, the glow behind the shrine; 02: the dome over Medina, the palms, the graves' shade, the treaty's seals). Nothing else enters either issue; `tests/test_envelopes.py` checks every colour. The paragraph below records the earlier rule.
+>
 > **Amended 2026-10-08 — Paper Dunes.** The two faces below are **retired** for the typeset system. Feedback on the envelope 03 proofs was that the product read as too plain for children; of four directions tried (`04-art/paper-dunes/`), the owner chose **Paper Dunes**. The faces are now:
 >
 > | Role | Face | Why |
