@@ -24,6 +24,67 @@ from envelope_art import g
 INK = "#2A2230"
 
 
+def _uid(*parts):
+    import hashlib
+    return hashlib.md5("|".join(str(x) for x in parts).encode()).hexdigest()[:7]
+
+
+def sky(p, w, h, time, at=(0.2, 0.17)):
+    """The box's sky, given air: a gradient that pales toward the horizon (or
+    deepens overhead at night) and a soft glow round the sun."""
+    out = A.sky(p, w, h, time, at)
+    gid = _uid("sky", w, h, time, p.c("sky"))
+    if time == "night":
+        out += (f'<defs><linearGradient id="n{gid}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#05060F" stop-opacity="0.45"/>'
+                f'<stop offset="0.7" stop-color="#05060F" stop-opacity="0"/></linearGradient></defs>'
+                f'<rect width="{w}" height="{h}" fill="url(#n{gid})"/>')
+        return out
+    out += (f'<defs><linearGradient id="s{gid}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{p.c("tile")}" stop-opacity="0.16"/>'
+            f'<stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0"/><stop offset="0.7" stop-color="#FFF6E2" stop-opacity="0.55"/>'
+            f'</linearGradient></defs><rect width="{w}" height="{h * 0.75:.1f}" fill="url(#s{gid})"/>')
+    if at:
+        cx, cy = w * at[0], h * at[1]
+        r = min(w, h) * 0.11 * (at[2] if len(at) > 2 else 1)
+        out += (f'<defs><radialGradient id="g{gid}"><stop offset="0.35" stop-color="{p.c("sun")}" stop-opacity="0.45"/>'
+                f'<stop offset="1" stop-color="{p.c("sun")}" stop-opacity="0"/></radialGradient></defs>'
+                f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r * 2.8:.1f}" fill="url(#g{gid})"/>')
+    return out
+
+
+def haze(w, h, y):
+    """A pale band of air along the horizon: depth."""
+    gid = _uid("haze", w, h, y)
+    return (f'<defs><linearGradient id="h{gid}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF8EA" stop-opacity="0"/>'
+            f'<stop offset="0.6" stop-color="#FFF8EA" stop-opacity="0.45"/><stop offset="1" stop-color="#FFF8EA" stop-opacity="0"/></linearGradient></defs>'
+            f'<rect y="{y - h * 0.08:.1f}" width="{w}" height="{h * 0.12:.1f}" fill="url(#h{gid})"/>')
+
+
+def tufts(p, w, h, y, n=7, seed=3):
+    """Small grass tufts and stones on the near ground."""
+    out, x = "", seed * 13.0
+    for i in range(n):
+        x = (x * 31 + 17) % w
+        yy = y + (i % 3) * h * 0.025
+        if i % 3 == 0:
+            out += f'<ellipse cx="{x:.1f}" cy="{yy:.1f}" rx="{w * 0.012:.1f}" ry="{w * 0.006:.1f}" fill="{p.c("shade")}" opacity="0.18"/>'
+        else:
+            k = w * 0.008
+            out += (f'<path d="M{x:.1f} {yy:.1f} q{-k:.1f} {-2 * k:.1f} {-1.6 * k:.1f} {-2.6 * k:.1f} M{x:.1f} {yy:.1f} q0 {-2.4 * k:.1f} {0.4 * k:.1f} {-3.2 * k:.1f} '
+                    f'M{x:.1f} {yy:.1f} q{k:.1f} {-1.8 * k:.1f} {1.8 * k:.1f} {-2.4 * k:.1f}" fill="none" stroke="{p.c("frond")}" '
+                    f'stroke-width="{k * 0.5:.2f}" stroke-linecap="round" opacity="0.7"/>')
+    return out
+
+
+GRAIN = ('<filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="1.6" '
+         'numOctaves="2" seed="4" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 0.16  0 0 0 0 0.13  '
+         '0 0 0 0 0.19  0 0 0 1.1 -0.42"/></filter>')
+
+
+def grain(w, h, op=0.38):
+    """Printed-paper grain over a whole picture."""
+    return f'<defs>{GRAIN}</defs><rect width="{w}" height="{h}" filter="url(#grain)" opacity="{op}"/>'
+
+
 # ---------------------------------------------------------------- the person
 
 def _head_back(p, sp):
@@ -88,8 +149,9 @@ def _face(p, sp):
         out += "".join(f'<path d="M{sx * 5.6 - 2.2} -95 Q{sx * 5.6} -93.4 {sx * 5.6 + 2.2} -95" {p.s(INK, 0.9)}/>'
                        for sx in (-1, 1))
     else:
-        out += "".join(f'<ellipse cx="{sx * 5.6}" cy="-95" rx="1.5" ry="1.9" {p.f(INK, False)}/>'
-                       f'<circle cx="{sx * 5.6 + 0.5}" cy="-95.7" r="0.45" {p.f("#FFFFFF", False)}/>' for sx in (-1, 1))
+        gz = sp.get("gaze", 0)
+        out += "".join(f'<ellipse cx="{sx * 5.6 + gz}" cy="-95" rx="1.5" ry="1.9" {p.f(INK, False)}/>'
+                       f'<circle cx="{sx * 5.6 + gz + 0.5}" cy="-95.7" r="0.45" {p.f("#FFFFFF", False)}/>' for sx in (-1, 1))
     # brows
     lift = -1.2 if sp.get("eyes") == "closed" else 0
     out += "".join(f'<path d="M{sx * 2.4} {-99.6 + lift} Q{sx * 5.6} {-101.6 + lift} {sx * 8.8} {-100 + lift}" {p.s(brow, 1.2)}/>'
@@ -124,7 +186,8 @@ def _mouth(p, sp):
         return (f'<ellipse cx="0" cy="-80.4" rx="2.5" ry="2.4" {p.f("#5A2A2A", False)}/>')
     if m == "smile":
         return f'<path d="M-3.4 -81.2 Q0 -78.4 3.4 -81.2" {p.s("#7A3B34", 1.0)}/>'
-    return f'<path d="M-2.8 -80.8 Q0 -79.6 2.8 -80.8" {p.s("#7A3B34", 0.9)}/>'
+    return (f'<path d="M-3 -80.9 Q0 -79.2 3 -80.9 Q0 -82.2 -3 -80.9Z" fill="#9A5A4A" opacity="0.75"/>'
+            f'<path d="M-2.8 -80.8 Q0 -79.6 2.8 -80.8" {p.s("#7A3B34", 0.6)}/>')
 
 
 def _body(p, sp):
@@ -141,6 +204,8 @@ def _body(p, sp):
 
 
 def _neck(p, sp):
+    if sp.get("face") == "light" and sp["head"] not in ("hijab", "helmet"):
+        return f'<path d="M-7 -79 L-7 -61 Q0 -57 7 -61 L7 -79Z" fill="#F6E2B0"/>'
     if sp["head"] in ("hijab", "helmet"):
         # the scarf wraps under the chin and covers the neck
         return f'<path d="M-12 -84 Q0 -72 12 -84 L15 -60 Q0 -54 -15 -60Z" {p.f(sp.get("head_c", "#EDE3D0"), False)}/>'
@@ -164,10 +229,52 @@ def _hand(p, sp, x, y, r=4.6):
     return f'<circle cx="{x}" cy="{y}" r="{r}" {p.f(sp["skin"], False)}/><circle cx="{x}" cy="{y}" r="{r}" {p.s(sp["skin_sh"], 0.6)}/>'
 
 
+def _form(p, sp):
+    """Light from the left: shadow down the right of the robe, folds, a rim of
+    light on the left shoulder, embroidered trim at the neck."""
+    robe = p.c(sp.get("mantle") or sp["robe"])
+    trim = sp.get("trim", "#E8C15A")
+    return (f'<path d="M8 -63 C32 -56 47 -36 50 0 L16 0 C22 -24 18 -46 8 -63Z" fill="#1A1424" opacity="0.16"/>'
+            f'<path d="M-30 -44 Q-25 -22 -31 0 M-14 -40 Q-10 -20 -15 0 M26 -46 Q21 -22 27 0" fill="none" '
+            f'stroke="{shade(robe, 0.7)}" stroke-width="1.1" stroke-linecap="round" opacity="0.55"/>'
+            f'<path d="M-49 -4 C-49 -32 -43 -57 -17 -63.5" fill="none" stroke="#FFF6E0" stroke-width="1.3" opacity="0.45"/>'
+            f'<path d="M-9.5 -64 L0 -47 L9.5 -64" fill="none" stroke="{trim}" stroke-width="1.5" stroke-dasharray="0.1 2.2" '
+            f'stroke-linecap="round"/>'
+            f'<path d="M-11.5 -64.5 L0 -44.5 L11.5 -64.5" fill="none" stroke="{trim}" stroke-width="0.5" opacity="0.8"/>')
+
+
+def _face_light(p, sp):
+    """The shadow side of a drawn face, lids and lips: the face turned to the light."""
+    if sp.get("face") == "light":
+        return ""
+    hijab = sp["head"] in ("hijab", "helmet")
+    sh = sp["skin_sh"]
+    side = ('M3 -107 Q14 -104 12.5 -92 Q11.5 -81 3 -78.5 Q9.5 -92 3 -107Z' if hijab
+            else 'M4 -110 Q16 -106 14.5 -92 Q13 -80 4 -77 Q11 -92 4 -110Z')
+    lids = "".join(f'<path d="M{sx * 5.6 - 2.1} -96.4 Q{sx * 5.6} -98 {sx * 5.6 + 2.1} -96.4" fill="none" stroke="{INK}" '
+                   f'stroke-width="0.55" opacity="0.7"/>' for sx in (-1, 1)) if sp.get("eyes") != "closed" else ""
+    return (f'<path d="{side}" fill="{sh}" opacity="0.5"/>{lids}'
+            f'<ellipse cx="-4" cy="-101" rx="5" ry="2.2" fill="#FFF6E8" opacity="0.18"/>'
+            f'<path d="M-1.6 -86 Q0.4 -85 2.2 -86.4" fill="none" stroke="{sh}" stroke-width="0.6" opacity="0.7"/>')
+
+
+def _cloth(p, sp):
+    """Folds and a shadow side on a scarf or headcloth."""
+    if sp["head"] not in ("hijab", "keffiyeh", "helmet"):
+        return ""
+    c = p.c(sp.get("head_c", "#EDE3D0"))
+    return (f'<path d="M-21 -84 Q-23 -72 -25 -63 M21 -84 Q23 -72 25 -63 M-17 -100 Q-20 -88 -19 -80" fill="none" '
+            f'stroke="{shade(c, 0.72)}" stroke-width="0.9" stroke-linecap="round" opacity="0.7"/>'
+            f'<path d="M14 -108 Q22 -98 21 -86 L25 -63 Q20 -61 17 -61 L15 -84 Q17 -98 10 -110Z" fill="#1A1424" opacity="0.12"/>')
+
+
 def figure(p, x, y, s, sp):
     pose = sp.get("pose", "bust")
     prop = sp.get("prop")
-    out = _head_back(p, sp) + _body(p, sp) + _neck(p, sp) + _face(p, sp) + _beard(p, sp) + _mouth(p, sp) + _head_front(p, sp)
+    tilt = sp.get("tilt", 0)
+    rot = f'<g transform="rotate({tilt} 0 -72)">' if tilt else "<g>"
+    out = (rot + _head_back(p, sp) + "</g>" + _body(p, sp) + _form(p, sp) + _neck(p, sp)
+           + rot + _cloth(p, sp) + _face(p, sp) + _face_light(p, sp) + _beard(p, sp) + _mouth(p, sp) + _head_front(p, sp) + "</g>")
     if pose == "hold":
         # the prop says where the hands go on it; a grip of None leaves that arm at rest
         draw, (h1, h2) = prop
@@ -338,7 +445,7 @@ def parapet(p, w, h, top):
 # is drawn over the figure (a roof edge), or "" when nothing stands in front.
 
 def _ground(p, w, h, y, time, at):
-    return A.sky(p, w, h, time, at) + A.dune(p, w, h, y, h * 0.04, "far", 0.1)
+    return sky(p, w, h, time, at) + A.dune(p, w, h, y, h * 0.04, "far", 0.1)
 
 
 def grove(p, w, h, time, at=(0.82, 0.2)):
@@ -351,7 +458,7 @@ def grove(p, w, h, time, at=(0.82, 0.2)):
 
 
 def rooftop_dawn(p, w, h, time, at=(0.8, 0.5)):
-    back = A.sky(p, w, h, time, (at[0], at[1], 1.3)) + A.dune(p, w, h, h * 0.6, h * 0.03, "far", 0.2)
+    back = sky(p, w, h, time, (at[0], at[1], 1.3)) + A.dune(p, w, h, h * 0.6, h * 0.03, "far", 0.2)
     back += A.city(p, w * 0.5, h * 0.62, min(w, h) / 230)
     return back, parapet(p, w, h, h * 0.86)
 
@@ -369,7 +476,7 @@ BACKDROPS = {"grove": grove, "rooftop_dawn": rooftop_dawn, "palace": palace_back
 
 def three_hundred(p, w, h, time):
     """Rows of young palms going back to the horizon, a spade standing in fresh earth."""
-    out = A.sky(p, w, h, time, (0.86, 0.2)) + A.dune(p, w, h, h * 0.44, h * 0.03, "far", 0.1)
+    out = sky(p, w, h, time, (0.86, 0.2)) + A.dune(p, w, h, h * 0.44, h * 0.03, "far", 0.1)
     for row in range(5):
         y = h * (0.46 + row * 0.11)
         s = 0.07 + row * 0.045
@@ -382,7 +489,7 @@ def three_hundred(p, w, h, time):
 
 
 def call_over_city(p, w, h, time):
-    out = A.sky(p, w, h, time, (0.78, 0.58, 1.4)) + A.dune(p, w, h, h * 0.66, h * 0.03, "far", 0.2)
+    out = sky(p, w, h, time, (0.78, 0.58, 1.4)) + A.dune(p, w, h, h * 0.66, h * 0.03, "far", 0.2)
     out += A.city(p, w * 0.62, h * 0.72, min(w, h) / 220)
     out += A.stars(p, w, h * 0.5, 5, seed=2)
     out += rooftop(p, w * 0.16, h * 1.0, 0.8) + f'<g transform="translate({w * 0.33:.1f} {h * 0.6:.1f}) scale(-1 1)">{sound(p, 0, 0, 1.1, p.c("accent"))}</g>'
@@ -391,7 +498,7 @@ def call_over_city(p, w, h, time):
 
 def rabadha(p, w, h, time):
     """Al-Rabadha: a stop on a desert road with almost nobody in it."""
-    out = A.sky(p, w, h, time, (0.22, 0.6, 1.4)) + A.dune(p, w, h, h * 0.62, h * 0.03, "far", 0.1)
+    out = sky(p, w, h, time, (0.22, 0.6, 1.4)) + A.dune(p, w, h, h * 0.62, h * 0.03, "far", 0.1)
     out += A.road(p, w, h, h * 0.62, w * 0.6)
     out += tent(p, w * 0.8, h * 0.7, 0.9) + A.dune(p, w, h, h * 0.86, h * 0.03, "mid", -0.2)
     return out
@@ -874,12 +981,12 @@ def compose(p, w, h, time, spec, at=None):
         back = (f'<rect width="{w}" height="{h}" {p.f("#1F1C30")}/>'
                 f'<rect y="{h * gy:.1f}" width="{w}" height="{h * (1 - gy) + 2:.1f}" {p.f("#2A2640")}/>')
     elif ground == "sea":
-        back = (A.sky(p, w, h, time, sun)
+        back = (sky(p, w, h, time, sun)
                 + f'<rect y="{h * gy:.1f}" width="{w}" height="{h * (1 - gy) + 2:.1f}" {p.f("water")}/>'
                 + "".join(f'<path d="M{w * fx:.1f} {h * (gy + 0.05 + i * 0.04):.1f} q{3 * k:.1f} {-1.2 * k:.1f} {6 * k:.1f} 0" '
                           f'{p.s(PAPER, 0.5)}/>' for i, fx in enumerate((0.1, 0.5, 0.8, 0.3))))
     else:
-        back = A.sky(p, w, h, time, sun) + A.dune(p, w, h, h * gy, h * 0.03, "far", 0.1)
+        back = sky(p, w, h, time, sun) + A.dune(p, w, h, h * gy, h * 0.03, "far", 0.1)
     front = ""
     for el in spec.get("els", []):
         key, xf, yf, sf = el[:4]
@@ -896,13 +1003,13 @@ def compose(p, w, h, time, spec, at=None):
         else:
             back += art
     if ground == "dunes" and spec.get("near", True):
-        back += A.dune(p, w, h, h * (gy + 0.12), h * 0.025, "mid", -0.1)
+        back += haze(w, h, h * gy) + A.dune(p, w, h, h * (gy + 0.12), h * 0.025, "mid", -0.1) + tufts(p, w, h, h * (gy + 0.16))
     return back, front
 
 
 def fitrus_place(p, w, h, time, at=None):
     """Fitrus: no figure at all — a single feather standing in for him, on a night sky."""
-    back = A.sky(p, w, h, "night", (0.8, 0.16)) + A.dune(p, w, h, h * 0.8, h * 0.02, "far", 0.1)
+    back = sky(p, w, h, "night", (0.8, 0.16)) + A.dune(p, w, h, h * 0.8, h * 0.02, "far", 0.1)
     back += feather(p, w * 0.5, h * 0.86, min(w, h) / 100 * 0.62)
     back += bird(p, w * 0.24, h * 0.3, min(w, h) / 100 * 0.25) + bird(p, w * 0.76, h * 0.42, min(w, h) / 100 * 0.18)
     return back, ""

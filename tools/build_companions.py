@@ -103,6 +103,13 @@ def portrait(p, t, w, h, figure_scale=1.0, at=None):
     if t["figure"] is None:          # Fitrus: the feather stands in for the figure
         return back + front
     sp = dict(t["figure"])
+    sp.setdefault("trim", t["colour2"])
+    # no two people hold their heads the same way: a small tilt, a glance, for some a smile
+    k = sum(map(ord, t["colour"]))
+    sp.setdefault("tilt", (-5, -2.5, 3, 5, 0, -3.5, 2)[k % 7])
+    sp.setdefault("gaze", (-0.6, 0.5, 0, 0.6, -0.4)[k % 5])
+    if sp.get("mouth", "closed") == "closed" and k % 3 == 0:
+        sp["mouth"] = "smile"
     if isinstance(sp.get("prop"), str):
         sp["prop"] = C.PROPS[sp["prop"]]
     s = h * 0.74 / 125 * figure_scale * t.get("scale", 1.0)
@@ -162,7 +169,7 @@ def env_front(d, t):
     w, h = 229, 162
     body = (f'<defs>{LIFT}</defs><rect width="{w}" height="{h}" fill="{t["tint"]}"/>' + airmail(t, w, h)
             + stamp(p, d, t, 116, 14, 98, 132, t["tint"], "sf"))
-    inner = (A.svg(p, w, h, body)
+    inner = (A.svg(p, w, h, body + C.grain(w, h, 0.35))
              + f'<div class="brand"><p class="kicker">Noor Post · Everyone Else</p>'
                f'<div class="tag{" long" if len(d["points"]) > 95 else ""}">{E(d["points"])}</div></div>'
              + line_seal(t["colour"], t["tint"])
@@ -176,7 +183,7 @@ def env_back(d, t):
     art = (f'<rect width="{w}" height="{h}" fill="{t["tint"]}"/>'
            f'<path fill="{t["colour"]}" d="M0 0 H229 V16 Q172 50 114.5 86 Q57 50 0 16Z"/>'
            f'<path fill="{t["tint"]}" d="M0 0 H229 V10 Q172 42 114.5 78 Q57 42 0 10Z"/>')
-    inner = (A.svg(p, w, h, art) + line_seal(t["colour"], t["tint"]).replace('class="ee-seal"', 'class="seal"')
+    inner = (A.svg(p, w, h, art + C.grain(w, h, 0.3)) + line_seal(t["colour"], t["tint"]).replace('class="ee-seal"', 'class="seal"')
              + '<div class="return"><strong>Noor Post</strong><br>[ Return address — not set ]</div>')
     return page("p-env env-back", inner, t, band=False, item="back")
 
@@ -205,8 +212,8 @@ def letter_sheets(d, t):
     close_text = re.sub(r'<span class="mark">.*?</span>', "", close)
     close_text = re.sub(r"</?p[^>]*>", "", close_text).strip()
     # the head strip: their sky and ground, and their object small at the right, clear of the title
-    head = A.svg(p, 148.5, 50, A.sky(p, 148.5, 50, t["time"], (0.93, 0.3)) + A.dune(p, 148.5, 50, 36, 3, "far", 0.1)
-                 + hero(p, t, 130, 44, 0.42) + A.dune(p, 148.5, 50, 44, 2, "mid", -0.1), cls="head-art")
+    head = A.svg(p, 148.5, 50, C.sky(p, 148.5, 50, t["time"], (0.93, 0.3)) + A.dune(p, 148.5, 50, 36, 3, "far", 0.1)
+                 + hero(p, t, 130, 44, 0.42) + A.dune(p, 148.5, 50, 44, 2, "mid", -0.1) + C.grain(148.5, 50, 0.4), cls="head-art")
     title = E(d["title"]).replace("-", "‑")
     face1 = (f'<div class="face face-letter first">{head}'
              f'<div class="head-text"><p class="kicker">Everyone Else · {E(d["name"])}</p>'
@@ -297,7 +304,7 @@ def person_print(d, t):
     plate = (f'<rect x="{74 - pw / 2:.1f}" y="188" width="{pw:.1f}" height="13" rx="2" fill="#FFFBF3" filter="url(#lift)"/>'
              f'<text x="74" y="196.6" text-anchor="middle" style="font-family:var(--display)" font-weight="700" '
              f'font-size="{fs:.2f}" fill="{t["colour"]}">{E(d["name"])}</text>')
-    return page("p-a5p", A.svg(p, 148, 210, f"<defs>{LIFT}</defs>" + body + plate), t, band=False, item="person")
+    return page("p-a5p", A.svg(p, 148, 210, f"<defs>{LIFT}</defs>" + body + C.grain(148, 210) + plate), t, band=False, item="person")
 
 
 def stickers(d, t):
@@ -325,7 +332,7 @@ def postcard_front(d, t):
         art = back + front
     else:
         art = C.POSTCARDS[pc](p, 148, 105, t["time"])
-    return page("p-a6l", A.svg(p, 148, 105, art), t, band=False, item="postcard")
+    return page("p-a6l", A.svg(p, 148, 105, art + C.grain(148, 105)), t, band=False, item="postcard")
 
 
 def postcard_back(d, t):
