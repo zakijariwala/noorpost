@@ -19,9 +19,9 @@ MODES = ("cut", "flat", "line", "wash", "stitch", "riso", "gilt")
 
 
 class Pen:
-    def __init__(self, mode, pal, lw=0.35):
+    def __init__(self, mode, pal, lw=0.35, mourning=False, heavy=False):
         assert mode in MODES, mode
-        self.mode, self.pal, self.lw = mode, pal, lw
+        self.mode, self.pal, self.lw, self.mourning, self.heavy = mode, pal, lw, mourning, heavy
 
     def c(self, key):
         return self.pal.get(key, key)
@@ -31,6 +31,9 @@ class Pen:
         the style's treatment); small details stay plain."""
         col, m = self.c(key), self.mode
         if m == "line":
+            if self.heavy:
+                return (f'fill="{self.pal["ground"]}" stroke="{self.pal["ink"]}" stroke-width="2" '
+                        f'vector-effect="non-scaling-stroke" stroke-linejoin="round"')
             return (f'fill="{self.pal["ground"]}" stroke="{self.pal["ink"]}" '
                     f'stroke-width="{self.lw}" stroke-linejoin="round"')
         if m == "cut":
@@ -42,8 +45,7 @@ class Pen:
             return (f'fill="{col}" stroke="{self.pal["stitch"]}" stroke-width="0.45" '
                     f'stroke-dasharray="1.1 0.8"' if layer else f'fill="{col}"')
         if m == "riso":
-            return (f'fill="{col}" style="mix-blend-mode:multiply"'
-                    + (' filter="url(#riso)"' if layer else ""))
+            return f'fill="{col}"' + (' filter="url(#riso)"' if layer else "")
         if m == "gilt":
             return (f'fill="{col}" stroke="{self.pal["gold"]}" stroke-width="0.35"' if layer
                     else f'fill="{col}"')
@@ -51,14 +53,17 @@ class Pen:
 
     def s(self, key, w):
         col = self.pal["ink"] if self.mode == "line" else self.c(key)
+        if self.mode == "line" and self.heavy:
+            return f'fill="none" stroke="{col}" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linecap="round"'
         return f'fill="none" stroke="{col}" stroke-width="{w}" stroke-linecap="round"'
 
     def defs(self):
         p, m = self.pal, self.mode
         if m == "cut":
             return (f'<defs><filter id="cut" x="-10%" y="-20%" width="120%" height="140%">'
-                    f'<feDropShadow dx="0" dy="-0.5" stdDeviation="0.7" flood-color="{p["shadow"]}" '
-                    f'flood-opacity="0.3"/></filter></defs>')
+                    f'<feDropShadow dx="{p.get("cut_dx", 0)}" dy="{p.get("cut_dy", -0.5)}" '
+                    f'stdDeviation="{p.get("cut_blur", 0.7)}" flood-color="{p["shadow"]}" '
+                    f'flood-opacity="{p.get("cut_op", 0.3)}"/></filter></defs>')
         if m == "wash":
             return ('<defs><filter id="wash" x="-15%" y="-15%" width="130%" height="130%">'
                     '<feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="3" seed="7" result="n"/>'
@@ -97,7 +102,7 @@ def dune(p, w, h, y, amp, key, phase=0.0, layer=True):
         # three inks stacked go to mud.
         attrs = attrs.replace(' style="mix-blend-mode:multiply"', "")
     return (f'<path {attrs} d="M0 {y:.1f} Q{a:.1f} {y - amp:.1f} {b:.1f} {y - amp * 0.2:.1f} '
-            f'T{w} {y - amp * 0.35:.1f} V{h} H0Z"/>')
+            f'T{w} {y - amp * 0.35:.1f} V{h + 8} H0Z"/>')
 
 
 def band(p, w, h, y, key):
@@ -105,7 +110,8 @@ def band(p, w, h, y, key):
 
 
 def sun(p, cx, cy, r, key="sun"):
-    return f'<circle cx="{cx}" cy="{cy}" r="{r}" {p.f(key, False)}/>'
+    blend = ' style="mix-blend-mode:multiply"' if p.mode == "riso" else ""
+    return f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r:.1f}" {p.f(key, False)}{blend}/>'
 
 
 def crescent(p, cx, cy, r, key="moon"):
@@ -116,8 +122,7 @@ def crescent(p, cx, cy, r, key="moon"):
 
 def road_v(p, x, y, horizon, half=26, key="road"):
     """A straight road from the foot of a small picture to a point on its horizon."""
-    return f'<path {p.f(key)} d="M{x - half} {y} L{x - 1} {horizon} L{x + 1} {horizon} L{x + half} {y}Z"/>'
-
+    return road(p, None, y, horizon, x, key, half=half)
 
 def star(p, cx, cy, r, key="star"):
     k = r * 0.28
@@ -204,20 +209,21 @@ def baqi(p, x, y, s=1.0, wall="body", ground="mid"):
 
 
 def doorway(p, x, y, s=1.0, wall="body", dark="shade", door="accent"):
-    """A threshold: a wall, an arched doorway, a door standing a little open."""
+    """A threshold: a wall, an arched doorway, a panelled wooden door standing open."""
+    panels = (f'<path d="M-17 -8 L-7 -10 L-7 -30 L-17 -27Z M-17 -34 L-7 -37 L-7 -54 L-17 -50Z" {p.s("tile", 0.9)}/>'
+              f'<circle cx="-9" cy="-33" r="1.8" {p.s("tile", 0.9)}/>')
     return g(x, y, s, f'<rect x="-60" y="-90" width="120" height="90" {p.f(wall)}/>'
                       f'<path d="M-20 0 V-56 Q0 -76 20 -56 V0Z" {p.f(dark)}/>'
-                      f'<path d="M-20 0 V-56 Q-12 -66 -2 -70 L-8 -2Z" {p.f(door)}/>'
+                      f'<path d="M-20 0 V-56 Q-15 -64 -4 -69 L-4 -4Z" {p.f(door)}/>{panels}'
                       f'<rect x="-30" y="0" width="60" height="5" {p.f("tile")}/>')
 
-
-def window_barred(p, x, y, s=1.0, wall="body", glow="sun", bars="ink"):
-    bar = "".join(f'<path d="M{bx} -20 V-70" {p.s(bars, 1.8)}/>' for bx in (-12, -4, 4, 12))
+def window_barred(p, x, y, s=1.0, wall="body", glow="sun"):
+    """A barred window in a wall, lit from inside: pale bars over warm light."""
+    bars = "".join(f'<path d="M{bx} -22 V-66" {p.s("paper", 2.4)}/>' for bx in (-11, -3.7, 3.7, 11))
     return g(x, y, s, f'<rect x="-50" y="-100" width="100" height="100" {p.f(wall)}/>'
-                      f'<path d="M-20 -20 V-62 Q0 -84 20 -62 V-20Z" {p.f("shade")}/>'
-                      f'<circle cx="0" cy="-42" r="9" {p.f(glow, False)}/>{bar}'
-                      f'<rect x="-24" y="-20" width="48" height="4" {p.f("tile", False)}/>')
-
+                      f'<path d="M-20 -20 V-62 Q0 -84 20 -62 V-20Z" {p.f(glow)}/>'
+                      f'<path d="M-20 -44 H20" {p.s("paper", 1.6)}/>{bars}'
+                      f'<rect x="-25" y="-21" width="50" height="5" {p.f("tile", False)}/>')
 
 def kaaba(p, x, y, s=1.0):
     return g(x, y, s, f'<path d="M-36 0 V-58 L0 -64 V-6Z" {p.f("cube")}/>'
@@ -228,9 +234,11 @@ def kaaba(p, x, y, s=1.0):
 
 
 def mountain_cave(p, x, y, s=1.0):
+    """Hira: a mountain with a cave mouth near the top, a lamp-glow inside."""
     return g(x, y, s, f'<path d="M-90 0 L-40 -70 L-20 -58 L6 -96 L40 -50 L60 -62 L96 0Z" {p.f("far")}/>'
-                      f'<path d="M-6 -44 Q2 -56 12 -44 Q10 -36 0 -36 Q-6 -38 -6 -44Z" {p.f("shade", False)}/>')
-
+                      f'<path d="M-9 -38 V-50 Q2 -64 13 -50 V-38Z" {p.f("shade", False)}/>'
+                      f'<circle cx="2" cy="-44" r="4" {p.f("sun", False)}/>'
+                      f'<path d="M-12 -38 H16" {p.s("tile", 1.2)}/>')
 
 def house(p, x, y, s=1.0):
     return g(x, y, s, f'<rect x="-28" y="-30" width="56" height="30" {p.f("body")}/>'
@@ -280,20 +288,39 @@ def camel_standing(p, x, y, s=1.0, key="beast"):
     return g(x, y, s, f'<path d="{d}" {p.f(key)}/>')
 
 
-def road(p, w, h, horizon, x_far, key="road"):
-    return (f'<path {p.f(key)} d="M{w * 0.30:.1f} {h} C{w * 0.42:.1f} {h * 0.82:.1f} {x_far - 10:.1f} {horizon + 22:.1f} '
-            f'{x_far - 1.2:.1f} {horizon} L{x_far + 1.2:.1f} {horizon} C{x_far + 14:.1f} {horizon + 22:.1f} '
-            f'{w * 0.78:.1f} {h * 0.8:.1f} {w * 0.72:.1f} {h}Z"/>')
-
+def road(p, w, h, horizon, x_far, key="road", half=None):
+    """An empty road running to a point on the horizon. Its near edge runs off the
+    bottom corners of the frame and it bends on the way, so it reads as a road
+    and never as a triangle (or as the fold of a pennant)."""
+    yn = h + 3
+    if half is None and w:
+        xl, xr = -w * 0.08, w * 1.08          # the near edge leaves by the bottom corners
+    else:
+        hb = half if half is not None else 22
+        xl, xr = x_far - hb * 1.6, x_far + hb * 1.6
+    xc, yc = (xl + xr) / 2, horizon + (h - horizon) * 0.42
+    bend = -(xr - xl) * 0.16                  # sweeps in from the right, turns away left
+    lq, rq = x_far + bend - (xr - xl) * 0.05, x_far + bend + (xr - xl) * 0.05
+    body = (f'<path {p.f(key)} d="M{xl:.1f} {yn:.1f} Q{lq:.1f} {yc:.1f} {x_far - 0.5:.1f} {horizon:.1f} '
+            f'L{x_far + 0.5:.1f} {horizon:.1f} Q{rq:.1f} {yc:.1f} {xr:.1f} {yn:.1f}Z"/>')
+    edges = (f'<path d="M{xl:.1f} {yn:.1f} Q{lq:.1f} {yc:.1f} {x_far - 0.5:.1f} {horizon:.1f} '
+             f'M{xr:.1f} {yn:.1f} Q{rq:.1f} {yc:.1f} {x_far + 0.5:.1f} {horizon:.1f}" {p.s("shade", 0.5)}/>')
+    span = (xr - xl)
+    dash = (f'<path d="M{xc:.1f} {yn:.1f} Q{x_far + bend:.1f} {yc:.1f} {x_far:.1f} {horizon + 1.5:.1f}" '
+            f'{p.s("tile", max(0.5, span / 70))} stroke-dasharray="{span / 22:.1f} {span / 26:.1f}"/>')
+    return body + edges + dash
 
 def cloak(p, x, y, s=1.0):
-    corners = [(-44, -6), (44, -6), (32, -30), (-32, -30)]
-    body = (f'<path d="M-44 -6 Q-46 -2 -40 0 Q0 4 40 0 Q46 -2 44 -6 L32 -30 Q0 -34 -32 -30Z" {p.f("cloak")}/>'
-            f'<path d="M-9 -15 Q-10 -22 -2 -23 Q8 -24 9 -17 Q10 -11 0 -11 Q-8 -11 -9 -15Z" {p.f("ink")}/>')
-    return g(x, y, s, body + "".join(f'<circle cx="{cx}" cy="{cy}" r="2" {p.f("accent", False)}/>' for cx, cy in corners))
-
-
-# ---------------------------------------------------------------- objects (stickers, postcards)
+    """The cloak laid flat on the ground, a stone on top, a tassel at each corner.
+    No cords: cords plus a dark stone read as a spider."""
+    corners = ((-54, 0), (54, 0), (-42, -30), (42, -30))
+    tassels = "".join(f'<path d="M{cx} {cy} l-2.6 6.5 h5.2Z" {p.f("accent", False)}/>'
+                      f'<circle cx="{cx}" cy="{cy}" r="1.9" {p.f("accent", False)}/>' for cx, cy in corners)
+    return g(x, y, s, f'<path d="M-54 0 Q0 -5 54 0 L42 -30 Q0 -26 -42 -30Z" {p.f("cloak")}/>'
+                      f'<path d="M-49 -4 Q0 -8.5 49 -4 M-40 -26 Q0 -22.5 40 -26" {p.s("tile", 0.9)}/>'
+                      f'{tassels}<ellipse cx="2" cy="-12" rx="13" ry="3" {p.f("shade", False)} opacity="0.3"/>'
+                      f'<path d="M-9 -13 Q-10 -21 0 -22 Q11 -22.5 12 -15 Q12 -11 2 -11 Q-8 -11 -9 -13Z" {p.f("stone")}/>'
+                      f'<path d="M-3 -19.5 Q2 -21 6 -19.5" {p.s("paper", 0.8)}/>')
 
 def sealed_letter(p, x, y, s=1.0):
     return g(x, y, s, f'<rect x="-30" y="-40" width="60" height="40" {p.f("body")}/>'
@@ -327,19 +354,33 @@ def books(p, x, y, s=1.0):
 
 def coin(p, x, y, s=1.0):
     return g(x, y, s, f'<circle cx="0" cy="-20" r="20" {p.f("gold")}/>'
-                      f'<circle cx="0" cy="-20" r="14" {p.s("ink", 0.8)}/>')
-
+                      f'<circle cx="0" cy="-20" r="15" {p.s("ink", 0.8)}/>'
+                      + star(p, 0, -20, 8, "ink"))
 
 def handmill(p, x, y, s=1.0):
-    return g(x, y, s, f'<ellipse cx="0" cy="-6" rx="32" ry="8" {p.f("body")}/>'
-                      f'<ellipse cx="0" cy="-16" rx="28" ry="7" {p.f("tile")}/>'
-                      f'<rect x="14" y="-34" width="4" height="18" {p.f("ink", False)}/>')
-
+    """A hand-mill (quern) seen from a little above: two grey round stones with a
+    gap between them, the hole in the top, an upright wooden handle, and a heap
+    of white flour at its foot."""
+    return g(x, y, s, f'<ellipse cx="0" cy="2" rx="40" ry="6" {p.f("shade", False)} opacity="0.25"/>'
+                      f'<path d="M-34 -12 V-3 A34 8 0 0 0 34 -3 V-12Z" {p.f("stone")}/>'
+                      f'<ellipse cx="0" cy="-12" rx="34" ry="8" {p.f("stone_lt")}/>'
+                      f'<path d="M-34 -3 A34 8 0 0 0 34 -3" {p.s("shade", 0.9)}/>'
+                      # the gap: a dark band where the upper stone stands clear of the lower
+                      f'<ellipse cx="0" cy="-15" rx="25" ry="5.5" {p.f("shade", False)} opacity="0.55"/>'
+                      f'<path d="M-25 -26 V-18 A25 6 0 0 0 25 -18 V-26Z" {p.f("stone")}/>'
+                      f'<ellipse cx="0" cy="-26" rx="25" ry="6" {p.f("stone_lt")}/>'
+                      f'<path d="M-25 -18 A25 6 0 0 0 25 -18" {p.s("shade", 0.9)}/>'
+                      f'<ellipse cx="0" cy="-26" rx="4.5" ry="1.6" {p.f("shade", False)}/>'
+                      f'<rect x="13" y="-46" width="5" height="21" rx="2.4" {p.f("trunk")}/>'
+                      f'<path d="M-50 3 Q-46 -12 -34 -12 Q-24 -11 -20 3Z" {p.f("#FFFFFF", False)} stroke="{p.c("shade")}" stroke-width="0.5"/>'
+                      f'<path d="M-44 -4 Q-38 -9 -32 -8" {p.s("shade", 0.4)}/>')
 
 def bowl(p, x, y, s=1.0):
-    return g(x, y, s, f'<path d="M-30 -20 Q0 20 30 -20Z" {p.f("accent")}/>'
-                      f'<rect x="-32" y="-22" width="64" height="3" {p.f("tile", False)}/>')
-
+    """A clay bowl with water in it."""
+    return g(x, y, s, f'<path d="M-34 -18 Q-30 4 0 4 Q30 4 34 -18Z" {p.f("far")}/>'
+                      f'<ellipse cx="0" cy="-18" rx="34" ry="5" {p.f("tile", False)}/>'
+                      f'<ellipse cx="0" cy="-17" rx="29" ry="3.6" {p.f("water", False)}/>'
+                      f'<rect x="-10" y="3" width="20" height="4" rx="1.5" {p.f("far", False)}/>')
 
 def seats(p, x, y, s=1.0, n=4):
     out = ""
@@ -359,9 +400,11 @@ def branching(p, x, y, s=1.0):
 
 
 def mat(p, x, y, s=1.0):
-    return g(x, y, s, f'<rect x="-36" y="-14" width="72" height="14" {p.f("accent")}/>'
-                      f'<rect x="-30" y="-11" width="60" height="8" {p.f("tile", False)}/>')
-
+    """A prayer mat, fringed at both ends."""
+    fringe = "".join(f'<path d="M{fx} -2 V2 M{fx} -26 V-30" {p.s("tile", 0.9)}/>' for fx in range(-30, 31, 4))
+    return g(x, y, s, f'{fringe}<rect x="-32" y="-26" width="64" height="24" {p.f("accent")}/>'
+                      f'<rect x="-27" y="-22" width="54" height="16" {p.s("tile", 1.1)}/>'
+                      f'<path d="M-10 -8 V-16 Q0 -24 10 -16 V-8" {p.s("tile", 1.1)}/>')
 
 def flask(p, x, y, s=1.0):
     return g(x, y, s, f'<path d="M-6 -50 H6 V-34 Q22 -24 18 -6 Q14 0 0 0 Q-14 0 -18 -6 Q-22 -24 -6 -34Z" {p.f("water")}/>')
@@ -376,37 +419,112 @@ def ring14(p, x, y, s=1.0):
     return g(x, y, s, out)
 
 
+def tasbih(p, x, y, s=1.0):
+    """Prayer beads: a loop of thirty-three, a larger bead, a tassel."""
+    import math as _m
+    beads = ""
+    for i in range(33):
+        a = 2 * _m.pi * i / 33 + _m.pi / 2
+        beads += f'<circle cx="{26 * _m.cos(a):.2f}" cy="{-44 + 30 * _m.sin(a):.2f}" r="2.6" {p.f("accent", False)}/>'
+    tassel = "".join(f'<path d="M0 -6 L{tx} 12" {p.s("frond", 1.1)}/>' for tx in (-4, -2, 0, 2, 4))
+    return g(x, y, s, f'<path d="M0 -14 V-6" {p.s("frond", 1.4)}/>{tassel}{beads}'
+                      f'<circle cx="0" cy="-14" r="4.4" {p.f("tile", False)}/>')
+
+
+def loaves(p, x, y, s=1.0):
+    """Two loaves on a folded cloth."""
+    bread, crust = p.c("bread"), p.c("crust")
+    if p.mode == "line":
+        bread = crust = p.pal["ground"]
+    return g(x, y, s, f'<path d="M-44 0 L-36 -14 H40 L46 0Z" {p.f("paper")}/>'
+                      f'<path d="M-40 -6 H44" {p.s("tile", 1.4)}/>'
+                      f'<ellipse cx="-14" cy="-20" rx="20" ry="11" fill="{bread}" stroke="{crust}" stroke-width="1"/>'
+                      f'<ellipse cx="16" cy="-18" rx="18" ry="10" fill="{bread}" stroke="{crust}" stroke-width="1"/>'
+                      + "".join(f'<path d="M{a} -24 q4 -4 8 0" fill="none" stroke="{crust}" stroke-width="1.1"/>'
+                                for a in (-24, -14, -4, 8, 18)))
+
+
+def scroll(p, x, y, s=1.0):
+    """The list: a scroll with ruled lines, each one ticked off."""
+    lines = "".join(f'<path d="M-16 {yy} H22" {p.s("shade", 1.1)}/>'
+                    f'<path d="M-26 {yy} l2.5 2.5 l4.5 -5" {p.s("accent", 1.4)}/>' for yy in (-60, -50, -40, -30, -20))
+    return g(x, y, s, f'<rect x="-32" y="-72" width="64" height="62" {p.f("paper")}/>{lines}'
+                      f'<rect x="-36" y="-78" width="72" height="8" rx="4" {p.f("tile")}/>'
+                      f'<rect x="-36" y="-12" width="72" height="8" rx="4" {p.f("tile")}/>')
+
+
+def crown(p, x, y, s=1.0):
+    """A crown, set down."""
+    return g(x, y, s, f'<path d="M-30 0 V-10 L-34 -34 L-16 -20 L0 -40 L16 -20 L34 -34 L30 -10 V0Z" {p.f("gold")}/>'
+                      f'<rect x="-30" y="-10" width="60" height="10" {p.f("accent", False)}/>'
+                      + "".join(f'<circle cx="{cx}" cy="-5" r="2.4" {p.f("paper", False)}/>' for cx in (-16, 0, 16)))
+
+
+def key(p, x, y, s=1.0):
+    """A heavy old key."""
+    return g(x, y, s, f'<circle cx="-24" cy="-20" r="12" {p.f("gold")}/><circle cx="-24" cy="-20" r="5.5" {p.f("paper", False)}/>'
+                      f'<rect x="-13" y="-23" width="44" height="6" {p.f("gold")}/>'
+                      f'<rect x="22" y="-17" width="5" height="10" {p.f("gold", False)}/><rect x="14" y="-17" width="5" height="7" {p.f("gold", False)}/>')
+
+
+def treaty(p, x, y, s=1.0):
+    """A treaty: one sheet, written on, a seal at the foot for each side. A single
+    sheet, never two pages — an open book could be taken for a mushaf."""
+    lines = "".join(f'<path d="M-24 {yy} H24" {p.s("shade", 0.9)}/>' for yy in (-54, -47, -40, -33, -26))
+    return g(x, y, s, f'<path d="M-30 -62 H30 V-6 H-30Z" {p.f("paper")}/>{lines}'
+                      f'<circle cx="-14" cy="-14" r="5.5" {p.f("accent")}/>'
+                      f'<circle cx="14" cy="-14" r="5.5" {p.f("accent")}/>')
+
+def letters(p, x, y, s=1.0):
+    """A stack of sealed letters, one leaning against it."""
+    out = ""
+    for i in range(4):
+        out += (f'<rect x="-30" y="{-10 - i * 9}" width="60" height="9" {p.f("paper")}/>'
+                f'<path d="M-30 {-10 - i * 9} L0 {-5 - i * 9} L30 {-10 - i * 9}" {p.s("shade", 0.6)}/>')
+    out += (f'<g transform="rotate(-14 36 -2)"><rect x="24" y="-40" width="34" height="40" {p.f("paper")}/>'
+            f'<path d="M24 -40 L41 -24 L58 -40" {p.s("shade", 0.8)}/><circle cx="41" cy="-24" r="4" {p.f("accent")}/></g>')
+    return g(x, y, s, out)
+
+
+def caravan(p, x, y, s=1.0):
+    """Three camels in file along a ridge."""
+    return "".join(camel_standing(p, x + dx * s, y + dy * s, 0.7 * s) for dx, dy in ((-34, 2), (-8, 0), (18, -2)))
+
+
 # ---------------------------------------------------------------- scenes
 
-def sky(p, w, h, time):
+def sky(p, w, h, time, at=(0.2, 0.17)):
+    """The sky, and a sun or moon at `at` (fractions of the box) — placed by the
+    caller so it never sits behind a minaret, the postmark or a title. Mourning
+    art has no sun."""
     out = rect(p, 0, 0, w, h, "sky")
+    if at is None:
+        return out + (stars(p, w, h, 11) if time == "night" else "")
+    cx, cy = w * at[0], h * at[1]
+    r = min(w, h) * (0.07 if time == "night" else 0.11) * (at[2] if len(at) > 2 else 1)
     if time == "night":
-        out += stars(p, w, h, 11) + crescent(p, w * 0.78, h * 0.18, min(w, h) * 0.07)
-    elif time == "dusk":
-        out += sun(p, w * 0.66, h * 0.58, min(w, h) * 0.16)
-    elif time == "dawn":
-        out += sun(p, w * 0.32, h * 0.62, min(w, h) * 0.12)
-    else:
-        out += sun(p, w * 0.68, h * 0.46, min(w, h) * 0.13)
+        out += stars(p, w, h, 11) + crescent(p, cx, cy, r)
+    elif not p.mourning:
+        out += sun(p, cx, cy, r)
     return out
 
-
-def scene(p, w, h, motif, time="day", ground=0.72, scale=None, road_to=None, cx=0.5):
-    """Sky, a far layer, the subject standing on it, then nearer layers."""
+def scene(p, w, h, motif, time="day", ground=0.72, scale=None, road_to=None, cx=0.5, at=(0.2, 0.17),
+          road_half=None, fg=None):
+    """Sky, a far layer, the subject standing on it, then nearer layers. `fg`
+    draws over the nearer layers (something standing on the near dune)."""
     base = h * ground
     s = scale if scale is not None else min(w / 190, h / 170) * 0.74
-    out = sky(p, w, h, time)
+    out = sky(p, w, h, time, at)
     out += dune(p, w, h, base - h * 0.02, h * 0.06, "far", 0.1)
     out += motif(p, w * cx, base, s)
     out += dune(p, w, h, base + h * 0.06, h * 0.05, "mid", -0.1)
     out += dune(p, w, h, base + h * 0.17, h * 0.04, "near", 0.2)
     if road_to:
-        # The road is the subject when there is one: drawn last, over the ground.
-        out += road(p, w, h, base - h * 0.02, w * road_to)
+        out += road(p, w, h, base - h * 0.02, w * road_to, half=road_half)
+    if fg:
+        out += fg(p, w, h, base, s)
     return out
 
-
-# Each envelope's subjects, from 04-art/prompts.md. motif(p, cx, base_y, s).
 def _palms_either(m):
     def f(p, x, y, s):
         return palm(p, x - 70 * s, y + 2, 0.7 * s) + m(p, x, y, s) + palm(p, x + 74 * s, y + 4, 0.6 * s, lean=-3)
@@ -420,6 +538,10 @@ SUBJECTS = {
     "samarra":   lambda p, x, y, s: shrine(p, x, y, s, 1, 2, tall=1.1),
     "samarra_city": lambda p, x, y, s: city(p, x, y, s) + malwiya(p, x + 52 * s, y - 30 * s, 0.55 * s),
     "door":      lambda p, x, y, s: doorway(p, x, y, s * 1.1) + palm(p, x + 70 * s, y + 2, 0.7 * s, lean=-3),
+    "door_tasbih": lambda p, x, y, s: doorway(p, x, y, s * 1.1) + palm(p, x + 70 * s, y + 2, 0.7 * s, lean=-3)
+                   + tasbih(p, x - 52 * s, y + 4 * s, 0.75 * s),
+    "khurasan_road": lambda p, x, y, s: shrine(p, x + 60 * s, y - 2 * s, 0.32 * s, 1, 2) + caravan(p, x - 30 * s, y + 2 * s, s),
+    "jamkaran_letters": lambda p, x, y, s: shrine(p, x + 40 * s, y, 0.6 * s, 1, 2) + letters(p, x - 52 * s, y + 18 * s, 0.9 * s),
     "najaf":     lambda p, x, y, s: shrine(p, x, y, s, 1, 2, tall=1.05),
     "kaaba":     lambda p, x, y, s: kaaba(p, x, y, s * 1.2),
     "window":    lambda p, x, y, s: window_barred(p, x, y, s * 1.1),
@@ -428,7 +550,9 @@ SUBJECTS = {
     "road_dawn": lambda p, x, y, s: "",
     "jamkaran":  lambda p, x, y, s: shrine(p, x, y, s, 1, 2),
     "qadr":      lambda p, x, y, s: arcade(p, x, y, s, 4) + star(p, x, y - 90 * s, 6 * s, "sun"),
-    "teaching":  lambda p, x, y, s: arcade(p, x, y, s) + books(p, x - 20 * s, y, 0.5 * s) + lantern(p, x + 24 * s, y - 10 * s, 0.6 * s),
+    # the arcade alone: nothing stood inside the arches, which read as clutter
+    "teaching":  lambda p, x, y, s: (arcade(p, x, y, s) + rect(p, x - 64 * s, y - 58 * s, 128 * s, 6 * s, "shade", True)
+                                     + palm(p, x - 84 * s, y + 2, 0.7 * s) + palm(p, x + 86 * s, y + 4, 0.6 * s, lean=-3)),
     "eid":       lambda p, x, y, s: shrine(p, x, y, s * 0.9, 1, 1) + lantern(p, x - 60 * s, y - 80 * s, 0.9 * s) + lantern(p, x + 50 * s, y - 92 * s, 0.8 * s),
     "mashhad":   lambda p, x, y, s: shrine(p, x, y, s, 1, 2, tall=1.1),
     "qom":       lambda p, x, y, s: shrine(p, x, y, s, 1, 2),
@@ -437,7 +561,7 @@ SUBJECTS = {
     "standard":  lambda p, x, y, s: standard(p, x, y, s * 0.8),
     "zaynab":    lambda p, x, y, s: shrine(p, x, y, s, 1, 2),
     "house":     lambda p, x, y, s: house(p, x, y, s * 1.2) + palm(p, x - 50 * s, y + 2, 0.75 * s) + palm(p, x + 46 * s, y + 2, 0.6 * s, lean=-3),
-    "quba":      lambda p, x, y, s: camel_kneeling(p, x - 80 * s, y + 24 * s, 0.9 * s) + "".join(palm(p, x + dx * s, y - 2 * s, 0.32 * s) for dx in (40, 50, 60, 70)),
+    "quba":      lambda p, x, y, s: "".join(palm(p, x + dx * s, y - 2 * s, 0.32 * s) for dx in (40, 50, 60, 70)),
     "cloak":     lambda p, x, y, s: cloak(p, x, y + 10 * s, s * 0.9),
 }
 
@@ -445,6 +569,8 @@ OBJECTS = {
     "sealed_letter": sealed_letter, "qalam": qalam, "scales": scales, "shield": shield, "books": books,
     "coin": coin, "handmill": handmill, "bowl": bowl, "seats": seats, "branching": branching, "mat": mat,
     "flask": flask, "lantern": lambda p, x, y, s: lantern(p, x, y, s * 1.4), "ring14": ring14,
+    "tasbih": tasbih, "loaves": loaves, "scroll": scroll, "crown": crown, "key": key, "treaty": treaty,
+    "letters": letters,
     "cloak": lambda p, x, y, s: cloak(p, x, y, s * 0.7),
     "palm": lambda p, x, y, s: palm(p, x, y, s * 0.42),
     "door": lambda p, x, y, s: doorway(p, x, y, s * 0.45),

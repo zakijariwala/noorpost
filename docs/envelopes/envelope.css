@@ -77,9 +77,9 @@ body { font-family: var(--body); color: var(--ink); }
 .env-front .brand .kicker { color: var(--env-ink, var(--accent)); }
 .env-front .stamp { position: absolute; right: 14mm; top: 11mm; width: 46mm; height: 46mm; }
 .env-front .name-area { position: absolute; left: 14mm; bottom: 14mm; background: var(--name-bg); border-radius: var(--radius);
-  padding: 3mm 6mm 3.5mm; min-width: 80mm; box-shadow: 0 0.8mm 0 rgba(0,0,0,0.15); }
-.env-front .name-area .kicker { margin: 0; }
-.env-front .name-area .who { font-family: var(--display); font-weight: var(--dweight); font-size: 17pt; line-height: 1.2;
+  padding: 4mm 8mm 5mm; min-width: 96mm; box-shadow: 0 1mm 0 rgba(0,0,0,0.15); }
+.env-front .name-area .kicker { margin: 0; font-size: 9pt; }
+.env-front .name-area .who { font-family: var(--display); font-weight: var(--dweight); font-size: 27pt; line-height: 1.15;
   color: var(--name-ink, var(--ink)); }
 .env-back .seal { position: absolute; left: 50%; top: 61mm; width: 32mm; height: 32mm; margin-left: -16mm; }
 .env-back .return { position: absolute; right: 14mm; bottom: 12mm; text-align: right; font-size: 8pt; line-height: 1.45; }
@@ -162,6 +162,10 @@ body { font-family: var(--body); color: var(--ink); }
 .chain-dots { display: flex; gap: 1.4mm; flex-wrap: wrap; margin: 1mm 0; }
 .chain-dots span { width: 4mm; height: 4mm; border-radius: 50%; border: 0.35mm solid var(--accent); }
 .chain-dots span.on { background: var(--accent); }
+.gloss { margin-top: 2mm; background: var(--pill); border-radius: var(--radius); padding: 3mm 3.5mm; }
+.gloss-label { font-size: 6.6pt !important; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0 0 1mm !important; }
+.gloss-text { font-family: var(--display); font-weight: var(--dweight); font-size: 11pt !important; line-height: 1.3 !important; color: var(--pill-ink); }
+.gloss-note { font-size: 6.4pt !important; opacity: 0.7; margin-top: 1.2mm !important; color: var(--pill-ink); }
 .card-back .cite { margin-top: auto; font-size: 7.4pt; border-top: 0.4mm solid var(--bar); padding-top: 2.5mm; }
 .card-back .note { font-size: 6.6pt; opacity: 0.75; }
 
