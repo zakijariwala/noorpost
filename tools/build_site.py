@@ -476,6 +476,50 @@ def sync_envelope_set():
     shutil.copytree(ENV_SET, dst, ignore=keep)
 
 
+COMP_SET = os.path.join(ROOT, "04-art", "companions")
+COMP_ITEMS = [
+    ("front", "Envelope front — the stamp"), ("back", "Back, with the seal"), ("flap", "Inside the flap"),
+    ("side-a", "The letter, outside — fact panel and page 1"), ("side-b", "The letter, inside — page 2 and the line said together"),
+    ("card-front", "Hadith card"), ("card-back", "Hadith card, back"), ("person", "Person print"),
+    ("stickers", "Sticker sheet"), ("postcard", "Return postcard"),
+]
+
+
+def sync_companion_set():
+    """Copy the built companion envelopes into docs/companions/. They share the
+    box's stylesheet, layout script and fonts, which sync_envelope_set copies."""
+    dst = os.path.join(OUT, "companions")
+    if os.path.isdir(dst):
+        shutil.rmtree(dst)
+    if os.path.isdir(COMP_SET):
+        shutil.copytree(COMP_SET, dst, ignore=lambda d, names: [n for n in names if n in ("README.md", "__pycache__")])
+
+
+def comp_preview(slug, item):
+    rel = f"companions/preview/{slug}-{item}.jpg"
+    return rel if os.path.exists(os.path.join(COMP_SET, "preview", f"{slug}-{item}.jpg")) else None
+
+
+def comp_design_section(slug):
+    """A built companion's finished design, every item, on its page."""
+    figs = "".join(
+        f'<figure><a href="{src}"><img src="{src}" alt="{html.escape(cap)}" loading="lazy"></a>'
+        f'<figcaption>{html.escape(cap)}</figcaption></figure>'
+        for item, cap in COMP_ITEMS for src in [comp_preview(slug, item)] if src)
+    if not figs:
+        return ""
+    pdf = f"companions/pdf/companion-{slug}.pdf"
+    pdf_link = (f' &middot; <a href="{pdf}">Print PDF</a>' if os.path.exists(os.path.join(COMP_SET, "pdf", f"companion-{slug}.pdf")) else "")
+    return f"""<section class="design" id="design">
+<p class="itemlabel">The design</p>
+<h2>Everyone Else — one style for the line</h2>
+<p class="sectionnote">Every companion envelope shares one style, so the thirty-nine belong together: each front carries its person as a stamp.
+<a href="companions/companion-{slug}.html">Every item at true size &rarr;</a>{pdf_link}</p>
+<div class="designgrid">{figs}</div>
+<p class="sectionnote small">The artwork fixes composition, colour and medium for every item; final illustration is still to be commissioned. The fact panel is still to verify.</p>
+</section>"""
+
+
 def preview(num, item):
     rel = f"envelopes/preview/{num}-{item}.jpg"
     return rel if os.path.exists(os.path.join(ENV_SET, "preview", f"{num}-{item}.jpg")) else None
@@ -951,7 +995,7 @@ def build():
   <p class="itemlabel">Letter, reverse</p>
   {ph}
 </section>
-{companion_card(slug)}
+{companion_card(slug)}{comp_design_section(slug)}
 </article>"""
         with open(os.path.join(OUT, f"companion-{slug}.html"), "w", encoding="utf-8") as f:
             f.write(page(name, "Everyone Else", body))
@@ -989,7 +1033,9 @@ def build():
 <a class="tilecards" href="envelope-{num}-cards.html">All items as cards &rarr;</a>
 </div>""")
     comp = "".join(
-        f'<a class="tile small" href="companion-{s}.html"><span class="tilename">{html.escape(n)}</span></a>'
+        f'<a class="tile small" href="companion-{s}.html">'
+        + (f'<img class="tilefront" src="{comp_preview(s, "front")}" alt="" loading="lazy">' if comp_preview(s, "front") else "")
+        + f'<span class="tilename">{html.escape(n)}</span></a>'
         for s, n in COMPANIONS)
     zin = "".join(
         f'<a class="tile small" href="zine-{s}.html"><span class="tilename">{html.escape(n)}</span></a>'
@@ -1033,6 +1079,7 @@ def build():
 
     build_reference()
     sync_envelope_set()
+    sync_companion_set()
 
     # count what was actually written, rather than a formula that silently
     # drifts whenever a new page type is added (the card pages were missing)

@@ -14,5 +14,11 @@
     "12": "Be kind to people, and they will trust you to settle their arguments.",
     "13": "Being quiet is a door to being wise. It makes friends, and it leads to every good thing.",
     "14": "Showing something off before it is ready spoils it."
-  }
+  },
+  "companions": {
+    "salman": "Stay close to your family, even if all you can do is say hello.",
+    "bilal": "Being a believer is half staying patient when things are hard, and half saying thank you when they are good.",
+    "abu-dharr": "Learn from people who know things, talk with people who are wise, and spend time with people who have little."
+  },
+  "_note_companions": "Companions line (Everyone Else): the same kind of line, under 'companions', keyed by entry slug, printed on the back of that entry's hadith card. Same rule: Noor Post's own words, not a translation; DRAFT until the scholar checks each one against the Arabic."
 }
