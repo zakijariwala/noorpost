@@ -108,26 +108,31 @@ SKY_AT = {"print": (0.2, 0.15), "front": (0.17, 0.42), "head": (0.93, 0.3), "obj
 # keep its top on the page.
 OBJ_HEIGHT = {"tasbih": 76, "scroll": 78, "lantern": 56}
 
+# Fronts that leave the sun top-left: (x, y, size) — a low, large sun sits half
+# behind the far dune — or None for no sun. Keeps the fronts from one layout.
+FRONT_SUN = {"03": (0.54, 0.64, 1.7), "04": None, "05": (0.3, 0.64, 1.7), "06": (0.8, 0.64, 1.5), "08": (0.84, 0.6), "11": (0.5, 0.34),
+             "10": (0.76, 0.68, 1.5), "13": None}
+
 # Where a front object stands, as fractions of the face, when the default
 # would put it on the name label (the pen reaches far to its left).
-FRONT_AT = {"qalam": (0.66, 0.74)}
+FRONT_AT = {"qalam": (0.66, 0.74), "cloak": (0.66, 0.7)}
 
 FOREGROUND = {
     "quba": lambda p, w, h, base, s: A.camel_standing(p, w * 0.22, base + h * 0.07, s * 1.15),
 }
 
 
-def subject_or_object(p, w, h, key, time, where="print", road_x=0.55, road_half=None):
-    at = SKY_AT[where]
+def subject_or_object(p, w, h, key, time, where="print", road_x=0.55, road_half=None, sun="default"):
+    at = SKY_AT[where] if sun == "default" else sun
     if key == "road_dawn":
         return A.scene(p, w, h, A.SUBJECTS["road_dawn"], time, road_to=road_x, road_half=road_half, at=at)
-    if key in A.SUBJECTS:
+    if key in A.SUBJECTS and not (where == "front" and key in FRONT_AT):
         return A.scene(p, w, h, A.SUBJECTS[key], time, at=at, fg=FOREGROUND.get(key))
     obj = A.OBJECTS[key]
     if where == "front":
         # On an envelope front the object sits right of centre, small enough to
         # leave the brand line, the postmark and the name label clear.
-        return (A.sky(p, w, h, time, SKY_AT["front"]) + A.dune(p, w, h, h * 0.66, h * 0.06, "far", 0.1)
+        return (A.sky(p, w, h, time, at) + A.dune(p, w, h, h * 0.66, h * 0.06, "far", 0.1)
                 + obj(p, w * FRONT_AT.get(key, (0.54, 0.78))[0], h * FRONT_AT.get(key, (0.54, 0.78))[1],
                       min(w, h) / 175)
                 + A.dune(p, w, h, h * 0.86, h * 0.05, "mid", -0.1))
@@ -180,8 +185,9 @@ def seal(colour, inner):
 
 def env_front(d, t, sc):
     p = pen(t)
-    # 10's road comes in from both bottom corners and turns away right of centre
-    art = A.svg(p, 229, 162, subject_or_object(p, 229, 162, sc["front"], sc["time"], "front", road_x=0.62))
+    # 10's road comes in at the bottom right, clear of the name label
+    art = A.svg(p, 229, 162, subject_or_object(p, 229, 162, sc["front"], sc["time"], "front", road_x=0.76, road_half=36,
+                                               sun=FRONT_SUN.get(d["nn"], "default")))
     v = t["vars"]
     inner = (art + '<div class="brand"><p class="kicker">Noor Post</p>'
              '<div class="tag">One of fourteen. Open it on the day.</div></div>'
@@ -446,7 +452,7 @@ def pennant(d, t, sc):
     ink, ivory = t["vars"]["ink"], t["vars"]["ground"]
     clip = '<clipPath id="pen"><path d="M22 26 H126 L74 192Z"/></clipPath>'
     motif = (A.standard(p, 74, 152, 0.62) if sc["event"] == "standard"
-             else A.treaty(p, 74, 118, 0.9))  # the treaty, not a road: a road's taper echoes the pennant's own outline
+             else A.treaty(p, 74, 104, 0.76))  # the treaty, not a road: a road's taper echoes the pennant's own outline
     body = (f'{clip}<rect width="148" height="210" fill="{ivory}"/>'
             f'<path d="M0 22 Q74 30 148 22" fill="none" stroke="{ink}" stroke-width="0.6"/>'
             f'<path d="M22 26 H126 L74 192Z" fill="{ivory}" stroke="{ink}" stroke-width="0.5" stroke-dasharray="2 1.2"/>'

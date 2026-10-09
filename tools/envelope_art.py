@@ -311,17 +311,16 @@ def road(p, w, h, horizon, x_far, key="road", half=None):
     return body + edges + dash
 
 def cloak(p, x, y, s=1.0):
-    """The cloak held taut by its four corners, the stone on top."""
-    cords = ""
-    for cx, cy, tx, ty in ((-52, 0, -64, -8), (52, 0, 64, -8), (-40, -34, -50, -46), (40, -34, 50, -46)):
-        cords += (f'<path d="M{cx} {cy} L{tx} {ty}" {p.s("ink", 1.1)}/>'
-                  f'<path d="M{tx} {ty} l-2.4 6 h4.8Z" {p.f("accent", False)}/>'
-                  f'<circle cx="{tx}" cy="{ty}" r="1.8" {p.f("accent", False)}/>')
-    folds = ''.join(f'<path d="M{a} {b} L0 -17" {p.s("tile", 0.6)}/>' for a, b in ((-52, 0), (52, 0), (-40, -34), (40, -34)))
-    return g(x, y, s, f'{cords}<path d="M-52 0 Q0 -7 52 0 Q44 -17 40 -34 Q0 -28 -40 -34 Q-44 -17 -52 0Z" {p.f("cloak")}/>'
-                      f'{folds}<ellipse cx="0" cy="-12" rx="12" ry="3" {p.f("shade", False)} opacity="0.35"/>'
-                      f'<path d="M-10 -14 Q-11 -24 -1 -25 Q10 -26 11 -17 Q11 -12 0 -12 Q-9 -12 -10 -14Z" {p.f("ink")}/>'
-                      f'<path d="M-4 -22 Q0 -24 4 -22" {p.s("paper", 0.7)}/>')
+    """The cloak laid flat on the ground, a stone on top, a tassel at each corner.
+    No cords: cords plus a dark stone read as a spider."""
+    corners = ((-54, 0), (54, 0), (-42, -30), (42, -30))
+    tassels = "".join(f'<path d="M{cx} {cy} l-2.6 6.5 h5.2Z" {p.f("accent", False)}/>'
+                      f'<circle cx="{cx}" cy="{cy}" r="1.9" {p.f("accent", False)}/>' for cx, cy in corners)
+    return g(x, y, s, f'<path d="M-54 0 Q0 -5 54 0 L42 -30 Q0 -26 -42 -30Z" {p.f("cloak")}/>'
+                      f'<path d="M-49 -4 Q0 -8.5 49 -4 M-40 -26 Q0 -22.5 40 -26" {p.s("tile", 0.9)}/>'
+                      f'{tassels}<ellipse cx="2" cy="-12" rx="13" ry="3" {p.f("shade", False)} opacity="0.3"/>'
+                      f'<path d="M-9 -13 Q-10 -21 0 -22 Q11 -22.5 12 -15 Q12 -11 2 -11 Q-8 -11 -9 -13Z" {p.f("stone")}/>'
+                      f'<path d="M-3 -19.5 Q2 -21 6 -19.5" {p.s("paper", 0.8)}/>')
 
 def sealed_letter(p, x, y, s=1.0):
     return g(x, y, s, f'<rect x="-30" y="-40" width="60" height="40" {p.f("body")}/>'
@@ -359,21 +358,22 @@ def coin(p, x, y, s=1.0):
                       + star(p, 0, -20, 8, "ink"))
 
 def handmill(p, x, y, s=1.0):
-    """A hand-mill (quern) seen from a little above: two round stones, one on the
-    other, the hole in the top, an upright wooden handle, flour at its foot."""
+    """A hand-mill (quern) seen from a little above: two grey round stones with a
+    gap between them, the hole in the top, an upright wooden handle, and a heap
+    of white flour at its foot."""
     return g(x, y, s, f'<ellipse cx="0" cy="2" rx="40" ry="6" {p.f("shade", False)} opacity="0.25"/>'
-                      # lower stone: side, then its top face
-                      f'<path d="M-34 -14 V-4 A34 9 0 0 0 34 -4 V-14Z" {p.f("body")}/>'
-                      f'<ellipse cx="0" cy="-14" rx="34" ry="9" {p.f("body")}/>'
-                      f'<path d="M-34 -4 A34 9 0 0 0 34 -4" {p.s("shade", 0.9)}/>'
-                      # upper stone
-                      f'<path d="M-27 -25 V-17 A27 7 0 0 0 27 -17 V-25Z" {p.f("tile")}/>'
-                      f'<ellipse cx="0" cy="-25" rx="27" ry="7" {p.f("tile")}/>'
-                      f'<path d="M-27 -17 A27 7 0 0 0 27 -17" {p.s("shade", 0.9)}/>'
-                      f'<ellipse cx="0" cy="-25" rx="5" ry="1.8" {p.f("shade", False)}/>'
-                      # handle, and flour spilling from between the stones
-                      f'<rect x="15" y="-46" width="5" height="22" rx="2.4" {p.f("trunk")}/>'
-                      f'<path d="M-40 2 Q-34 -9 -26 -6 Q-22 1 -16 2Z" {p.f("paper", False)}/>')
+                      f'<path d="M-34 -12 V-3 A34 8 0 0 0 34 -3 V-12Z" {p.f("stone")}/>'
+                      f'<ellipse cx="0" cy="-12" rx="34" ry="8" {p.f("stone_lt")}/>'
+                      f'<path d="M-34 -3 A34 8 0 0 0 34 -3" {p.s("shade", 0.9)}/>'
+                      # the gap: a dark band where the upper stone stands clear of the lower
+                      f'<ellipse cx="0" cy="-15" rx="25" ry="5.5" {p.f("shade", False)} opacity="0.55"/>'
+                      f'<path d="M-25 -26 V-18 A25 6 0 0 0 25 -18 V-26Z" {p.f("stone")}/>'
+                      f'<ellipse cx="0" cy="-26" rx="25" ry="6" {p.f("stone_lt")}/>'
+                      f'<path d="M-25 -18 A25 6 0 0 0 25 -18" {p.s("shade", 0.9)}/>'
+                      f'<ellipse cx="0" cy="-26" rx="4.5" ry="1.6" {p.f("shade", False)}/>'
+                      f'<rect x="13" y="-46" width="5" height="21" rx="2.4" {p.f("trunk")}/>'
+                      f'<path d="M-50 3 Q-46 -12 -34 -12 Q-24 -11 -20 3Z" {p.f("#FFFFFF", False)} stroke="{p.c("shade")}" stroke-width="0.5"/>'
+                      f'<path d="M-44 -4 Q-38 -9 -32 -8" {p.s("shade", 0.4)}/>')
 
 def bowl(p, x, y, s=1.0):
     """A clay bowl with water in it."""
@@ -468,12 +468,12 @@ def key(p, x, y, s=1.0):
 
 
 def treaty(p, x, y, s=1.0):
-    """A treaty: a folded sheet, written on, sealed."""
-    lines = "".join(f'<path d="M{-30 + (0 if yy < -30 else 0)} {yy} H-4 M4 {yy} H30" {p.s("shade", 0.9)}/>' for yy in (-50, -42, -34, -26))
-    return g(x, y, s, f'<path d="M-36 -60 L0 -56 L36 -60 V-12 L0 -8 L-36 -12Z" {p.f("paper")}/>'
-                      f'<path d="M0 -56 V-8" {p.s("shade", 0.8)}/>{lines}'
-                      f'<circle cx="18" cy="-18" r="6" {p.f("accent")}/>')
-
+    """A treaty: one sheet, written on, a seal at the foot for each side. A single
+    sheet, never two pages — an open book could be taken for a mushaf."""
+    lines = "".join(f'<path d="M-24 {yy} H24" {p.s("shade", 0.9)}/>' for yy in (-54, -47, -40, -33, -26))
+    return g(x, y, s, f'<path d="M-30 -62 H30 V-6 H-30Z" {p.f("paper")}/>{lines}'
+                      f'<circle cx="-14" cy="-14" r="5.5" {p.f("accent")}/>'
+                      f'<circle cx="14" cy="-14" r="5.5" {p.f("accent")}/>')
 
 def letters(p, x, y, s=1.0):
     """A stack of sealed letters, one leaning against it."""
@@ -498,8 +498,10 @@ def sky(p, w, h, time, at=(0.2, 0.17)):
     caller so it never sits behind a minaret, the postmark or a title. Mourning
     art has no sun."""
     out = rect(p, 0, 0, w, h, "sky")
+    if at is None:
+        return out + (stars(p, w, h, 11) if time == "night" else "")
     cx, cy = w * at[0], h * at[1]
-    r = min(w, h) * (0.07 if time == "night" else 0.11)
+    r = min(w, h) * (0.07 if time == "night" else 0.11) * (at[2] if len(at) > 2 else 1)
     if time == "night":
         out += stars(p, w, h, 11) + crescent(p, cx, cy, r)
     elif not p.mourning:

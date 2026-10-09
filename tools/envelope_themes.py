@@ -19,7 +19,8 @@ def _art(**kw):
                 body="#FCEBD5", tile="#F6B48A", shade="#5B3A63", accent="#E58F7B", ink="#3B2440",
                 cloak="#1F5C63", cube="#3B2440", cube2="#2A1A2E", gold="#D9A63A", water="#7FB8C4",
                 paper="#FFF6EA", beast="#5B3A63", ground="#FFF6EA", stitch="#FFF6EA", shadow="#3B2440",
-                riso2="#FF48B0", bread="#D9A15A", crust="#9C6430")
+                riso2="#FF48B0", bread="#D9A15A", crust="#9C6430",
+                stone="#8E8C88", stone_lt="#B5B2AC")
     base.update(kw)
     return base
 
