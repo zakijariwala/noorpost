@@ -28,6 +28,7 @@ from urllib.parse import quote
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import envelope_art as A
 import envelope_sources as S
+import mourning_art as M
 from envelope_themes import THEMES, SCENES
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -186,8 +187,9 @@ def seal(colour, inner):
 def env_front(d, t, sc):
     p = pen(t)
     # 10's road comes in at the bottom right, clear of the name label
-    art = A.svg(p, 229, 162, subject_or_object(p, 229, 162, sc["front"], sc["time"], "front", road_x=0.76, road_half=36,
-                                               sun=FRONT_SUN.get(d["nn"], "default")))
+    art = A.svg(p, 229, 162, M.render(d["nn"], "front", 229, 162)
+                or subject_or_object(p, 229, 162, sc["front"], sc["time"], "front", road_x=0.76, road_half=36,
+                                     sun=FRONT_SUN.get(d["nn"], "default")))
     v = t["vars"]
     inner = (art + '<div class="brand"><p class="kicker">Noor Post</p>'
              '<div class="tag">One of fourteen. Open it on the day.</div></div>'
@@ -238,7 +240,7 @@ def letter_sheets(d, t, sc):
     body, close = d["voices"][:-1], d["voices"][-1]
     close_text = re.sub(r'<span class="mark">.*?</span>', "", close)
     close_text = re.sub(r"</?p[^>]*>", "", close_text).strip()
-    head = A.svg(p, 148.5, 50, A.scene(p, 148.5, 50, A.SUBJECTS[sc["head"]], sc["time"], ground=0.86,
+    head = A.svg(p, 148.5, 50, M.render(d["nn"], "head", 148.5, 50) or A.scene(p, 148.5, 50, A.SUBJECTS[sc["head"]], sc["time"], ground=0.86,
                                        scale=0.22, cx=0.78, road_to=0.72 if sc["head"] == "road_dawn" else None,
                                        road_half=14, at=SKY_AT["head"]), cls="head-art")
     title = E(d["title"]).replace("-", "\u2011")   # never break "Grown-Ups" at its hyphen
@@ -250,7 +252,7 @@ def letter_sheets(d, t, sc):
              f'<div class="letter" data-flow="flow-{d["nn"]}">{"".join(body)}</div><div class="facenum">1</div></div>')
     face2 = (f'<div class="face face-letter"><p class="cont">{E(d["title"])} · continued</p>'
              f'<div class="letter" id="flow-{d["nn"]}"></div><div class="facenum">2</div></div>')
-    close_art = A.svg(p, 148.5, 210, vignette(p, sc["hero"], 74.25, 172, 0.8))
+    close_art = A.svg(p, 148.5, 210, M.close_object(d["nn"], 74.25, 176) or vignette(p, sc["hero"], 74.25, 172, 0.8))
     face3 = (f'<div class="face face-close">{close_art}<p class="say">Say this one together</p>'
              f'<p class="together-big"><span class="mark">●○</span>{close_text}</p>'
              f'<p class="next">Then the hadith card.</p><div class="facenum">3</div></div>')
@@ -423,13 +425,15 @@ def session_pages(d, t):
 
 def person_print(d, t, sc):
     p = pen(t)
-    return page("p-a5p", A.svg(p, 148, 210, subject_or_object(p, 148, 210, sc["person"], sc["time"], "print")), t, band=False,
+    return page("p-a5p", A.svg(p, 148, 210, M.render(d["nn"], "person", 148, 210)
+                               or subject_or_object(p, 148, 210, sc["person"], sc["time"], "print")), t, band=False,
                 item="person")
 
 
 def event_print(d, t, sc):
     p = pen(t)
-    return page("p-a5l", A.svg(p, 210, 148, subject_or_object(p, 210, 148, sc["event"], sc["time"], "print"))
+    return page("p-a5l", A.svg(p, 210, 148, M.render(d["nn"], "event", 210, 148)
+                               or subject_or_object(p, 210, 148, sc["event"], sc["time"], "print"))
                 + '<div class="punch" title="Ring punch: 6 mm, centred, 12 mm from the top"></div>', t, band=False, item="event")
 
 
@@ -462,7 +466,8 @@ def pennant(d, t, sc):
 
 def postcard_front(d, t, sc):
     p = pen(t)
-    return page("p-a6l", A.svg(p, 148, 105, subject_or_object(p, 148, 105, sc["postcard"], sc["time"], "print")), t, band=False,
+    return page("p-a6l", A.svg(p, 148, 105, M.render(d["nn"], "postcard", 148, 105)
+                               or subject_or_object(p, 148, 105, sc["postcard"], sc["time"], "print")), t, band=False,
                 item="postcard")
 
 
