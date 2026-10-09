@@ -45,6 +45,9 @@ EXTRA = {
     "B3": ".face-letter .letter-title { letter-spacing: -0.01em; }",
 }
 
+with io.open(os.path.join(ROOT, "00-foundations", "hadith-glosses.json"), encoding="utf-8") as _f:
+    GLOSSES = __import__("json").load(_f)["glosses"]
+
 CHAIN_03 = ("It begins with him. Everyone else in this box is his family, and every chain of teaching in it "
             "runs back through this one man to the words he was given.")
 CHAIN = ("Every card in this box is one link. Lay all fourteen in order and the chain runs from the Prophet "
@@ -93,16 +96,38 @@ def group(title, items):
 # ---------------------------------------------------------------- art helpers
 
 def pen(t):
-    return A.Pen(t["mode"], t["art"])
+    return A.Pen(t["mode"], t["art"], mourning=t.get("mourning", False), heavy=t.get("heavy", False))
 
 
-def subject_or_object(p, w, h, key, time):
+# Where the sun or moon goes, as fractions of the box, so it never sits behind a
+# minaret, under the postmark, over a title or on top of an object.
+SKY_AT = {"print": (0.2, 0.15), "front": (0.17, 0.42), "head": (0.93, 0.3), "object": (0.86, 0.24)}
+
+# Things that stand on the near ground, drawn over it: 03's camel on the dune.
+# Where a front object stands, as fractions of the face, when the default
+# would put it on the name label (the pen reaches far to its left).
+FRONT_AT = {"qalam": (0.66, 0.74)}
+
+FOREGROUND = {
+    "quba": lambda p, w, h, base, s: A.camel_standing(p, w * 0.22, base + h * 0.07, s * 1.15),
+}
+
+
+def subject_or_object(p, w, h, key, time, where="print", road_x=0.55, road_half=None):
+    at = SKY_AT[where]
     if key == "road_dawn":
-        return A.scene(p, w, h, A.SUBJECTS["road_dawn"], time, road_to=0.55)
+        return A.scene(p, w, h, A.SUBJECTS["road_dawn"], time, road_to=road_x, road_half=road_half, at=at)
     if key in A.SUBJECTS:
-        return A.scene(p, w, h, A.SUBJECTS[key], time)
+        return A.scene(p, w, h, A.SUBJECTS[key], time, at=at, fg=FOREGROUND.get(key))
     obj = A.OBJECTS[key]
-    return (A.sky(p, w, h, time) + A.dune(p, w, h, h * 0.66, h * 0.06, "far", 0.1)
+    if where == "front":
+        # On an envelope front the object sits right of centre, small enough to
+        # leave the brand line, the postmark and the name label clear.
+        return (A.sky(p, w, h, time, SKY_AT["front"]) + A.dune(p, w, h, h * 0.66, h * 0.06, "far", 0.1)
+                + obj(p, w * FRONT_AT.get(key, (0.54, 0.78))[0], h * FRONT_AT.get(key, (0.54, 0.78))[1],
+                      min(w, h) / 175)
+                + A.dune(p, w, h, h * 0.86, h * 0.05, "mid", -0.1))
+    return (A.sky(p, w, h, time, SKY_AT["object"]) + A.dune(p, w, h, h * 0.66, h * 0.06, "far", 0.1)
             + obj(p, w / 2, h * 0.74, min(w, h) / 95)
             + A.dune(p, w, h, h * 0.86, h * 0.05, "mid", -0.1))
 
@@ -115,7 +140,8 @@ def vignette(p, key, x, y, s):
         # An empty road to a flat horizon, cropped to a window on the face.
         return (f'<clipPath id="rv"><rect x="{x - 40}" y="{y - 50}" width="80" height="56" rx="3"/></clipPath>'
                 f'<g clip-path="url(#rv)">' + A.rect(p, x - 40, y - 50, 80, 56, "sky")
-                + A.rect(p, x - 40, y - 22, 80, 28, "far", True) + A.road_v(p, x, y + 6, y - 22) + '</g>')
+                + A.rect(p, x - 40, y - 22, 80, 28, "far", True) + A.road(p, None, y + 6, y - 22, x, half=24) + '</g>'
+                + f'<rect x="{x - 40}" y="{y - 50}" width="80" height="56" rx="3" {p.s("shade", 0.5)}/>')
     return A.SUBJECTS[key](p, x, y, s * 0.35)
 
 
@@ -150,7 +176,8 @@ def seal(colour, inner):
 
 def env_front(d, t, sc):
     p = pen(t)
-    art = A.svg(p, 229, 162, subject_or_object(p, 229, 162, sc["person"], sc["time"]))
+    # 10's road keeps to the right, clear of the name label
+    art = A.svg(p, 229, 162, subject_or_object(p, 229, 162, sc["front"], sc["time"], "front", road_x=0.66, road_half=36))
     v = t["vars"]
     inner = (art + '<div class="brand"><p class="kicker">Noor Post</p>'
              '<div class="tag">One of fourteen. Open it on the day.</div></div>'
@@ -166,7 +193,8 @@ def env_back(d, t):
     if t["mode"] == "line":
         fl = lambda key: p.f(key)
     else:
-        fl = lambda key: f'fill="{ {"stock": v["ground2"], "edge": t["art"]["tile"], "flap": v["ground"]}[key] }"'
+        # the flap is the same stock as the body; only its edge band marks it
+        fl = lambda key: f'fill="{ {"stock": v["ground2"], "edge": t["art"]["tile"], "flap": v["ground2"]}[key] }"'
     art = (f'<rect width="{w}" height="{h}" {fl("stock")}/>'
            f'<path {fl("edge")} d="M0 0 H229 V16 Q172 50 114.5 86 Q57 50 0 16Z"/>'
            f'<path {fl("flap")} d="M0 0 H229 V10 Q172 42 114.5 78 Q57 42 0 10Z"/>')
@@ -201,16 +229,18 @@ def letter_sheets(d, t, sc):
     close_text = re.sub(r'<span class="mark">.*?</span>', "", close)
     close_text = re.sub(r"</?p[^>]*>", "", close_text).strip()
     head = A.svg(p, 148.5, 50, A.scene(p, 148.5, 50, A.SUBJECTS[sc["head"]], sc["time"], ground=0.86,
-                                       scale=0.22, cx=0.78, road_to=0.7 if sc["head"] == "road_dawn" else None), cls="head-art")
+                                       scale=0.22, cx=0.78, road_to=0.72 if sc["head"] == "road_dawn" else None,
+                                       road_half=14, at=SKY_AT["head"]), cls="head-art")
+    title = E(d["title"]).replace("-", "\u2011")   # never break "Grown-Ups" at its hyphen
     face1 = (f'<div class="face face-letter first">{head}'
              f'<div class="head-text"><p class="kicker">Envelope {d["nn"]} · {E(d["month"])}</p>'
-             f'<h1 class="letter-title">{E(d["title"])}</h1></div>'
+             f'<h1 class="letter-title">{title}</h1></div>'
              f'<p class="voicekey"><span class="mark">●</span> is the grown-up · <span class="mark">○</span> is you · '
              f'<span class="mark">●○</span> is together</p>'
              f'<div class="letter" data-flow="flow-{d["nn"]}">{"".join(body)}</div><div class="facenum">1</div></div>')
     face2 = (f'<div class="face face-letter"><p class="cont">{E(d["title"])} · continued</p>'
              f'<div class="letter" id="flow-{d["nn"]}"></div><div class="facenum">2</div></div>')
-    close_art = A.svg(p, 148.5, 210, vignette(p, sc["postcard"], 74.25, 172, 0.8))
+    close_art = A.svg(p, 148.5, 210, vignette(p, sc["hero"], 74.25, 172, 0.8))
     face3 = (f'<div class="face face-close">{close_art}<p class="say">Say this one together</p>'
              f'<p class="together-big"><span class="mark">●○</span>{close_text}</p>'
              f'<p class="next">Then the hadith card.</p><div class="facenum">3</div></div>')
@@ -241,8 +271,8 @@ def card_art(t):
     if kind == "outline":
         return f'<path d="{ARCH}" fill="none" stroke="{v["ink"]}" stroke-width="0.5"/>'
     if kind == "wash":
-        return (f'<g filter="url(#wash)"><path d="{ARCH}" fill="rgba(27,27,27,0.10)"/>'
-                f'<ellipse cx="52" cy="120" rx="44" ry="10" fill="rgba(27,27,27,0.14)"/></g>')
+        # one wash, one shape: the name sits inside it, not on a second blot
+        return f'<g filter="url(#wash)"><path d="{ARCH}" fill="rgba(27,27,27,0.10)"/></g>'
     if kind in ("arch", "garden"):
         inner = (A.star(p, 30, 34, 1.6, "sun") + A.star(p, 74, 28, 1.2, "sun") +
                  A.dune(p, w, h, 120, 7, "far", 0.1) + A.dune(p, w, h, 128, 5, "mid", -0.1))
@@ -267,14 +297,15 @@ def card_art(t):
                 f'<rect x="10" y="17" width="85" height="120" rx="3" fill="none" stroke="{acc}" stroke-width="0.5" stroke-dasharray="1.4 1"/>'
                 f'<circle cx="52.5" cy="126" r="9" fill="{v["accent"]}"/>{petals}<circle cx="52.5" cy="126" r="3" fill="{bg}"/>')
     if kind == "blobs":
-        return (f'<rect width="{w}" height="{h}" fill="{bg}"/><circle cx="10" cy="150" r="46" fill="{v["accent"]}" '
-                f'style="mix-blend-mode:multiply"/><circle cx="96" cy="26" r="20" fill="{acc}" opacity="0.8"/>')
+        return (f'<rect width="{w}" height="{h}" fill="{bg}"/><circle cx="6" cy="152" r="40" fill="{v["accent"]}" '
+                f'style="mix-blend-mode:multiply"/><circle cx="104" cy="2" r="16" fill="{acc}" opacity="0.8"/>')
     if kind == "quarter":
         return (f'<rect width="{w}" height="{h}" fill="{bg}"/><path d="M105 18 V44 A26 26 0 0 1 79 18Z" fill="{acc}"/>'
                 f'<path d="M0 148 V112 A36 36 0 0 1 36 148Z" fill="{acc}"/>')
     if kind == "stars":
-        return (f'<rect width="{w}" height="{h}" fill="{bg}"/>' + A.stars(p, w, h, 10, 5, "sun")
-                + A.crescent(p, 82, 22, 7, "sun") + f'<rect x="5" y="5" width="95" height="138" fill="none" stroke="{acc}" stroke-width="0.5"/>')
+        inner_stars = "".join(A.star(p, x, y, 1.4, "sun") for x, y in ((22, 30), (84, 40), (30, 96), (80, 104), (18, 64)))
+        return (f'<rect width="{w}" height="{h}" fill="{bg}"/>{inner_stars}' + A.crescent(p, 88, 21, 5, "sun")
+                + f'<rect x="4" y="4" width="97" height="140" fill="none" stroke="{acc}" stroke-width="0.6"/>')
     if kind == "bands":
         return (f'<rect width="{w}" height="{h}" fill="{bg}"/><rect y="108" width="{w}" height="10" fill="#F7D9C4"/>'
                 f'<rect y="118" width="{w}" height="10" fill="#F2B8A2"/><circle cx="52.5" cy="128" r="11" fill="#E1A73A"/>'
@@ -287,7 +318,7 @@ def card_art(t):
         return f'<rect width="{w}" height="{h}" fill="{bg}"/>{cells}'
     if kind == "vignette":
         return (f'<g filter="url(#wash)"><ellipse cx="52.5" cy="76" rx="44" ry="58" fill="#86C3D1" fill-opacity="0.35"/>'
-                f'<ellipse cx="52.5" cy="118" rx="38" ry="14" fill="#E0A33A" fill-opacity="0.35"/></g>')
+                f'<ellipse cx="52.5" cy="140" rx="40" ry="9" fill="#E0A33A" fill-opacity="0.35"/></g>')
     raise ValueError(kind)
 
 
@@ -314,8 +345,9 @@ def hadith_cards(d, t):
     front = page(f"p-a6p card-front card-{t['card']}", art + f'<p class="chain-mark">{mark}</p>' + words + mark_wm, t,
                  band=False, item="card-front")
     dots = "".join(f'<span class="{"on" if seg == i else ""}"></span>' for i in range(1, 15))
-    note = ('<p class="note">Segment number undecided — two schemes both number this card. '
-            'The dot fills when it is fixed.</p>' if seg is None else "")
+    gl = GLOSSES.get(d["nn"])
+    note = (f'<div class="gloss"><p class="gloss-label">In our words</p><p class="gloss-text">{E(gl)}</p>'
+            f'<p class="gloss-note">Noor Post&rsquo;s own words, not the translation.</p></div>' if gl and s.get("text") else "")
     cite = (f'<em>{E(s["work"])}</em>, {E(s["ref"])}. Translated by {E(s["translator"])}, Ansariyan Publications, Qum.'
             if s.get("text") else f'<strong>Blocked:</strong> {E(s.get("blocker", ""))}')
     back = page("p-a6p", f'<div class="card-back"><p class="kicker">Noor Post · The Fourteen</p><h3>The chain</h3>'
@@ -344,7 +376,12 @@ def session_pages(d, t):
         b = (f'<div class="session" data-fit><p class="kicker">{E(s["title"])} · continued</p>'
              + "".join(q(*x) for x in back) + "</div>")
         return [("Session card — front", page("p-a6p", f, t, item="session")), ("Session card — back", page("p-a6p", b, t))]
-    if kind in ("mourning", "open"):
+    if kind == "mourning":
+        blk = "".join('<div class="blk">' + "".join(f"<p>{x}</p>" for x in b) + "</div>" for b in s["blocks"])
+        f = (f'<div class="session" data-fit><h2 class="s-title">{E(s["title"])}</h2><p class="s-sub">{E(s["sub"])}</p>'
+             f'{blk}</div>')
+        return [("Session card — one side", page("p-a6p", f, t, item="session"))]
+    if kind == "open":
         blocks = s["blocks"]
         sizes = [sum(len(x) for x in b) for b in blocks]
         cut, run = len(blocks), 0
@@ -376,13 +413,13 @@ def session_pages(d, t):
 
 def person_print(d, t, sc):
     p = pen(t)
-    return page("p-a5p", A.svg(p, 148, 210, subject_or_object(p, 148, 210, sc["person"], sc["time"])), t, band=False,
+    return page("p-a5p", A.svg(p, 148, 210, subject_or_object(p, 148, 210, sc["person"], sc["time"], "print")), t, band=False,
                 item="person")
 
 
 def event_print(d, t, sc):
     p = pen(t)
-    return page("p-a5l", A.svg(p, 210, 148, subject_or_object(p, 210, 148, sc["event"], sc["time"]))
+    return page("p-a5l", A.svg(p, 210, 148, subject_or_object(p, 210, 148, sc["event"], sc["time"], "print"))
                 + '<div class="punch" title="Ring punch: 6 mm, centred, 12 mm from the top"></div>', t, band=False, item="event")
 
 
@@ -404,8 +441,8 @@ def pennant(d, t, sc):
     p = pen(t)
     ink, ivory = t["vars"]["ink"], t["vars"]["ground"]
     clip = '<clipPath id="pen"><path d="M22 26 H126 L74 192Z"/></clipPath>'
-    motif = (A.standard(p, 74, 134, 0.6) if sc["event"] == "standard"
-             else f'<path d="M22 100 H126" {p.s("ink", 0.5)}/>' + A.road_v(p, 74, 192, 100, 30))
+    motif = (A.standard(p, 74, 152, 0.62) if sc["event"] == "standard"
+             else f'<path d="M22 62 H126" {p.s("ink", 0.5)}/>' + A.road(p, None, 196, 62, 74, half=40))
     body = (f'{clip}<rect width="148" height="210" fill="{ivory}"/>'
             f'<path d="M0 22 Q74 30 148 22" fill="none" stroke="{ink}" stroke-width="0.6"/>'
             f'<path d="M22 26 H126 L74 192Z" fill="{ivory}" stroke="{ink}" stroke-width="0.5" stroke-dasharray="2 1.2"/>'
@@ -415,7 +452,7 @@ def pennant(d, t, sc):
 
 def postcard_front(d, t, sc):
     p = pen(t)
-    return page("p-a6l", A.svg(p, 148, 105, subject_or_object(p, 148, 105, sc["postcard"], sc["time"])), t, band=False,
+    return page("p-a6l", A.svg(p, 148, 105, subject_or_object(p, 148, 105, sc["postcard"], sc["time"], "print")), t, band=False,
                 item="postcard")
 
 

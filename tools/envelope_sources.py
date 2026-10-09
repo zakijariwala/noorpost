@@ -103,14 +103,22 @@ def fact_panel(lines):
 
 
 def _conversation(blocks):
+    """Title, the line under it, then every numbered question. A question starts
+    at a line opening **N.** or **Last** — wherever it falls, including in the
+    same block as the title (05–14 put question 1 there; 03 does not)."""
     title = blocks[0][0].lstrip("#").strip()
     sub = blocks[0][1].strip("*") if len(blocks[0]) > 1 else ""
+    chunks, cur = [], None
+    for b in blocks:
+        for ln in b:
+            if re.match(r"\*\*(\d+|Last)[.:]\*\*", ln):
+                cur = [ln]; chunks.append(cur)
+            elif cur is not None:
+                cur.append(ln)
+        cur = None
     qs = []
-    for b in blocks[1:]:
-        text = " ".join(b)
-        m = re.match(r"\*\*(\d+|Last)[.:]\*\*\s*(.*)", text)
-        if not m:
-            continue
+    for c in chunks:
+        m = re.match(r"\*\*(\d+|Last)[.:]\*\*\s*(.*)", " ".join(c))
         label, rest = m.group(1), m.group(2)
         flag = None
         f = re.match(r"([●⚑])\s*\*\*(.+?)\*\*\s*(.*)", rest)
@@ -125,8 +133,9 @@ def _prose(kind, blocks):
     set as written."""
     title = blocks[0][0].lstrip("#").strip()
     sub = blocks[0][1].strip("*") if len(blocks[0]) > 1 else ""
+    rest = ([blocks[0][2:]] if len(blocks[0]) > 2 else []) + blocks[1:]
     return {"kind": kind, "title": title, "sub": sub,
-            "blocks": [[inline(s) for s in b] for b in blocks[1:]]}
+            "blocks": [[inline(s) for s in b] for b in rest]}
 
 
 def _case_file(lines):

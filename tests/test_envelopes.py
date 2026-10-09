@@ -50,8 +50,8 @@ class Envelopes(unittest.TestCase):
                 self.assertEqual(pages.count(size), n, f"{nn}: {size}")
             kind = self.data[nn]["session"]["kind"]
             self.assertEqual(pages.count("p-a7p"), 5 if kind == "case" else 0, f"{nn}: evidence cards")
-            # card front + back, session pages, and stickers unless mourning
-            a6 = 2 + (3 if kind == "case" else 2) + (0 if self.data[nn]["mourning"] else 1)
+            # card front + back, session pages (mourning: one side), and stickers unless mourning
+            a6 = 2 + {"case": 3, "mourning": 1}.get(kind, 2) + (0 if self.data[nn]["mourning"] else 1)
             self.assertEqual(pages.count("p-a6p"), a6, f"{nn}: A6 items")
             # person print, plus the pennant in a mourning issue
             self.assertEqual(pages.count("p-a5p"), 2 if self.data[nn]["mourning"] else 1, f"{nn}: A5 portrait")
@@ -62,6 +62,23 @@ class Envelopes(unittest.TestCase):
             for v in self.data[nn]["voices"]:
                 line = TEXT(re.sub(r'<span class="mark">.*?</span>', "", v)).strip()
                 self.assertIn(line, page, f"{nn}: letter line missing")
+
+    def test_every_session_line_in_source_reaches_the_card(self):
+        """The Q1 bug: a question sharing a block with the card title was dropped."""
+        for nn in S.ALL:
+            src = (open(os.path.join(S.PILOT, "session-card.md"), encoding="utf-8").read() if nn == "03"
+                   else open(os.path.join(S.CONTENT, f"envelope-{nn}.md"), encoding="utf-8").read())
+            labels = re.findall(r"^> \*\*(\d+|Last)[.:]\*\*", src, re.M)
+            kind = self.data[nn]["session"]["kind"]
+            if kind == "conversation":
+                self.assertEqual([q[0] for q in self.data[nn]["session"]["questions"]], labels, nn)
+            if kind in ("mourning", "open"):
+                page = TEXT(self.built[nn])
+                body = src.split("## Session card")[1].split("\n## ")[0]
+                for ln in body.split("\n"):
+                    t = ln.lstrip(">").strip()
+                    if t and t != "---" and not t.startswith("#") and ln.startswith(">"):
+                        self.assertIn(TEXT(S.inline(t)).strip(), page, f"{nn}: {t[:40]}")
 
     def test_last_line_is_said_together_on_face_three(self):
         for nn, html in self.built.items():
