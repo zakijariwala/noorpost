@@ -495,9 +495,17 @@ def sync_companion_set():
         shutil.copytree(COMP_SET, dst, ignore=lambda d, names: [n for n in names if n in ("README.md", "__pycache__")])
 
 
+def fingerprinted(rel, path):
+    """`rel?v=<content hash>`: a changed image gets a new address, so browsers
+    and the Pages cache fetch it instead of showing the copy they kept."""
+    import hashlib
+    with open(path, "rb") as f:
+        return f"{rel}?v={hashlib.sha1(f.read()).hexdigest()[:10]}"
+
+
 def comp_preview(slug, item):
-    rel = f"companions/preview/{slug}-{item}.jpg"
-    return rel if os.path.exists(os.path.join(COMP_SET, "preview", f"{slug}-{item}.jpg")) else None
+    path = os.path.join(COMP_SET, "preview", f"{slug}-{item}.jpg")
+    return fingerprinted(f"companions/preview/{slug}-{item}.jpg", path) if os.path.exists(path) else None
 
 
 def comp_design_section(slug):
@@ -508,8 +516,9 @@ def comp_design_section(slug):
         for item, cap in COMP_ITEMS for src in [comp_preview(slug, item)] if src)
     if not figs:
         return ""
-    pdf = f"companions/pdf/companion-{slug}.pdf"
-    pdf_link = (f' &middot; <a href="{pdf}">Print PDF</a>' if os.path.exists(os.path.join(COMP_SET, "pdf", f"companion-{slug}.pdf")) else "")
+    pdf_path = os.path.join(COMP_SET, "pdf", f"companion-{slug}.pdf")
+    pdf_link = (f' &middot; <a href="{fingerprinted(f"companions/pdf/companion-{slug}.pdf", pdf_path)}">Print PDF</a>'
+                if os.path.exists(pdf_path) else "")
     return f"""<section class="design" id="design">
 <p class="itemlabel">The design</p>
 <h2>Everyone Else — one style for the line</h2>
@@ -521,8 +530,8 @@ def comp_design_section(slug):
 
 
 def preview(num, item):
-    rel = f"envelopes/preview/{num}-{item}.jpg"
-    return rel if os.path.exists(os.path.join(ENV_SET, "preview", f"{num}-{item}.jpg")) else None
+    path = os.path.join(ENV_SET, "preview", f"{num}-{item}.jpg")
+    return fingerprinted(f"envelopes/preview/{num}-{item}.jpg", path) if os.path.exists(path) else None
 
 
 def envelope_style(num):
@@ -544,8 +553,9 @@ def design_section(num):
     if not figs or not style:
         return ""
     key, name, fonts = style
-    pdf = f"envelopes/pdf/envelope-{num}.pdf"
-    pdf_link = (f' &middot; <a href="{pdf}">Print PDF</a>' if os.path.exists(os.path.join(ENV_SET, "pdf", f"envelope-{num}.pdf")) else "")
+    pdf_path = os.path.join(ENV_SET, "pdf", f"envelope-{num}.pdf")
+    pdf_link = (f' &middot; <a href="{fingerprinted(f"envelopes/pdf/envelope-{num}.pdf", pdf_path)}">Print PDF</a>'
+                if os.path.exists(pdf_path) else "")
     return f"""<section class="design" id="design">
 <p class="itemlabel">The design</p>
 <h2>Style {html.escape(key)} — {html.escape(name)}</h2>

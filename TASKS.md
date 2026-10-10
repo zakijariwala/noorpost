@@ -166,12 +166,14 @@ For each letter: 330–370 words, voice marks assigned, child lines counted and 
 
 **Build brief for Canva: `04-art/canva-build-brief.md`** — 24 master templates, every canvas size with bleed built in, the ring-punch coordinates, the placeholder discipline, and the build order. Written 2026-08-24 for Canva Free, which means **the display face may have to be substituted for Fraunces** (no font upload on that plan). That is a change to a fixed Phase 0 decision and is recorded as one, not treated as a workaround.
 
-- [ ] 14 person prints. Note the repeats and the pairings: Jannat al-Baqi appears three times at three angles (02, 05, 09); Samarra pairs 04 and 11; Kadhimiya in 14 pairs with the barred window in 08. Draw them as a deliberate set, not one at a time.
-- [ ] 14 event prints. Common landscape format, common ring punch. They must hang together as one calendar.
-- [ ] 12 sticker sheets, plus 2 pennants for the mourning issues.
-- [ ] 14 return postcards, pre-addressed, two signature lines.
-- [ ] 14 envelope exteriors with the circular month cancellation.
-- [ ] Wax-seal stickers.
+- [x] **Designed, all fifty-three envelopes, every item (2026-10)** — `04-art/envelopes/` (fourteen styles) and `04-art/companions/` (one style for the line). Composition, palette, type and medium fixed; every word from the markdown; PDFs at true size; on the site. The items below are designed; what stays open on each is **final illustration** and **physical proof**.
+- [ ] **Commission final illustration** against the coded designs (the reference) and `04-art/prompts.md`.
+- [ ] 14 person prints — *designed.* Note the repeats and the pairings: Jannat al-Baqi appears three times at three angles (02, 05, 09); Samarra pairs 04 and 11; Kadhimiya in 14 pairs with the barred window in 08. Draw them as a deliberate set, not one at a time.
+- [ ] 14 event prints — *designed.* Common landscape format, common ring punch. They must hang together as one calendar.
+- [ ] 12 sticker sheets, plus 2 pennants for the mourning issues — *designed.*
+- [ ] 14 return postcards, pre-addressed, two signature lines — *designed; return address not set.*
+- [ ] 14 envelope exteriors with the circular month cancellation — *designed.* 01 and 02 are two-ink prints: black and red, black and green (2026-10-09).
+- [ ] Wax-seal stickers — *designed on each envelope back.*
 - [ ] Box design.
 - [ ] Lay all 42 collectible pieces out together and check the three collections read as sets: hadith cards in the Qur'an, person prints on the wall, event prints on the ring.
 
@@ -260,7 +262,8 @@ Four decisions were taken. **The structural work behind them is done; the select
 - [x] **Add a card template to `tools/build_print_templates.py`, and assert the narrower rule** (2026-08-14). Four templates per entry now, 156 in all. `guard()` runs on every build: it fails on a silsila segment number, on an event print, and on any entry whose Items table is not the five fixed items. Cards render an **empty slot** — never invented filler inside quote marks. *(The old rule had never been asserted in code; the generator enforced it by emitting no card, which is why this was writing rather than deleting.)*
 - [ ] **Define the packs.** Thirty-nine is too many to sell as one wall. The groupings already exist in the material: the four nayibs, Karbala, the mothers, the Prophet's household.
 
-- [ ] **Close the rest of the backlog before writing entry forty.** Citations verified for 0 of 39; scholar sign-off for 0 of 39; artwork for 0 of 39. See the gaps table in `08-companions/README.md`. Writing entries is the cheap activity and has outrun the expensive ones that gate print.
+- [x] **Design all thirty-nine, every item (2026-10).** `04-art/companions/`, built in batches of three in card order. One style for the line; faces allowed except the family of the Fourteen, who are veiled in light; no Masoom drawn; Fitrus a feather. Draft "In our words" glosses for 28 cards.
+- [ ] **Close the rest of the backlog before writing entry forty.** Citations verified for 0 of 39; scholar sign-off for 0 of 39; artwork designed for 39 of 39, final illustration not commissioned. See the gaps table in `08-companions/README.md`. Writing entries is the cheap activity and has outrun the expensive ones that gate print.
 - [ ] Print, stock singly, and list as a checkout add-on, an Eid gift and a madrasa prize.
 
 ---

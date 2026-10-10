@@ -1,6 +1,36 @@
 # Handover
 
 Everything needed to pick this up cold, on another machine or in a new session.
+**Tools and setup for your own machine: `TOOLS.md`.**
+
+---
+
+## Where it stands — 2026-10-10
+
+**The design work is done to a reviewable standard, for all fifty-three envelopes.** Every item of every envelope now exists as a print-ready design, printing to PDF at true size, live on the site.
+
+| Line | Designs | Where |
+|---|---|---|
+| **The Fourteen** (box) | All 14, every item: envelope, flap, folded letter + fact panel, hadith card, session card or case file, person print, event print, stickers or pennant, postcard. **Fourteen styles, one per envelope.** | `04-art/envelopes/`, built by `tools/build_envelopes.py` |
+| **Everyone Else** (companions) | All 39, every item: envelope, flap, letter + panel, hadith card, portrait print, stickers, postcard. **One style for the line** — each person on a perforated stamp. | `04-art/companions/`, built by `tools/build_companions.py` |
+
+**What "done" means here:** composition, palette, type and medium are fixed for every item, and every word is read from the markdown. **Final illustration is still to be commissioned** — the drawings are coded SVG, a strong reference rather than finished art. Nothing about sourcing, scholar review or print readiness changed: every fact panel is still `TO VERIFY`.
+
+### Decisions taken in the October sessions
+
+- **Fourteen styles for fourteen envelopes** (2026-10-08) — no shared box style; each envelope is a one-off. `design-system.md` §1.
+- **01 and 02 are two-ink prints on ivory** (2026-10-09): **black and red for 01 Muharram, black and green for 02 Safar.** Replaces "charcoal and ivory only". `tests/test_envelopes.py` checks every colour on both.
+- **Companions: faces allowed, except the family of the Fourteen** — mothers, wives, sons and daughters of a Masoom (12 people, `VEILED` in `tools/companion_themes.py`) have the face veiled in light, no features. A cautious default, flagged for the scholar; reversible per person.
+- **No Masoom is ever drawn**, even where a companion's print spec implied one (Fatima bint Asad's two boys, the boy beside Umm Farwa and Hamida, Umm al-Banin's children) — objects stand in. Fitrus has no figure: a feather.
+- **Hadith card backs carry an "In our words" line** — Noor Post's plain-English gloss, labelled as not the translation. **Drafts for 12 box cards and 28 companion cards, all needing the scholar** (`00-foundations/hadith-glosses.json`).
+
+### Flagged, not fixed — needs you or the scholar
+
+- Sayings still missing: box 06 and 10; companions Fizza, Rabab, Sakina, Fitrus, Umm al-Banin, Hamida, the four Mahdi-era entries, and Khawla (a decision, not a source).
+- **Two selected companion sayings are stored truncated with "…"** (Umm Kulthum, Tawus) — they need the full text; trimming breaks `sourcing-rules.md`.
+- Box placeholders: envelope 03's `[Work], [section]` credit; 06's death line; the return address on every envelope and postcard.
+- Long sentences in 05, 09 and 14; the 04 fact panel trim; shorter answer cards for 08, 11 and 14; the 08 line "I am not going to answer it"; 02's flap line "This one has no game in it" beside its colour-in.
+- The companion packs are not defined. The 15 zines are written but not designed.
 
 ---
 
@@ -34,8 +64,12 @@ unzip sources.zip -d 00-sources
 | `00-sources/source.db` | SQLite + FTS5 over every page and passage. **Not tracked — rebuild it.** |
 | `01-pilot/envelope-03/` | Envelope 03, split across four files |
 | `03-content/` | Envelopes 01, 02, 04–14, one file each, plus `spec-check.md` |
-| `08-companions/` | The six companion envelopes |
+| `08-companions/` | The thirty-nine companion entries (letters, panels, item specs) |
 | `09-zines/` | Zine template, two written in full, thirteen outlined |
+| `04-art/envelopes/` | **The fourteen box envelopes, designed** — HTML per envelope, `pdf/`, `preview/`. See its README. |
+| `04-art/companions/` | **The thirty-nine companion envelopes, designed** — same layout. See its README. |
+| `04-art/design-canvas/` | The earlier interactive style exploration (Claude Design canvas) |
+| `TOOLS.md` | Every tool used, and how to set up a machine |
 | `docs/` | The published site. **Generated — never edit by hand.** |
 | `tools/` | The build scripts, plus `sourcelib/` — the source pipeline |
 
@@ -60,8 +94,21 @@ python tools/build_source_corpus.py     # text/ + api/ -> pages -> md/ -> source
 python tools/source_search.py "Shurayh" # find evidence, with edition and page
 python tools/page_image.py --source SRC-NHB-002 --page 35   # look at the original page
 python tools/source_audit.py --write    # what is fixed, missing, TV, V, unverified
-python -m unittest discover -s tests    # 84 tests
+python -m unittest discover -s tests    # 118 tests
 ```
+
+And the designs (Node 22 + Playwright + Chromium — see `TOOLS.md`):
+
+```bash
+python tools/build_envelopes.py                          # the fourteen → 04-art/envelopes/
+python tools/build_companions.py                         # the thirty-nine → 04-art/companions/
+NODE_PATH=$(npm root -g) node tools/render_envelopes.js  # PDFs + previews; refuses any overflow
+NODE_PATH=$(npm root -g) node tools/render_companions.js
+python tools/build_site.py                               # copies both sets onto the site
+python tools/contact_sheet.py fronts.png 330 5 04-art/envelopes/preview/*-front.jpg   # review
+```
+
+Both builders take `--check` (exit 1 if what is on disk is stale). Render before the site build so previews and PDFs match.
 
 `source_search.py` searches `00-sources/` and nothing else, so a draft can never
 become evidence for itself. It reports which editions' page numbers may be cited
@@ -89,9 +136,9 @@ Site is at **https://zakijariwala.github.io/noorpost/** and serves from `main` `
 | 1 Pilot | Envelope 03 written. Not printed, not timed, not reviewed. |
 | 2 Channel test | Not started. Needs a printed envelope. |
 | 3 Content | **All fourteen letters, fact panels and session cards written.** Counts measured. Hadith cards blocked. |
-| 4 Art | Nothing drawn. Every item is specified. |
+| 4 Art | **Every item of all 14 box envelopes and all 39 companions designed (2026-10)** — composition, palette, type, medium fixed; print to PDF at true size. Final illustration to commission. Physical proofs (ring test) not started. |
 | 5–7 | Not started. Gated behind the print run. |
-| 8 Companions | **29 of 39 hadith cards selected 2026-08-24** — 7 high, 10 medium, 12 low, 10 blocked; the 22 non-high rows are on `hadith-verification-worklist.md`. Thirty-nine written. **Restructured 2026-08-14 — see "The 2026-08-14 decisions" below. The structural sweep is done; 0 of 39 sayings selected.** |
+| 8 Companions | **29 of 39 hadith cards selected 2026-08-24** — 7 high, 10 medium, 12 low, 10 blocked; the 22 non-high rows are on `hadith-verification-worklist.md`. Thirty-nine written. **Restructured 2026-08-14 — see "The 2026-08-14 decisions" below. The structural sweep is done; 0 of 39 sayings selected.** **Designed 2026-10: all thirty-nine, every item, one style for the line.** |
 | 9 Zines | Template plus two full, thirteen outlined. |
 
 **Every factual claim in every fact panel is unverified.** They are marked `TV` on the citation sheet. Nothing prints on `TV`.
@@ -254,6 +301,9 @@ None of these need a source. They need you.
 - **The death goes in one fixed place** — last line of the fact panel, nowhere else. Fact and actor, no method.
 - **One new thing for the adult, every envelope.** A fact, not a reflection.
 - **Every activity needs two roles.** Anything one person can do alone fails the brief.
+- **01 and 02 carry two inks on ivory and nothing else** — black and red, black and green. Tested on every build.
+- **No Masoom is ever drawn, in either line.** The box's art kit has no figure in it; the companions' portraits never depict one of the Fourteen, and the family of the Fourteen are veiled in light.
+- **A saying is quoted exactly or the slot stays empty.** The "In our words" gloss is labelled as Noor Post's own words, never the translation.
 - **No subscription sells before all fourteen are printed.** This is what makes monthly a posting job.
 
 Full set in `00-foundations/editorial-rulebook.md`. Per-envelope sign-off in `00-foundations/checklist.md`.

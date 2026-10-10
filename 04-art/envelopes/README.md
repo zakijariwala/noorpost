@@ -4,8 +4,8 @@ Every envelope in the box, every item, each in its own style (decided 2026-10-08
 
 | Env | Month | Style |
 |---|---|---|
-| 01 | Muharram | M2 Ink Wash — mourning |
-| 02 | Safar | M1 Charcoal Line — mourning |
+| 01 | Muharram | M2 Ink Wash — mourning, black and red |
+| 02 | Safar | M1 Charcoal Line — mourning, black and green |
 | 03 | Rabi al-Awwal | C Paper Dunes |
 | 04 | Rabi al-Thani | B3 Big Shapes |
 | 05 | Jumada al-Awwal | D Illuminated |
@@ -37,7 +37,8 @@ python -m unittest discover -s tests                          # includes tests/t
 |---|---|
 | `tools/envelope_sources.py` | Reads every word from source: `01-pilot/envelope-03/` and `03-content/envelope-NN.md`, sayings from `hadith-assignments.json`. |
 | `tools/envelope_themes.py` | The fourteen styles as data, and each envelope's subjects from `04-art/prompts.md`. |
-| `tools/envelope_art.py` | One kit of drawings, drawn by a pen whose mode is the style: cut, flat, line, wash, stitch, riso, gilt. **No figure anywhere in it.** |
+| `tools/envelope_art.py` | One kit of drawings, drawn by a pen whose mode is the style: cut, flat, line, wash, stitch, riso, gilt. Skies with air, haze, paper grain; shrines with portal, tilework and lamps. **No figure anywhere in it.** |
+| `tools/mourning_art.py` | 01 and 02's own art: Karbala in ink wash, al-Baqi as an engraving; two inks each. |
 | `tools/build_envelopes.py` | Assembles every item; enforces the no-envelope-number rule on cards. |
 | `envelope.css` | What every style shares: sizes, the folded letter, voices, card positions, ring punch. |
 | `envelope.js` | Lays each envelope out in the browser: flows the letter across faces 1–2 for that style's fonts, shrinks dense cards slightly, flags anything that still overflows. |
@@ -52,7 +53,7 @@ python -m unittest discover -s tests                          # includes tests/t
 - No envelope number on any hadith card, front or back.
 - A silsila segment prints only when decided — envelope 03's is shown as `––`.
 - **06 and 10 have no saying selected** (both blocked on a source). Their cards print a marked empty slot, never filler in quote marks.
-- 01 and 02 carry charcoal and ivory only — every colour on the page is checked.
+- 01 and 02 are two inks on ivory — black and red, black and green (2026-10-09) — and every colour on the page is checked.
 - Every letter line in source appears in the sheet; the last (●○) line is set alone on face 3.
 - The fact panel carries the TO VERIFY watermark.
 
@@ -60,4 +61,4 @@ python -m unittest discover -s tests                          # includes tests/t
 
 - **The art is production-quality placeholder.** It fixes composition, palette and medium for every item; final illustration can be commissioned or generated against `04-art/prompts.md`, per-envelope style lines included.
 - Sayings for 06 and 10; envelope 03's segment number; the return address; bleed and CMYK (prepress).
-- The companions line still prints in Paper Dunes from `04-art/print/`.
+- The companions line now has its own designs: `04-art/companions/`.
