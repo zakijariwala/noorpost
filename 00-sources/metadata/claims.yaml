@@ -10,39 +10,81 @@
 # edition at the named page — no tool in this repository may do it.
 
 claims:
-- claim_id: CLM-03-413bc364
+- claim_id: CLM-03-7733b50a
   project_location: 00-foundations/citation-sheet.md § Envelope 03 — Rabi al-Awwal — Prophet Muhammad
   env: '03'
   item: letter
-  claim_text: Quraysh rebuilt the Ka'ba when the Prophet was about thirty-five
-  status: TV
-  work_hint: needs a Shia source
-  ref_hint: —
-  translator_hint: —
-  notes: ⛔ Was `V` against Guillaume. **Removed 2026-08-12 under the Shia-sources-only rule.** The claim
-    is not in doubt; the source is no longer permitted. Re-source from `al-Irshad` or another Shia work.
+  claim_text: A flood cracked the Ka'ba's walls and Quraysh rebuilt it, when the Prophet was about thirty-five
+  status: V
+  work_hint: The Message (Subhani)
+  ref_hint: ch. 10, "From Marriage upto Prophethood" — cite the chapter, never the page
+  translator_hint: Islamic Seminary Publications
+  notes: 'Closed 2026-08-24 (section below), row updated 2026-10-10. *"The Holy Prophet was not yet more
+    than thirty five years of age… A terrible flood… Many cracks appeared in the walls of the Ka''bah.
+    Quraysh decided to reconstruct the Ka''bah"*. **Corroborated 2026-10-10** in the approved Thaqalayn
+    corpus: *Man Lā Yaḥḍuruh al-Faqīh*, vol. 2, hadith 2320 (trans. Bab Ul Qaim Publications), from Imam
+    al-Sadiq — the rebuilding only; it gives no age and no flood.'
   created_from: citation-sheet.md
-- claim_id: CLM-03-0ff02389
+- claim_id: CLM-03-46d36b20
   project_location: 00-foundations/citation-sheet.md § Envelope 03 — Rabi al-Awwal — Prophet Muhammad
   env: '03'
   item: letter
-  claim_text: The clans disputed who would lift the Black Stone into place
-  status: TV
-  work_hint: needs a Shia source
-  ref_hint: —
-  translator_hint: —
-  notes: ⛔ Same.
+  claim_text: The clans disputed who would set the Black Stone, nearly to bloodshed; an old man proposed
+    the first through the gate should decide; the crowd named him the trustworthy one as he came in
+  status: V
+  work_hint: The Message (Subhani)
+  ref_hint: ch. 10, "From Marriage upto Prophethood" — cite the chapter, never the page
+  translator_hint: Islamic Seminary Publications
+  notes: '*"a bloody encounter seemed imminent… a respectable old gentleman… Abu Umayyah… ''Accept as
+    arbitrator the person who first enters through the Gate''… ''It is Muhammad, the honest one''"*. The
+    translation says *the honest one*, not *al-Amin* — see the section below. **Corroborated 2026-10-10**
+    in the approved Thaqalayn corpus: *Man Lā Yaḥḍuruh al-Faqīh*, vol. 2, hadith 2320 (trans. Bab Ul Qaim
+    Publications), from Imam al-Sadiq: dispute, near-violence, first to enter decides.'
   created_from: citation-sheet.md
-- claim_id: CLM-03-75e77918
+- claim_id: CLM-03-a1728b6a
   project_location: 00-foundations/citation-sheet.md § Envelope 03 — Rabi al-Awwal — Prophet Muhammad
   env: '03'
   item: letter
-  claim_text: He spread a cloak, set the stone on it, and had each clan carry a corner
-  status: TV
-  work_hint: needs a Shia source
-  ref_hint: —
-  translator_hint: —
-  notes: ⛔ Same.
+  claim_text: He had a cloth spread, set the stone on it with his own hands, had the clans lift it by
+    its edges, and set it in place himself
+  status: V
+  work_hint: The Message (Subhani)
+  ref_hint: ch. 10, "From Marriage upto Prophethood" — cite the chapter, never the page
+  translator_hint: Islamic Seminary Publications
+  notes: '*"asked them to bring a piece of cloth. He placed the Black Stone on the cloth with his own
+    hands"*. **Corroborated 2026-10-10** in the approved Thaqalayn corpus: *Man Lā Yaḥḍuruh al-Faqīh*,
+    vol. 2, hadith 2320 (trans. Bab Ul Qaim Publications), from Imam al-Sadiq: *"instructed the tribes
+    to hold the edges of the cloth and lift it together"*. ⚠ **Two wording points for the scholar before
+    Gate 3.** (1) Both translations say *cloth*; the Arabic of hadith 2320 is ثوب (*thawb*, a garment
+    or cloth). The letter, its title and its last line say *cloak* — defensible, not literal. (2) *The
+    Message* has **the four chiefs each holding a corner**; Faqih has **the tribes holding the edges**;
+    the letter''s *each family take an edge* follows Faqih.'
+  created_from: citation-sheet.md
+- claim_id: CLM-03-3721088a
+  project_location: 00-foundations/citation-sheet.md § Envelope 03 — Rabi al-Awwal — Prophet Muhammad
+  env: '03'
+  item: letter
+  claim_text: '"For four days, nobody worked" — and the last line, "Four days of arguing"'
+  status: CUT
+  work_hint: The Message (Subhani)
+  ref_hint: ch. 10, "From Marriage upto Prophethood" — cite the chapter, never the page
+  translator_hint: Islamic Seminary Publications
+  notes: '⛔ **Found 2026-10-10: the letter contradicts its own source.** *"the construction work remained
+    suspended for five days."* **Change both lines to *five days*** — the last line is read aloud together,
+    so it matters most. Faqih 2320 gives no duration.'
+  created_from: citation-sheet.md
+- claim_id: CLM-03-7b452571
+  project_location: 00-foundations/citation-sheet.md § Envelope 03 — Rabi al-Awwal — Prophet Muhammad
+  env: '03'
+  item: letter
+  claim_text: '"One family carried a bowl of blood into the courtyard and put their hands in it"'
+  status: CUT
+  work_hint: The Message (Subhani)
+  ref_hint: ch. 10, "From Marriage upto Prophethood" — cite the chapter, never the page
+  translator_hint: Islamic Seminary Publications
+  notes: ⛔ **Found 2026-10-10.** *"the tribes of Bani Abduddar and Bani Adi concluded an agreement… they
+    filled a container with blood and put their hands into it."* **Two** clans, a pact between them. **Change
+    to *two families*.**
   created_from: citation-sheet.md
 - claim_id: CLM-03-aa20b0ff
   project_location: 00-foundations/citation-sheet.md § Envelope 03 — Rabi al-Awwal — Prophet Muhammad
@@ -141,10 +183,14 @@ claims:
   ref_hint: Entries 1–51, numbered "1. The Greatest Right of Allah" through "51) The Right of People under
     the protection of Islam"
   translator_hint: William C. Chittick
-  notes: 'Counted directly off the English section headers in the fixed edition — 51, not "around fifty."
-    One numbering quirk: the Arabic transliteration numerals drop out of sync after entry 39 (the unnumbered
-    Arabic line for "the adversary against whom you have a claim"), but the English headers run 1–51 with
-    no gap or repeat, and are the count of record.'
+  notes: '**⚠ Two renderings of the same translator disagree, 2026-08-24. The count of record is unchanged
+    at 51** — it was counted off the fixed edition''s own English headers, which is the edition envelope
+    09 cites. The approved Thaqalayn corpus serves the same Chittick translation as **49 records**, ending
+    on the same right. Someone has to establish which entries it drops before this row is quoted on anything
+    other than the fixed edition. Counted directly off the English section headers in the fixed edition
+    — 51, not "around fifty." One numbering quirk: the Arabic transliteration numerals drop out of sync
+    after entry 39 (the unnumbered Arabic line for "the adversary against whom you have a claim"), but
+    the English headers run 1–51 with no gap or repeat, and are the count of record.'
   created_from: citation-sheet.md
 - claim_id: CLM-09-a73b7a70
   project_location: 00-foundations/citation-sheet.md § Envelope 09 — Imam al-Sajjad

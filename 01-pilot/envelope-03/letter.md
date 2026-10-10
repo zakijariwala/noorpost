@@ -21,7 +21,7 @@
 
 ○ Everybody wanted to be them.
 
-● Everybody wanted to be them. So for four days, nobody worked. Men sat in the shade with their arms folded and would not go near the wall. Then one family carried a bowl of blood into the courtyard and put their hands in it, which was how you said you would rather die than give way.
+● Everybody wanted to be them. So for five days, nobody worked. Men sat in the shade with their arms folded and would not go near the wall. Then two families carried a bowl of blood into the courtyard and put their hands in it, which was how you said you would rather die than give way.
 
 ○ Over a stone?
 
@@ -43,7 +43,7 @@
 
 ● All of them at once. They carried it to the wall together, and he set it into its place himself. Nobody had won. Nobody had lost.
 
-●○ Four days of arguing. One cloak.
+●○ Five days of arguing. One cloak.
 <!-- LETTER END -->
 
 ---
@@ -73,7 +73,7 @@
 | 5 | Would you have given it up? Say it out loud before we go on. | 14 |
 | 6 | What did they call him? | 5 |
 | 7 | All of them at once? | 5 |
-| 8 | *(with ●)* Four days of arguing. One cloak. | 6 |
+| 8 | *(with ●)* Five days of arguing. One cloak. | 6 |
 
 ### Child-word test
 
@@ -89,7 +89,7 @@ Every word in a child line sits inside Dolch + Fry 1000 or the madrasa list. Not
 
 **The line that demands a response** is deliberately unanswerable in the child's favour. They will say they would have given it up, and they will be wrong about themselves, and the session card's third question is built on that.
 
-**"Would you rather die than give way"** was the hardest sentence in the draft. It names a custom without rendering it. Flag it for the scholar and for the family test — if an eight-year-old stalls here, the fix is to cut the bowl entirely and keep the four days.
+**"Would you rather die than give way"** was the hardest sentence in the draft. It names a custom without rendering it. Flag it for the scholar and for the family test — if an eight-year-old stalls here, the fix is to cut the bowl entirely and keep the five days.
 
 ### Open
 

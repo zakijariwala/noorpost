@@ -9,6 +9,66 @@
 # source.db. It records where the words are, not that the claim is verified.
 
 citations:
+- citation_id: CIT-9b9c505d
+  claim_id: CLM-03-7733b50a
+  source_id: SRC-MSG-001
+  passage_id: null
+  ref: ch. 10, "From Marriage upto Prophethood" — cite the chapter, never the page
+  citation_type: chapter-report
+  page_start: null
+  page_end: null
+  quote: null
+  translator: Islamic Seminary Publications
+  verified: 1
+  notes: null
+- citation_id: CIT-d4ab7c49
+  claim_id: CLM-03-46d36b20
+  source_id: SRC-MSG-001
+  passage_id: null
+  ref: ch. 10, "From Marriage upto Prophethood" — cite the chapter, never the page
+  citation_type: chapter-report
+  page_start: null
+  page_end: null
+  quote: null
+  translator: Islamic Seminary Publications
+  verified: 1
+  notes: null
+- citation_id: CIT-d8d6b448
+  claim_id: CLM-03-a1728b6a
+  source_id: SRC-MSG-001
+  passage_id: null
+  ref: ch. 10, "From Marriage upto Prophethood" — cite the chapter, never the page
+  citation_type: chapter-report
+  page_start: null
+  page_end: null
+  quote: null
+  translator: Islamic Seminary Publications
+  verified: 1
+  notes: null
+- citation_id: CIT-b5bfa413
+  claim_id: CLM-03-3721088a
+  source_id: SRC-MSG-001
+  passage_id: null
+  ref: ch. 10, "From Marriage upto Prophethood" — cite the chapter, never the page
+  citation_type: chapter-report
+  page_start: null
+  page_end: null
+  quote: null
+  translator: Islamic Seminary Publications
+  verified: 0
+  notes: null
+- citation_id: CIT-110e691d
+  claim_id: CLM-03-7b452571
+  source_id: SRC-MSG-001
+  passage_id: null
+  ref: ch. 10, "From Marriage upto Prophethood" — cite the chapter, never the page
+  citation_type: chapter-report
+  page_start: null
+  page_end: null
+  quote: null
+  translator: Islamic Seminary Publications
+  verified: 0
+  notes: null
 - citation_id: CIT-86e08f3b
   claim_id: CLM-03-aa20b0ff
   source_id: SRC-FTI-001
