@@ -176,7 +176,7 @@ on.
 
 ### No edition has citable page numbers
 
-**Not one edition in this project has citable page numbers today**, and the 32 Thaqalayn editions have no pages at all — the number on a record is the work's own hadith number. They are stamped `pagination: api-record`, and `source_search.py` prints `record N` for them, never `p. N`. Every fixed
+**Not one edition in this project has citable page numbers today**, and the 32 Thaqalayn editions have no pages at all — they are cited by the number the book itself prints, never the API's record id (see `api/README.md`). They are stamped `pagination: api-record`, and `source_search.py` prints `record N` for them, never `p. N`. Every fixed
 edition is a web-generated al-islam.org PDF whose pagination is an artifact of
 generation, and `kafi--alkafi-201601` is a two-column scan whose `[[p N]]` is a
 sheet number covering two book pages.

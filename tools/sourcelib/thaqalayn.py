@@ -196,17 +196,91 @@ def record_text(rec):
     return "\n\n".join(parts)
 
 
-def internal_ref(rec):
-    """The citation of record for this corpus. Never a page.
+_PRINTED_NO = re.compile(r"^\s*\[?(\d+)\s*[\]\-ـ.–—)]")
+_ENGLISH_NO = re.compile(r"^\s*(?:Hadith\s*\.?\s*)?(\d+)\s*[\-.–—)]", re.I)
 
-    Volume matters: al-Kafi's hadith numbering restarts in every volume, so
-    "hadith 1371" alone points at eight different reports.
+
+def printed_number(rec):
+    """The number the book itself prints on this report, or None.
+
+    Not the API's ``id``. That is a running row count across the snapshot and
+    no edition prints it: Man La Yahduruh al-Faqih vol. 2 record 624 is the
+    book's hadith 2320. The Arabic carries the book's own number first; the
+    English is the fallback where the Arabic has none.
+    """
+    for text, pat in ((rec.get("arabicText"), _PRINTED_NO),
+                      (rec.get("englishText"), _ENGLISH_NO)):
+        m = pat.match(text or "")
+        if m:
+            return int(m.group(1))
+    return None
+
+
+def _chapter_position(rec):
+    """Position inside its chapter, from the record's own thaqalayn.net URL
+    (``/hadith/<book>/<category>/<chapter>/<n>``)."""
+    tail = (rec.get("URL") or "").rstrip("/").rsplit("/", 1)[-1]
+    return int(tail) if tail.isdigit() else None
+
+
+def internal_ref(rec, unique_numbers=True):
+    """The citation of record for this corpus. Never a page, and never the
+    API's row id.
+
+    Volume matters: al-Kafi restarts in every volume. And where a book restarts
+    its numbering in every chapter, as al-Kafi does, the number alone points at
+    hundreds of reports, so the chapter is named. ``unique_numbers`` says
+    whether the printed number is unique across this record's volume —
+    `internal_refs` works that out over the whole snapshot.
     """
     vol = rec.get("volume")
-    n = rec.get("id")
-    if vol not in (None, "", 1) or _is_multivolume(rec):
-        return "vol. %s, hadith %s" % (vol, n)
-    return "hadith %s" % n
+    prefix = ("vol. %s, " % vol
+              if vol not in (None, "", 1) or _is_multivolume(rec) else "")
+    n = printed_number(rec)
+    if n is not None and unique_numbers:
+        return "%shadith %s" % (prefix, n)
+    where = ", ".join(x for x in ((rec.get("category") or "").strip(),
+                                  (rec.get("chapter") or "").strip()) if x)
+    if n is None:
+        n = _chapter_position(rec)
+    return "%s%s, hadith %s" % (prefix, where, n)
+
+
+def internal_refs(records):
+    """`internal_ref` for every record, keyed by API id, with uniqueness
+    decided per volume — Faqih numbers straight through, al-Kafi does not."""
+    seen = {}
+    for rec in records:
+        n = printed_number(rec)
+        if n is not None:
+            key = (rec.get("bookId"), rec.get("volume"))
+            seen.setdefault(key, []).append(n)
+    unique = {k for k, ns in seen.items() if len(ns) == len(set(ns))}
+    refs = {rec.get("id"): internal_ref(
+                rec, (rec.get("bookId"), rec.get("volume")) in unique)
+            for rec in records}
+    # Some books repeat a chapter title, or restart numbering inside a part,
+    # so book + chapter + number can still name two reports. A citation that
+    # points at two reports points at neither: those carry the record's own
+    # thaqalayn.net path, which is unique.
+    counts = {}
+    for ref in refs.values():
+        counts[ref] = counts.get(ref, 0) + 1
+    for rec in records:
+        rid = rec.get("id")
+        if counts[refs[rid]] > 1:
+            path = urllib.parse.urlparse(rec.get("URL") or "").path.strip("/")
+            refs[rid] = "%s (thaqalayn.net/%s)" % (refs[rid], path or "record %s" % rid)
+    # Upstream occasionally splits one long report over several records that
+    # share a URL (Faqih vol. 4, hadith 5762). Name the part.
+    counts = {}
+    for ref in refs.values():
+        counts[ref] = counts.get(ref, 0) + 1
+    for rec in records:
+        rid = rec.get("id")
+        if counts[refs[rid]] > 1:
+            refs[rid] = "%s, record %s" % (refs[rid], rid)
+    return refs
 
 
 def _is_multivolume(rec):
@@ -214,8 +288,9 @@ def _is_multivolume(rec):
 
 
 def pages_from_records(records):
-    """One record, one page. ``pdf_page`` is the record's own id, which is what
-    the book numbers its reports by — not a sheet in a PDF. The edition is
+    """One record, one page. ``pdf_page`` is the record's API id — a storage
+    key, not a sheet in a PDF and not the book's own hadith number (that is
+    `printed_number`, and it is what `internal_ref` cites). The edition is
     stamped ``pagination: api-record`` so that distinction is enforced
     downstream and not left to whoever reads the number."""
     out = []
@@ -233,6 +308,7 @@ def passages_from_records(source_id, records, extraction_status="api-snapshot"):
     re-splitting on blank lines would cut a report in half and re-detecting a
     speaker would invent a field the record already states or leaves blank."""
     out = []
+    refs = internal_refs(records)
     for ordinal, rec in enumerate(records, 1):
         english = (rec.get("englishText") or "").strip()
         if not english:
@@ -252,7 +328,7 @@ def passages_from_records(source_id, records, extraction_status="api-snapshot"):
             speaker=None,
             subject=None,
             passage_type="hadith",
-            internal_ref=internal_ref(rec),
+            internal_ref=refs[rec.get("id")],
             metadata_source="thaqalayn-api",
             register="english",
             arabic_raw=arabic,

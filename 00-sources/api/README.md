@@ -29,13 +29,29 @@ changed file is a stopped build, not a silently different citation.
 
 ## There are no page numbers here
 
-Not web-generated pagination, not two-column sheets — **no pages at all**. The
-number on a record is the work's own hadith number. Every edition is stamped
-`pagination: api-record`, `citation_unit: hadith-number`, and
+Not web-generated pagination, not two-column sheets — **no pages at all**. Every
+edition is stamped `pagination: api-record`, `citation_unit: hadith-number`, and
 `source_search.py` prints `record N`, never `p. N`.
 
-Volume matters: al-Kafi restarts its numbering in each of its eight volumes, so
-`internal_ref` reads `vol. 5, hadith 1492` and never the bare number.
+**The record number is not the hadith number** (corrected 2026-10-10). The API's
+`id` is a running row count across the snapshot, and no edition prints it:
+Man La Yahduruh al-Faqih vol. 2 record 624 is the book's hadith **2320**. The
+citation is the number the book prints, read off the start of the Arabic (or the
+English where the Arabic has none) by `thaqalayn.printed_number()`. Before this
+was fixed, `internal_ref` carried the row id, and three companion hadith cards
+were cited by it.
+
+`internal_ref` is built by `thaqalayn.internal_refs()` over a whole snapshot:
+
+- **Numbered straight through the volume** (Faqih): `vol. 2, hadith 2320`.
+- **Numbered afresh in every chapter** (al-Kafi, Khisal, most single works):
+  `vol. 4, The Book of Haj, The Case of One Who Cuts His Tawaf Short…, hadith 2`.
+- **No printed number**: the position in the chapter, from the record's own URL.
+- **Still not unique** (a repeated chapter title, or one report split over
+  several records): the record's `thaqalayn.net/hadith/…` path is appended, then
+  the record number.
+
+Every ref names exactly one report; `tests/test_thaqalayn.py` holds that.
 
 Cite as:
 

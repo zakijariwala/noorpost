@@ -65,17 +65,46 @@ class SnapshotTest(unittest.TestCase):
 
 class InternalRefTest(unittest.TestCase):
 
+    def test_ref_is_the_books_number_not_the_api_row(self):
+        """The API `id` is a running row count no edition prints. Faqih vol. 2
+        record 624 is the book's hadith 2320 — citing 624 sends a reader to
+        the wrong report."""
+        rec = record(id=624, volume=2, bookId="Man-La-Yahduruh-al-Faqih-Volume-2-Saduq",
+                     arabicText="2320 - وَ رُوِيَ عَنْ سَعِيدِ",
+                     englishText="Hadith.2320 - It has been narrated from Sa'id")
+        self.assertEqual(tq.internal_ref(rec), "vol. 2, hadith 2320")
+
     def test_multivolume_ref_names_the_volume(self):
-        """al-Kafi restarts its numbering in every volume, so "hadith 1371"
-        alone points at eight different reports."""
+        """al-Kafi restarts its numbering in every volume."""
         self.assertEqual(tq.internal_ref(record(id=1371, volume=5,
-                                                bookId="Al-Kafi-Volume-5-Kulayni")),
-                         "vol. 5, hadith 1371")
+                                                bookId="Al-Kafi-Volume-5-Kulayni",
+                                                arabicText="4ـ عَلِيُّ")),
+                         "vol. 5, hadith 4")
 
     def test_single_volume_ref_is_just_the_number(self):
         self.assertEqual(
-            tq.internal_ref(record(id=3, volume=1, bookId="Risalat-al-Huquq-Abidin")),
-            "hadith 3")
+            tq.internal_ref(record(id=3, volume=1, bookId="Risalat-al-Huquq-Abidin",
+                                   arabicText="", englishText="12. The right of")),
+            "hadith 12")
+
+    def test_per_chapter_numbering_names_the_chapter(self):
+        """Where every chapter starts again at 1, the number alone names
+        hundreds of reports."""
+        a = record(id=16, chapter="Jihad of Man and Woman", arabicText="1- عَلِيُّ")
+        b = record(id=17, chapter="Kinds of Jihad", arabicText="1- عَلِيُّ")
+        refs = tq.internal_refs([a, b])
+        self.assertEqual(refs[16], "vol. 2, The Book of Faith and Disbelief, "
+                                   "Jihad of Man and Woman, hadith 1")
+        self.assertNotEqual(refs[16], refs[17])
+
+    def test_every_ref_names_one_report(self):
+        """Same chapter title twice, or one report split over records that
+        share a URL: the ref still has to be unique."""
+        url = "https://thaqalayn.net/hadith/34/1/174/5762"
+        recs = [record(id=i, URL=url, arabicText="", englishText="text")
+                for i in (805, 806)]
+        refs = tq.internal_refs(recs)
+        self.assertEqual(len(set(refs.values())), 2)
 
 
 class PassageTest(unittest.TestCase):
