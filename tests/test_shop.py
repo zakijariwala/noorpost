@@ -201,7 +201,8 @@ class ShopTest(unittest.TestCase):
     def test_counts_match_the_live_catalogue(self):
         landing = self.pages["index.html"]
         self.assertEqual(landing.count('class="tile"'), len(ENVELOPES))
-        self.assertEqual(landing.count('class="chip"'), len(COMPANIONS) + len(ZINES))
+        self.assertEqual(landing.count('class="stamp"'), len(COMPANIONS))
+        self.assertEqual(landing.count('class="chip"'), len(ZINES))
         for _, name in COMPANIONS:
             self.assertIn(name, self.text["index.html"], "%s missing" % name)
         for _, name in ZINES:
@@ -325,19 +326,24 @@ class ShopTest(unittest.TestCase):
         self.assertIn("checkout.no-legal", copy.used)
 
     def test_artwork_absence_is_shown_not_faked(self):
-        """No illustrations have been drawn and nothing has been photographed.
-        The frames are shown at the right shape, and labelled."""
-        landing = self.pages["index.html"]
-        self.assertIn('class="artbox', landing)
-        self.assertIn("Artwork not drawn yet", text_of(landing))
-        for shape in ("portrait", "wide"):
-            self.assertIn("artbox %s" % shape, landing)
+        """Nothing has been photographed. Where a product photograph would go,
+        the frame is shown at the right shape, and labelled."""
+        checkout = self.pages["checkout.html"]
+        self.assertIn('class="artbox wide', checkout)
+        self.assertIn("Artwork not drawn yet", text_of(checkout))
 
-    def test_proof_images_exist(self):
-        for filename, _ in build_shop.PROOFS:
-            path = os.path.join(ROOT, "docs", "print-proofs", "png", filename)
-            self.assertTrue(os.path.exists(path), "missing proof image: %s" % filename)
+    def test_design_images_exist(self):
+        """Every image the landing page shows is a rendered preview that exists,
+        and the page says they are reference designs, not finished artwork."""
+        landing = self.pages["index.html"]
+        srcs = re.findall(r'<img[^>]+src="\.\./([^"?]+)', landing)
+        self.assertEqual(len(srcs),
+                         len(build_shop.DESIGNS) + len(ENVELOPES) + len(COMPANIONS))
+        for rel in srcs:
+            self.assertTrue(os.path.exists(os.path.join(ROOT, "docs", rel)),
+                            "missing preview image: %s" % rel)
         self.assertIn("not finished artwork", self.text["index.html"])
+        self.assertNotIn("artbox", landing)
 
 
 if __name__ == "__main__":

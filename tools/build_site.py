@@ -1102,7 +1102,7 @@ def build():
     except Exception as e:
         print(f"  status page NOT built: {e}")
 
-    # The storefront is a separate site under docs/shop/ — customer-facing, its
+    # The storefront is a separate site under docs/landing/ — customer-facing, its
     # own shell, no "draft for review" footer. Built here so one command builds
     # everything and the GitHub Action needs no change.
     try:

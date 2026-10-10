@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Build the storefront — three pages — into docs/shop/.
+Build the storefront — three pages — into docs/landing/.
 
     python tools/build_shop.py          # write the three pages
     python tools/build_shop.py --check  # report what would be written, write nothing
 
-    landing   docs/shop/index.html
-    about     docs/shop/about.html
-    checkout  docs/shop/checkout.html
+    landing   docs/landing/index.html
+    about     docs/landing/about.html
+    checkout  docs/landing/checkout.html
 
 This is a different thing from the site tools/build_site.py builds. That one is
 an internal review site: every page carries noindex and a "draft for review, not
@@ -33,6 +33,7 @@ does not:
 """
 
 import argparse
+import hashlib
 import html
 import os
 import re
@@ -43,24 +44,31 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_site import ENVELOPES, COMPANIONS, ZINES, blocks, inline
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUT = os.path.join(ROOT, "docs", "shop")
+OUT = os.path.join(ROOT, "docs", "landing")
 COMMERCE = os.path.join(ROOT, "06-commerce")
 PRODUCTS = os.path.join(COMMERCE, "products.yaml")
 COPY = os.path.join(COMMERCE, "copy.md")
 
-# The print proofs are the only images that exist. They are typeset renders of
-# one envelope, and the page says so rather than passing them off as product
-# photography.
-PROOFS = [
-    ("paper-dunes-envelope-front.png", "The envelope, sealed"),
-    ("paper-dunes-letter-side-a.png", "The letter opens, with the fact panel on the back"),
-    ("paper-dunes-letter-side-b.png", "Inside the fold: the line you say together"),
-    ("paper-dunes-hadith-card.png", "The hadith card"),
-    ("paper-dunes-session-card.png", "The session card"),
-    ("paper-dunes-person-print.png", "The person print"),
-    ("paper-dunes-event-print.png", "The event print"),
-    ("paper-dunes-stickers.png", "The sticker sheet"),
-    ("paper-dunes-postcard.png", "The return postcard"),
+# Every item of every envelope is designed (HANDOVER.md, 2026-10-10), and
+# build_envelopes.py / build_companions.py render a preview of each into docs/.
+# The drawings are coded reference designs, not commissioned illustration, and
+# nothing has been photographed — the page says so rather than passing them off
+# as product photography.
+ENV_PREVIEW = os.path.join(ROOT, "docs", "envelopes", "preview")
+COMP_PREVIEW = os.path.join(ROOT, "docs", "companions", "preview")
+
+# One envelope, opened item by item. 03 is the pilot.
+SHOWCASE = "03"
+DESIGNS = [
+    ("front", "The envelope, sealed"),
+    ("side-a", "The letter opens, with the fact panel on the back"),
+    ("side-b", "Inside the fold: the line you say together"),
+    ("card-front", "The hadith card"),
+    ("session", "The session card"),
+    ("person", "The person print"),
+    ("event", "The event print"),
+    ("stickers", "The sticker sheet"),
+    ("postcard", "The return postcard"),
 ]
 
 # The seven items, from design-system.md §4. Sizes are the product spec and are
@@ -289,6 +297,15 @@ def artbox(store, label, shape="portrait"):
                html.escape((store.get("_placeholders") or {}).get("artwork", ""))))
 
 
+def preview(folder, name):
+    """Relative src for a preview image, with a content hash so a redesign is
+    not hidden behind a cached copy — the same scheme build_site uses."""
+    path = os.path.join(ENV_PREVIEW if folder == "envelopes" else COMP_PREVIEW, name)
+    with open(path, "rb") as f:
+        digest = hashlib.sha1(f.read()).hexdigest()[:10]
+    return "../%s/preview/%s?v=%s" % (folder, name, digest)
+
+
 def product_card(product, store, on_checkout=False):
     items = "".join("<li>%s</li>" % inline(i) for i in product.get("items", []) or [])
     region = product.get("region")
@@ -311,6 +328,7 @@ def product_card(product, store, on_checkout=False):
 def landing(copy, store, products):
     env_tiles = "".join(
         f"""<div class="tile">
+<img class="tilefront" src="{preview('envelopes', num + '-front.jpg')}" alt="" loading="lazy">
 <span class="tilenum">{num}</span>
 <span class="tilemonth">{html.escape(month)}</span>
 <span class="tilename">{html.escape(full_form(masoom))}</span>
@@ -320,7 +338,10 @@ def landing(copy, store, products):
         for num, month, masoom, session in ENVELOPES)
 
     comp_tiles = "".join(
-        '<span class="chip">%s</span>' % html.escape(name) for _, name in COMPANIONS)
+        f"""<figure class="stamp">
+<img src="{preview('companions', slug + '-front.jpg')}" alt="" loading="lazy">
+<figcaption>{html.escape(name)}</figcaption>
+</figure>""" for slug, name in COMPANIONS)
     zine_tiles = "".join(
         '<span class="chip">%s</span>' % html.escape(name) for _, name in ZINES)
 
@@ -328,11 +349,11 @@ def landing(copy, store, products):
         f'<li><strong>{html.escape(n)}</strong><span>{html.escape(d)}</span></li>'
         for n, d in ITEMS)
 
-    proofs = "".join(
+    designs = "".join(
         f"""<figure>
-<img src="../print-proofs/png/{f}" alt="{html.escape(cap)}" loading="lazy">
+<img src="{preview('envelopes', SHOWCASE + '-' + part + '.jpg')}" alt="{html.escape(cap)}" loading="lazy">
 <figcaption>{html.escape(cap)}</figcaption>
-</figure>""" for f, cap in PROOFS)
+</figure>""" for part, cap in DESIGNS)
 
     return f"""<section class="hero">
 <h1>Noor Post</h1>
@@ -370,7 +391,7 @@ def landing(copy, store, products):
 <h2>Everyone Else</h2>
 <p class="sectionnote">Thirty-nine single envelopes, one per person, dateless.
 Five items, no event print, bought one at a time.</p>
-<div class="chips">{comp_tiles}</div>
+<div class="stamps">{comp_tiles}</div>
 </section>
 
 <section id="notebook">
@@ -386,14 +407,8 @@ Five items, no event print, bought one at a time.</p>
 
 <section>
 <h2>What it looks like</h2>
-<div class="proofs">{proofs}</div>
-<p class="sectionnote">{copy('landing.proofs')}</p>
-<div class="proofs">
-{artbox(store, 'The envelope', 'portrait')}
-{artbox(store, 'A person print', 'portrait')}
-{artbox(store, 'An event print', 'wide')}
-{artbox(store, 'The sticker sheet', 'portrait')}
-</div>
+<div class="proofs">{designs}</div>
+<div class="sectionnote">{copy('landing.proofs')}</div>
 </section>
 
 <section>

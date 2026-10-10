@@ -75,8 +75,10 @@ differently, the envelope declines to adjudicate and hands it to the parent.
 
 ## landing.proofs
 
-These are typeset print proofs of one envelope, not finished artwork. No
-illustrations have been drawn yet, and nothing here has been through a press.
+Envelope 03, opened item by item. Every item of all fifty-three envelopes is
+designed to this standard, but these are reference designs, not finished
+artwork: the final illustration is still to be commissioned, and nothing here
+has been through a press.
 
 ## landing.availability
 

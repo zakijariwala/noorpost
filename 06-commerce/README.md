@@ -11,11 +11,11 @@ this folder is where its text deliverables live.
 Built by `python tools/build_shop.py` — or by `python tools/build_site.py`,
 which builds it along with everything else — into:
 
-    docs/shop/index.html      the landing page, all products
-    docs/shop/about.html      what this is, how it is made, what it refuses
-    docs/shop/checkout.html   the waitlist and the five SKUs
+    docs/landing/index.html      the landing page, all products
+    docs/landing/about.html      what this is, how it is made, what it refuses
+    docs/landing/checkout.html   the waitlist and the five SKUs
 
-`docs/shop/shop.css` is hand-maintained, like `docs/style.css`. The generator
+`docs/landing/shop.css` is hand-maintained, like `docs/style.css`. The generator
 writes the HTML and nothing else.
 
 The catalogue — fourteen envelopes, thirty-nine companions, fifteen zines — is

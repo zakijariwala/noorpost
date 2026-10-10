@@ -476,7 +476,7 @@ def render(d):
     if not sf.get("available"):
         w('<p class="warn">Shop configuration unavailable: %s</p>' % esc(sf.get("why")))
     else:
-        w('<p class="sectionnote">Three pages at <code>docs/shop/</code>, built from '
+        w('<p class="sectionnote">Three pages at <code>docs/landing/</code>, built from '
           '<code>06-commerce/products.yaml</code>. Read from that file, not typed here.</p>')
         w('<div class="statrow">')
         w(stat("SKUs defined", sf["skus"], sub="the five in the commerce plan"))
