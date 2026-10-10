@@ -180,7 +180,42 @@ def shrine(p, x, y, s=1.0, domes=1, minarets=2, dome="dome", body="body", tile="
                 f'<path d="M{o - r} -46 Q{o - r - 2} -{46 + r * 1.6:.0f} {o} -{46 + r * 2.2:.0f} '
                 f'Q{o + r + 2} -{46 + r * 1.6:.0f} {o + r} -46Z" {p.f(dome)}/>'
                 f'<rect x="{o - 0.7}" y="-{56 + r * 2.2:.0f}" width="1.4" height="10" {p.f(dome, False)}/>')
+    if p.mode != "line" and not p.mourning:
+        out += _shrine_detail(p, domes, mx, tall, dome, body, tile)
     return g(x, y, s, out)
+
+
+def _shrine_detail(p, domes, mx, tall, dome, body, tile):
+    """What makes a shrine read as a place rather than an icon: a portal, a
+    tiled band, lamps in the arches, ribs and light on the dome, balconies."""
+    paper, glow, shade = p.c("paper"), p.c("sun"), p.c("shade")
+    out = "".join(f'<path d="M{dx} -31.5 l1.2 -1.2 l1.2 1.2 l-1.2 1.2Z" fill="{paper}" fill-opacity="0.75"/>'
+                  for dx in range(-54, 54, 4))
+    out += "".join(f'<path d="M{ax - 2} -1 V-10 Q{ax} -13.4 {ax + 2} -10 V-1Z" fill="{glow}" fill-opacity="0.7"/>'
+                   for ax in range(-48, 49, 12) if ax not in (0,))
+    # the portal: a tall pointed arch framed in tile, rising above the hall
+    out += (f'<rect x="-11" y="-40" width="22" height="40" {p.f(tile, False)}/>'
+            f'<rect x="-9" y="-38" width="18" height="38" {p.f(body, False)}/>'
+            f'<path d="M-6 0 V-22 Q-6 -32 0 -35 Q6 -32 6 -22 V0Z" {p.f(shade, False)}/>'
+            f'<path d="M-4 0 V-20 Q-4 -28 0 -30.5 Q4 -28 4 -20 V0Z" fill="{glow}" fill-opacity="0.35"/>'
+            + "".join(f'<circle cx="{cx}" cy="-36.5" r="0.7" fill="{paper}" fill-opacity="0.8"/>' for cx in (-7.5, -5, 5, 7.5)))
+    out += f'<rect x="-60" y="0" width="120" height="3" {p.f(tile, False)}/>'
+    for o in ([0] if domes == 1 else [-20, 20]):
+        r = 21 if domes == 1 else 15
+        top = 46 + r * 2.2
+        out += "".join(f'<path d="M{o + k * r * 0.5:.1f} -46 Q{o + k * r * 0.62:.1f} -{46 + r * 1.4:.0f} {o} -{top:.0f}" '
+                       f'fill="none" stroke="{shade}" stroke-opacity="0.22" stroke-width="0.6"/>' for k in (-1, -0.4, 0.4, 1))
+        out += (f'<path d="M{o - r + 3} -48 Q{o - r} -{46 + r * 1.5:.0f} {o - 2} -{top - 4:.0f} Q{o - r * 0.4:.1f} -{46 + r * 1.2:.0f} '
+                f'{o - r * 0.45:.1f} -48Z" fill="{paper}" fill-opacity="0.22"/>'
+                + "".join(f'<path d="M{o + wx - 1.2} -34 V-39 Q{o + wx} -41 {o + wx + 1.2} -39 V-34Z" {p.f(shade, False)}/>'
+                          for wx in ((-r * 0.5, 0, r * 0.5) if domes == 1 else (-r * 0.4, r * 0.4))))
+    for m in mx:
+        hgt = 128 * tall
+        out += (f'<g transform="translate({m} 0)">'
+                + "".join(f'<circle cx="{bx}" cy="{-hgt * 0.68 - 1:.1f}" r="0.55" fill="{paper}"/>' for bx in (-4, -2, 0, 2, 4))
+                + "".join(f'<rect x="-0.8" y="{-hgt * k:.1f}" width="1.6" height="4" rx="0.8" {p.f(shade, False)}/>' for k in (0.3, 0.45, 0.8))
+                + '</g>')
+    return out
 
 
 def malwiya(p, x, y, s=1.0, key="body", line="tile"):
@@ -493,7 +528,7 @@ def caravan(p, x, y, s=1.0):
 
 # ---------------------------------------------------------------- scenes
 
-def sky(p, w, h, time, at=(0.2, 0.17)):
+def _flat_sky(p, w, h, time, at=(0.2, 0.17)):
     """The sky, and a sun or moon at `at` (fractions of the box) — placed by the
     caller so it never sits behind a minaret, the postmark or a title. Mourning
     art has no sun."""
@@ -508,14 +543,63 @@ def sky(p, w, h, time, at=(0.2, 0.17)):
         out += sun(p, cx, cy, r)
     return out
 
+
+def _uid(*parts):
+    import hashlib
+    return hashlib.md5("|".join(str(x) for x in parts).encode()).hexdigest()[:7]
+
+
+def sky(p, w, h, time, at=(0.2, 0.17)):
+    """The sky, given air: it pales toward the horizon (or deepens overhead at
+    night) and the sun has a soft glow. Line and mourning art keep the plain
+    sky — they carry their own tone."""
+    out = _flat_sky(p, w, h, time, at)
+    if p.mode == "line" or p.mourning:
+        return out
+    gid = _uid("sky", w, h, time, p.c("sky"), p.c("tile"))
+    if time == "night":
+        return out + (f'<defs><linearGradient id="n{gid}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#05060F" '
+                      f'stop-opacity="0.45"/><stop offset="0.7" stop-color="#05060F" stop-opacity="0"/></linearGradient></defs>'
+                      f'<rect width="{w}" height="{h}" fill="url(#n{gid})"/>')
+    out += (f'<defs><linearGradient id="s{gid}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{p.c("tile")}" '
+            f'stop-opacity="0.16"/><stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0"/><stop offset="0.7" '
+            f'stop-color="#FFF6E2" stop-opacity="0.5"/></linearGradient></defs><rect width="{w}" height="{h * 0.75:.1f}" fill="url(#s{gid})"/>')
+    if at:
+        cx, cy = w * at[0], h * at[1]
+        r = min(w, h) * 0.11 * (at[2] if len(at) > 2 else 1)
+        out += (f'<defs><radialGradient id="g{gid}"><stop offset="0.35" stop-color="{p.c("sun")}" stop-opacity="0.45"/>'
+                f'<stop offset="1" stop-color="{p.c("sun")}" stop-opacity="0"/></radialGradient></defs>'
+                f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r * 2.8:.1f}" fill="url(#g{gid})"/>')
+    return out
+
+
+def haze(p, w, h, y, time="day"):
+    """A pale band of air along the horizon: depth. Not at night — it reads as fog."""
+    if p.mode == "line" or p.mourning or time == "night":
+        return ""
+    gid = _uid("haze", w, h, y)
+    return (f'<defs><linearGradient id="h{gid}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF8EA" stop-opacity="0"/>'
+            f'<stop offset="0.6" stop-color="#FFF8EA" stop-opacity="0.4"/><stop offset="1" stop-color="#FFF8EA" stop-opacity="0"/>'
+            f'</linearGradient></defs><rect y="{y - h * 0.08:.1f}" width="{w}" height="{h * 0.12:.1f}" fill="url(#h{gid})"/>')
+
+
+GRAIN = ('<filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="1.6" '
+         'numOctaves="2" seed="4" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 0.16  0 0 0 0 0.13  '
+         '0 0 0 0 0.19  0 0 0 1.1 -0.42"/></filter>')
+
+
+def grain(w, h, op=0.38):
+    """Printed-paper grain over a whole picture."""
+    return f'<defs>{GRAIN}</defs><rect width="{w}" height="{h}" filter="url(#grain)" opacity="{op}"/>'
+
 def scene(p, w, h, motif, time="day", ground=0.72, scale=None, road_to=None, cx=0.5, at=(0.2, 0.17),
           road_half=None, fg=None):
     """Sky, a far layer, the subject standing on it, then nearer layers. `fg`
     draws over the nearer layers (something standing on the near dune)."""
     base = h * ground
-    s = scale if scale is not None else min(w / 190, h / 170) * 0.74
+    s = scale if scale is not None else min(w / 190, h / 170) * 0.74 * (1.28 if h > w * 1.2 else 1.0)
     out = sky(p, w, h, time, at)
-    out += dune(p, w, h, base - h * 0.02, h * 0.06, "far", 0.1)
+    out += dune(p, w, h, base - h * 0.02, h * 0.06, "far", 0.1) + haze(p, w, h, base - h * 0.04, time)
     out += motif(p, w * cx, base, s)
     out += dune(p, w, h, base + h * 0.06, h * 0.05, "mid", -0.1)
     out += dune(p, w, h, base + h * 0.17, h * 0.04, "near", 0.2)

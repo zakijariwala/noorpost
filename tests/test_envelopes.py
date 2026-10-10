@@ -108,14 +108,17 @@ class Envelopes(unittest.TestCase):
             self.assertNotIn("&ldquo;", card, nn)
             self.assertIn("No saying selected", card, nn)
 
-    def test_mourning_issues_are_charcoal_and_ivory_only(self):
-        allowed = {"#1b1b1b", "#f3ede1"}
-        for nn in ("01", "02"):
+    def test_mourning_issues_are_two_inks_on_ivory(self):
+        """01 black and red, 02 black and green, on ivory — nothing else, art included."""
+        second = {"01": ("#9e1b1e", "158,27,30"), "02": ("#1f6b45", "31,107,69")}
+        for nn, (hexc, rgb) in second.items():
+            allowed = {"#1b1b1b", "#f3ede1", hexc}
             html = unquote(self.built[nn]).lower()
             for hexv in set(re.findall(r"#[0-9a-f]{6}\b", html)):
                 self.assertIn(hexv, allowed, f"{nn}: {hexv} on a mourning page")
             for rgba in set(re.findall(r"rgba?\(([^)]*)\)", html)):
-                self.assertTrue(rgba.replace(" ", "").startswith("27,27,27"), f"{nn}: rgba({rgba})")
+                v = rgba.replace(" ", "")
+                self.assertTrue(v.startswith("27,27,27") or v.startswith(rgb), f"{nn}: rgba({rgba})")
 
     def test_mourning_issues_carry_a_pennant_and_no_stickers(self):
         for nn in ("01", "02"):
